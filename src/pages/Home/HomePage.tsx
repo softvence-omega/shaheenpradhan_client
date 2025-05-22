@@ -1,4 +1,4 @@
-import HeadeCromponent from "@/components/Home/HeadeCromponent";
+import HeadeCromponent from "@/components/home/HeadeCromponent";
 
 const HomePage = () => {
   return (
