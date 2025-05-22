@@ -1,10 +1,9 @@
-import React from "react";
 import { Button } from "../ui/button";
 import { Cover } from "../aceternity/cover";
 
-const HeadeCromponent = () => {
+const HeadeComponent = () => {
   return (
-    <div>
+    <div className=" min-h-screen">
       <h1>Landing Cromponent</h1>
       <Button className="">Button</Button>
       <div>
@@ -16,4 +15,4 @@ const HeadeCromponent = () => {
   );
 };
 
-export default HeadeCromponent;
+export default HeadeComponent;

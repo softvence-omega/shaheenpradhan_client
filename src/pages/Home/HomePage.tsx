@@ -1,9 +1,9 @@
-import HeadeCromponent from "@/components/home/HeadeCromponent";
+import HeadeComponent from "@/components/Home/HeadeComponent";
 
 const HomePage = () => {
   return (
     <div>
-      <HeadeCromponent />
+      <HeadeComponent />
     </div>
   );
 };
