@@ -26,7 +26,7 @@ export default function TestimonialCarousel({
   const { name, position, text, avatar, companyLogo } = testimonials[current];
 
   return (
-    <div className="max-w-xl mx-auto px-4 py-10 text-center space-y-6 font-DMsans">
+    <div className="max-w-xl h-[395px] mx-auto px-4 py-10 text-center space-y-6 font-DMsans">
       {/* Stars */}
       <div className="flex justify-center gap-1 text-[#3A1C71]">
         {[...Array(5)].map((_, i) => (
@@ -41,26 +41,28 @@ export default function TestimonialCarousel({
 
       {/* Footer with Avatar, Name & Company */}
       <div className="flex items-center justify-center gap-4 mt-6">
-        <img src={avatar} alt={name} className="w-14 h-14 rounded-full" />
-        <div className="text-left">
-          <p className="text-[18px] font-DMsans font-semibold text-black">
-            {name}
-          </p>
-          <p className="text-[16px] text-[var(--color-TextSecondary)]">
-            {position}
-          </p>
+        <div className="flex items-center gap-4">
+          <img src={avatar} alt={name} className="w-14 h-14 rounded-full" />
+          <div className="text-left">
+            <p className="text-[18px] font-DMsans font-semibold text-black">
+              {name}
+            </p>
+            <p className="text-[16px] text-[var(--color-TextSecondary)]">
+              {position}
+            </p>
+          </div>
         </div>
-        <div className="h-10 w-px bg-gray-300 mx-4" />
-        <img src={companyLogo} alt="company logo" className="h-6" />
+        <div className="h-10 w-[2px] bg-black ml-4 mr-4" />
+        <img src={companyLogo} alt="company logo" className="h-14 w-34" />
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-center gap-6 mt-6">
+      <div className="flex items-center justify-center gap-6 mt-6 space-x-12">
         <button
           onClick={prevSlide}
-          className="p-2 rounded-full hover:bg-gray-100 text-gray-600"
+          className="p-2 rounded-full text-var(--color-TextPrimary) hover:bg-gray-50 hover:text-purple-700 "
         >
-          <FaArrowLeft />
+          <FaArrowLeft className="h-4 w-4" />
         </button>
 
         <div className="flex gap-2">
@@ -76,9 +78,9 @@ export default function TestimonialCarousel({
 
         <button
           onClick={nextSlide}
-          className="p-2 rounded-full hover:bg-gray-100 text-gray-600"
+          className="p-2 rounded-full text-var(--color-TextPrimary) hover:bg-gray-50 hover:text-purple-700"
         >
-          <FaArrowRight />
+          <FaArrowRight className="h-4 w-4" />
         </button>
       </div>
     </div>

@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
 
 function Review() {
   return (
-    <div className="min-h-screen bg-white ml-30 mt-90">
+    <div className="min-h-screen bg-white flex items-center justify-start pl-8">
       <TestimonialCarousel testimonials={testimonials} />
     </div>
   );
