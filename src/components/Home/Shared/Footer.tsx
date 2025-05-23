@@ -28,7 +28,7 @@ const Footer = () => {
           </div>
 
           {/* Part 2 - Links */}
-          <div className="order-2 md:order-none flex gap-8">
+          <div className="order-2 md:order-none flex gap-8 space-x-8">
             <div className="flex flex-col gap-2">
               <p className="text-[18px] font-normal leading-[27px]">Link One</p>
               <p className="text-[18px] font-normal leading-[27px]">Link Two</p>
