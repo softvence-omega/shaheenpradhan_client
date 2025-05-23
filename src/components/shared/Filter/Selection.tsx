@@ -1,3 +1,4 @@
+
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import React from "react";
@@ -76,6 +77,7 @@ const Selection = () => {
           value={["Arabic", "Bangla", "Hindi", "Spanish", "English"]}
         />
       </div>
+
     </div>
   );
 };
