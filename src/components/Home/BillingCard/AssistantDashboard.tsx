@@ -1,4 +1,4 @@
-import EarnCard from "../shared/EarnCard";
+import EarnCard from "@/components/shared/Payment/EarnCard";
 
 const assistantCardList = [
   {
