@@ -1,9 +1,9 @@
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
-import Dashboard from "@/pages/Admin/Dashboard";
-import HomePage from "@/pages/Home/HomePage";
-import Login from "@/pages/Home/Login";
-import SignUp from "@/pages/Home/Signup";
+import Dashboard from "@/pages/admin/Dashboard";
+import HomePage from "@/pages/home/HomePage";
+import Login from "@/pages/home/Login";
+import SignUp from "@/pages/home/Signup";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
