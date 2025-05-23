@@ -51,7 +51,7 @@ const NavBar = () => {
         </div>
       )}
       <Wrapper>
-        <header className="p-4 font-DMsans dark:bg-gray-100 dark:text-gray-800">
+        <header className="py-4 font-DMsans dark:bg-gray-100 dark:text-gray-800">
           <div className="flex items-center justify-between h-8 mx-auto">
             <Link to="/" className="flex items-center p-2">
               <img src={logo} alt="logo" className="max-w-32 h-fit" />
