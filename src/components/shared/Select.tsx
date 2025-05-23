@@ -15,7 +15,7 @@ const Selects = ({ placeholder, Label, value }: SelectsProps) => {
       <SelectTrigger className="w-full py-5">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="border-[#FAF8FD] border">
         <SelectGroup>
           <SelectLabel>{Label}</SelectLabel>
           {value?.map((item: any, index) => {
