@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -46,6 +46,7 @@ body {
 }
 
 @theme inline {
+  --font-DMsans: "DM Sans", sans-serif;
   /* PROJECT COLOR PLATE START*/
   --color-bgBody: #faf8fd;
   --color-cardTowBG: #e6ddf8;
@@ -185,3 +186,5 @@ body {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
 }
+
+

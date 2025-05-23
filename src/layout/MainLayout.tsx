@@ -1,5 +1,5 @@
-import Footer from "@/components/Home/Shared/Footer";
-import NavBar from "@/components/Home/Shared/NavBar";
+import Footer from "@/components/shared/Footer";
+import NavBar from "@/components/shared/NavBar";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
