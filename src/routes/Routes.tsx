@@ -3,7 +3,9 @@ import MainLayout from "@/layout/MainLayout";
 import Dashboard from "@/pages/admin/Dashboard";
 import HomePage from "@/pages/home/HomePage";
 import Login from "@/pages/home/Login";
+import Reuserable from "@/pages/home/Reuserable";
 import SignUp from "@/pages/home/Signup";
+
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -22,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp />,
+      },
+      {
+        path: "reuserable",
+        element: <Reuserable />,
       },
     ],
   },
