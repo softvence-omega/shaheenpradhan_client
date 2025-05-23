@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Wrapper from "./Wrapper";
 import logo from "@/assets/logo/main_logo.png";
 import { Button } from "@/components/ui/button";
-import TopArrow from "@/assets/icon/topArrow";
+import TopArrow from "@/assets/icon/TopArrow";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 const NavBar = () => {
@@ -51,7 +51,7 @@ const NavBar = () => {
         </div>
       )}
       <Wrapper>
-        <header className="py-4 font-DMsans dark:bg-gray-100 dark:text-gray-800">
+        <header className="lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800">
           <div className="flex items-center justify-between h-8 mx-auto">
             <Link to="/" className="flex items-center p-2">
               <img src={logo} alt="logo" className="max-w-32 h-fit" />
