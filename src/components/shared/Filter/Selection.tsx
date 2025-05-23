@@ -6,7 +6,7 @@ import Selects from "../Select";
 
 const Selection = () => {
   return (
-    <div className="flex items-center justify-between bg-white shadow-sm rounded-lg border border-slate-100 p-4 space-x-8 my-2">
+    <div className="hidden lg:flex items-center justify-between bg-white shadow-sm rounded-lg border border-slate-100 p-4 space-x-8 my-4">
       <div className="w-full max-w-[400px] space-y-2">
         <div className="flex items-center justify-between space-x-3">
           <p className="text-sm font-medium">Search By Task Or Industry</p>
