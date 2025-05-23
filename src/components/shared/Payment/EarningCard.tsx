@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Wrapper from "./Wrapper";
+import Wrapper from "../Wrapper";
 
 // Updated card data with month-wise values and styling
 const cardList = [
