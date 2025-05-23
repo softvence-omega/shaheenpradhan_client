@@ -11,6 +11,8 @@ const Filtering = () => {
           <span>Filters</span>
         </Button>
       </div>
+      <div></div>
+      <div></div>
     </div>
   );
 };
