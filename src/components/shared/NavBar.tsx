@@ -4,7 +4,7 @@ import logo from "@/assets/logo/main_logo.png";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import TopArrow from "@/assets/icon/topArrow";
+import TopArrow from "@/assets/icon/TopArrow";
 const NavBar = () => {
   const [showMenuBar, setShowMenuBar] = useState<boolean>(false);
   return (
