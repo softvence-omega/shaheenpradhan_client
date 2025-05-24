@@ -1,7 +1,7 @@
 import Filtering from "@/components/shared/Filter/Filtering";
-import Review from "@/components/Home/Review";
 import BookingCard from "@/components/shared/BookingCard";
 import ProfileCard from "@/components/shared/ProfileCard";
+import ReviewCard from "@/components/shared/ReviewCard";
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
       <Filtering />
       <BookingCard />
       <ProfileCard />
-      <Review />
+      <ReviewCard />
     </div>
   );
 };

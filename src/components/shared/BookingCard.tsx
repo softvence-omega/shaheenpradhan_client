@@ -14,7 +14,6 @@ import {
 } from "../ui/select";
 
 const BookingCard = () => {
-  
   return (
     <Wrapper>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-4 xl:p-0 font-DMsans">
@@ -32,7 +31,7 @@ const BookingCard = () => {
                 </Avatar>
 
                 {/* Star Rating Badge */}
-                <div className="absolute -top-1 -right-2 sm:top-[50px] sm:right-[2px] inline-flex items-center space-x-1 bg-yellow-50 px-2 py-0.5 rounded-lg shadow-sm">
+                <div className="absolute top-[40px] -right-[2px] sm:top-[50px] sm:right-[2px] inline-flex items-center space-x-1 bg-yellow-50 px-2 py-0.5 rounded-lg shadow-sm">
                   <Star className="w-3 h-3 sm:w-3 sm:h-3 text-yellow-500" />
                   <p className="text-xs font-medium">4.9</p>
                   <p className="text-xs font-medium">5</p>
@@ -56,7 +55,8 @@ const BookingCard = () => {
               Availability :
             </h1>
             <p className="flex items-center text-ButtonBGPrimary space-x-0.5">
-              <Check className="w-4 h-4 " /> <span>Remote</span>
+              <Check className="w-4 h-4 " />{" "}
+              <span className="text-xs sm:text-[15px]">Remote</span>
             </p>
           </div>
 
@@ -89,32 +89,31 @@ const BookingCard = () => {
 
           {/* RATING SECTION */}
           {/* RATE SECTION */}
-<div className="flex items-center justify-between my-4">
-  <h1 className="text-xs sm:text-[15px] font-semibold">Rate:</h1>
-  <div className="flex items-center gap-2">
-    <Select>
-      <SelectTrigger className="w-[70px] h-[10px] px-2 py-0 text-sm border rounded-md border-gray-900/10  focus:ring-1 focus:ring-primary focus:border-gray-900/10">
-        <SelectValue placeholder="AED" />
-      </SelectTrigger>
-      <SelectContent className="w-[60px] text-xs border-gray-900/10 border-[1px]">
-        <SelectGroup>
-          <SelectItem value="usd">USD</SelectItem>
-          <SelectItem value="eur">EUR</SelectItem>
-          <SelectItem value="aed">AED</SelectItem>
-          <SelectItem value="gbp">GBP</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+          <div className="flex items-center justify-between my-4">
+            <h1 className="text-xs sm:text-[15px] font-semibold">Rate:</h1>
+            <div className="flex items-center gap-2">
+              <Select>
+                <SelectTrigger className="w-[70px] h-[10px] px-2 py-0 text-sm border rounded-md border-gray-900/10  focus:ring-1 focus:ring-primary focus:border-gray-900/10">
+                  <SelectValue placeholder="AED" />
+                </SelectTrigger>
+                <SelectContent className="w-[60px] text-xs border-gray-900/10 border-[1px]">
+                  <SelectGroup>
+                    <SelectItem value="usd">USD</SelectItem>
+                    <SelectItem value="eur">EUR</SelectItem>
+                    <SelectItem value="aed">AED</SelectItem>
+                    <SelectItem value="gbp">GBP</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
 
-    <div className="flex items-baseline">
-      <span className="font-bold text-[20px]">20</span>
-      <span className="font-medium text-xs text-muted-foreground ml-1">
-        /hours
-      </span>
-    </div>
-  </div>
-</div>
-
+              <div className="flex items-baseline">
+                <span className="font-bold text-[20px]">20</span>
+                <span className="font-medium text-xs text-muted-foreground ml-1">
+                  /hours
+                </span>
+              </div>
+            </div>
+          </div>
 
           {/* DIVIDER */}
           <div className="w-full h-[1px] bg-gray-900/10" />
