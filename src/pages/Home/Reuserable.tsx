@@ -4,17 +4,31 @@ import { UserBillingHistory } from "@/components/home/PaymentHistory/UserBilling
 
 import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import Wrapper from "@/components/shared/Wrapper";
-import Review from "@/components/home/Review";
+
+import WrapperDashboard from "@/components/shared/WrapperDashboard";
+import AssistantInfo from "@/components/shared/UserBooking/AssistantInfo";
+import TaskInfo from "@/components/shared/UserBooking/TaskInfo";
+import TaskInformationUse from "@/components/shared/UserBooking/TaskInformationUse";
+import Review from "@/components/Home/Review";
 
 const Reuserable = () => {
   return (
-    <Wrapper>
-      <Review />
-      <UserDashboard />
-      <UserBillingHistory />
-      <AssistantDashboard />
-      <AssistantBillingHistory />
-    </Wrapper>
+    <div>
+      <Wrapper>
+        <Review />
+      </Wrapper>
+      <WrapperDashboard>
+        <div className="space-y-8">
+          <AssistantInfo />
+          <TaskInfo />
+          <TaskInformationUse />
+          <UserDashboard />
+          <UserBillingHistory />
+          <AssistantDashboard />
+          <AssistantBillingHistory />
+        </div>
+      </WrapperDashboard>
+    </div>
   );
 };
 

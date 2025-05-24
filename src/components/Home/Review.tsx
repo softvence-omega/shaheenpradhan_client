@@ -1,6 +1,6 @@
 import TestimonialCarousel, {
   Testimonial,
-} from "../shared/TestimonialCarousel";
+} from "../shared/Payment/TestimonialCarousel";
 
 const testimonials: Testimonial[] = [
   {
