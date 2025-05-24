@@ -1,4 +1,4 @@
-import EarnCard from "../shared/EarnCard";
+import EarnCard from "../../shared/Payment/EarnCard";
 
 const userCardList = [
   {
@@ -88,6 +88,7 @@ export function UserDashboard() {
       cardList={userCardList}
       monthFilterList={monthFilterList}
       defaultMonth="This Month"
+      showIcons={true}
     />
   );
 }
