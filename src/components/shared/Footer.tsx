@@ -30,42 +30,50 @@ const Footer = () => {
           {/* Part 2 - Links */}
           <div className="order-2 md:order-none flex gap-8 space-x-8">
             <div className="flex flex-col gap-2">
-              <p className="text-[18px] font-normal leading-[27px]">Link One</p>
-              <p className="text-[18px] font-normal leading-[27px]">Link Two</p>
-              <p className="text-[18px] font-normal leading-[27px]">
+              <a href="" className="text-[18px] font-normal leading-[27px]">
+                Link One
+              </a>
+              <a href="" className="text-[18px] font-normal leading-[27px]">
+                Link Two
+              </a>
+              <a href="" className="text-[18px] font-normal leading-[27px]">
                 Link Three
-              </p>
-              <p className="text-[18px] font-normal leading-[27px]">
+              </a>
+              <a href="" className="text-[18px] font-normal leading-[27px]">
                 Link Four
-              </p>
-              <p className="text-[18px] font-normal leading-[27px]">
+              </a>
+              <a href="" className="text-[18px] font-normal leading-[27px]">
                 Link Five
-              </p>
+              </a>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="text-[18px] font-normal leading-[27px]">Link Six</p>
-              <p className="text-[18px] font-normal leading-[27px]">
+              <a href="" className="text-[18px] font-normal leading-[27px]">
+                Link Six
+              </a>
+              <a href="" className="text-[18px] font-normal leading-[27px]">
                 Link Seven
-              </p>
-              <p className="text-[18px] font-normal leading-[27px]">
+              </a>
+              <a href="" className="text-[18px] font-normal leading-[27px]">
                 Link Eight
-              </p>
-              <p className="text-[18px] font-normal leading-[27px]">
+              </a>
+              <a className="text-[18px] font-normal leading-[27px]">
                 Link Nine
-              </p>
-              <p className="text-[18px] font-normal leading-[27px]">Link Ten</p>
+              </a>
+              <a className="text-[18px] font-normal leading-[27px]">Link Ten</a>
             </div>
           </div>
 
           {/* Part 3 - Logo & Social Media */}
           <div className="order-1 md:order-none flex flex-col justify-between gap-4">
-            <img
-              src={logo}
-              alt="logo footer"
-              height={40}
-              width={157}
-              className="rounded-[8px]"
-            />
+            <a href="">
+              <img
+                src={logo}
+                alt="logo footer"
+                height={40}
+                width={157}
+                className="rounded-[8px]"
+              />
+            </a>
             <p className="text-[18px] font-normal">Follow Us on Social Media</p>
             <div className="flex gap-3">
               <a href="#">
