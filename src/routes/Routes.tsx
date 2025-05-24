@@ -1,5 +1,6 @@
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
+import CorrentBookPage from "@/pages/admin/CorrentBookPage";
 import Dashboard from "@/pages/admin/Dashboard";
 import HomePage from "@/pages/home/HomePage";
 import Login from "@/pages/home/Login";
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard></Dashboard>,
+      },
+      {
+        path: "current-booking",
+        element: <CorrentBookPage></CorrentBookPage>,
       },
     ],
   },

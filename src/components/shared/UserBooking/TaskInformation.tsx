@@ -58,8 +58,8 @@ const TaskInformation = ({
   };
 
   return (
-    <div className="w-full p-4">
-      <div className="max-w-[959px] mx-auto p-4 flex flex-col sm:flex-row gap-6 font-DMsans space-x-0 sm:space-x-20">
+    <div className="w-full ">
+      <div className="w-full mx-auto  flex flex-col sm:flex-row gap-6 font-DMsans space-x-0 sm:space-x-20">
         {/* Profile Section */}
         <div className="flex justify-center items-center">
           <div className="space-y-7">
@@ -70,7 +70,7 @@ const TaskInformation = ({
                 className="w-[60px] h-[60px] rounded-full object-cover border border-gray-300"
               />
               <div className="flex flex-col justify-center">
-                <pre className="text-[18px] font-semibold text-[#3A1C71] leading-tight">
+                <pre className="text-[18px] font-semibold text-[#3A1C71] leading-tight font-DMsans">
                   {assistantName}
                 </pre>
                 <p className="text-[15px] text-[#4D4D4D]">{assistantRole}</p>

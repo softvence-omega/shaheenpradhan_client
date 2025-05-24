@@ -10,6 +10,7 @@ import AssistantInfo from "@/components/shared/UserBooking/AssistantInfo";
 import TaskInfo from "@/components/shared/UserBooking/TaskInfo";
 import TaskInformationUse from "@/components/shared/UserBooking/TaskInformationUse";
 import Review from "@/components/Home/Review";
+import UpcomingCard from "@/components/shared/UpcomingCard/UpcomingCard";
 
 const Reuserable = () => {
   return (
@@ -19,6 +20,7 @@ const Reuserable = () => {
       </Wrapper>
       <WrapperDashboard>
         <div className="space-y-8">
+          <UpcomingCard />
           <AssistantInfo />
           <TaskInfo />
           <TaskInformationUse />
