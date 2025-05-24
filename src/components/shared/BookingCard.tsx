@@ -36,7 +36,12 @@ const BookingCard = () => {
               </p>
             </div>
           </div>
-          <Love className="w-6 h-6 rounded-full p-1 " />
+          <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
+        </div>
+        <h1>Available Now</h1>
+        <div>
+          <h1>Availability:</h1>
+          <p> Remote</p>
         </div>
       </div>
     </Wrapper>
