@@ -1,3 +1,4 @@
+import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
 import CorrentBookingPage from "@/pages/user/CorrentBookingPage";
@@ -11,6 +12,8 @@ import SignUp from "@/pages/home/Signup";
 
 import { createBrowserRouter } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
+import UserLayout from "@/layout/UserLayout";
+import DashboardContent from "@/components/user/DashboardContent";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +52,44 @@ export const router = createBrowserRouter([
         path: "dashboard",
         element: <Dashboard></Dashboard>,
       },
+      {
+        path: "current-booking",
+        element: <CorrentBookingPage></CorrentBookingPage>,
+      },
+      {
+        path: "upcoming-booking",
+        element: <UpcomingBookingPage></UpcomingBookingPage>,
+      },
+      {
+        path: "past-booking",
+        element: <PastBookingPage></PastBookingPage>,
+      },
+      {
+        path: "step-confirm-booking",
+        element: <StepConfirmBooking></StepConfirmBooking>,
+      },
+    ],
+  },
+
+  /** USER LAYOUT **/
+  {
+    path: "user",
+    element: <UserLayout />,
+    children: [
+      {
+        index: true,
+        element: <UserDashboard />,
+      },
+      {
+        path: "user-dashboard",
+        element: <UserDashboard />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+
+      /* Booking */
       {
         path: "current-booking",
         element: <CorrentBookingPage></CorrentBookingPage>,

@@ -10,6 +10,14 @@ const PastBookingPage = () => {
         <PastBooking />
         <TaskOverview />
       </div>
+      <div className="space-y-8 mt-[25px]">
+        <PastBooking />
+        <TaskOverview />
+      </div>
+      <div className="space-y-8 mt-[25px]">
+        <PastBooking />
+        <TaskOverview />
+      </div>
     </WrapperDashboard>
   );
 };

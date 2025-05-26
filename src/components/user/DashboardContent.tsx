@@ -1,7 +1,9 @@
+import { UserDashboard } from "../home/BillingCard/UserDashboard";
+
 const DashboardContent = () => {
   return (
     <div>
-      <h1>Admin Dashboard Content</h1>
+      <UserDashboard />
     </div>
   );
 };
