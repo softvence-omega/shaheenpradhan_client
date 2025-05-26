@@ -4,7 +4,7 @@ import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 const DashboardNavbar = () => {
   return (
-    <div className="z-50 flex flex-col sm:flex-row sm:items-center justify-between p-2">
+    <div className="z-50 flex flex-col sm:flex-row sm:items-center justify-between p-2 fixed top-0 left-0  w-full h-16">
       <Link to="/" className="sm:flex items-center p-2 hidden">
         <img src={logo} alt="logo" className="max-w-32 h-fit" />
       </Link>
@@ -31,8 +31,8 @@ const DashboardNavbar = () => {
         </div>
       </div>
       {/* SEARCH FIELD */}
-      <form className="flex  p-1 border border-gray-900/20 text-white rounded-md text-sm sm:max-w-[450px] w-full">
-        <div aria-disabled="true" className="w-10 grid place-content-center">
+      <form className="flex  p-1 border border-gray-900/20  rounded-md text-sm sm:max-w-[450px] w-full">
+        <div aria-disabled="true" className="w-10 grid place-content-center cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -53,29 +53,9 @@ const DashboardNavbar = () => {
           type="text"
           spellCheck="false"
           name="text"
-          className="bg-transparent py-1.5 outline-none placeholder:text-zinc-400 w-20 focus:w-48 transition-all"
+          className="bg-transparent py-1.5 outline-none placeholder:text-zinc-400 focus:w-[90%] transition-all w-full"
           placeholder="Search..."
         />
-        <button
-          className="w-10 grid place-content-center"
-          aria-label="Clear input button"
-          type="reset"
-        >
-          <svg
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            viewBox="0 0 24 24"
-            height="16"
-            width="16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
       </form>
       {/* NOTIFICATION SECTION */}
       <div className="hidden sm:flex items-center gap-3">

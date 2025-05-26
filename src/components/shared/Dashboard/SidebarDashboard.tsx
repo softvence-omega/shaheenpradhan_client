@@ -1,8 +1,10 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Sidebar, SidebarBody, SidebarLink } from "./Sidebar";
+import {
+  Sidebar,
+  SidebarBody,
+  SidebarLink,
+} from "@/components/aceternity/Sidebar";
 import { GiBackwardTime } from "react-icons/gi";
-import Dashboard from "../UserDashboard/Dashboard";
+import React, { useState } from "react";
 import {
   Banknote,
   CalendarDays,
@@ -14,8 +16,8 @@ import {
   Star,
   UserRound,
 } from "lucide-react";
-
-export function SidebarDemo() {
+import PlatformReview from "../PlatformReview";
+const SidebarDashboard = () => {
   const links = [
     {
       label: "Home",
@@ -92,41 +94,17 @@ export function SidebarDemo() {
   ];
   const [open, setOpen] = useState(false);
   return (
-    <div
-      className={cn(
-        "mx-auto flex w-full  flex-1 flex-col overflow-hidden  md:flex-row ",
-        "h-[60vh]"
-      )}
-    >
-      <Sidebar open={open} setOpen={setOpen} animate={false}>
-        <SidebarBody className="justify-between gap-4 h-screen bg-white border border-neutral-200">
-          <div className=" flex flex-col gap-2">
-            {links.map((link, idx) => (
-              <SidebarLink key={idx} link={link} />
-            ))}
-          </div>
-          <div>
-            <SidebarLink
-              link={{
-                label: "Manu Arora",
-                href: "#",
-                icon: (
-                  <img
-                    src=""
-                    className="h-7 w-7 shrink-0 "
-                    width={50}
-                    height={50}
-                    alt="Avatar"
-                  />
-                ),
-              }}
-            />
-          </div>
-        </SidebarBody>
-      </Sidebar>
-      <Dashboard />
-    </div>
+    <Sidebar open={open} setOpen={setOpen} animate={false}>
+      <SidebarBody className="justify-between gap-4  fixed bg-white border-t border-neutral-200 h-[80vh]">
+        <div className=" flex flex-col gap-2">
+          {links.map((link, idx) => (
+            <SidebarLink key={idx} link={link} />
+          ))}
+        </div>
+        <PlatformReview />
+      </SidebarBody>
+    </Sidebar>
   );
-}
+};
 
-// Dummy dashboard component with content
+export default SidebarDashboard;
