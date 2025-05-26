@@ -1,6 +1,7 @@
 import { MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import chat from "@/assets/icons/chat.png"; // Make sure this path is correct
+import { useState } from "react";
 
 type Review = {
   id: string;
@@ -45,21 +46,27 @@ const TaskInformation = ({
   const getStatusColor = (status: TaskInfoProps["status"]) => {
     switch (status) {
       case "Currently working":
-        return "text-[#08D274]";
+        return "text-[#0AD274]";
       case "Upcoming":
-        return "text-[#FBBF24]";
+        return "text-[#FF4040]";
       case "Pending Assistant Approval":
-        return "text-[#EF4444]";
+        return "text-[#FBAF1A]";
       case "Completed":
-        return "text-[#3B82F6]";
+        return "text-[#4099FF]";
       default:
         return "text-gray-500";
     }
   };
 
+  // Optional: you can extend to open a modal or navigate to edit page
+  const handleEditReview = (reviewId: string) => {
+    alert(`Edit review clicked for review ID: ${reviewId}`);
+    // TODO: Implement your edit review logic here (modal, page redirect, etc.)
+  };
+
   return (
-    <div className="w-full ">
-      <div className="w-full mx-auto  flex flex-col sm:flex-row gap-6 font-DMsans space-x-0 sm:space-x-20">
+    <div className="w-full font-DMsans">
+      <div className="w-full mx-auto flex flex-col sm:flex-row gap-6 font-DMsans space-x-0 sm:space-x-20">
         {/* Profile Section */}
         <div className="flex justify-center items-center">
           <div className="space-y-7">
@@ -77,17 +84,19 @@ const TaskInformation = ({
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-8">
               <div>
                 <p className="flex text-[18px] text-[#4D4D4D]">
-                  <span className="font-semibold">Status:</span>
-                  <pre className={`ml-1 ${getStatusColor(status)}`}>
+                  <pre className={` ${getStatusColor(status)}`}>
+                    <span className="font-semibold text-[#4D4D4D]">
+                      Status:
+                    </span>{" "}
                     {status}
                   </pre>
                 </p>
-                <p className="text-[18px] text-[#4D4D4D]">
+                <pre className="text-[18px] text-[#4D4D4D]">
                   <span className="font-semibold">Booking ID:</span> {bookingId}
-                </p>
+                </pre>
               </div>
               <div className="font-semibold text-[18px]">
                 <p className="text-[#4D4D4D]">Total Price</p>
@@ -99,19 +108,16 @@ const TaskInformation = ({
 
         {/* Info Section */}
         <div className="flex justify-between items-center space-x-0 sm:space-x-20 w-full">
-          <div className="gap-2 text-[#4D4D4D] text-lg space-y-6 w-full max-w-xs">
+          <div className="gap-2 text-[#4D4D4D] text-lg space-y-9 w-full max-w-xs ">
             <div className="flex justify-between items-center">
               <div>
                 <p>Time Left</p>
-                <p className="text-[#8559CA]">{timeLeft}</p>
+                <p className="text-[#750000]">{timeLeft}</p>
               </div>
               {status === "Currently working" && (
-                <Button
-                  variant="outline"
-                  className="text-sm text-[#08D274] border-[#08D274]"
-                >
+                <a className="mt-6 inline-block text-[18px] font-medium leading-[18px] text-[#8559CA] border-b-2 border-[#8559CA] hover:text-[#6b41b3] hover:border-[#6b41b3] transition duration-200 cursor-pointer">
                   Extend time
-                </Button>
+                </a>
               )}
             </div>
 
@@ -121,35 +127,48 @@ const TaskInformation = ({
             </div>
 
             {/* Chat or Review */}
-            {status === "Completed" && reviews.length > 0 ? (
-              <div className="space-y-2">
-                {reviews.map((review) => (
-                  <div key={review.id}>
-                    <p className="text-sm text-[#333] mb-1 font-semibold">
-                      Review Given
-                    </p>
-                    <div className="flex items-center gap-1">
-                      <Star
-                        className="w-4 h-4 text-yellow-400"
-                        fill="#FBBF24"
-                      />
-                      <span className="text-sm text-gray-600 font-medium">
-                        {review.rating}
-                      </span>
+            <div>
+              {status === "Completed" && reviews.length > 0 ? (
+                <div className="space-y-2">
+                  {reviews.map((review) => (
+                    <div
+                      key={review.id}
+                      className="flex justify-between items-center gap-4  p-3 "
+                    >
+                      <div>
+                        <p className="text-lg text-[#333] mb-1 font-semibold">
+                          Review Given
+                        </p>
+                        <div className="flex items-center gap-1">
+                          <Star
+                            className="w-4 h-4 text-yellow-400"
+                            fill="#FBBF24"
+                          />
+                          <span className="text-sm text-gray-600 font-medium">
+                            {review.rating}
+                          </span>
+                        </div>
+                      </div>
+                      <a
+                        onClick={() => handleEditReview(review.id)}
+                        className="w-[142px] h-[42px]  p-[4px] gap-[10px] text-lg text-[#3A1C71] cursor-pointer font-semibold"
+                      >
+                        Edit Review
+                      </a>
                     </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="flex items-center gap-2">
-                <img src={chat} alt="chat icon" className="w-8 h-8" />
-                <p className="font-medium">Chat</p>
-              </div>
-            )}
+                  ))}
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <img src={chat} alt="chat icon" className="w-8 h-8" />
+                  <p className="font-medium">Chat</p>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Date/Time Section */}
-          <div className="text-[16px] space-y-6">
+          <div className="text-[16px] space-y-8">
             <div>
               <p className="text-[#4D4D4D] font-semibold">Date</p>
               <p className="font-medium">
@@ -166,10 +185,16 @@ const TaskInformation = ({
             </div>
 
             <div className="space-x-3">
-              <Button variant="ghost" className="text-red-500">
-                Cancel
-              </Button>
-              <Button>Reschedule</Button>
+              {status === "Completed" ? (
+                <Button>Rebook</Button>
+              ) : (
+                <>
+                  <Button variant="ghost" className="text-red-500">
+                    Cancel
+                  </Button>
+                  <Button>Reschedule</Button>
+                </>
+              )}
             </div>
           </div>
         </div>

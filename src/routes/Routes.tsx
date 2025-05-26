@@ -1,14 +1,16 @@
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
-import CorrentBookingPage from "@/pages/admin/CorrentBookingPage";
-import Dashboard from "@/pages/admin/Dashboard";
-import UpcomingBookingPage from "@/pages/admin/UpcomingBookingPage";
+import CorrentBookingPage from "@/pages/user/CorrentBookingPage";
+import Dashboard from "@/pages/user/Dashboard";
+import PastBookingPage from "@/pages/user/PastBookingPage";
+import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
 import Login from "@/pages/home/Login";
 import Reuserable from "@/pages/home/Reuserable";
 import SignUp from "@/pages/home/Signup";
 
 import { createBrowserRouter } from "react-router-dom";
+import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +56,14 @@ export const router = createBrowserRouter([
       {
         path: "upcoming-booking",
         element: <UpcomingBookingPage></UpcomingBookingPage>,
+      },
+      {
+        path: "past-booking",
+        element: <PastBookingPage></PastBookingPage>,
+      },
+      {
+        path: "step-confirm-booking",
+        element: <StepConfirmBooking></StepConfirmBooking>,
       },
     ],
   },

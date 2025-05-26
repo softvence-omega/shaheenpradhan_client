@@ -1,5 +1,5 @@
-import TaskOverview from "@/components/admin/MyBooking/TaskOverview";
-import UpcomingBooking from "@/components/admin/MyBooking/UpcomingBooking";
+import TaskOverview from "@/components/user/MyBooking/TaskOverview";
+import UpcomingBooking from "@/components/user/MyBooking/UpcomingBooking";
 import WrapperDashboard from "@/components/shared/WrapperDashboard";
 
 const UpcomingBookingPage = () => {
