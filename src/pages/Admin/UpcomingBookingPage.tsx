@@ -1,17 +1,16 @@
-import CurrentBooking from "@/components/admin/MyBooking/CurrentBooking";
 import TaskOverview from "@/components/admin/MyBooking/TaskOverview";
-import SmallTitle from "@/components/shared/SmallTitle";
+import UpcomingBooking from "@/components/admin/MyBooking/UpcomingBooking";
 import WrapperDashboard from "@/components/shared/WrapperDashboard";
 
-const CorrentBookPage = () => {
+const UpcomingBookingPage = () => {
   return (
     <WrapperDashboard>
       <div className="space-y-8 mt-[25px]">
-        <CurrentBooking />
+        <UpcomingBooking />
         <TaskOverview />
       </div>
     </WrapperDashboard>
   );
 };
 
-export default CorrentBookPage;
+export default UpcomingBookingPage;
