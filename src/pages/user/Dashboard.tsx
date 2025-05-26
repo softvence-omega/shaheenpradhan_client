@@ -1,12 +1,9 @@
-import { UserBillingHistory } from "@/components/home/PaymentHistory/UserBillingHistory";
-import WrapperDashboard from "@/components/shared/WrapperDashboard";
-import DashboardContent from "@/components/user/DashboardContent";
+import React from "react";
 
 const Dashboard = () => {
   return (
-    <div className="space-y-8">
-      <DashboardContent />
-      <UserBillingHistory />
+    <div>
+      <h1>Dashboard</h1>
     </div>
   );
 };

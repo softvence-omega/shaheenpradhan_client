@@ -4,7 +4,7 @@ import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 const DashboardNavbar = () => {
   return (
-    <div className="z-50 flex flex-col sm:flex-row sm:items-center justify-between p-2 fixed top-0 left-0  w-full h-16">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2">
       <Link to="/" className="sm:flex items-center p-2 hidden">
         <img src={logo} alt="logo" className="max-w-32 h-fit" />
       </Link>
@@ -14,12 +14,13 @@ const DashboardNavbar = () => {
           <img src={logo} alt="logo" className="max-w-32 h-fit" />
         </Link>
         <div className="flex items-center gap-3">
-          <div>
-            <Bell className="w-5 h-4.5 relative" />
-            <p className="bg-red-600 text-center text-white rounded-full text-xs absolute w-5 h-4.5 top-2  right-14">
+          <div className="relative w-full">
+            <Bell className="w-12 h-12" />
+            <p className="absolute -top-1 -right-1 5 w-5 h-5 text-xs text-white bg-red-600 rounded-full">
               5
             </p>
           </div>
+
           <Avatar className="w-10 h-10">
             <AvatarImage
               src="https://github.com/shadcn.png"
@@ -32,7 +33,10 @@ const DashboardNavbar = () => {
       </div>
       {/* SEARCH FIELD */}
       <form className="flex  p-1 border border-gray-900/20  rounded-md text-sm sm:max-w-[450px] w-full">
-        <div aria-disabled="true" className="w-10 grid place-content-center cursor-pointer">
+        <div
+          aria-disabled="true"
+          className="w-10 grid place-content-center cursor-pointer"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -40,9 +44,9 @@ const DashboardNavbar = () => {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="text-ButtonBGSecondary"
           >
             <circle cx="11" cy="11" r="8"></circle>

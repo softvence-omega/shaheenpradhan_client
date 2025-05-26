@@ -2,7 +2,6 @@ import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
 import CorrentBookingPage from "@/pages/user/CorrentBookingPage";
-import Dashboard from "@/pages/user/Dashboard";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
@@ -13,7 +12,8 @@ import SignUp from "@/pages/home/Signup";
 import { createBrowserRouter } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
-import DashboardContent from "@/components/user/DashboardContent";
+import Dashboard from "@/pages/user/Dashboard";
+import BillingInfo from "@/pages/user/BillingInfo";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +105,10 @@ export const router = createBrowserRouter([
       {
         path: "step-confirm-booking",
         element: <StepConfirmBooking></StepConfirmBooking>,
+      },
+      {
+        path: "billing",
+        element: <BillingInfo></BillingInfo>,
       },
     ],
   },
