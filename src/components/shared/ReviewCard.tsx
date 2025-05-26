@@ -6,7 +6,7 @@ import { Star } from "lucide-react";
 
 const ReviewCard = ({ review, value, image, name, objective }: IReviewCard) => {
   return (
-    <div className="bg-pink-100 max-w-[400px] w-full p-3 rounded-xl border-[1px] border-BorderHighlight space-y-5">
+    <div className="bg-pink-100 shadow-sm shadow-pink-200 max-w-[400px] w-full p-3 rounded-xl border-[1px] border-BorderHighlight space-y-5">
       <div className="relative bg-pink-100 p-2">
         <RightQuotation className="absolute top-2 left-1 w-4 h-4 text-gray-400" />
         <p className="text-sm text-gray-700 leading-[150%] p-3">
@@ -22,12 +22,13 @@ const ReviewCard = ({ review, value, image, name, objective }: IReviewCard) => {
           <AvatarImage
             src={(image && image) || "https://github.com/shadcn.png"}
             alt="image"
+            className="object-cover"
           />
           <AvatarFallback>{name}</AvatarFallback>
         </Avatar>
 
         {/* NAME + STAR vertically centered */}
-        <div className="flex items-start space-x-2 w-full">
+        <div className="flex flex-col xl:flex-row items-start space-x-2 w-full">
           <div className="flex flex-col">
             <p className="text-xs sm:text-[15px] font-semibold">
               {name || "Kazi Mehedi Hasan"}
