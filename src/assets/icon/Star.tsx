@@ -8,7 +8,7 @@ const Star = ({className}) => {
       height="12"
       viewBox="0 0 12 12"
       fill="none"
-      className={className}
+      className={`${className}`}
     >
       <g clip-path="url(#clip0_986_2772)">
         <path
