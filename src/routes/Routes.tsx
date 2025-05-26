@@ -1,3 +1,4 @@
+import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
 import UserLayout from "@/layout/UserLayout";
@@ -65,8 +66,12 @@ export const router = createBrowserRouter([
     element: <UserLayout />,
     children: [
       {
-        path: "",
-        element: <>d</>,
+        index: true,
+        element: <UserDashboard />,
+      },
+      {
+        path: "user-dashboard",
+        element: <UserDashboard />,
       },
     ],
   },
