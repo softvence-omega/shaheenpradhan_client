@@ -95,10 +95,11 @@ const SidebarDashboard = () => {
   const [open, setOpen] = useState(false);
   return (
     <Sidebar open={open} setOpen={setOpen} animate={false}>
-      <SidebarBody className="justify-between gap-4  fixed bg-white border-t border-neutral-200 h-[80vh]">
+      <SidebarBody className="justify-between gap-4  bg-white border-t border-neutral-200 h-[80vh]">
         <div className=" flex flex-col gap-2">
           {links.map((link, idx) => (
             <SidebarLink key={idx} link={link} />
+            
           ))}
         </div>
         <PlatformReview />
