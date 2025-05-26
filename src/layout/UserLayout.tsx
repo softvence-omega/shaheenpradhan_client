@@ -9,7 +9,7 @@ const UserLayout = () => {
       <DashboardNavbar />
       <div
         className={cn(
-          "flex w-full flex-1 flex-col overflow-hidden  md:flex-row "
+          "flex w-full flex-1 flex-col overflow-hidden  md:flex-row"
         )}
       >
         <SidebarDashboard />
