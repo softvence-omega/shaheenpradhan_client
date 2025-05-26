@@ -1,5 +1,6 @@
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
+import UserLayout from "@/layout/UserLayout";
 import CorrentBookingPage from "@/pages/admin/CorrentBookingPage";
 import Dashboard from "@/pages/admin/Dashboard";
 import UpcomingBookingPage from "@/pages/admin/UpcomingBookingPage";
@@ -54,6 +55,18 @@ export const router = createBrowserRouter([
       {
         path: "upcoming-booking",
         element: <UpcomingBookingPage></UpcomingBookingPage>,
+      },
+    ],
+  },
+
+  /** USER LAYOUT **/
+  {
+    path: "user",
+    element: <UserLayout />,
+    children: [
+      {
+        path: "",
+        element: <>d</>,
       },
     ],
   },
