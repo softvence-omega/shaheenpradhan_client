@@ -3,7 +3,7 @@ import TaskInformation from "../../shared/UserBooking/TaskInformation";
 import SmallTitle from "@/components/shared/SmallTitle";
 import BreadCrum from "@/components/shared/BreadCrum";
 
-const CurrentBooking = () => {
+const UpcomingBooking = () => {
   return (
     <div className="space-y-4">
       <div>
@@ -15,9 +15,9 @@ const CurrentBooking = () => {
       </div>
       <TaskInformation
         assistantPhoto={assistphoto}
-        assistantName="Jessamine Mumtaz"
+        assistantName="Rose Hines"
         assistantRole="Event Specialist"
-        status="Currently working" // Change this to "Completed" to test review display
+        status="Upcoming" // Change this to "Completed" to test review display
         bookingId="12345678"
         totalPrice={2360}
         location="Dubai, UAE"
@@ -37,4 +37,4 @@ const CurrentBooking = () => {
   );
 };
 
-export default CurrentBooking;
+export default UpcomingBooking;
