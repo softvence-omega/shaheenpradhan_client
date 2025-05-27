@@ -16,7 +16,8 @@ import {
 const BookingCard = () => {
   return (
     <Wrapper>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-4 xl:p-0 font-DMsans">
+      {/* grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 */}
+      <div className="font-DMsans">
         <div className="bg-white p-5 rounded-xl border-[1px] border-gray-900/10">
           <div className="flex item-center justify-between space-y-3">
             <div className="flex item-center justify-between space-x-4">
@@ -49,6 +50,7 @@ const BookingCard = () => {
             </div>
             <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
           </div>
+
           <h1>Available Now</h1>
           <div className="flex items-center justify-between my-4">
             <h1 className="text-xs sm:text-[15px] font-semibold">
