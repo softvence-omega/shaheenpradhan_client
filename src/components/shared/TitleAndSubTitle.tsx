@@ -13,8 +13,8 @@ const TitleAndSubTitle = ({
     <div
       className={cn(
         style
-          ? `${style} font-DMsans space-y-2 px-4 xl:px-0`
-          : "font-DMsans space-y-2 px-4 xl:px-0 w-full sm:w-[60%]"
+          ? `${style} font-DMsans space-y-2`
+          : "font-DMsans space-y-2 w-full sm:w-[60%]"
       )}
     >
       <h1 className="text-2xl sm:text-4xl font-semibold ">{title}</h1>
