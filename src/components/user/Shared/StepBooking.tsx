@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+/* import { motion } from "framer-motion";
 import { useState } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -7,16 +7,16 @@ import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import StepFour from "./StepFour";
 
-// Just using an array of 4 elements for the steps
 const steps = [1, 2, 3, 4];
 
 export default function StepBooking() {
   const [currentStep, setCurrentStep] = useState(0);
+
   const stepComponents = [
-    <StepOne />,
-    <StepTwo />,
-    <StepThree />,
-    <StepFour />,
+    <StepOne key={0} />,
+    <StepTwo key={1} />,
+    <StepThree key={2} />,
+    <StepFour key={3} />,
   ];
 
   const isLastStep = currentStep === steps.length - 1;
@@ -24,12 +24,11 @@ export default function StepBooking() {
 
   return (
     <div className="w-full max-w-4xl px-4 flex flex-col md:flex-row gap-10">
-      {/* Step Progress Column */}
+   
       <div className="relative flex flex-col items-start min-w-[60px]">
-        {/* Vertical Background Line */}
+
         <div className="absolute top-4 left-[15px] w-[1px] h-full bg-cyan-100 z-0" />
 
-        {/* Animated Progress Line */}
         <motion.div
           className="absolute top-4 left-[15px] w-[1px] bg-black z-10"
           initial={{ height: 0 }}
@@ -39,7 +38,7 @@ export default function StepBooking() {
           transition={{ duration: 0.4 }}
         />
 
-        {/* Step Circles Only */}
+     
         {steps.map((_, index) => (
           <div
             key={index}
@@ -50,9 +49,9 @@ export default function StepBooking() {
               className={cn(
                 "w-[32px] h-[32px] flex items-center justify-center rounded-full border box-border",
                 index < currentStep
-                  ? " border-purple-600 text-purple-500"
+                  ? "border-purple-600 text-purple-500"
                   : index === currentStep
-                  ? " border-purple-600 text-black"
+                  ? "border-purple-600 text-black"
                   : "bg-white border-purple-500 text-purple-500"
               )}
               style={{
@@ -68,27 +67,33 @@ export default function StepBooking() {
         ))}
       </div>
 
-      {/* Step Content */}
+
       <motion.div
-        key={currentStep}
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
         className="flex-1"
       >
-        {stepComponents[currentStep]}
+      
+        {stepComponents
+          .slice(0, currentStep + 1)
+          .map((StepComponent, index) => (
+            <div key={index} className="mb-8">
+              {StepComponent}
+            </div>
+          ))}
 
-        {/* Navigation Buttons */}
+
         <div className="flex justify-start items-center gap-x-5 mt-6">
           <button
             onClick={() => setCurrentStep((prev) => Math.max(prev - 1, 0))}
             disabled={isFirstStep}
             className={cn(
-              "px-8 py-2 font-light bg-gray-200 text-white rounded disabled:opacity-50",
+              "px-8 py-2 font-light bg-gray-300 text-black rounded disabled:opacity-50",
               isFirstStep && "cursor-not-allowed"
             )}
           >
-            Back
+            Save Draft
           </button>
 
           {!isLastStep ? (
@@ -113,3 +118,46 @@ export default function StepBooking() {
     </div>
   );
 }
+ */
+
+// components/shared/UserBooking/StepBooking.tsx
+
+import { FaRegCircleCheck } from "react-icons/fa6";
+
+interface StepBookingProps {
+  steps: { completed: boolean }[];
+}
+
+const StepBooking = ({ steps }: StepBookingProps) => {
+  return (
+    <div className="flex flex-col items-center relative mt-6">
+      {/* Vertical line connecting the steps */}
+      <div className="absolute top-4 bottom-4 transform -translate-x-1/2 w-0.5 bg-gray-300 z-0" />
+
+      {steps.map((step, index) => (
+        <div
+          key={index}
+          className={`relative z-10 flex flex-col items-center  ${
+            index !== steps.length - 1 ? "mb-[256px]" : ""
+          }`}
+        >
+          {/* Circle or Tick icon */}
+          {step.completed ? (
+            <FaRegCircleCheck className="text-[#8559CA] w-[32px] h-[32px] rounded-full border-[0.7273px] bg-white" />
+          ) : (
+            <div className="w-[32px] h-[32px] rounded-full border-[0.7273px] border-gray-400 bg-white" />
+          )}
+
+          {/* Show number under the circle only if not completed */}
+          {!step.completed && (
+            <span className="text-gray-700 font-semibold text-lg select-none -mt-7">
+              {index + 1}
+            </span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default StepBooking;

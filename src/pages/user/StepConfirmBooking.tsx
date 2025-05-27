@@ -1,4 +1,4 @@
-import StepBooking from "@/components/user/MyBooking/StepBooking";
+import StepBooking from "@/components/user/Shared/StepBooking";
 
 const StepConfirmBooking = () => {
   return (

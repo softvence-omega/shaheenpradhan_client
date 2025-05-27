@@ -5,7 +5,7 @@ import assistphoto from "@/assets/images/assistphoto.png";
 const AssistantInfo = () => {
   return (
     <div className="w-full  p-4">
-      <div className="max-w-[959px]  mx-auto  p-4 flex flex-col sm:flex-row gap-6 font-DMsans space-x-20">
+      <div className="  mx-auto  p-4 flex flex-col sm:flex-row gap-6 font-DMsans space-x-20">
         {/* Profile Section */}
         <div className="flex justify-center items-center ">
           <div>

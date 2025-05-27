@@ -1,4 +1,4 @@
-import TaskOverview from "@/components/user/MyBooking/TaskOverview";
+import TaskOverview from "@/components/user/Shared/TaskOverview";
 import UpcomingBooking from "@/components/user/MyBooking/UpcomingBooking";
 
 const UpcomingBookingPage = () => {

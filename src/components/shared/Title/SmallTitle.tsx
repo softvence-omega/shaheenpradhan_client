@@ -4,7 +4,7 @@ type SectionTitleProps = {
 
 export const SmallTitle = ({ smalltitle }: SectionTitleProps) => {
   return (
-    <h1 className="text-[20px] mt-8 leading-[28px] font-medium tracking-[0.4px] text-[var(--color-textSecondary)] font-Roboto">
+    <h1 className="text-[20px] mt-2  font-medium  text-[var(--color-textSecondary)] font-Roboto">
       {smalltitle}
     </h1>
   );

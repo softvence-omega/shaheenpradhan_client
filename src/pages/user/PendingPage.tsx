@@ -1,15 +1,15 @@
-import PastBooking from "@/components/user/MyBooking/PastBooking";
+import Pending from "@/components/user/MyBooking/Pending";
 import TaskOverview from "@/components/user/Shared/TaskOverview";
 
-const PastBookingPage = () => {
+const PendingPage = () => {
   return (
     <div>
       <div className="space-y-8 mt-[25px]">
-        <PastBooking />
+        <Pending />
         <TaskOverview />
       </div>
     </div>
   );
 };
 
-export default PastBookingPage;
+export default PendingPage;
