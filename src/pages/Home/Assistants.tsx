@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 
 const Assistants = () => {
   return (
-    <div className="bg-pink-100/80  pt-16 ">
+    <div className="bg-pink-100/80  pt-16">
       <Wrapper>
         <div className="space-y-8">
           <TitleAndSubTitle
@@ -25,11 +25,7 @@ const Assistants = () => {
               </p>
             </div>
             {/* CARDS */}
-            <div className="grid sm:grid-cols-3 gap-5">
             <BookingCard />
-            <BookingCard />
-            <BookingCard />
-            </div>
           </div>
         </div>
       </Wrapper>{" "}

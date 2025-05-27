@@ -2,9 +2,9 @@ const SuperPower = ({ className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
+      width="44"
+      height="47"
+      viewBox="0 0 44 47"
       fill="none"
       className={`${className}`}
     >
