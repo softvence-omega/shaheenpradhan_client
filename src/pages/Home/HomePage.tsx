@@ -3,6 +3,7 @@ import Assistants from "./Assistants";
 import HeaderSecondPart from "@/components/home/HeaderSecondPart";
 import Matchmaker from "./Matchmaker";
 import Meet from "./Meet";
+import Assistant from "./Assistant";
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
         <Assistants />
         <Matchmaker />
         <Meet />
+        <Assistant />
       </div>
     </div>
   );
