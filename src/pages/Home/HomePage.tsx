@@ -1,19 +1,23 @@
-import Filtering from "@/components/shared/Filter/Filtering";
-import BookingCard from "@/components/shared/BookingCard";
-import ProfileCard from "@/components/shared/ProfileCard";
-import ReviewCard from "@/components/shared/ReviewCard";
-import ExperienceCard from "@/components/shared/ExperienceCard";
+import HeaderPart from "@/components/home/HeaderPart";
+import Assistants from "./Assistants";
+import HeaderSecondPart from "@/components/home/HeaderSecondPart";
+import Matchmaker from "./Matchmaker";
+import Meet from "./Meet";
 
 const HomePage = () => {
   return (
     <div>
-      <Filtering />
-      <BookingCard />
-      <ProfileCard />
-      <ReviewCard />
-      <ExperienceCard />
+      <HeaderPart />
+      <div className="bg-gradient-to-b from-">
+        <HeaderSecondPart />
+        <Assistants />
+        <Matchmaker />
+        <Meet />
+      </div>
     </div>
   );
 };
 
 export default HomePage;
+
+//

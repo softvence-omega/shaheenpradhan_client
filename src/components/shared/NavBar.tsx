@@ -56,7 +56,7 @@ const NavBar = () => {
             <Link to="/" className="flex items-center p-2">
               <img src={logo} alt="logo" className="max-w-32 h-fit" />
             </Link>
-            <div className="items-stretch hidden space-x-3 lg:flex">
+            <div className="items-stretch hidden space-x-6 lg:flex">
               <Link
                 className="text-sm sm:text-[15px] font-normal leading-[150%]"
                 to="/about"

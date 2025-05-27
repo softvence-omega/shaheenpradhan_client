@@ -1,4 +1,6 @@
 import SmallTitle from "../shared/Title/SmallTitle";
+import TitleAndSubTitle from "../shared/TitleAndSubTitle";
+import { Button } from "../ui/button";
 import AdminApproval from "./UserDashboard/AdminApproval";
 import AssistantApproval from "./UserDashboard/AssistantApproval";
 import CurrentlyWorking from "./UserDashboard/CurrentlyWorking";
@@ -8,7 +10,17 @@ import UpcomingBookings from "./UserDashboard/UpcomingBookings";
 
 const UserHomeComponent = () => {
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 mb-10">
+      <div className="flex  items-center justify-between">
+        <TitleAndSubTitle title="Home" subTitle=""></TitleAndSubTitle>
+        <div className="space-x-4">
+          <Button className="w-full sm:w-auto">Find & Book Assistant</Button>
+
+          <Button variant="outline" className="w-full sm:w-auto">
+            View Upcoming Bookings
+          </Button>
+        </div>
+      </div>
       {/* Assistant Currently Working */}
       <div>
         <div className="space-y-6">

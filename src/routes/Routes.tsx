@@ -5,10 +5,7 @@ import CorrentBookingPage from "@/pages/user/CorrentBookingPage";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
-import Login from "@/pages/home/Login";
 import Reuserable from "@/pages/home/Reuserable";
-import SignUp from "@/pages/home/Signup";
-
 import { createBrowserRouter } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
@@ -18,6 +15,8 @@ import PendingPage from "@/pages/user/PendingPage";
 import ConfirmBookPage from "@/pages/user/ConfirmBookPage";
 import ConfirmRequestPage from "@/pages/user/ConfirmRequestPage";
 import UserHomePage from "@/pages/user/UserHomePage";
+import Login from "@/pages/auth/Login";
+import Register from "@/pages/auth/Register";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "signup",
-        element: <SignUp />,
+        element: <Register />,
       },
       {
         path: "reuserable",
