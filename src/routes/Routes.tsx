@@ -11,6 +11,10 @@ import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
 import Dashboard from "@/pages/user/Dashboard";
 import BillingInfo from "@/pages/user/BillingInfo";
+import PendingPage from "@/pages/user/PendingPage";
+import ConfirmBookPage from "@/pages/user/ConfirmBookPage";
+import ConfirmRequestPage from "@/pages/user/ConfirmRequestPage";
+import UserHomePage from "@/pages/user/UserHomePage";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 
@@ -51,18 +55,7 @@ export const router = createBrowserRouter([
         path: "dashboard",
         element: <Dashboard></Dashboard>,
       },
-      {
-        path: "current-booking",
-        element: <CorrentBookingPage></CorrentBookingPage>,
-      },
-      {
-        path: "upcoming-booking",
-        element: <UpcomingBookingPage></UpcomingBookingPage>,
-      },
-      {
-        path: "past-booking",
-        element: <PastBookingPage></PastBookingPage>,
-      },
+
       {
         path: "step-confirm-booking",
         element: <StepConfirmBooking></StepConfirmBooking>,
@@ -84,30 +77,45 @@ export const router = createBrowserRouter([
         element: <UserDashboard />,
       },
       {
-        path: "dashboard",
-        element: <Dashboard />,
+        path: "home",
+        element: <UserHomePage />,
       },
 
+      /* Find Assistant */
+      {
+        path: "assistanta-booking",
+        element: <ConfirmBookPage />,
+      },
+      {
+        path: "assistanta-request-confirm",
+        element: <ConfirmRequestPage />,
+      },
       /* Booking */
       {
         path: "current-booking",
-        element: <CorrentBookingPage></CorrentBookingPage>,
+        element: <CorrentBookingPage />,
       },
       {
         path: "upcoming-booking",
-        element: <UpcomingBookingPage></UpcomingBookingPage>,
+        element: <UpcomingBookingPage />,
+      },
+      {
+        path: "pending",
+        element: <PendingPage />,
       },
       {
         path: "past-booking",
-        element: <PastBookingPage></PastBookingPage>,
+        element: <PastBookingPage />,
       },
+
       {
         path: "step-confirm-booking",
-        element: <StepConfirmBooking></StepConfirmBooking>,
+        element: <StepConfirmBooking />,
       },
+
       {
         path: "billing",
-        element: <BillingInfo></BillingInfo>,
+        element: <BillingInfo />,
       },
     ],
   },

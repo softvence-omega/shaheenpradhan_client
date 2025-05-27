@@ -4,14 +4,14 @@ import SmallTitle from "@/components/shared/Title/SmallTitle";
 import BreadCrum from "@/components/shared/BreadCrum";
 import ReuseBreadCrum from "@/components/shared/Title/ReuseBreadCrum";
 
-const PastBooking = () => {
+const Pending = () => {
   return (
     <div className="space-y-4">
       <div>
         <ReuseBreadCrum
           items={[
             { label: "Home", path: "/" },
-            { label: "Upcoming Bookings", path: "/components" },
+            { label: "Pending", path: "/components" },
             { label: "12345678" },
           ]}
         />
@@ -24,7 +24,7 @@ const PastBooking = () => {
         assistantPhoto={assistphoto}
         assistantName="Rose Hines"
         assistantRole="Event Specialist"
-        status="Completed" // Change this to "Completed" to test review display
+        status="Pending Assistant Approval" // Change this to "Completed" to test review display
         bookingId="12345678"
         totalPrice={2360}
         location="Dubai, UAE"
@@ -44,4 +44,4 @@ const PastBooking = () => {
   );
 };
 
-export default PastBooking;
+export default Pending;

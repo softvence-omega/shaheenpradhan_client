@@ -21,7 +21,7 @@ const SidebarDashboard = () => {
   const links = [
     {
       label: "Home",
-      href: "#",
+      href: "/user/home",
       icon: (
         <House className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -35,14 +35,21 @@ const SidebarDashboard = () => {
     },
     {
       label: "Find Assistants",
-      href: "/assistants",
+      href: "/user/assistanta-booking",
+      icon: (
+        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
+      label: "Find Assistants Confirm",
+      href: "/user/assistanta-request-confirm",
       icon: (
         <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Current Bookings",
-      href: "/bookings",
+      href: "/user/current-booking",
       icon: (
         <CalendarDays className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -50,28 +57,28 @@ const SidebarDashboard = () => {
 
     {
       label: "Upcoming Bookings",
-      href: "/upcoming-bookings",
+      href: "/user/upcoming-booking",
       icon: (
         <CalendarFold className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Pending",
-      href: "pending/",
+      href: "/user/pending",
       icon: (
         <GiBackwardTime className="h-5.5 w-5.5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Past Bookings",
-      href: "/past-bookings",
+      href: "/user/past-booking",
       icon: (
         <History className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Billing",
-      href: "#",
+      href: "/user/billing",
       icon: (
         <Banknote className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
@@ -99,7 +106,6 @@ const SidebarDashboard = () => {
         <div className=" flex flex-col gap-2">
           {links.map((link, idx) => (
             <SidebarLink key={idx} link={link} />
-            
           ))}
         </div>
         <PlatformReview />
