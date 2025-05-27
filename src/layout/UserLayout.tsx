@@ -13,7 +13,7 @@ const UserLayout = () => {
         )}
       >
         <SidebarDashboard />
-        <div className="flex w-full flex-1 flex-col overflow-y-auto gap-2 h-screen border border-neutral-200 bg-pink-300/10 pl-8 pr-16 pt-8">
+        <div className="flex w-full flex-1 flex-col overflow-y-auto gap-2 h-screen border border-neutral-200 bg-[#FAF8FD] pl-8 pr-16 pt-8">
           <Outlet />
         </div>
       </div>
