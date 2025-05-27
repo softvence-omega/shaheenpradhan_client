@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 
 const Filtering = () => {
   return (
-    <div className="font-DMsans px-4">
+    <div className="font-DMsans">
       <Wrapper>
         {/* FOR MOBILE DEVICE SEARCH BAR */}
         <div className="w-full space-y-2 lg:hidden block my-5">
