@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import AdminApproval from "./UserDashboard/AdminApproval";
 import AssistantApproval from "./UserDashboard/AssistantApproval";
 import CurrentlyWorking from "./UserDashboard/CurrentlyWorking";
+import RecentActivities from "./UserDashboard/RecentActivities";
 import ReviewEdit from "./UserDashboard/ReviewEdit";
 import ReviewLeave from "./UserDashboard/ReviewLeave";
 import UpcomingBookings from "./UserDashboard/UpcomingBookings";
@@ -61,6 +62,14 @@ const UserHomeComponent = () => {
           <ReviewEdit />
           <ReviewLeave />
           <p>No other current bookings.</p>
+        </div>
+      </div>
+
+      <div>
+        <div className="space-y-2">
+          <SmallTitle smalltitle="Recent Activities" />
+          <hr className="border-b border-[#E5E5E5]" />
+          <RecentActivities />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { AssistantDashboard } from "@/components/home/BillingCard/AssistantDashboard";
-import { AssistantBillingHistory } from "@/components/home/PaymentHistory/AssistantBillingHistory";
+import { AssistantBillingHistory } from "@/components/assistant/AssistantBilling/AssistantBillingHistory";
 import { UserBillingHistory } from "@/components/home/PaymentHistory/UserBillingHistory";
 import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import Wrapper from "@/components/shared/Wrapper";

@@ -63,20 +63,24 @@ const DashboardNavbar = () => {
       </form>
       {/* NOTIFICATION SECTION */}
       <div className="hidden sm:flex items-center gap-3">
-        <div>
-          <Bell className="w-5 h-4.5 relative" />
-          <p className="bg-red-600 text-center text-white rounded-full text-xs absolute w-5 h-4.5 top-1  right-14">
-            5
-          </p>
-        </div>
-        <Avatar className="w-10 h-10">
-          <AvatarImage
-            src="https://github.com/shadcn.png"
-            alt="image"
-            className="object-cover"
-          />
-          <AvatarFallback>KAZI</AvatarFallback>
-        </Avatar>
+        <Link to="/user/notification">
+          <div>
+            <Bell className="w-5 h-4.5 relative" />
+            <p className="bg-red-600 text-center text-white rounded-full text-xs absolute w-5 h-4.5 top-1  right-14">
+              5
+            </p>
+          </div>
+        </Link>
+        <Link to="/user/user-profile">
+          <Avatar className="w-10 h-10">
+            <AvatarImage
+              src="https://github.com/shadcn.png"
+              alt="image"
+              className="object-cover"
+            />
+            <AvatarFallback>KAZI</AvatarFallback>
+          </Avatar>
+        </Link>
       </div>
     </div>
   );

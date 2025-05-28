@@ -1,4 +1,3 @@
-// components/AssistantBillingHistory.tsx
 import { BillingTable } from "@/components/shared/Payment/BillingTable";
 import { useState } from "react";
 
@@ -20,7 +19,7 @@ const invoices = [
   },
   {
     invoice: "INV003",
-    paymentStatus: "Unpaid",
+    paymentStatus: "Withdrawn",
     totalAmount: 350,
     paymentMethod: "Bank Transfer",
     currency: "EUR",
@@ -48,7 +47,7 @@ const invoices = [
   },
   {
     invoice: "INV007",
-    paymentStatus: "Unpaid",
+    paymentStatus: "Withdrawn",
     totalAmount: 300,
     paymentMethod: "Credit Card",
     currency: "AED",
@@ -64,7 +63,7 @@ export const AssistantBillingHistory = () => {
       currency={currency}
       setCurrency={setCurrency}
       showDownload={false}
-      title="Payout History-Assist"
+      title="Payout History"
     />
   );
 };

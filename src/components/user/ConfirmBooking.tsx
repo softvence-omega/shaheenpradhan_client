@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { RiVisaFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const ConfirmBooking = () => {
   const [location, setLocation] = useState("");
@@ -215,12 +216,14 @@ const ConfirmBooking = () => {
               <hr className="border-b border-[#E5E5E5]" />
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row justify-end gap-4">
-                <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">
+                <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white">
                   Save Draft
                 </button>
-                <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
-                  Book Now
-                </button>
+                <Link to="/user/assistant-request-confirm">
+                  <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
+                    Book Now
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

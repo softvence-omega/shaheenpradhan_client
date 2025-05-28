@@ -4,7 +4,7 @@ import {
   SidebarLink,
 } from "@/components/aceternity/Sidebar";
 import { GiBackwardTime } from "react-icons/gi";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Banknote,
   CalendarDays,
@@ -17,73 +17,64 @@ import {
   UserRound,
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
-const SidebarDashboard = () => {
-  const links = [
+const AssistantSidebarDashboard = () => {
+  const assistantLinks = [
     {
       label: "Home",
-      href: "/user/home",
+      href: "/assistant/home",
       icon: (
         <House className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Saved",
-      href: "/saved",
-      icon: (
-        <Star className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
-    {
-      label: "Find Assistants",
-      href: "/user/assistant-booking",
-      icon: (
-        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
-    {
-      label: "Find Assistants Confirm",
-      href: "/user/assistant-request-confirm",
-      icon: (
-        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
-    },
-    {
-      label: "Current Bookings",
-      href: "/user/current-booking",
+      label: "Availability",
+      href: "/assistant/availability",
       icon: (
         <CalendarDays className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-
     {
-      label: "Upcoming Bookings",
-      href: "/user/upcoming-booking",
+      label: "My Tasks",
+      href: "/assistant/my-tasks",
+      icon: (
+        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
+      label: "Current Tasks",
+      href: "/assistant/current-tasks",
       icon: (
         <CalendarFold className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Pending",
-      href: "/user/pending",
+      label: "Upcoming Tasks",
+      href: "/assistant/upcoming-tasks",
       icon: (
-        <GiBackwardTime className="h-5.5 w-5.5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <GiBackwardTime className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Past Bookings",
-      href: "/user/past-booking",
+      label: "Booking Requests",
+      href: "/assistant/booking-requests",
       icon: (
         <History className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
+      label: "Completed Tasks",
+      href: "/assistant/completed-tasks",
+      icon: (
+        <Star className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+      ),
+    },
+    {
       label: "Billing",
-      href: "/user/billing",
+      href: "/assistant/assistant-billing",
       icon: (
         <Banknote className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-
     {
       label: "Support",
       href: "#",
@@ -104,7 +95,7 @@ const SidebarDashboard = () => {
     <Sidebar open={open} setOpen={setOpen} animate={false}>
       <SidebarBody className="justify-between gap-4  bg-white border-t border-neutral-200 h-[80vh]">
         <div className=" flex flex-col gap-2">
-          {links.map((link, idx) => (
+          {assistantLinks.map((link, idx) => (
             <SidebarLink key={idx} link={link} />
           ))}
         </div>
@@ -114,4 +105,4 @@ const SidebarDashboard = () => {
   );
 };
 
-export default SidebarDashboard;
+export default AssistantSidebarDashboard;

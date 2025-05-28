@@ -1,16 +1,19 @@
+// AssistantCard.jsx
 import { useState } from "react";
 
 // Foreground icons
 import deposit from "@/assets/icons/deposit.png";
 import spent from "@/assets/icons/spent.png";
 import pending from "@/assets/icons/pending.png";
+import dollar from "@/assets/icons/dollar.png";
 
 // Background icons
 import deposit1 from "@/assets/icons/deposit1.png";
 import spent1 from "@/assets/icons/spent1.png";
 import pending1 from "@/assets/icons/pending1.png";
+import dollar1 from "@/assets/icons/dollar1.png";
 
-const EarnCard = ({
+const AssistantCard = ({
   cardList,
   monthFilterList,
   defaultMonth = "This Month",
@@ -18,9 +21,15 @@ const EarnCard = ({
 }) => {
   const [selectedMonth, setSelectedMonth] = useState(defaultMonth);
 
-  const userLabels = ["Total Deposited", "Total Spent", "Pending"];
-  const icons = [deposit, spent, pending];
-  const bgIcons = [deposit1, spent1, pending1];
+  const userLabels = [
+    "New Booking Requests",
+    "Upcoming Bookings",
+    "Total Completed Jobs",
+    "Total Earnings",
+  ];
+
+  const icons = [deposit, spent, pending, dollar];
+  const bgIcons = [deposit1, spent1, pending1, dollar1];
 
   return (
     <div className="space-y-6">
@@ -43,7 +52,7 @@ const EarnCard = ({
       <hr className="text-[#B2B2B2]" />
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cardList.map((card, idx) => {
           const value = card.monthlyValues[selectedMonth] || 0;
           const label = showIcons ? userLabels[idx] || card.label : card.label;
@@ -57,10 +66,9 @@ const EarnCard = ({
                 backgroundColor: card.bgColor,
               }}
             >
-              {/* Icon on the left */}
+              {/* Icon */}
               {showIcons && (
                 <div className="relative w-12 h-12 mr-4 flex-shrink-0">
-                  {/* Background icon */}
                   <img
                     src={bgIcons[idx]}
                     alt={`${label} background`}
@@ -68,7 +76,6 @@ const EarnCard = ({
                     height={48}
                     className="object-contain opacity-100"
                   />
-                  {/* Foreground icon */}
                   <img
                     src={icons[idx]}
                     alt={label}
@@ -79,7 +86,7 @@ const EarnCard = ({
                 </div>
               )}
 
-              {/* Text on the right */}
+              {/* Text */}
               <div>
                 <p className="text-black text-lg sm:text-xl md:text-2xl font-bold">
                   ${value.toLocaleString()}
@@ -96,4 +103,4 @@ const EarnCard = ({
   );
 };
 
-export default EarnCard;
+export default AssistantCard;
