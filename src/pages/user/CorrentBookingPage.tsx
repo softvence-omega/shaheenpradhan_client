@@ -1,7 +1,7 @@
 import CurrentBooking from "@/components/user/MyBooking/CurrentBooking";
 import TaskOverview from "@/components/user/Shared/TaskOverview";
 
-const CorrentBookingPage = () => {
+const CurrentBookingPage = () => {
   return (
     <div>
       <div className="space-y-8 mt-[25px]">
@@ -12,4 +12,4 @@ const CorrentBookingPage = () => {
   );
 };
 
-export default CorrentBookingPage;
+export default CurrentBookingPage;

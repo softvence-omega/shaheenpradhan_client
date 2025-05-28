@@ -1,6 +1,7 @@
 import assistphoto from "@/assets/images/taskphoto.png";
 import chat from "@/assets/icons/chat.png";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const CurrentlyWorking = () => {
   return (
@@ -29,9 +30,12 @@ const CurrentlyWorking = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3 sm:gap-6">
-              <Button variant="outline" className="w-full sm:w-auto">
-                View Full Details
-              </Button>
+              <Link to="/user/user-profile">
+                <Button variant="outline" className="w-full sm:w-auto">
+                  View Full Details
+                </Button>
+              </Link>
+
               <div className="flex items-center gap-2">
                 <img src={chat} alt="Chat" height={32} width={32} />
                 <p className="font-medium">Chat</p>

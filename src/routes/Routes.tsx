@@ -1,7 +1,6 @@
 import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
-import CorrentBookingPage from "@/pages/user/CorrentBookingPage";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
@@ -17,6 +16,14 @@ import ConfirmRequestPage from "@/pages/user/ConfirmRequestPage";
 import UserHomePage from "@/pages/user/UserHomePage";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
+import CurrentBookingPage from "@/pages/user/CorrentBookingPage";
+import UserProfilePage from "@/pages/user/UserProfilePage";
+import NotificationPage from "@/pages/user/NotificationPage";
+import AssistantLayout from "@/layout/AssistantLayout";
+import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
+import AssistantBilling from "@/components/assistant/AssistantBilling/AssistantBilling";
+import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
+import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -83,17 +90,26 @@ export const router = createBrowserRouter([
 
       /* Find Assistant */
       {
-        path: "assistanta-booking",
+        path: "assistant-booking",
         element: <ConfirmBookPage />,
       },
+
       {
-        path: "assistanta-request-confirm",
+        path: "assistant-request-confirm",
         element: <ConfirmRequestPage />,
+      },
+      {
+        path: "user-profile",
+        element: <UserProfilePage />,
+      },
+      {
+        path: "notification",
+        element: <NotificationPage />,
       },
       /* Booking */
       {
         path: "current-booking",
-        element: <CorrentBookingPage />,
+        element: <CurrentBookingPage />,
       },
       {
         path: "upcoming-booking",
@@ -116,6 +132,62 @@ export const router = createBrowserRouter([
       {
         path: "billing",
         element: <BillingInfo />,
+      },
+    ],
+  },
+
+  /** ASSISTANT LAYOUT **/
+  {
+    path: "assistant",
+    element: <AssistantLayout />,
+    children: [
+      {
+        index: true,
+        element: <AssistantDashboardPage />,
+      },
+      {
+        path: "home",
+        element: <AssistantDashboardPage />,
+      },
+      {
+        path: "availability",
+        element: <UserHomePage />,
+      },
+
+      {
+        path: "assistant-profile",
+        element: <AssistantProfilePage />,
+      },
+      {
+        path: "notification",
+        element: <NotificationPage />,
+      },
+      /* Booking */
+      {
+        path: "current-booking",
+        element: <CurrentBookingPage />,
+      },
+      {
+        path: "upcoming-booking",
+        element: <UpcomingBookingPage />,
+      },
+      {
+        path: "pending",
+        element: <PendingPage />,
+      },
+      {
+        path: "past-booking",
+        element: <PastBookingPage />,
+      },
+
+      {
+        path: "step-confirm-booking",
+        element: <StepConfirmBooking />,
+      },
+
+      {
+        path: "assistant-billingg",
+        element: <AssistantBillingPage />,
       },
     ],
   },

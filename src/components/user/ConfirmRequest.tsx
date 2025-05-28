@@ -179,11 +179,11 @@ const ConfirmRequest = () => {
               <hr className="border-b border-[#E5E5E5]" />
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row justify-end gap-4">
-                <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">
+                <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white">
                   Save Draft
                 </button>
                 <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
-                  Book Now
+                  Request
                 </button>
               </div>
             </div>
