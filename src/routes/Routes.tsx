@@ -186,7 +186,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "assistant-billingg",
+        path: "assistant-billing",
         element: <AssistantBillingPage />,
       },
     ],

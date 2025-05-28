@@ -32,55 +32,67 @@ const AssistantProfile = () => {
             <hr className="border-b border-[#E5E5E5]" />
           </div>
           {/* Full Name */}
-          <div className="w-[600px]">
-            <div className="mb-4">
-              <div className="grid w-full items-center gap-1.5 ">
-                <Label htmlFor="email">Full Name</Label>
-                <Input
-                  type="name"
-                  id="name"
-                  placeholder="Full Name"
-                  className="bg-white "
-                />
+          <div className="w-[1200px] space-y-6">
+            <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
+              <div className="w-full">
+                <div className="grid w-full items-center gap-1.5">
+                  <Label htmlFor="fullName">Full Name</Label>
+                  <Input
+                    type="text"
+                    id="fullName"
+                    placeholder="John Doe"
+                    className="bg-white"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Email */}
-            <div className="mb-4">
-              <div className="grid w-full items-center gap-1.5 ">
-                <Label htmlFor="email">Email Address</Label>
-                <Input
-                  type="email"
-                  id="email"
-                  placeholder="Example@gmail.com"
-                  className="bg-white "
-                />
+              {/* Email Address */}
+              <div className="w-full">
+                <div className="grid w-full items-center gap-1.5">
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                    className="bg-white"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Phone Number */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-[#4D4D4D] mb-1">
+            <div className="w-full">
+              <Label
+                htmlFor="phone"
+                className="mb-1 block text-sm font-medium text-[#4D4D4D]"
+              >
                 Phone Number
-              </label>
+              </Label>
               <div className="flex items-center border border-[#E7E5E4] rounded-lg overflow-hidden">
                 <span className="bg-white px-3 py-2 border-r text-sm flex items-center gap-2">
                   🇦🇪 +971
                 </span>
-                <input
-                  type="number"
+                <Input
+                  type="tel"
+                  id="phone"
                   placeholder="(555) 123-4567"
-                  className="flex-1 px-3 py-2 outline-none bg-white"
+                  className="flex-1 px-3 py-2 border-0 outline-none bg-white"
                 />
               </div>
             </div>
 
             {/* Location */}
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-[#4D4D4D] mb-1">
+            <div className="w-full">
+              <Label
+                htmlFor="location"
+                className="mb-1 block text-sm font-medium text-[#4D4D4D]"
+              >
                 Location
-              </label>
-              <select className="w-full border border-[#E7E5E4] bg-white rounded-lg px-3  py-3 text-sm">
+              </Label>
+              <select
+                id="location"
+                className="w-full border border-[#E7E5E4] bg-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
                 <option>Select Location</option>
                 <option>Dubai</option>
                 <option>Abu Dhabi</option>
