@@ -24,6 +24,15 @@ import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
 import AssistantBilling from "@/components/assistant/AssistantBilling/AssistantBilling";
 import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
 import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
+import MytaskInformation from "@/pages/assistant/MytaskInformation";
+import TaskBookingRequest from "@/pages/assistant/TaskBookingRequest";
+import TaskCurrentPage from "@/pages/assistant/TaskCurrentPage";
+import TaskUpcomingPage from "@/pages/assistant/TaskUpcomingPage";
+import TaskCompletedPages from "@/pages/assistant/TaskCompletedPages";
+import CardCurrentPage from "@/pages/assistant/CardCurrentPage";
+import CardUpcamingPage from "@/pages/assistant/CardUpcamingPage";
+import CardBookingRequestPage from "@/pages/assistant/CardBookingRequestPage";
+import CardCompletedPage from "@/pages/assistant/CardCompletedPage";
 
 export const router = createBrowserRouter([
   {
@@ -164,27 +173,40 @@ export const router = createBrowserRouter([
       },
       /* Booking */
       {
-        path: "current-booking",
-        element: <CurrentBookingPage />,
+        path: "current-task",
+        element: <CardCurrentPage />,
       },
       {
-        path: "upcoming-booking",
-        element: <UpcomingBookingPage />,
+        path: "upcoming-task",
+        element: <CardUpcamingPage />,
       },
       {
-        path: "pending",
-        element: <PendingPage />,
+        path: "booking-task",
+        element: <CardBookingRequestPage />,
       },
       {
-        path: "past-booking",
-        element: <PastBookingPage />,
+        path: "completed-task",
+        element: <CardCompletedPage />,
+      },
+      /* Booking-123 by ID */
+      {
+        path: "current-task-1",
+        element: <TaskCurrentPage />,
+      },
+      {
+        path: "upcoming-task-2",
+        element: <TaskUpcomingPage />,
+      },
+      {
+        path: "booking-task-3",
+        element: <TaskBookingRequest />,
+      },
+      {
+        path: "completed-task-4",
+        element: <TaskCompletedPages />,
       },
 
-      {
-        path: "step-confirm-booking",
-        element: <StepConfirmBooking />,
-      },
-
+      /* Billing card */
       {
         path: "assistant-billing",
         element: <AssistantBillingPage />,

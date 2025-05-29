@@ -18,7 +18,7 @@ import {
 const Footer = () => {
   return (
     <Wrapper>
-      <div className="space-y-16 p-4 font-DMsans">
+      <div className="space-y-16 font-DMsans">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-10">
           {/* Part 1 - Address & Contact */}
           <div className="order-3 md:order-none flex flex-col justify-between gap-4">

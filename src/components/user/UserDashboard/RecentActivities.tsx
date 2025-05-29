@@ -4,52 +4,57 @@ import { GoClockFill } from "react-icons/go";
 
 const RecentActivities = () => {
   return (
-    <div className="space-y-3">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex justify-between items-center space-x-3">
-          <span className="text-[#08D274] text-lg font-semibold">
+    <div className="space-y-4">
+      {/* Activity Item */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+        <div className="flex items-start sm:items-center gap-2">
+          <span className="text-[#08D274] text-xl">
             <FaCircleCheck />
           </span>
-          <p>You booked Jane Smith for May 20, 2025.</p>
-        </div>
-        <div>
-          <span className="text-[#808080]">2 days ago</span>
-        </div>
-      </div>
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex justify-between items-center space-x-3">
-          <span className="text-[#4099FF] text-lg font-semibold">
-            <FaHandshake />
-          </span>
-          <p>
-            Assistant Robert Johnson accepted your request for June 5, 2025..
+          <p className="text-sm sm:text-base">
+            You booked Jane Smith for May 20, 2025.
           </p>
         </div>
-        <div>
-          <span className="text-[#808080]">3 weeks ago</span>
-        </div>
+        <span className="text-[#808080] text-sm sm:text-base">2 days ago</span>
       </div>
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex justify-between items-center space-x-3">
-          <span className="text-[#FBAC1A] text-lg font-semibold">
+
+      {/* Activity Item */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+        <div className="flex items-start sm:items-center gap-2">
+          <span className="text-[#4099FF] text-xl">
+            <FaHandshake />
+          </span>
+          <p className="text-sm sm:text-base">
+            Assistant Robert Johnson accepted your request for June 5, 2025.
+          </p>
+        </div>
+        <span className="text-[#808080] text-sm sm:text-base">3 weeks ago</span>
+      </div>
+
+      {/* Activity Item */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+        <div className="flex items-start sm:items-center gap-2">
+          <span className="text-[#FBAC1A] text-xl">
             <FaStar />
           </span>
-          <p> Your review for Sarah Williams was approved.</p>
+          <p className="text-sm sm:text-base">
+            Your review for Sarah Williams was approved.
+          </p>
         </div>
-        <div>
-          <span className="text-[#808080]">3 weeks ago</span>
-        </div>
+        <span className="text-[#808080] text-sm sm:text-base">3 weeks ago</span>
       </div>
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex justify-between items-center space-x-3">
-          <span className="text-[#08D274] text-lg font-semibold">
+
+      {/* Activity Item */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+        <div className="flex items-start sm:items-center gap-2">
+          <span className="text-[#08D274] text-xl">
             <GoClockFill />
           </span>
-          <p>You have a pending booking request with Assistant Emily Davis..</p>
+          <p className="text-sm sm:text-base">
+            You have a pending booking request with Assistant Emily Davis.
+          </p>
         </div>
-        <div>
-          <span className="text-[#808080]">4 days ago</span>
-        </div>
+        <span className="text-[#808080] text-sm sm:text-base">4 days ago</span>
       </div>
     </div>
   );

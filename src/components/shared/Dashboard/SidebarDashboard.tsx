@@ -1,8 +1,4 @@
-import {
-  Sidebar,
-  SidebarBody,
-  SidebarLink,
-} from "@/components/aceternity/Sidebar";
+import { Sidebar, SidebarBody } from "@/components/aceternity/Sidebar";
 import { GiBackwardTime } from "react-icons/gi";
 import React, { useState } from "react";
 import {
@@ -17,6 +13,7 @@ import {
   UserRound,
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
+import { SidebarLink } from "@/components/aceternity/SidebarLink";
 const SidebarDashboard = () => {
   const links = [
     {

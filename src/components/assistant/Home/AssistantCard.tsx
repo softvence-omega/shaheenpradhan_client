@@ -79,9 +79,9 @@ const AssistantCard = ({
                   <img
                     src={icons[idx]}
                     alt={label}
-                    width={34}
-                    height={34}
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                    width={32}
+                    height={32}
+                    className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   />
                 </div>
               )}
