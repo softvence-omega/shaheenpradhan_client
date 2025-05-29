@@ -3,7 +3,7 @@ import StepBooking from "@/components/user/Shared/StepBooking";
 const StepConfirmBooking = () => {
   return (
     <div>
-      <StepBooking />
+      <StepBooking steps={[{ completed: false }]} />
     </div>
   );
 };

@@ -155,7 +155,7 @@ const BookingCard = () => {
                   Neha Mayumi
                 </h1>
                 <p className="text-sm sm:text-[15px] font-light">
-                  Event Specialist
+                  Event Specialistt
                 </p>
               </div>
             </div>
@@ -267,7 +267,7 @@ const BookingCard = () => {
                   Neha Mayumi
                 </h1>
                 <p className="text-sm sm:text-[15px] font-light">
-                  Event Specialist
+                  Event Specialistt
                 </p>
               </div>
             </div>

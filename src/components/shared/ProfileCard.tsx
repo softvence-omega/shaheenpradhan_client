@@ -41,7 +41,7 @@ const ProfileCard = () => {
             {/* Name and Role */}
             <div className="text-center mt-2">
               <h1 className="text-sm font-semibold">Jessamine Mumtaz</h1>
-              <p className="text-xs text-gray-500">Event Specialist</p>
+              <p className="text-xs text-gray-500">Event Specialistt</p>
             </div>
           </div>
 

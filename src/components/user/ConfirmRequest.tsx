@@ -69,7 +69,7 @@ const ConfirmRequest = () => {
                     </label>
                     <input
                       type="date"
-                      className="w-full border px-3 py-2 rounded-lg bg-white text-ButtonBGPrimary"
+                      className="w-full border px-3 py-2 rounded-lg bg-white text-ButtonBGPrimary cursor-pointer"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
                     />
@@ -80,7 +80,7 @@ const ConfirmRequest = () => {
                     </label>
                     <input
                       type="time"
-                      className="w-full border px-3 py-2 rounded-lg bg-white text-ButtonBGPrimary"
+                      className="w-full border px-3 py-2 rounded-lg bg-white text-ButtonBGPrimary cursor-pointer"
                       value={preferTime}
                       onChange={(e) => setPreferTime(e.target.value)}
                     />
@@ -116,7 +116,7 @@ const ConfirmRequest = () => {
                     </h2>
                   </div>
                   <div>
-                    <div className="flex justify-end items-center gap-2">
+                    <div className="flex justify-end items-center gap-2 cursor-pointer">
                       <Select /* value={currency} onValueChange={setCurrency} */
                       >
                         <SelectTrigger className="w-[68px] h-8 px-2 text-xs">
@@ -156,18 +156,18 @@ const ConfirmRequest = () => {
                       <span> ••• ••• ••• 1234</span>
                     </div>
                   </div>
-                  <button className="text-[#8559CA] text-[16px] mt-2">
+                  <button className="text-[#8559CA] text-[16px] mt-2 cursor-pointer">
                     + Add New Payment Method
                   </button>
                 </div>
 
                 <div className="mt-4">
-                  <label className="inline-flex items-center">
+                  <label className="inline-flex items-center ">
                     <input
                       type="checkbox"
                       checked={click}
                       onChange={(e) => setClick(e.target.checked)}
-                      className="mr-2"
+                      className="mr-2 cursor-pointer"
                     />
                     I agree to the{" "}
                     <a href="#" className="text-[#4D4D4D] underline">

@@ -1,8 +1,4 @@
-import {
-  Sidebar,
-  SidebarBody,
-  SidebarLink,
-} from "@/components/aceternity/Sidebar";
+import { Sidebar, SidebarBody } from "@/components/aceternity/Sidebar";
 import { GiBackwardTime } from "react-icons/gi";
 import { useState } from "react";
 import {
@@ -17,6 +13,7 @@ import {
   UserRound,
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
+import { SidebarLink } from "@/components/aceternity/SidebarLink";
 const AssistantSidebarDashboard = () => {
   const assistantLinks = [
     {
@@ -35,35 +32,35 @@ const AssistantSidebarDashboard = () => {
     },
     {
       label: "My Tasks",
-      href: "/assistant/my-tasks",
+      href: "/assistant/current-task",
       icon: (
         <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Current Tasks",
-      href: "/assistant/current-tasks",
+      href: "/assistant/current-task",
       icon: (
         <CalendarFold className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Upcoming Tasks",
-      href: "/assistant/upcoming-tasks",
+      href: "/assistant/upcoming-task",
       icon: (
         <GiBackwardTime className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Booking Requests",
-      href: "/assistant/booking-requests",
+      href: "/assistant/booking-task",
       icon: (
         <History className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Completed Tasks",
-      href: "/assistant/completed-tasks",
+      href: "/assistant/completed-task",
       icon: (
         <Star className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
