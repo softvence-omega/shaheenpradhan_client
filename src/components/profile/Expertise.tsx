@@ -12,7 +12,7 @@ const Expertise = () => {
           <h1 className="w-1/2 sm:w-[25%]  font-semibold text-sm sm:text-lg">
             Core Competencies and Areas of Expertise
           </h1>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 list-inside list-disc marker:text-xl marker:text-BorderHighlight">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 list-inside list-disc marker:text-xl marker:text-BorderHighlight ">
             <li className="text-sm sm:text-[15px] font-light">
               Calendar & Travel Management
             </li>
@@ -22,7 +22,7 @@ const Expertise = () => {
             <li className="text-sm sm:text-[15px] font-light">
               Financial Reporting & Invoicing
             </li>
-            <li className="text-sm sm:text-[15px] font-light">
+            <li className="text-sm sm:text-[15px] ">
               CRM & Data Entry (Salesforce, HubSpot)
             </li>
             <li className="text-sm sm:text-[15px] font-light">

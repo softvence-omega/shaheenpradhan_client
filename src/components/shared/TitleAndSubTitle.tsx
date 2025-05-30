@@ -6,7 +6,7 @@ const TitleAndSubTitle = ({
   style,
 }: {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   style?: string;
 }) => {
   return (
