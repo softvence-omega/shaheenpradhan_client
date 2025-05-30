@@ -22,12 +22,13 @@ import UserProfilePage from "@/pages/user/UserProfilePage";
 import NotificationPage from "@/pages/user/NotificationPage";
 import AssistantLayout from "@/layout/AssistantLayout";
 import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
-import AssistantBilling from "@/components/assistant/AssistantBilling/AssistantBilling";
 import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
 import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
 import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
 import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
 import { SignupTabs } from "@/pages/signup/SignupTabs";
+import LoginPage from "@/pages/LoginPage/LoginPage";
+import Yourself from "@/pages/company-yourself/yourself";
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,14 @@ export const router = createBrowserRouter([
       {
         path: "signups",
         element: <SignupTabs />,
+      },
+      {
+        path: "logins",
+        element: <LoginPage />,
+      },
+      {
+        path: "company-yourself",
+        element: <Yourself />,
       },
     ],
   },
