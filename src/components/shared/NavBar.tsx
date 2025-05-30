@@ -50,8 +50,10 @@ const NavBar = () => {
           </div>
         </div>
       )}
-      <Wrapper>
-        <header className="lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800">
+
+      <header className="lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50">
+        <Wrapper>
+          {" "}
           <div className="flex items-center justify-between h-8 mx-auto">
             <Link to="/" className="flex items-center p-2">
               <img src={logo} alt="logo" className="max-w-32 h-fit" />
@@ -116,8 +118,8 @@ const NavBar = () => {
               </svg>
             </button>
           </div>
-        </header>
-      </Wrapper>
+        </Wrapper>
+      </header>
     </>
   );
 };

@@ -15,7 +15,7 @@ const ExperienceCard = ({
   task,
 }: IExperienceCard) => {
   return (
-    <div className="rounded-xl border-[1px] border-BorderHighlight w-[40%] mt-10">
+    <div className="rounded-xl border-[1px] border-BorderHighlight  my-5 w-full">
       {/* TITLE SECTION */}
       <div className="flex flex-col xl:flex-row space-y-3 xl:space-y-0 items-start justify-between bg-pink-100 p-4 rounded-t-xl border-b-[1px] border-gray-900/30">
         <div>
@@ -57,10 +57,15 @@ const ExperienceCard = ({
         <div className="flex flex-col space-y-4">
           <h1 className="text-lg font-semibold leading-none">Review:</h1>
           <ReviewCard
-            review="ami sikhbo ekhon"
-            image="https://t4.ftcdn.net/jpg/06/08/55/73/360_F_608557356_ELcD2pwQO9pduTRL30umabzgJoQn5fnd.jpg"
-            name="Soriful razz"
-            objective="software engineer"
+            value={[
+              {
+                review: "Reliable and consistent. A solid choice.",
+                rating: 4,
+                image: "https://randomuser.me/api/portraits/men/10.jpg",
+                name: "Robert Smith",
+                objective: "HR Specialist",
+              },
+            ]}
           />
         </div>
       </div>
