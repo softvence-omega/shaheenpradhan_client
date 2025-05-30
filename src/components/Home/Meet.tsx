@@ -9,16 +9,16 @@ import { Button } from "@/components/ui/button";
 const Meet = () => {
   return (
     <Wrapper>
-      <div className="flex flex-col lg:flex-row gap-6 w-full pt-24">
+      <div className="flex flex-col xl:flex-row gap-6 w-full pt-24">
         <iframe
-          className="w-full h-[462px] rounded-lg"
+          className="w-full h-[350px] md:h-[550px] xl:h-[462px] rounded-lg"
           src="https://www.youtube.com/embed/UcXWY057YuQ?autoplay=1&loop=1&playlist=UcXWY057YuQ"
           title="YouTube video"
           allow="autoplay; encrypted-media"
           allowFullScreen
         ></iframe>
 
-        <div className="w-full lg:max-w-1/2 space-y-5">
+        <div className="w-full  space-y-5">
           <TitleAndSubTitle
             style="w-full"
             title="Meet Before You Book"

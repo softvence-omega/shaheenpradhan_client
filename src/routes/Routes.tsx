@@ -4,7 +4,7 @@ import MainLayout from "@/layout/MainLayout";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
-import Reuserable from "@/pages/home/Reuserable";
+
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
@@ -37,6 +37,7 @@ import EducationPage from "@/pages/home/EducationPage";
 import PersonalInfoPage from "@/pages/home/PersonalInfoPage";
 import WorkPreferencePage from "@/pages/home/WorkPreferencePage";
 import ExperienceSkillPage from "@/pages/home/ExperienceSkillPage";
+import Reuserable from "@/components/home/Reuserable";
 
 export const router = createBrowserRouter([
   {

@@ -45,8 +45,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
 @theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
   --font-DMsans: "DM Sans", sans-serif;
   /* PROJECT COLOR PLATE START*/
   --color-bgBody: #faf8fd;

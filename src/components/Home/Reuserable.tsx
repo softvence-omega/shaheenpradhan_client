@@ -4,7 +4,6 @@ import JoinAssistant from "@/components/home/FormComponent/PersonalInfo";
 import WorkPreference from "@/components/home/FormComponent/WorkPreference";
 import Review from "@/components/home/Review";
 import WrapperDashboard from "@/components/shared/WrapperDashboard";
-import PersonalInfoPage from "./PersonalInfoPage";
 
 const Reuserable = () => {
   return (
@@ -12,9 +11,7 @@ const Reuserable = () => {
       <WrapperDashboard>
         <Education />
         <WorkPreference />
-
         <ExperienceSkill />
-        <PersonalInfoPage />
       </WrapperDashboard>
       <Review />
     </div>

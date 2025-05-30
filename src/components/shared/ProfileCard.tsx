@@ -4,13 +4,27 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Star from "@/assets/icon/Star";
 import { Check, MapPin } from "lucide-react";
 import { Button } from "../ui/button";
+import { IProfile } from "@/pages/profile/profile.type";
 
-const ProfileCard = () => {
+const ProfileCard = ({
+  image,
+  rating,
+  totalRating,
+  name,
+  designation,
+  location,
+  itsWorkingTime,
+  gender,
+  Availability,
+  Experience,
+  language,
+  hourlyPay,
+}: IProfile) => {
   return (
     <div>
       <Wrapper>
         {/* PROFILE CARD START */}
-        <div className="relative rounded-xl border border-BorderHighlight w-80 bg-white">
+        <div className="relative rounded-xl border border-BorderHighlight md:w-80 w-full bg-white">
           {/* Top right heart icon */}
           <div className="flex justify-end p-3">
             <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
@@ -22,26 +36,30 @@ const ProfileCard = () => {
           {/* Avatar section */}
           <div className="flex flex-col items-center space-y-2 -mt-14">
             <div className="relative w-fit">
-              <Avatar className="w-16 h-16">
+              <Avatar className="w-20 sm:w-16 h-20 sm:h-16">
                 <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
+                  src={image || "https://github.com/shadcn.png"}
+                  alt={name}
                 />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
 
               {/* Star Badge */}
               <div className="absolute -bottom-2 inline-flex items-center space-x-1 bg-yellow-50 px-2 py-0.5 rounded-lg shadow-sm">
-                <Star className="w-3 h-3 text-yellow-500" />
-                <p className="text-xs font-medium">4.9</p>
-                <p className="text-xs font-medium text-gray-400">(5)</p>
+                <Star className="sm:w-3 w-4 sm:h-3 h-4 text-yellow-500" />
+                <p className="text-sm sm:text-xs font-medium">{rating || "4.3"}</p>
+                <p className="text-sm sm:text-xs font-medium text-gray-400">
+                  {totalRating || "8"}
+                </p>
               </div>
             </div>
 
             {/* Name and Role */}
             <div className="text-center mt-2">
-              <h1 className="text-sm font-semibold">Jessamine Mumtaz</h1>
-              <p className="text-xs text-gray-500">Event Specialistt</p>
+              <h1 className="text-lg sm:text-sm font-semibold">{name || "user name"}</h1>
+              <p className="text-sm sm:text-xs text-gray-500">
+                {designation || "user designation"}
+              </p>
             </div>
           </div>
 
@@ -52,24 +70,28 @@ const ProfileCard = () => {
             <div className="flex items-center space-x-1">
               {" "}
               <MapPin className="w-4 h-4" />{" "}
-              <p className="text-xs sm:text-[15px]">Dubai, UAE</p>
+              <p className="text-[15px]">
+                {location || "Dubai, UAE"}
+              </p>
             </div>
-            <p className="text-xs sm:text-[15px]">Available Now</p>
+            <p className="text-[15px]">Available Now</p>
           </div>
 
           {/* GENDER, LANGUAGE */}
           <div className="px-4 space-y-2">
             <div className="flex items-center justify-between">
-              <h1>Gender </h1>
-              <p>Availability</p>
+              <h1 className="text-[15px]">Gender </h1>
+              <p className="text-[15px]">Availability</p>
             </div>
             <div className="flex items-center justify-between">
               <h1 className="text-xs sm:text-[15px] text-BorderHighlight">
-                Female
+                {gender || "male"}
               </h1>
               <p className="flex items-center text-ButtonBGPrimary space-x-0.5 font-light">
                 <Check className="w-4 h-4 text-ButtonBGPrimary" />{" "}
-                <span className="text-xs sm:text-[15px]">Remote</span>
+                <span className="text-xs sm:text-[15px]">
+                  {itsWorkingTime || "remote"}
+                </span>
               </p>
             </div>
           </div>
@@ -77,23 +99,27 @@ const ProfileCard = () => {
           <div className="space-y-3 mt-5">
             {/*  */}
             <div className="px-4 text-xs sm:text-[15px] space-y-1">
-              <h1 className="text-xs sm:text-[15px]">Experience</h1>
+              <h1 className="text-[15px]">Experience</h1>
               <p className="text-xs sm:text-[15px] font-light text-BorderHighlight">
-                6+ years
+                {Experience || "6years+"}
               </p>
             </div>
             {/* LANGUAGE */}
             <div className="px-4 space-y-1">
-              <h1 className="text-xs sm:text-[15px]">Language</h1>
-              <p className="text-xs sm:text-[15px] font-light text-BorderHighlight">
-                English, Arabic, French
-              </p>
+              <h1 className="text-[15px]">Language</h1>
+              <div className="text-xs sm:text-[15px] font-light text-BorderHighlight space-y-1">
+                {language?.length > 0 ? (
+                  language.map((lang, index) => <p key={index}>{lang}</p>)
+                ) : (
+                  <p>Arabi, Bangla, English</p>
+                )}
+              </div>
             </div>
             <div className="w-[90%] mx-auto h-[1px] bg-gray-900/15 mt-5 " />
           </div>
           {/* Divider line */}
           <div className="flex items-baseline px-4 py-2">
-            <span className="font-bold text-[20px]">$20</span>
+            <span className="font-bold text-[20px]">${hourlyPay || "200"}</span>
             <span className="font-medium text-xs text-muted-foreground ml-1">
               /hours
             </span>
