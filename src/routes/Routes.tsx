@@ -4,7 +4,7 @@ import MainLayout from "@/layout/MainLayout";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
-import Reuserable from "@/pages/home/Reuserable";
+import Reuserable from "@/components/home/Reuserable";
 import { createBrowserRouter } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
@@ -16,6 +16,7 @@ import ConfirmRequestPage from "@/pages/user/ConfirmRequestPage";
 import UserHomePage from "@/pages/user/UserHomePage";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
+import Profile from "@/pages/profile/Profile";
 import CurrentBookingPage from "@/pages/user/CorrentBookingPage";
 import UserProfilePage from "@/pages/user/UserProfilePage";
 import NotificationPage from "@/pages/user/NotificationPage";
@@ -24,15 +25,7 @@ import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
 import AssistantBilling from "@/components/assistant/AssistantBilling/AssistantBilling";
 import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
 import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
-import MytaskInformation from "@/pages/assistant/MytaskInformation";
-import TaskBookingRequest from "@/pages/assistant/TaskBookingRequest";
-import TaskCurrentPage from "@/pages/assistant/TaskCurrentPage";
-import TaskUpcomingPage from "@/pages/assistant/TaskUpcomingPage";
-import TaskCompletedPages from "@/pages/assistant/TaskCompletedPages";
-import CardCurrentPage from "@/pages/assistant/CardCurrentPage";
-import CardUpcamingPage from "@/pages/assistant/CardUpcamingPage";
-import CardBookingRequestPage from "@/pages/assistant/CardBookingRequestPage";
-import CardCompletedPage from "@/pages/assistant/CardCompletedPage";
+
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +47,10 @@ export const router = createBrowserRouter([
       {
         path: "reuserable",
         element: <Reuserable />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },
@@ -173,42 +170,29 @@ export const router = createBrowserRouter([
       },
       /* Booking */
       {
-        path: "current-task",
-        element: <CardCurrentPage />,
+        path: "current-booking",
+        element: <CurrentBookingPage />,
       },
       {
-        path: "upcoming-task",
-        element: <CardUpcamingPage />,
+        path: "upcoming-booking",
+        element: <UpcomingBookingPage />,
       },
       {
-        path: "booking-task",
-        element: <CardBookingRequestPage />,
+        path: "pending",
+        element: <PendingPage />,
       },
       {
-        path: "completed-task",
-        element: <CardCompletedPage />,
-      },
-      /* Booking-123 by ID */
-      {
-        path: "current-task-1",
-        element: <TaskCurrentPage />,
-      },
-      {
-        path: "upcoming-task-2",
-        element: <TaskUpcomingPage />,
-      },
-      {
-        path: "booking-task-3",
-        element: <TaskBookingRequest />,
-      },
-      {
-        path: "completed-task-4",
-        element: <TaskCompletedPages />,
+        path: "past-booking",
+        element: <PastBookingPage />,
       },
 
-      /* Billing card */
       {
-        path: "assistant-billing",
+        path: "step-confirm-booking",
+        element: <StepConfirmBooking />,
+      },
+
+      {
+        path: "assistant-billingg",
         element: <AssistantBillingPage />,
       },
     ],

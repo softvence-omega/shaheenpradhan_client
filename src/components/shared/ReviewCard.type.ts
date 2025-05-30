@@ -1,6 +1,6 @@
 export interface IReviewCard {
   review: string;
-  value?: [] | number;
+  rating: number;
   image: string;
   name: string;
   objective: string;
