@@ -31,7 +31,7 @@ const ReviewCard = ({
             </div>
 
             {/* AVATAR SECTION */}
-            <div className="flex flex-col flex-wrap lg:flex-nowrap lg:flex-row lg:items-center lg:justify-between gap-3 ">
+            <div className="inline-flex flex-wrap lg:flex-nowrap lg:flex-row lg:items-center lg:justify-between gap-3 ">
               <Avatar className="w-12 h-12">
                 <AvatarImage
                   src={reviews?.image}

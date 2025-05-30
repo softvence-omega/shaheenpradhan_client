@@ -25,7 +25,7 @@ import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
 import AssistantBilling from "@/components/assistant/AssistantBilling/AssistantBilling";
 import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
 import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
-
+import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "ai-match",
+        element: <AiMatchMaking />,
       },
     ],
   },

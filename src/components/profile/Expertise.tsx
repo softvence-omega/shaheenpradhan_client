@@ -34,7 +34,7 @@ const Expertise = () => {
           </ul>
         </div>
       </div>
-      <Divider />
+   
     </div>
   );
 };
