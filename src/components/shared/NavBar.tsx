@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Wrapper from "./Wrapper";
 import logo from "@/assets/logo/main_logo.png";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import TopArrow from "@/assets/icon/TopArrow";
+import { useState } from "react";
+
 const NavBar = () => {
-  const [showMenuBar, setShowMenuBar] = useState<boolean>(false);
+  const location = useLocation();
+  const locked =
+    location.pathname == "/signups" || location.pathname == "/logins" || location.pathname == "/company-yourself";
+  const [showMenuBar, setShowMenuBar] = useState(false);
   return (
-    <>
+    <div>
       {/* MODAL */}
       {showMenuBar && (
         <div className="fixed font-DMsans top-0 left-0 w-full h-screen bg-ButtonBorder/90 z-50 flex flex-col justify-center items-center gap-6 p-6 lg:hidden">
@@ -51,7 +55,12 @@ const NavBar = () => {
         </div>
       )}
 
-      <header className="lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50">
+      <header
+        className={cn(
+          "lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50",
+          locked && "hidden"
+        )}
+      >
         <Wrapper>
           {" "}
           <div className="flex items-center justify-between h-8 mx-auto">
@@ -120,7 +129,7 @@ const NavBar = () => {
           </div>
         </Wrapper>
       </header>
-    </>
+    </div>
   );
 };
 
