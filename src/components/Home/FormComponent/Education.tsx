@@ -67,7 +67,7 @@ const Education = () => {
           </div>
 
           <div className="space-y-3">
-            <Label>Graduation Year</Label>
+            <Label>Graduation Years</Label>
             <Select>
               <SelectTrigger className="w-full bg-white pt-6 pb-5">
                 <SelectValue placeholder="Select Year" />
