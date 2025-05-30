@@ -1,7 +1,7 @@
-import React from "react";
+
 import ExperienceCard from "../shared/ExperienceCard";
 import { Button } from "../ui/button";
-import Divider from "../shared/Divider";
+
 
 const Experience = () => {
   return (
@@ -25,7 +25,7 @@ const Experience = () => {
         </Button>
       </div>
 
-      <Divider />
+     
     </div>
   );
 };
