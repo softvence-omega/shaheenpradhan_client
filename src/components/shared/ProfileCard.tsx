@@ -56,15 +56,10 @@ const ProfileCard = ({
 
             {/* Name and Role */}
             <div className="text-center mt-2">
-<<<<<<< HEAD
-              <h1 className="text-sm font-semibold">Jessamine Mumtaz</h1>
-              <p className="text-xs text-gray-500">Event Specialistt</p>
-=======
               <h1 className="text-lg sm:text-sm font-semibold">{name || "user name"}</h1>
               <p className="text-sm sm:text-xs text-gray-500">
                 {designation || "user designation"}
               </p>
->>>>>>> e8254b0 (new profile section)
             </div>
           </div>
 
