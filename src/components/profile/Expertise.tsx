@@ -22,7 +22,7 @@ const Expertise = () => {
             <li className="text-sm sm:text-[15px] font-light">
               Financial Reporting & Invoicing
             </li>
-            <li className="text-sm sm:text-[15px] font-light truncate">
+            <li className="text-sm sm:text-[15px] font-light">
               CRM & Data Entry (Salesforce, HubSpot)
             </li>
             <li className="text-sm sm:text-[15px] font-light">
