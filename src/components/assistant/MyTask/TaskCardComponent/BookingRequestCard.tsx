@@ -4,27 +4,31 @@ import { Link } from "react-router-dom";
 
 const BookingRequestCard = () => {
   return (
-    <div className="w-full  p-4">
-      <div className=" mx-auto  p-4 flex flex-col sm:flex-row gap-6 font-DMsans space-x-20 bg-white shadow-md rounded-lg">
+    <div className="w-full">
+      <div className=" mx-auto  p-4 flex justify-between  gap-6 font-DMsans space-x-20 bg-white shadow-md rounded-lg">
         {/* Profile Section */}
         <div className="flex justify-center items-center ">
           <div className="space-y-7">
-            <div className="flex items-center space-x-3 ">
+            <div className="flex items-center space-x-3">
               {/* Text */}
               <div className="flex flex-col justify-center">
-                <h2 className="text-[18px] font-semibold text-[#3A1C71] leading-tight">
+                <h2 className="text-base sm:text-lg md:text-xl font-semibold text-[#3A1C71] leading-tight">
                   Mohammed Khalid
                 </h2>
-                <p className="text-[15px] text-[#4D4D4D]">
+                <p className="text-sm sm:text-base md:text-lg text-[#4D4D4D]">
                   President, Tiger LLC
                 </p>
               </div>
             </div>
 
-            <div className=" space-y-3">
+            <div className="space-y-3">
               <div>
-                <p className="font-semibold">Task</p>
-                <p>Calendar management, travel coordination</p>
+                <p className="font-semibold text-sm sm:text-base md:text-lg">
+                  Task
+                </p>
+                <p className="text-sm sm:text-base md:text-lg">
+                  Calendar management, travel coordination
+                </p>
               </div>
             </div>
           </div>
@@ -32,8 +36,8 @@ const BookingRequestCard = () => {
 
         {/* Info Section */}
 
-        <div className="flex  justify-between items-center space-x-20 ">
-          <div className="gap-2 text-[#4D4D4D] text-lg space-y-6">
+        <div className="flex  justify-between items-center">
+          <div className="gap-2 text-[#4D4D4D] text-lg space-y-16">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4" />
               <span>Dubai, UAE</span>
@@ -53,16 +57,18 @@ const BookingRequestCard = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex  justify-between items-center">
           {/* part-3 */}
           <div className=" text-[16px]">
-            <div className="space-y-6">
+            <div className="space-y-16">
               <div>
                 <Link to="/assistant/booking-task-3">
                   <Button variant="outline">View Full Details</Button>
                 </Link>
               </div>
 
-              <div className="space-x-3">
+              <div className="flex space-x-3 mt-8">
                 <Button variant="ghost" className="text-red-500">
                   Cancel
                 </Button>

@@ -10,6 +10,16 @@ import deposit1 from "@/assets/icons/deposit1.png";
 import spent1 from "@/assets/icons/spent1.png";
 import pending1 from "@/assets/icons/pending1.png";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const EarnCard = ({
   cardList,
   monthFilterList,
@@ -27,17 +37,23 @@ const EarnCard = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
         <h1 className="text-xl font-DMsans text-black">Overview</h1>
-        <select
-          value={selectedMonth}
-          onChange={(e) => setSelectedMonth(e.target.value)}
-          className="w-[140px] h-[32px] border border-[#B2B2B2] rounded-[6px] px-2 py-1 text-sm font-DMsans"
-        >
-          {monthFilterList.map((month) => (
-            <option key={month} value={month}>
-              {month}
-            </option>
-          ))}
-        </select>
+
+        {/* ShadCN Select component */}
+        <Select value={selectedMonth} onValueChange={setSelectedMonth}>
+          <SelectTrigger className="w-[140px] h-[32px] border border-[#B2B2B2] rounded-[6px] px-2 py-1 text-sm font-DMsans">
+            <SelectValue placeholder="Select Month" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Months</SelectLabel>
+              {monthFilterList.map((month) => (
+                <SelectItem key={month} value={month}>
+                  {month}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
 
       <hr className="text-[#B2B2B2]" />

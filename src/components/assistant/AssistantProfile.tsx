@@ -17,6 +17,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -35,9 +44,9 @@ import assistantprofile from "@/assets/images/assistantprofile.png";
 import SmallTitle from "../shared/Title/SmallTitle";
 import { WorkPreferance } from "./WorkPreferance";
 
-import Select from "react-select";
 import TimePicker from "./TimePicker";
 import ProfileForm from "./ProfileForm";
+import ReactSelect from "react-select";
 
 const languageOptions = [
   { value: "english", label: "English" },
@@ -215,15 +224,22 @@ const AssistantProfile = () => {
                 >
                   Location
                 </Label>
-                <select
-                  id="location"
-                  className="w-full h-11 border border-[#E7E5E4] bg-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option>Select Location</option>
-                  <option>Dubai</option>
-                  <option>Abu Dhabi</option>
-                  <option>Sharjah</option>
-                </select>
+                <Select>
+                  <SelectTrigger className="w-[588px] bg-white pt-6 pb-5">
+                    <SelectValue placeholder="Select Location" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      <SelectLabel>North America</SelectLabel>
+                      <SelectItem value="est">United States, Canada</SelectItem>
+                      <SelectItem value="cst">United States, Mexico</SelectItem>
+                      <SelectItem value="mst">United States, Canada</SelectItem>
+                      <SelectItem value="pst">United States, Canada</SelectItem>
+                      <SelectItem value="akst">United States</SelectItem>
+                      <SelectItem value="hst">United States</SelectItem>
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
           </div>
@@ -261,11 +277,11 @@ const AssistantProfile = () => {
                   <label className="block text-sm font-medium mb-1">
                     Language Spoken
                   </label>
-                  <Select
-                    defaultValue={[languageOptions[0], languageOptions[3]]} // Default: English, Bangla
-                    isMulti
+                  <ReactSelect
+                    defaultValue={languageOptions[0]} // Default: English
                     name="languages"
                     options={languageOptions}
+                    isMulti
                     className="basic-multi-select"
                     classNamePrefix="select"
                   />
@@ -280,7 +296,9 @@ const AssistantProfile = () => {
                   <label className="block text-sm font-medium mb-1">
                     Set Recurring Availability
                   </label>
-                  <TimePicker />
+                  <div className="bg-white w-[375px] border border-[##E7E5E4] rounded-lg px-3 py-1 shadow-sm ">
+                    <TimePicker />
+                  </div>
                 </div>
               </div>
             </div>

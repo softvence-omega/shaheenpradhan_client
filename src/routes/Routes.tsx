@@ -5,7 +5,7 @@ import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
 import Reuserable from "@/pages/home/Reuserable";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
 import Dashboard from "@/pages/user/Dashboard";
@@ -33,6 +33,10 @@ import CardCurrentPage from "@/pages/assistant/CardCurrentPage";
 import CardUpcamingPage from "@/pages/assistant/CardUpcamingPage";
 import CardBookingRequestPage from "@/pages/assistant/CardBookingRequestPage";
 import CardCompletedPage from "@/pages/assistant/CardCompletedPage";
+import EducationPage from "@/pages/home/EducationPage";
+import PersonalInfoPage from "@/pages/home/PersonalInfoPage";
+import WorkPreferencePage from "@/pages/home/WorkPreferencePage";
+import ExperienceSkillPage from "@/pages/home/ExperienceSkillPage";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +58,23 @@ export const router = createBrowserRouter([
       {
         path: "reuserable",
         element: <Reuserable />,
+      },
+      /* Arfin form */
+      {
+        path: "personal-info",
+        element: <PersonalInfoPage />,
+      },
+      {
+        path: "work-preferance",
+        element: <WorkPreferencePage />,
+      },
+      {
+        path: "experience-skill",
+        element: <ExperienceSkillPage />,
+      },
+      {
+        path: "education",
+        element: <EducationPage />,
       },
     ],
   },
@@ -152,7 +173,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AssistantDashboardPage />,
+        element: <Navigate to="home" replace />,
       },
       {
         path: "home",

@@ -3,7 +3,7 @@ import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 
 const CardCompletedPage = () => {
   return (
-    <div>
+    <div className="space-y-8">
       <div>
         <TitleAndSubTitle title="Completed Tasks" subTitle="" />
       </div>
