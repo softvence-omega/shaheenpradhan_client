@@ -1,33 +1,19 @@
-import { AssistantDashboard } from "@/components/home/BillingCard/AssistantDashboard";
-import { AssistantBillingHistory } from "@/components/assistant/AssistantBilling/AssistantBillingHistory";
-import { UserBillingHistory } from "@/components/home/PaymentHistory/UserBillingHistory";
-import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
-import Wrapper from "@/components/shared/Wrapper";
-import WrapperDashboard from "@/components/shared/WrapperDashboard";
-import AssistantInfo from "@/components/shared/UserBooking/AssistantInfo";
-import TaskInfo from "@/components/shared/UserBooking/TaskInfo";
-import TaskInformationUse from "@/components/shared/UserBooking/TaskInformationUse";
-import UpcomingCard from "@/components/shared/UpcomingCard/UpcomingCard";
+import Education from "@/components/home/FormComponent/Education";
+import ExperienceSkill from "@/components/home/FormComponent/ExperienceSkill";
+import JoinAssistant from "@/components/home/FormComponent/PersonalInfo";
+import WorkPreference from "@/components/home/FormComponent/WorkPreference";
 import Review from "@/components/home/Review";
+import WrapperDashboard from "@/components/shared/WrapperDashboard";
 
 const Reuserable = () => {
   return (
-    <div>
-      <Wrapper>
-        <Review />
-      </Wrapper>
+    <div className="mt-20">
       <WrapperDashboard>
-        <div className="space-y-8">
-          <UpcomingCard />
-          <AssistantInfo />
-          <TaskInfo />
-          <TaskInformationUse />
-          <UserDashboard />
-          <UserBillingHistory />
-          <AssistantDashboard />
-          <AssistantBillingHistory />
-        </div>
+        <Education />
+        <WorkPreference />
+        <ExperienceSkill />
       </WrapperDashboard>
+      <Review />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const TimePicker: React.FC = () => {
         step="1"
         value={startTime}
         onChange={(e) => setStartTime(e.target.value)}
-        className="border border-[##E7E5E4] rounded px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="  px-3 py-2 text-sm  focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       <span className="text-gray-500 text-sm">TO</span>
       <input
@@ -20,7 +20,7 @@ const TimePicker: React.FC = () => {
         step="1"
         value={endTime}
         onChange={(e) => setEndTime(e.target.value)}
-        className="border border-[##E7E5E4] rounded px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className=" px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );

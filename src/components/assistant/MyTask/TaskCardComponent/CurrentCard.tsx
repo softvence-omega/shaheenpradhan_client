@@ -39,7 +39,7 @@ const CurrentCard = () => {
           {/* Info Section */}
           <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center">
             <div className="text-[16px] w-full sm:w-auto">
-              <div className="space-y-6">
+              <div className="space-y-20">
                 <div>
                   <p className="text-[#4D4D4D] font-semibold">Time Left</p>
                   <p className="text-[#8559CA]">3 hours 45 minutes</p>

@@ -64,7 +64,7 @@ export const UserBillingHistory = () => {
       currency={currency}
       setCurrency={setCurrency}
       showDownload={true}
-      title="Payout History-User"
+      title="Payout History"
     />
   );
 };
