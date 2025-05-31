@@ -78,7 +78,7 @@ const HeaderPart = () => {
             </div>
 
             {/* AVATAR CARD */}
-            <div className="w-[80%] sm:w-[60%] md:w-[35%] xl:w-[20%]  flex flex-col items-center text-center space-y-4 backdrop-blur-sm p-6 rounded-md border border-gray-50/65">
+            <div className="w-[70%] sm:w-[60%] md:w-[35%] xl:w-[20%]  flex flex-col items-center text-center space-y-4 backdrop-blur-sm p-6 rounded-md border border-gray-50/65">
               <AnimatedTooltip items={items} />
               <p className="font-light text-xs sm:text-sm text-white text-center ">
                 No Visa, No Sponsorship, No Hassle – Just your assistant booked
