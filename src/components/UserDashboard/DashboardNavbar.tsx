@@ -2,17 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { useState } from "react";
 import { LogOut, Settings, User } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import NotificationModal from "./NotificationModal";
 const DashboardNavbar = () => {
-  const [showUserModal, setShowUserModal] = useState<boolean>(false);
-  const handleShowUserModal = () => {
-    setShowUserModal(true);
-    console.log("modal");
-  };
+
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2">
       <Link to="/" className="sm:flex items-center p-2 hidden">
@@ -105,15 +100,7 @@ const DashboardNavbar = () => {
       </form>
       {/* NOTIFICATION SECTION */}
       <div className="hidden sm:flex items-center gap-3">
-        <button onClick={() => setShowUserModal(true)}>
-          <div>
-            <Bell className="w-5 h-4.5 relative" />
-            <p className="bg-red-600 text-center text-white rounded-full text-xs absolute w-5 h-4.5 top-1  right-14">
-              5
-            </p>
-          </div>
-          <NotificationModal />
-        </button>
+        <NotificationModal />
 
         <Popover>
           <PopoverTrigger asChild>
