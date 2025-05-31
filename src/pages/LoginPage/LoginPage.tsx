@@ -4,20 +4,21 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs} from "@/components/ui/tabs";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 const LoginPage = () => {
+
   // FOR ANY USER LOGIN AND SIGNIN
   const handleBookAnAssistant = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("handleBookAnAssistant");
   };
-  const handleJoinAsAssistant = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("handleJoinAsAssistant");
-  };
+  // const handleJoinAsAssistant = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   console.log("handleJoinAsAssistant");
+  // };
   return (
     <div className="bg-white">
       <Wrapper>

@@ -29,7 +29,7 @@ const UserHomeComponent = () => {
           <SmallTitle smalltitle="Assistant Currently Working" />
           <hr className="border-b border-[#E5E5E5]" />
           <CurrentlyWorking />
-          <p>No other current bookings.</p>
+          <p>No other current booking.</p>
         </div>
       </div>
       {/* Upcoming Bookings */}
