@@ -9,7 +9,13 @@ import { useState } from "react";
 const NavBar = () => {
   const location = useLocation();
   const locked =
-    location.pathname == "/signups" || location.pathname == "/logins" || location.pathname == "/company-yourself";
+    location.pathname == "/signups" ||
+    location.pathname == "/logins" ||
+    location.pathname == "/company-yourself" ||
+    location.pathname == "/personal-info" ||
+    location.pathname == "/work-preferance" ||
+    location?.pathname == "/experience-skill" ||
+    location.pathname == "/education";
   const [showMenuBar, setShowMenuBar] = useState(false);
   return (
     <div>
