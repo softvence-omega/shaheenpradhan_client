@@ -7,7 +7,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import NotificationModal from "./NotificationModal";
 const DashboardNavbar = () => {
-
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2">
       <Link to="/" className="sm:flex items-center p-2 hidden">
@@ -19,12 +18,17 @@ const DashboardNavbar = () => {
           <img src={logo} alt="logo" className="max-w-32 h-fit" />
         </Link>
         <div className="flex items-center gap-3">
-          <div className="relative w-full">
-            <Bell className="w-12 h-12" />
-            <p className="absolute -top-1 -right-1 5 w-5 h-5 text-xs text-white bg-red-600 rounded-full">
-              5
-            </p>
-          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative hover:bg-gray-100"
+          >
+            <Bell className="h-6 w-6 text-gray-700" />
+
+            <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs font-medium flex items-center justify-center">
+              99
+            </span>
+          </Button>
 
           <Popover>
             <PopoverTrigger asChild>
