@@ -149,7 +149,7 @@ const Yourself = () => {
                       size="lg"
                       className="bg-purple-600 hover:bg-purple-700"
                     >
-                      Save
+                      Sav e
                     </Button>
                   </div>
                 </div>

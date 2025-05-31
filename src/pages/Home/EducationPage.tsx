@@ -6,8 +6,8 @@ const EducationPage = () => {
   return (
     <div className="mt-10 bg-white">
       <Wrapper>
-        <img src={logo} alt="logo" />
-        <div className="space-y-20 ">
+        <img src={logo} alt="logo" className="mt-5" />
+        <div className="space-y-[80px] ">
           <div>
             <TittleBig bigtittle="Join the adminity Assistant network" />
           </div>

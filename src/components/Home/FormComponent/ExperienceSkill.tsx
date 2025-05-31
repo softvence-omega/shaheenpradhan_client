@@ -28,7 +28,7 @@ const ExperienceSkill = () => {
   });
 
   return (
-    <div>
+    <div className="max-w-[780px]">
       <div>
         <div>
           <div className="w-full">
@@ -146,10 +146,10 @@ const ExperienceSkill = () => {
         <hr className="border-b border-[#E5E5E5]" />
       </div>
       <div className="flex flex-col sm:flex-row justify-end gap-4 mt-5">
-        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white">
+        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white cursor-pointer">
           Back
         </button>
-        <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
+        <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700 cursor-pointer">
           Next
         </button>
       </div>

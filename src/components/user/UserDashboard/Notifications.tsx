@@ -2,96 +2,81 @@ import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 
 const Notifications = () => {
   return (
-    <div>
-      <div className="flex  items-center justify-between">
-        <TitleAndSubTitle title="Notifications" subTitle=""></TitleAndSubTitle>
+    <div className="px-4 md:px-6 lg:px-0">
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <TitleAndSubTitle title="Notifications" subTitle="" />
         <div className="space-x-4">
           <button className="underline text-[#8559CA] cursor-pointer">
             Mark all as read
           </button>
         </div>
       </div>
-      {/* PArt-1 */}
-      <div className="space-y-8 mt-6">
-        {/* 1 */}
-        <div>
-          <div className=" h-[91px] mx-auto">
-            <div className="p-[24px] flex flex-col lg:flex-row justify-between items-center font-DMsans bg-[#FBFDFF] border border-[#4099FF] rounded-[8px]">
-              <div className="flex justify-between items-center w-full">
-                <div>
-                  <h2 className="w-[437px] text-[16px] font-normal leading-[140%] tracking-[0.32px] text-[#4099FF]">
-                    Booking Confirmed: #BK123
-                  </h2>
-                  <h2 className="w-[437px] h-[21px] font-normal text-[14px] leading-[150%] tracking-[0%] font-pangea text-[#808080]">
-                    Assistant Jane Smith Confirmed for May 10th
-                  </h2>
-                </div>
-                <div className="text-[#808080]">
-                  <p>1 hour ago</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* 2 */}
-        <div className=" h-[117px] mx-auto p-[24px] flex flex-col lg:flex-row justify-between items-center font-DMsans bg-[#FFFBFB] border border-[#FF4040] rounded-[8px]">
-          <div className="flex justify-between items-center w-full">
+
+      {/* Notifications List */}
+      <div className="space-y-6 mt-6">
+        {/* Notification 1 */}
+        <div className="p-6 flex flex-col md:flex-row justify-between items-start md:items-center font-DMsans bg-[#FBFDFF] border border-[#4099FF] rounded-[8px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full gap-2">
             <div>
-              <h2 className="text-[16px] font-normal leading-[140%] tracking-[0.32px] text-[#FF4040]">
+              <h2 className="text-[16px] leading-[140%] tracking-[0.32px] text-[#4099FF]">
                 Booking Confirmed: #BK123
               </h2>
-              <h2 className="font-normal text-[14px] leading-[150%] tracking-[0%] font-pangea text-[#808080]">
+              <h2 className="text-[14px] leading-[150%] font-pangea text-[#808080]">
                 Assistant Jane Smith Confirmed for May 10th
               </h2>
-              <button className="text-[18px] font-normal underline text-[#8559CA] cursor-pointer">
-                View Details & Respond
-              </button>
             </div>
-            <div className="text-[#808080]">
-              <p>Yesterday</p>
-            </div>
+            <p className="text-[#808080] whitespace-nowrap">1 hour ago</p>
           </div>
         </div>
 
-        {/* 3 */}
-        <div>
-          <div className=" h-[91px] mx-auto">
-            <div className="p-[24px] flex flex-col lg:flex-row justify-between items-center font-DMsans bg-[#FFFDFA] border border-[#FBAC1A] rounded-[8px]">
-              <div className="flex justify-between items-center w-full">
-                <div>
-                  <h2 className="w-[437px] text-[16px] font-normal leading-[140%] tracking-[0.32px] text-[#FBAC1A]">
-                    New Message from Support
-                  </h2>
-                  <h2 className=" h-[21px] font-normal text-[14px] leading-[150%] tracking-[0%] font-pangea text-[#808080]">
-                    We've responded to your recent inquiry about billing. Check
-                    your support tickets.
-                  </h2>
-                </div>
-                <div className="text-[#808080]">
-                  <p>1 hour ago</p>
-                </div>
-              </div>
+        {/* Notification 2 */}
+        <div className="p-6 flex flex-col md:flex-row justify-between items-start md:items-center font-DMsans bg-[#FFFBFB] border border-[#FF4040] rounded-[8px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full gap-2">
+            <div>
+              <h2 className="text-[16px] leading-[140%] tracking-[0.32px] text-[#FF4040]">
+                Booking Confirmed: #BK123
+              </h2>
+              <h2 className="text-[14px] leading-[150%] font-pangea text-[#808080]">
+                Assistant Jane Smith Confirmed for May 10th
+              </h2>
+              <button className="text-[16px] underline text-[#8559CA] mt-2">
+                View Details & Respond
+              </button>
             </div>
+            <p className="text-[#808080] whitespace-nowrap">Yesterday</p>
           </div>
         </div>
-        {/* 4 */}
-        <div>
-          <div className=" h-[91px] mx-auto">
-            <div className="p-[24px] flex flex-col lg:flex-row justify-between items-center font-DMsans bg-[#FAFEFC] border border-[#0ACF73] rounded-[8px]">
-              <div className="flex justify-between items-center w-full">
-                <div>
-                  <h2 className="w-[437px] text-[16px] font-normal leading-[140%] tracking-[0.32px] text-[#0ACF73]">
-                    Payment Successful: Invoice #INV-0078
-                  </h2>
-                  <h2 className="w-[437px] h-[21px] font-normal text-[14px] leading-[150%] tracking-[0%] font-pangea text-[#808080]">
-                    Your payment of $150.00 has been processed successfully.
-                  </h2>
-                </div>
-                <div className="text-[#808080]">
-                  <p>May 6, 2025, 02:30 PM</p>
-                </div>
-              </div>
+
+        {/* Notification 3 */}
+        <div className="p-6 flex flex-col md:flex-row justify-between items-start md:items-center font-DMsans bg-[#FFFDFA] border border-[#FBAC1A] rounded-[8px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full gap-2">
+            <div>
+              <h2 className="text-[16px] leading-[140%] tracking-[0.32px] text-[#FBAC1A]">
+                New Message from Support
+              </h2>
+              <h2 className="text-[14px] leading-[150%] font-pangea text-[#808080]">
+                We've responded to your recent inquiry about billing. Check your
+                support tickets.
+              </h2>
             </div>
+            <p className="text-[#808080] whitespace-nowrap">1 hour ago</p>
+          </div>
+        </div>
+
+        {/* Notification 4 */}
+        <div className="p-6 flex flex-col md:flex-row justify-between items-start md:items-center font-DMsans bg-[#FAFEFC] border border-[#0ACF73] rounded-[8px]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full gap-2">
+            <div>
+              <h2 className="text-[16px] leading-[140%] tracking-[0.32px] text-[#0ACF73]">
+                Payment Successful: Invoice #INV-0078
+              </h2>
+              <h2 className="text-[14px] leading-[150%] font-pangea text-[#808080]">
+                Your payment of $150.00 has been processed successfully.
+              </h2>
+            </div>
+            <p className="text-[#808080] whitespace-nowrap">
+              May 6, 2025, 02:30 PM
+            </p>
           </div>
         </div>
       </div>
