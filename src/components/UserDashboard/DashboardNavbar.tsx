@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 import { Bell } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { LogOut, Settings, User } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Button } from "../ui/button";
+import NotificationModal from "./NotificationModal";
 const DashboardNavbar = () => {
+
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2">
       <Link to="/" className="sm:flex items-center p-2 hidden">
@@ -21,14 +26,46 @@ const DashboardNavbar = () => {
             </p>
           </div>
 
-          <Avatar className="w-10 h-10">
-            <AvatarImage
-              src="https://github.com/shadcn.png"
-              alt="image"
-              className="object-cover"
-            />
-            <AvatarFallback>KAZI</AvatarFallback>
-          </Avatar>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Avatar className="w-10 h-10">
+                <AvatarImage
+                  src="https://github.com/shadcn.png"
+                  alt="image"
+                  className="object-cover"
+                />
+                <AvatarFallback>KAZI</AvatarFallback>
+              </Avatar>
+            </PopoverTrigger>
+            <PopoverContent className="w-56 p-0" align="start">
+              <div className="p-4">
+                <div className="font-semibold text-lg mb-4">John Doe</div>
+                <div className="space-y-1">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start h-auto p-3 font-normal"
+                  >
+                    <User className="w-5 h-5 mr-3" />
+                    My profile
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start h-auto p-3 font-normal"
+                  >
+                    <Settings className="w-5 h-5 mr-3 " />
+                    Settings
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-start h-auto p-3 font-normal"
+                  >
+                    <LogOut className="w-5 h-5 mr-3" />
+                    Log Out
+                  </Button>
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
       {/* SEARCH FIELD */}
@@ -63,24 +100,48 @@ const DashboardNavbar = () => {
       </form>
       {/* NOTIFICATION SECTION */}
       <div className="hidden sm:flex items-center gap-3">
-        <Link to="/user/notification">
-          <div>
-            <Bell className="w-5 h-4.5 relative" />
-            <p className="bg-red-600 text-center text-white rounded-full text-xs absolute w-5 h-4.5 top-1  right-14">
-              5
-            </p>
-          </div>
-        </Link>
-        <Link to="/user/user-profile">
-          <Avatar className="w-10 h-10">
-            <AvatarImage
-              src="https://github.com/shadcn.png"
-              alt="image"
-              className="object-cover"
-            />
-            <AvatarFallback>KAZI</AvatarFallback>
-          </Avatar>
-        </Link>
+        <NotificationModal />
+
+        <Popover>
+          <PopoverTrigger asChild>
+            <Avatar className="w-10 h-10">
+              <AvatarImage
+                src="https://github.com/shadcn.png"
+                alt="image"
+                className="object-cover"
+              />
+              <AvatarFallback>KAZI</AvatarFallback>
+            </Avatar>
+          </PopoverTrigger>
+          <PopoverContent className="w-56 p-0" align="start">
+            <div className="p-4">
+              <div className="font-semibold text-lg mb-4">John Doe</div>
+              <div className="space-y-1">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start h-auto p-3 font-normal"
+                >
+                  <User className="w-5 h-5 mr-3" />
+                  My profile
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start h-auto p-3 font-normal"
+                >
+                  <Settings className="w-5 h-5 mr-3" />
+                  Settings
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start h-auto p-3 font-normal"
+                >
+                  <LogOut className="w-5 h-5 mr-3" />
+                  Log Out
+                </Button>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
     </div>
   );
