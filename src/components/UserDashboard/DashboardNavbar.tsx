@@ -121,13 +121,13 @@ const DashboardNavbar = () => {
             <div className="p-4">
               <div className="font-semibold text-lg mb-4">John Doe</div>
               <div className="space-y-1">
-                <Button
-                  variant="ghost"
-                  className="w-full justify-start h-auto p-3 font-normal"
+                <Link
+                  to="/user/user-profile"
+                  className="w-full flex text-sm font-light justify-start h-auto p-3"
                 >
                   <User className="w-5 h-5 mr-3" />
-                  My profile
-                </Button>
+                  <span> My profile</span>
+                </Link>
                 <Button
                   variant="ghost"
                   className="w-full justify-start h-auto p-3 font-normal"
