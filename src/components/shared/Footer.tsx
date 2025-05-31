@@ -1,18 +1,12 @@
 import SubFooter from "./SubFooter";
 import Wrapper from "./Wrapper";
 import logo from "@/assets/icons/Logofooter.png";
-import facebook from "@/assets/icons/Facebook.png";
-import instagram from "@/assets/icons/Instagram.png";
-import twitter from "@/assets/icons/X.png";
-import linkedin from "@/assets/icons/LinkedIn.png";
-import youtube from "@/assets/icons/Youtube.png";
 import {
   FaFacebookF,
   FaInstagram,
   FaTwitter,
   FaLinkedinIn,
   FaYoutube,
-  FaGlobe,
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -22,10 +16,14 @@ const Footer = () => {
   const locked =
     location.pathname == "/signups" ||
     location.pathname == "/logins" ||
-    location.pathname == "/company-yourself";
+    location.pathname == "/company-yourself" ||
+    location.pathname == "/personal-info" ||
+    location.pathname == "/work-preferance" ||
+    location?.pathname == "/experience-skill" ||
+    location.pathname == "/education";
   return (
     <Wrapper>
-      <div className={cn("space-y-16 font-DMsans", locked && "hidden")}>
+      <div className={cn("space-y-8 mt-5 font-DMsans", locked && "hidden")}>
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-10">
           {/* Part 1 - Address & Contact */}
           <div className="order-3 md:order-none flex flex-col justify-between gap-4">

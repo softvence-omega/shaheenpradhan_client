@@ -50,7 +50,7 @@ const HeaderPart = () => {
       <Wrapper>
         <div>
           {/* HEADER TEXT SECTION */}
-          <div className="max-w-1/2 w-full mx-2 xl:mx-0 pt-16 sm:pt-36 space-y-3">
+          <div className="lg:max-w-1/2 w-full mx-2 xl:mx-0 pt-16 sm:pt-36 space-y-3">
             <h1 className="text-4xl sm:text-5xl tracking-wider font-semibold text-white ">
               Your Executive Assistant, On Demand
             </h1>
@@ -58,10 +58,10 @@ const HeaderPart = () => {
               Book vetted EAs in minutes, AI-Matched to your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-              <Button className="text-xs sm:text-sm font-light py-3 px4 bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit">
+              <Button className="text-xs sm:text-sm font-light py-3 px4 bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-44 lg:w-fit">
                 Find Your Force Multiplier
               </Button>
-              <Button className="text-xs sm:text-sm font-light py-3 px4 bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer w-fit">
+              <Button className="text-xs sm:text-sm font-light py-3 px4 bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer w-44 lg:w-fit">
                 Become a Force Multiplier
               </Button>
             </div>
@@ -78,7 +78,7 @@ const HeaderPart = () => {
             </div>
 
             {/* AVATAR CARD */}
-            <div className="w-[80%] sm:w-[60%] md:w-[35%] xl:w-[20%]  flex flex-col items-center text-center space-y-4 backdrop-blur-sm p-6 rounded-md border border-gray-50/65">
+            <div className="w-[70%] sm:w-[60%] md:w-[35%] xl:w-[20%]  flex flex-col items-center text-center space-y-4 backdrop-blur-sm p-6 rounded-md border border-gray-50/65">
               <AnimatedTooltip items={items} />
               <p className="font-light text-xs sm:text-sm text-white text-center ">
                 No Visa, No Sponsorship, No Hassle – Just your assistant booked

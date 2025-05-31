@@ -1,7 +1,10 @@
+"use client";
+
 import { MapPin } from "lucide-react";
 import assistphoto from "@/assets/images/taskphoto.png";
 import chat from "@/assets/icons/chat.png";
 import { Button } from "@/components/ui/button";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 const UpcomingBookings = () => {
   return (
@@ -66,7 +69,9 @@ const UpcomingBookings = () => {
               <Button variant="ghost" className="text-red-600 w-full sm:w-auto">
                 Cancel
               </Button>
-              <Button className="w-full sm:w-auto">Reschedule</Button>
+
+              {/* Replace Reschedule button with DialogDateTimeRangePicker */}
+              <DialogDateTimeRangePicker />
             </div>
           </div>
         </div>

@@ -65,18 +65,20 @@ export function SignupTabs() {
                         <Input name="password" id="password" type="password" />
                       </div>
                     </CardContent>
-                    <CardFooter className="flex flex-col gap-2 pt-3">
-                      <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
-                        Sign up
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full flex items-center justify-center gap-2"
-                      >
-                        <AiOutlineGoogle className="w-4 h-4" />
-                        <span>Sign up with Google</span>
-                      </Button>
-                    </CardFooter>
+                    <Link to="/company-yourself">
+                      <CardFooter className="flex flex-col gap-2 pt-3">
+                        <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer">
+                          Sign up
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="w-full flex items-center justify-center gap-2"
+                        >
+                          <AiOutlineGoogle className="w-4 h-4" />
+                          <span>Sign up with Google</span>
+                        </Button>
+                      </CardFooter>
+                    </Link>
                   </form>
                   <div className="text-center mt-3">
                     <p className="text-sm">
@@ -119,9 +121,12 @@ export function SignupTabs() {
                       </div>
                     </CardContent>
                     <CardFooter className="flex flex-col gap-2 pt-3">
-                      <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
-                        Sign up
-                      </Button>
+                      <Link to="/company-yourself">
+                        <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
+                          Sign up
+                        </Button>
+                      </Link>
+
                       <Button
                         variant="outline"
                         className="w-full flex items-center justify-center gap-2"

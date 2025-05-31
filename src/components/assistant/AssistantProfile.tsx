@@ -71,7 +71,7 @@ const AssistantProfile = () => {
             <img src={assistantprofile} alt="" />
           </div>
           <div className="space-y-3">
-            <button className="w-[143px] h-[30px] border border-[] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white  flex items-center gap-2">
+            <button className="w-[143px] h-[30px] border border-[] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white  flex items-center gap-2 cursor-pointer">
               Upload a photo
             </button>
 
@@ -178,7 +178,7 @@ const AssistantProfile = () => {
                                 <Button
                                   variant={"outline"}
                                   className={cn(
-                                    "w-[588px] h-11 text-left font-normal",
+                                    "w-[588px] h-11 text-left font-normal cursor-pointer",
                                     !field.value && "text-muted-foreground"
                                   )}
                                 >

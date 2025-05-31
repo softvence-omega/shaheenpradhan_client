@@ -57,15 +57,17 @@ const UpcomingCard = () => {
         <div className="flex flex-col items-start md:items-end gap-6 space-y-16">
           <div>
             <Link to="/assistant/upcoming-task-2">
-              <Button variant="outline">View Full Details</Button>
+              <Button className="cursor-pointer" variant="outline">
+                View Full Details
+              </Button>
             </Link>
           </div>
 
           <div className="flex space-x-3">
-            <Button variant="ghost" className="text-red-500">
+            <Button variant="ghost" className="text-red-500 cursor-pointer">
               Cancel
             </Button>
-            <Button>Reschedule</Button>
+            <Button className="cursor-pointer">Reschedule</Button>
           </div>
         </div>
       </div>

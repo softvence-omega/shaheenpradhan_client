@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import MediumTittle from "@/components/shared/Title/MediumTittle";
 import ReuseBreadCrum from "@/components/shared/Title/ReuseBreadCrum";
 import AssistantInfo from "@/components/shared/UserBooking/AssistantInfo";
@@ -12,7 +13,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { RiVisaFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import DialogBookingConfirmation from "@/pages/user/DialogBookingConfirmation";
 
 const ConfirmBooking = () => {
   const [location, setLocation] = useState("");
@@ -20,16 +21,29 @@ const ConfirmBooking = () => {
   const [endDate, setEndDate] = useState("");
   const [overview, setOverview] = useState("");
   const [click, setClick] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
   const steps = [
-    { completed: true }, // Step 1 - Assistant Info
-    { completed: !!(startDate && endDate && location) }, // Step 2 - Booking Info
-    { completed: overview.length > 2 }, // Step 3 - Task Overview
+    { completed: true },
+    { completed: !!(startDate && endDate && location) },
+    { completed: overview.length > 2 },
     { completed: click },
   ];
 
+  const handleBookNow = () => {
+    if (steps.every((step) => step.completed)) {
+      setShowDialog(true);
+    } else {
+      alert("Please complete all steps before booking.");
+    }
+  };
+
   return (
     <div>
+      {showDialog && (
+        <DialogBookingConfirmation onClose={() => setShowDialog(false)} />
+      )}
+
       <ReuseBreadCrum
         items={[
           { label: "Assistants", path: "/" },
@@ -43,26 +57,24 @@ const ConfirmBooking = () => {
         description="Fill out the form to confirm  your booking."
       />
 
-      <div className=" sm:px-6 lg:px-1 w-full mx-auto  mb-20 space-y-9 font-DMsans ">
-        <div className="flex  space-x-10">
+      <div className="sm:px-6 lg:px-1 w-full mx-auto mb-20 space-y-9 font-DMsans">
+        <div className="flex space-x-10">
           <div className="lg:col-span-1">
             <StepBooking steps={steps} />
           </div>
-          <div className=" gap-10 w-full">
-            {/* Left Side - Steps */}
-
-            {/* Right Side - Booking Form */}
+          <div className="gap-10 w-full">
             <div className="lg:col-span-3 space-y-9">
+              {/* Assistant Info */}
               <div>
                 <SmallTitle smalltitle="Assistant Information" />
                 <hr className="border-b border-[#E5E5E5]" />
               </div>
               <AssistantInfo />
 
+              {/* Booking Info */}
               <section className="mb-6 space-y-4">
                 <SmallTitle smalltitle="Booking Information" />
                 <hr className="border-b border-[#E5E5E5]" />
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">
@@ -98,7 +110,7 @@ const ConfirmBooking = () => {
                     <label className="block text-sm font-medium mb-1">
                       Job Type
                     </label>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <label>
                         <input type="radio" name="jobType" /> Remote
                       </label>
@@ -147,41 +159,31 @@ const ConfirmBooking = () => {
               {/* Payment Info */}
               <section className="mb-6">
                 <div className="flex justify-between items-center">
-                  <div>
-                    <h2 className="text-xl font-semibold mb-4">
-                      Payment Information
-                    </h2>
-                  </div>
-                  <div>
-                    <div className="flex justify-end items-center gap-2">
-                      <Select /* value={currency} onValueChange={setCurrency} */
-                      >
-                        <SelectTrigger className="w-[68px] h-8 px-2 text-xs">
-                          <SelectValue placeholder="AED" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="AED">AED</SelectItem>
-                          <SelectItem value="USD">USD</SelectItem>
-                          <SelectItem value="EUR">EUR</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                  <h2 className="text-xl font-semibold mb-4">
+                    Payment Information
+                  </h2>
+                  <div className="flex justify-end items-center gap-2">
+                    <Select>
+                      <SelectTrigger className="w-[68px] h-8 px-2 text-xs">
+                        <SelectValue placeholder="AED" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="AED">AED</SelectItem>
+                        <SelectItem value="USD">USD</SelectItem>
+                        <SelectItem value="EUR">EUR</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
                 <hr className="border-b border-[#E5E5E5]" />
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[20px] mt-3 space-y-6">
                   <div className="font-medium">Total Hours:</div>
-                  <div className="col-span-1 sm:col-span-2">118</div>
+                  <div className="col-span-2">118</div>
                   <div className="font-medium">Rate Per Hour:</div>
-                  <div className="text-[#8559CA] col-span-1 sm:col-span-2">
-                    AED 20.00
-                  </div>
-
+                  <div className="text-[#8559CA] col-span-2">AED 20.00</div>
                   <div className="font-medium">Total Payable Amount:</div>
-                  <div className="text-[#8559CA]  col-span-1 sm:col-span-2">
-                    AED 2360.00
-                  </div>
+                  <div className="text-[#8559CA] col-span-2">AED 2360.00</div>
                 </div>
 
                 <div className="mt-4">
@@ -213,17 +215,20 @@ const ConfirmBooking = () => {
                   </label>
                 </div>
               </section>
+
               <hr className="border-b border-[#E5E5E5]" />
+
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row justify-end gap-4">
-                <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white">
+                <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white cursor-pointer">
                   Save Draft
                 </button>
-                <Link to="/user/assistant-request-confirm">
-                  <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
-                    Book Now
-                  </button>
-                </Link>
+                <button
+                  className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700 cursor-pointer"
+                  onClick={handleBookNow}
+                >
+                  Book Now
+                </button>
               </div>
             </div>
           </div>

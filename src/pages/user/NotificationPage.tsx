@@ -2,7 +2,7 @@ import Notifications from "@/components/user/UserDashboard/Notifications";
 
 const NotificationPage = () => {
   return (
-    <div>
+    <div className="space-y-8">
       <Notifications />
     </div>
   );

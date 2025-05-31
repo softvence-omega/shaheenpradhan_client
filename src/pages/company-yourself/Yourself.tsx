@@ -8,6 +8,7 @@ import { Upload } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FormOnboarding from "@/components/Company_Yourself/FormOnboarding";
+import { Link } from "react-router-dom";
 const Yourself = () => {
   const [selection, setSelection] = useState("comfortable");
   const [userType, setUserType] = useState("");
@@ -145,12 +146,14 @@ const Yourself = () => {
                     <Button variant="outline" size="lg">
                       Skip
                     </Button>
-                    <Button
-                      size="lg"
-                      className="bg-purple-600 hover:bg-purple-700"
-                    >
-                      Sav e
-                    </Button>
+                    <Link to="/user/home">
+                      <Button
+                        size="lg"
+                        className="bg-purple-600 hover:bg-purple-700"
+                      >
+                        Save
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               )}

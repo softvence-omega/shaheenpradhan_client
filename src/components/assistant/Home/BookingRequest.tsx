@@ -14,17 +14,20 @@ const BookingRequest = () => {
               Jane Smith submitted a booking request.
             </p>
           </div>
-          <button className="text-base underline text-[#4099FF] w-fit">
+          <button className="text-base underline text-[#4099FF] w-fit cursor-pointer">
             View Details
           </button>
         </div>
 
         {/* Right Actions */}
         <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-          <Button variant="ghost" className="text-red-600 w-full sm:w-auto">
+          <Button
+            variant="ghost"
+            className="text-red-600 w-full sm:w-auto cursor-pointer"
+          >
             Decline
           </Button>
-          <Button variant="outline" className="w-full sm:w-auto">
+          <Button variant="outline" className="w-full sm:w-auto cursor-pointer">
             Accept
           </Button>
         </div>
