@@ -2,6 +2,7 @@ import { MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import chat from "@/assets/icons/chat.png"; // Make sure this path is correct
 import { useState } from "react";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 type Review = {
   id: string;
@@ -65,8 +66,9 @@ const TaskInformation = ({
   };
 
   return (
+    /* User Book */
     <div className="w-full font-DMsans">
-      <div className="w-full mx-auto flex flex-col sm:flex-row gap-6 font-DMsans space-x-0 sm:space-x-20">
+      <div className="w-full mx-auto flex  justify-between  gap-6 font-DMsans  ">
         {/* Profile Section */}
         <div className="flex justify-center items-center">
           <div className="space-y-7">
@@ -107,7 +109,7 @@ const TaskInformation = ({
         </div>
 
         {/* Info Section */}
-        <div className="flex justify-between items-center space-x-0 sm:space-x-20 w-full">
+        <div className="flex justify-between items-center">
           <div className="gap-2 text-[#4D4D4D] text-lg space-y-9 w-full max-w-xs ">
             <div className="flex justify-between items-center">
               <div>
@@ -115,7 +117,7 @@ const TaskInformation = ({
                 <p className="text-[#750000]">{timeLeft}</p>
               </div>
               {status === "Currently working" && (
-                <a className="mt-6 inline-block text-[18px] font-medium leading-[18px] text-[#8559CA] border-b-2 border-[#8559CA] hover:text-[#6b41b3] hover:border-[#6b41b3] transition duration-200 cursor-pointer">
+                <a className="mt-6 ml-2 inline-block text-[18px] font-medium leading-[18px] text-[#8559CA] border-b-2 border-[#8559CA] hover:text-[#6b41b3] hover:border-[#6b41b3] transition duration-200 cursor-pointer">
                   Extend time
                 </a>
               )}
@@ -166,7 +168,8 @@ const TaskInformation = ({
               )}
             </div>
           </div>
-
+        </div>
+        <div className="flex justify-between items-center mr-20">
           {/* Date/Time Section */}
           <div className="text-[16px] space-y-8">
             <div>
@@ -192,7 +195,8 @@ const TaskInformation = ({
                   <Button variant="ghost" className="text-red-500">
                     Cancel
                   </Button>
-                  <Button>Reschedule</Button>
+                  {/* <Button className="cursor-pointer">Reschedule</Button> */}
+                  <DialogDateTimeRangePicker />
                 </>
               )}
             </div>

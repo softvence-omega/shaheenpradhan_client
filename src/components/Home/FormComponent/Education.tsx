@@ -32,7 +32,7 @@ const Education = () => {
   });
 
   return (
-    <div className="space-y-10 max-w-7xl mx-auto px-4">
+    <div className="space-y-10 max-w-[780px] mx-auto px-4">
       {/* Education */}
       <section>
         <div className="mb-4">
@@ -153,10 +153,10 @@ const Education = () => {
 
       {/* Navigation Buttons */}
       <div className="flex flex-col sm:flex-row justify-end gap-4">
-        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100">
+        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white cursor-pointer">
           Back
         </button>
-        <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
+        <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700 cursor-pointer">
           Next
         </button>
       </div>

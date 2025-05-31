@@ -12,7 +12,7 @@ const AssistantBilling = () => {
           subTitle=""
         ></TitleAndSubTitle>
         <div className="space-x-4">
-          <Button className="w-[191px] h-[46px] px-[24px] py-[14px] rounded-md gap-[10px] text-[18px]">
+          <Button className="w-[191px] h-[46px] px-[24px] py-[14px] rounded-md gap-[10px] text-[18px] cursor-pointer">
             Request Withdraw
           </Button>
         </div>

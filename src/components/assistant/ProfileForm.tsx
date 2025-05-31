@@ -136,7 +136,7 @@ const ProfileForm = () => {
           </label>
         </div>
         <div className="flex justify-baseline items-center space-x-3 ">
-          <button className="w-[143px] h-[30px] border border-[] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white  flex items-center gap-2">
+          <button className="w-[143px] h-[30px] border border-[] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white  flex items-center gap-2 cursor-pointer">
             Upload File
           </button>
 
@@ -194,7 +194,9 @@ const ProfileForm = () => {
               Issued Oct 2023 • The Institute of Executive Assistants
             </p>
           </div>
-          <Button variant="outline">View</Button>
+          <Button className="cursor-pointer" variant="outline">
+            View
+          </Button>
         </div>
         <button className="mt-2 text-[#8559CA] hover:underline text-sm cursor-pointer">
           + Add New Payment Method

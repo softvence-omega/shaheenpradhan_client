@@ -1,5 +1,4 @@
 import AssistantSidebarDashboard from "@/components/shared/Dashboard/AssistantSidebarDashboard";
-import SidebarDashboard from "@/components/shared/Dashboard/SidebarDashboard";
 import DashboardNavbar from "@/components/UserDashboard/DashboardNavbar";
 import { cn } from "@/lib/utils";
 import { Outlet } from "react-router-dom";

@@ -30,7 +30,7 @@ const CurrentlyWorking = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3 sm:gap-6">
-              <Link to="/user/user-profile">
+              <Link to="/user/current-booking">
                 <Button variant="outline" className="w-full sm:w-auto">
                   View Full Details
                 </Button>

@@ -1,10 +1,8 @@
-import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
 import HomePage from "@/pages/home/HomePage";
-
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
@@ -14,17 +12,13 @@ import PendingPage from "@/pages/user/PendingPage";
 import ConfirmBookPage from "@/pages/user/ConfirmBookPage";
 import ConfirmRequestPage from "@/pages/user/ConfirmRequestPage";
 import UserHomePage from "@/pages/user/UserHomePage";
-import Login from "@/pages/auth/Login";
-import Register from "@/pages/auth/Register";
 import CurrentBookingPage from "@/pages/user/CorrentBookingPage";
 import UserProfilePage from "@/pages/user/UserProfilePage";
 import NotificationPage from "@/pages/user/NotificationPage";
 import AssistantLayout from "@/layout/AssistantLayout";
 import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
-import AssistantBilling from "@/components/assistant/AssistantBilling/AssistantBilling";
 import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
 import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
-import MytaskInformation from "@/pages/assistant/MytaskInformation";
 import TaskBookingRequest from "@/pages/assistant/TaskBookingRequest";
 import TaskCurrentPage from "@/pages/assistant/TaskCurrentPage";
 import TaskUpcomingPage from "@/pages/assistant/TaskUpcomingPage";
@@ -37,10 +31,13 @@ import EducationPage from "@/pages/home/EducationPage";
 import PersonalInfoPage from "@/pages/home/PersonalInfoPage";
 import WorkPreferencePage from "@/pages/home/WorkPreferencePage";
 import ExperienceSkillPage from "@/pages/home/ExperienceSkillPage";
-import Reuserable from "@/components/home/Reuserable";
+import LoginPage from "@/pages/LoginPage/LoginPage";
+import { SignupTabs } from "@/pages/signup/SignupTabs";
+import Yourself from "@/pages/company-yourself/Yourself";
 import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
 import Profile from "@/pages/profile/Profile";
 import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
+import DashboardBookingMatcher from "@/pages/userDashboardBookingMatcher";
 
 export const router = createBrowserRouter([
   {
@@ -52,16 +49,20 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "login",
-        element: <Login />,
+        path: "logins",
+        element: <LoginPage />,
       },
       {
-        path: "signup",
-        element: <Register />,
+        path: "signups",
+        element: <SignupTabs />,
       },
       {
         path: "assistant-books",
         element: <AssistantsPage />,
+      },
+      {
+        path: "company-yourself",
+        element: <Yourself />,
       },
       {
         path: "profile-summary",
@@ -71,10 +72,7 @@ export const router = createBrowserRouter([
         path: "ai-matcher",
         element: <AiMatchMaking />,
       },
-      {
-        path: "reuserable",
-        element: <Reuserable />,
-      },
+
       /* Arfin form */
       {
         path: "personal-info",
@@ -123,17 +121,21 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <UserDashboard />,
-      },
-      {
-        path: "user-dashboard",
-        element: <UserDashboard />,
+        element: <Navigate to="home" replace />,
       },
       {
         path: "home",
         element: <UserHomePage />,
       },
 
+      {
+        path: "find-assistant-matcher",
+        element: <DashboardBookingMatcher />,
+      },
+      {
+        path: "profile-summery",
+        element: <Profile />,
+      },
       /* Find Assistant */
       {
         path: "assistant-booking",
@@ -199,7 +201,6 @@ export const router = createBrowserRouter([
         path: "availability",
         element: <UserHomePage />,
       },
-
       {
         path: "assistant-profile",
         element: <AssistantProfilePage />,

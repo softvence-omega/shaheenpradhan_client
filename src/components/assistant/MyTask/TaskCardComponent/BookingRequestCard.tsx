@@ -64,12 +64,14 @@ const BookingRequestCard = () => {
             <div className="space-y-16">
               <div>
                 <Link to="/assistant/booking-task-3">
-                  <Button variant="outline">View Full Details</Button>
+                  <Button className="cursor-pointer" variant="outline">
+                    View Full Details
+                  </Button>
                 </Link>
               </div>
 
               <div className="flex space-x-3 mt-8">
-                <Button variant="ghost" className="text-red-500">
+                <Button variant="ghost" className="text-red-500 cursor-pointer">
                   Cancel
                 </Button>
                 <Button>Accept</Button>

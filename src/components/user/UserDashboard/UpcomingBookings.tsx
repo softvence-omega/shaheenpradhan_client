@@ -1,7 +1,11 @@
+"use client";
+
 import { MapPin } from "lucide-react";
 import assistphoto from "@/assets/images/taskphoto.png";
 import chat from "@/assets/icons/chat.png";
 import { Button } from "@/components/ui/button";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
+import { Link } from "react-router-dom";
 
 const UpcomingBookings = () => {
   return (
@@ -54,9 +58,12 @@ const UpcomingBookings = () => {
           {/* Buttons */}
           <div className="flex flex-col gap-4 text-sm w-full lg:w-auto">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button variant="outline" className="w-full sm:w-auto">
-                View Full Details
-              </Button>
+              <Link to="/user/upcoming-booking">
+                <Button variant="outline" className="w-full sm:w-auto">
+                  View Full Details
+                </Button>
+              </Link>
+
               <div className="flex items-center gap-2 text-gray-700">
                 <img src={chat} alt="chat" className="w-5 h-5" />
                 <p className="font-medium">Chat</p>
@@ -66,7 +73,9 @@ const UpcomingBookings = () => {
               <Button variant="ghost" className="text-red-600 w-full sm:w-auto">
                 Cancel
               </Button>
-              <Button className="w-full sm:w-auto">Reschedule</Button>
+
+              {/* Replace Reschedule button with DialogDateTimeRangePicker */}
+              <DialogDateTimeRangePicker />
             </div>
           </div>
         </div>

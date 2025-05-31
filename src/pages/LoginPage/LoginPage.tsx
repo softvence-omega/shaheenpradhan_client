@@ -51,18 +51,21 @@ const LoginPage = () => {
                       <Input name="password" id="password" type="password" />
                     </div>
                   </CardContent>
-                  <CardFooter className="flex flex-col gap-2 pt-3">
-                    <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
-                      Login
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="w-full flex items-center justify-center gap-2"
-                    >
-                      <AiOutlineGoogle className="w-4 h-4" />
-                      <span>Login with Google</span>
-                    </Button>
-                  </CardFooter>
+                  <Link to="/user/home">
+                    <CardFooter className="flex flex-col gap-2 pt-3">
+                      <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
+                        Login
+                      </Button>
+
+                      <Button
+                        variant="outline"
+                        className="w-full flex items-center justify-center gap-2"
+                      >
+                        <AiOutlineGoogle className="w-4 h-4" />
+                        <span>Login with Google</span>
+                      </Button>
+                    </CardFooter>
+                  </Link>
                 </form>
                 <div className="text-center mt-3">
                   <p className="text-sm">

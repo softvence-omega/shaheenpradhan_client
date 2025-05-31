@@ -13,6 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Upload } from "lucide-react";
+import { useState } from "react";
 
 // Zod schema
 const formSchema = z.object({
@@ -20,6 +23,15 @@ const formSchema = z.object({
 });
 
 const ExperienceSkill = () => {
+  const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
+
+  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setProfilePhoto(file);
+    }
+  };
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,7 +40,7 @@ const ExperienceSkill = () => {
   });
 
   return (
-    <div>
+    <div className="max-w-[780px]">
       <div>
         <div>
           <div className="w-full">
@@ -62,17 +74,36 @@ const ExperienceSkill = () => {
                     </Select>
                   </div>
                 </div>
-                {/* Gender */}
-                <div className="w-full ">
-                  <Label className="block text-sm font-medium mb-3">
+                {/* Profile Photo */}
+                <div className="w-full">
+                  <Label
+                    htmlFor="profile-photo"
+                    className="block text-sm font-medium mb-3"
+                  >
                     Profile Photo
                   </Label>
-                  <div className="flex justify-baseline items-center space-x-3 ">
-                    <button className="w-[143px] h-[30px] border border-[] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white  flex items-center gap-2">
+                  <div className="flex items-center gap-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="relative"
+                      onClick={() =>
+                        document.getElementById("photo-upload")?.click()
+                      }
+                    >
+                      <Upload className="w-4 h-4 mr-2" />
                       Upload a photo
-                    </button>
-
-                    <p className="text-sm text-gray-400 ">No file uploaded</p>
+                      <input
+                        id="photo-upload"
+                        type="file"
+                        accept="image/*"
+                        className="absolute inset-0 opacity-0 cursor-pointer"
+                        onChange={handlePhotoUpload}
+                      />
+                    </Button>
+                    <span className="text-sm text-gray-500">
+                      {profilePhoto ? profilePhoto.name : "No file uploaded"}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -146,10 +177,10 @@ const ExperienceSkill = () => {
         <hr className="border-b border-[#E5E5E5]" />
       </div>
       <div className="flex flex-col sm:flex-row justify-end gap-4 mt-5">
-        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white">
+        <button className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-white cursor-pointer">
           Back
         </button>
-        <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700">
+        <button className="px-4 py-2 bg-[#B655DA] text-white rounded-lg hover:bg-purple-700 cursor-pointer">
           Next
         </button>
       </div>

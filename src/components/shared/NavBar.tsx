@@ -49,7 +49,7 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="items-center flex-shrink-0 lg:hidden flex">
-            <Link to="#" className="flex items-center cursor-pointer">
+            <Link to="/signups" className="flex items-center cursor-pointer">
               <Button variant="outline" className="cursor-pointer rounded-md">
                 Get Started
               </Button>
@@ -100,7 +100,7 @@ const NavBar = () => {
               </Link>
             </div>
             <div className="items-center flex-shrink-0 hidden lg:flex">
-              <Link to="#" className="flex items-center cursor-pointer">
+              <Link to="/signups" className="flex items-center cursor-pointer">
                 <Button variant="outline" className="cursor-pointer rounded-md">
                   Get Started
                 </Button>

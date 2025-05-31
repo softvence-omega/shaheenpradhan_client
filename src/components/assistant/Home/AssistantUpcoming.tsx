@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 import assistphoto from "@/assets/images/taskphoto.png";
 import chat from "@/assets/icons/chat.png";
 import { Button } from "@/components/ui/button";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 const AssistantUpcoming = () => {
   return (
@@ -50,15 +51,22 @@ const AssistantUpcoming = () => {
         {/* Buttons */}
         <div className="flex flex-col gap-4 text-sm w-full lg:w-auto">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Button variant="outline" className="w-full sm:w-auto">
+            <Button
+              variant="outline"
+              className="w-full sm:w-auto cursor-pointer"
+            >
               View Full Details
             </Button>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Button variant="ghost" className="text-red-600 w-full sm:w-auto">
+            <Button
+              variant="ghost"
+              className="text-red-600 w-full sm:w-auto cursor-pointer"
+            >
               Cancel
             </Button>
-            <Button className="w-full sm:w-auto">Reschedule</Button>
+            {/* <Button className="cursor-pointer">Reschedule</Button> */}
+            <DialogDateTimeRangePicker />
           </div>
         </div>
       </div>
