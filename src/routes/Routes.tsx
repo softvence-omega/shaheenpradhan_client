@@ -38,6 +38,9 @@ import PersonalInfoPage from "@/pages/home/PersonalInfoPage";
 import WorkPreferencePage from "@/pages/home/WorkPreferencePage";
 import ExperienceSkillPage from "@/pages/home/ExperienceSkillPage";
 import Reuserable from "@/components/home/Reuserable";
+import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
+import Profile from "@/pages/profile/Profile";
+import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +58,18 @@ export const router = createBrowserRouter([
       {
         path: "signup",
         element: <Register />,
+      },
+      {
+        path: "assistant-books",
+        element: <AssistantsPage />,
+      },
+      {
+        path: "profile-summary",
+        element: <Profile />,
+      },
+      {
+        path: "ai-matcher",
+        element: <AiMatchMaking />,
       },
       {
         path: "reuserable",
