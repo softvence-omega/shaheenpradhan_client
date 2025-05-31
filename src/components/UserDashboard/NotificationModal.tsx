@@ -48,12 +48,17 @@ const NotificationModal = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <div>
-          <Bell className="w-5 h-4.5 relative" />
-          <p className="bg-red-600 text-center text-white rounded-full text-xs absolute w-5 h-4.5 top-1  right-14">
-            5
-          </p>
-        </div>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="relative "
+        >
+          <Bell className="h-6 w-6 text-gray-700" />
+
+          <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs font-medium flex items-center justify-center">
+            99
+          </span>
+        </Button>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-md p-0 overflow-hidden [&>button]:hidden">
@@ -81,9 +86,7 @@ const NotificationModal = () => {
               >
                 <div className="flex-1 space-y-1">
                   <h3
-                    className={`f ${getNotificationColor(
-                      notification.type
-                    )}`}
+                    className={`f ${getNotificationColor(notification.type)}`}
                   >
                     {notification.title}
                   </h3>
@@ -96,7 +99,6 @@ const NotificationModal = () => {
                 </span>
               </div>
             ))}
-        
 
             <div className="pt-2 text-center">
               <Button
