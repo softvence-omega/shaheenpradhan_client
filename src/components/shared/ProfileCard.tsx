@@ -15,7 +15,7 @@ const ProfileCard = ({
   location,
   itsWorkingTime,
   gender,
-  Availability,
+  // Availability,
   Experience,
   language,
   hourlyPay,
@@ -47,7 +47,9 @@ const ProfileCard = ({
               {/* Star Badge */}
               <div className="absolute -bottom-2 inline-flex items-center space-x-1 bg-yellow-50 px-2 py-0.5 rounded-lg shadow-sm">
                 <Star className="sm:w-3 w-4 sm:h-3 h-4 text-yellow-500" />
-                <p className="text-sm sm:text-xs font-medium">{rating || "4.3"}</p>
+                <p className="text-sm sm:text-xs font-medium">
+                  {rating || "4.3"}
+                </p>
                 <p className="text-sm sm:text-xs font-medium text-gray-400">
                   {totalRating || "8"}
                 </p>
@@ -56,7 +58,9 @@ const ProfileCard = ({
 
             {/* Name and Role */}
             <div className="text-center mt-2">
-              <h1 className="text-lg sm:text-sm font-semibold">{name || "user name"}</h1>
+              <h1 className="text-lg sm:text-sm font-semibold">
+                {name || "user name"}
+              </h1>
               <p className="text-sm sm:text-xs text-gray-500">
                 {designation || "user designation"}
               </p>
@@ -70,9 +74,7 @@ const ProfileCard = ({
             <div className="flex items-center space-x-1">
               {" "}
               <MapPin className="w-4 h-4" />{" "}
-              <p className="text-[15px]">
-                {location || "Dubai, UAE"}
-              </p>
+              <p className="text-[15px]">{location || "Dubai, UAE"}</p>
             </div>
             <p className="text-[15px]">Available Now</p>
           </div>
