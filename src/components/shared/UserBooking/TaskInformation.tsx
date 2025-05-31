@@ -2,6 +2,7 @@ import { MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import chat from "@/assets/icons/chat.png"; // Make sure this path is correct
 import { useState } from "react";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 type Review = {
   id: string;
@@ -194,7 +195,8 @@ const TaskInformation = ({
                   <Button variant="ghost" className="text-red-500">
                     Cancel
                   </Button>
-                  <Button>Reschedule</Button>
+                  {/* <Button className="cursor-pointer">Reschedule</Button> */}
+                  <DialogDateTimeRangePicker />
                 </>
               )}
             </div>

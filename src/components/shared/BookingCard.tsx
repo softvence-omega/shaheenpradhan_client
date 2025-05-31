@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { Link } from "react-router-dom";
 
 const BookingCard = () => {
   return (
@@ -121,12 +122,16 @@ const BookingCard = () => {
 
           {/* BUTTON SECTION */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
-            <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
-              Request Interview
-            </Button>
-            <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
-              Book Now
-            </Button>
+            <Link to="/user/assistant-request-confirm">
+              <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
+                Request Interview
+              </Button>
+            </Link>
+            <Link to="/user/assistant-booking">
+              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
+                Book Now
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="bg-white p-5 rounded-xl border-[1px] border-gray-900/10">
@@ -233,12 +238,16 @@ const BookingCard = () => {
 
           {/* BUTTON SECTION */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
-            <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
-              Request Interview
-            </Button>
-            <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
-              Book Now
-            </Button>
+            <Link to="/user/assistant-request-confirm">
+              <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
+                Request Interview
+              </Button>
+            </Link>
+            <Link to="/user/assistant-booking">
+              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
+                Book Now
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="bg-white p-5 rounded-xl border-[1px] border-gray-900/10">
@@ -345,12 +354,16 @@ const BookingCard = () => {
 
           {/* BUTTON SECTION */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
-            <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
-              Request Interview
-            </Button>
-            <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
-              Book Now
-            </Button>
+            <Link to="/user/assistant-request-confirm">
+              <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
+                Request Interview
+              </Button>
+            </Link>
+            <Link to="/user/assistant-booking">
+              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
+                Book Now
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

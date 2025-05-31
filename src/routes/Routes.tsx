@@ -1,4 +1,3 @@
-import { UserDashboard } from "@/components/home/BillingCard/UserDashboard";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
 import PastBookingPage from "@/pages/user/PastBookingPage";
@@ -35,6 +34,10 @@ import ExperienceSkillPage from "@/pages/home/ExperienceSkillPage";
 import LoginPage from "@/pages/LoginPage/LoginPage";
 import { SignupTabs } from "@/pages/signup/SignupTabs";
 import Yourself from "@/pages/company-yourself/Yourself";
+import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
+import Profile from "@/pages/profile/Profile";
+import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
+import DashboardBookingMatcher from "@/pages/userDashboardBookingMatcher";
 
 export const router = createBrowserRouter([
   {
@@ -54,9 +57,22 @@ export const router = createBrowserRouter([
         element: <SignupTabs />,
       },
       {
+        path: "assistant-books",
+        element: <AssistantsPage />,
+      },
+      {
         path: "company-yourself",
         element: <Yourself />,
       },
+      {
+        path: "profile-summary",
+        element: <Profile />,
+      },
+      {
+        path: "ai-matcher",
+        element: <AiMatchMaking />,
+      },
+
       /* Arfin form */
       {
         path: "personal-info",
@@ -112,6 +128,14 @@ export const router = createBrowserRouter([
         element: <UserHomePage />,
       },
 
+      {
+        path: "find-assistant-matcher",
+        element: <DashboardBookingMatcher />,
+      },
+      {
+        path: "profile-summery",
+        element: <Profile />,
+      },
       /* Find Assistant */
       {
         path: "assistant-booking",
@@ -177,7 +201,6 @@ export const router = createBrowserRouter([
         path: "availability",
         element: <UserHomePage />,
       },
-
       {
         path: "assistant-profile",
         element: <AssistantProfilePage />,

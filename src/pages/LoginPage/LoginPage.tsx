@@ -50,7 +50,7 @@ const LoginPage = () => {
                       <Input name="password" id="password" type="password" />
                     </div>
                   </CardContent>
-                  <Link to="/assistant/home">
+                  <Link to="/user/home">
                     <CardFooter className="flex flex-col gap-2 pt-3">
                       <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
                         Login

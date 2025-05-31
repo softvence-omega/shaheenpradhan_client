@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 const UpcomingCard = () => {
   return (
@@ -67,7 +68,8 @@ const UpcomingCard = () => {
             <Button variant="ghost" className="text-red-500 cursor-pointer">
               Cancel
             </Button>
-            <Button className="cursor-pointer">Reschedule</Button>
+            {/* <Button className="cursor-pointer">Reschedule</Button> */}
+            <DialogDateTimeRangePicker />
           </div>
         </div>
       </div>

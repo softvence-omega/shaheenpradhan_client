@@ -3,6 +3,7 @@ import { MapPin } from "lucide-react";
 import assistphoto from "@/assets/images/taskphoto.png";
 import chat from "@/assets/icons/chat.png";
 import { Button } from "@/components/ui/button";
+import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 const TaskInfo = () => {
   return (
@@ -92,7 +93,8 @@ const TaskInfo = () => {
                 <Button variant="ghost" className="text-red-500">
                   Cancel
                 </Button>
-                <Button>Reschedule</Button>
+                {/* <Button className="cursor-pointer">Reschedule</Button> */}
+                <DialogDateTimeRangePicker />
               </div>
             </div>
           </div>

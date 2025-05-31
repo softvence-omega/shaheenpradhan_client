@@ -146,7 +146,7 @@ const Yourself = () => {
                     <Button variant="outline" size="lg">
                       Skip
                     </Button>
-                    <Link to="/user/home">
+                    <Link to="/assistant/home">
                       <Button
                         size="lg"
                         className="bg-purple-600 hover:bg-purple-700"

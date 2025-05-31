@@ -1,16 +1,19 @@
 import { Sidebar, SidebarBody } from "@/components/aceternity/Sidebar";
-import { GiBackwardTime } from "react-icons/gi";
+import { MdOutlinePayments } from "react-icons/md";
+
 import { useState } from "react";
 import {
   Banknote,
+  CalendarCheck,
   CalendarDays,
   CalendarFold,
+  CalendarMinus2,
   CircleHelp,
+  Clock4,
   History,
   House,
   Settings,
   Star,
-  UserRound,
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
 import { SidebarLink } from "@/components/aceternity/SidebarLink";
@@ -20,70 +23,73 @@ const AssistantSidebarDashboard = () => {
       label: "Home",
       href: "/assistant/home",
       icon: (
-        <House className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <House className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Availability",
       href: "/assistant/availability",
       icon: (
-        <CalendarDays className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <CalendarDays className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "My Tasks",
       href: "/assistant/current-task",
-      icon: (
-        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
+      icon: null, // or remove the icon field entirely
     },
     {
       label: "Current Tasks",
       href: "/assistant/current-task",
       icon: (
-        <CalendarFold className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <CalendarCheck className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Upcoming Tasks",
       href: "/assistant/upcoming-task",
       icon: (
-        <GiBackwardTime className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <CalendarMinus2 className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Booking Requests",
       href: "/assistant/booking-task",
       icon: (
-        <History className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <Clock4 className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Completed Tasks",
       href: "/assistant/completed-task",
       icon: (
-        <Star className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <History className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
+    },
+    {
+      label: "Settings",
+      href: "/assistant/current-task",
+      icon: null, // or remove the icon field entirely
     },
     {
       label: "Billing",
       href: "/assistant/assistant-billing",
       icon: (
-        <Banknote className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <MdOutlinePayments className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "Support",
       href: "#",
       icon: (
-        <CircleHelp className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <CircleHelp className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Settings",
+      label: "Setting",
       href: "#",
       icon: (
-        <Settings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <Settings className="h-6 w-6 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
   ];

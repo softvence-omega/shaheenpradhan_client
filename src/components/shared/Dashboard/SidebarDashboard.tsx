@@ -6,6 +6,7 @@ import {
   CalendarDays,
   CalendarFold,
   CircleHelp,
+  Clock4,
   History,
   House,
   Settings,
@@ -14,6 +15,7 @@ import {
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
 import { SidebarLink } from "@/components/aceternity/SidebarLink";
+import { UserSidebarLink } from "@/components/aceternity/UserSidebarLink";
 const SidebarDashboard = () => {
   const links = [
     {
@@ -32,18 +34,17 @@ const SidebarDashboard = () => {
     },
     {
       label: "Find Assistants",
-      href: "/user/assistant-booking",
+      href: "/user/find-assistant-matcher",
       icon: (
         <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Find Assistants Confirm",
-      href: "/user/assistant-request-confirm",
-      icon: (
-        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
-      ),
+      label: "My Booking",
+      href: "/assistant/current-task",
+      icon: null, // or remove the icon field entirely
     },
+
     {
       label: "Current Bookings",
       href: "/user/current-booking",
@@ -63,7 +64,7 @@ const SidebarDashboard = () => {
       label: "Pending",
       href: "/user/pending",
       icon: (
-        <GiBackwardTime className="h-5.5 w-5.5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <Clock4 className="h-5.5 w-5.5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
@@ -72,6 +73,11 @@ const SidebarDashboard = () => {
       icon: (
         <History className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
+    },
+    {
+      label: "Settings",
+      href: "/assistant/current-task",
+      icon: null, // or remove the icon field entirely
     },
     {
       label: "Billing",
@@ -102,7 +108,7 @@ const SidebarDashboard = () => {
       <SidebarBody className="justify-between gap-4  bg-white border-t border-neutral-200 h-[80vh]">
         <div className=" flex flex-col gap-2">
           {links.map((link, idx) => (
-            <SidebarLink key={idx} link={link} />
+            <UserSidebarLink key={idx} link={link} />
           ))}
         </div>
         <PlatformReview />
