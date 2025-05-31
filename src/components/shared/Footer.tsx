@@ -22,7 +22,11 @@ const Footer = () => {
   const locked =
     location.pathname == "/signups" ||
     location.pathname == "/logins" ||
-    location.pathname == "/company-yourself";
+    location.pathname == "/company-yourself" ||
+    location.pathname == "/personal-info" ||
+    location.pathname == "/work-preferance" ||
+    location?.pathname == "/experience-skill" ||
+    location.pathname == "/education";
   return (
     <Wrapper>
       <div className={cn("space-y-16 font-DMsans", locked && "hidden")}>
