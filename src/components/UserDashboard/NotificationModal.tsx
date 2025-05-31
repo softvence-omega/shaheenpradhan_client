@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { useState } from "react";
 import Divider from "../shared/Divider";
+import { Link } from "react-router-dom";
 
 const NotificationModal = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -48,13 +49,8 @@ const NotificationModal = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="relative "
-        >
+        <Button variant="ghost" size="icon" className="relative ">
           <Bell className="h-6 w-6 text-gray-700" />
-
           <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-red-500 text-white text-xs font-medium flex items-center justify-center">
             99
           </span>
@@ -101,12 +97,12 @@ const NotificationModal = () => {
             ))}
 
             <div className="pt-2 text-center">
-              <Button
-                variant="link"
+              <Link
+                to="/user/notification"
                 className="text-purple-600 hover:text-purple-700 p-0 h-auto font-normal"
               >
                 View all notifications
-              </Button>
+              </Link>
             </div>
           </CardContent>
         </Card>
