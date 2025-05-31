@@ -1,10 +1,8 @@
 import Wrapper from "@/components/shared/Wrapper";
 import Search from "@/assets/icon/AiSearchIcon.svg";
 import Divider from "@/components/shared/Divider";
-import ProgressDemo from "@/components/shared/ProgressBar";
-import BookingCard from "@/components/shared/BookingCard";
-import MatchBookingCard from "@/components/match-making/matchBookingCard";
 import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
+import MatchBookingCard from "@/components/match-making/MatchBookingCard";
 
 const AiMatchMaking = () => {
   return (
