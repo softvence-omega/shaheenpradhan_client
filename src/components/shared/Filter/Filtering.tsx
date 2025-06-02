@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 const Filtering = () => {
   return (
     <div className="font-DMsans">
-      <Wrapper>
         {/* FOR MOBILE DEVICE SEARCH BAR */}
         <div className="w-full space-y-2 lg:hidden block my-5">
           <div className="flex items-center justify-between space-x-3">
@@ -44,7 +43,7 @@ const Filtering = () => {
             <Button
               size="lg"
               variant="outline"
-              className="flex items-center space-x-1.5 cursor-pointer"
+              className="flex items-center space-x-1.5 cursor-pointer bg-transparent hover:bg-transparent shadow-none border-[1px] border-TextSecondary"
             >
               <ListFilter />
               <span>Filters</span>
@@ -55,20 +54,20 @@ const Filtering = () => {
             <Button
               size="sm"
               variant="outline"
-              className="cursor-pointer rounded bg-white border-BorderHighlight border-[1px]"
+              className="cursor-pointer rounded bg-white border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
             >
               View all
             </Button>
-            <button className="text-xs sm:text-sm font-medium leading-[150%] cursor-pointer">
+            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
               Available Now
             </button>
-            <button className="text-xs sm:text-sm font-medium leading-[150%] cursor-pointer">
+            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
               Top Rated
             </button>
-            <button className="text-xs sm:text-sm font-medium leading-[150%] cursor-pointer">
+            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
               Category three
             </button>
-            <button className="text-xs sm:text-sm font-medium leading-[150%] cursor-pointer">
+            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
               Category four
             </button>
           </div>
@@ -79,7 +78,6 @@ const Filtering = () => {
         </div>
 
         <Selection />
-      </Wrapper>
     </div>
   );
 };

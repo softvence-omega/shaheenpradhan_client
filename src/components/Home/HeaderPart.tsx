@@ -50,37 +50,39 @@ const HeaderPart = () => {
       <Wrapper>
         <div>
           {/* HEADER TEXT SECTION */}
-          <div className="lg:max-w-1/2 w-full mx-2 xl:mx-0 pt-16 sm:pt-36 space-y-3">
-            <h1 className="text-4xl sm:text-5xl tracking-wider font-semibold text-white ">
-              Your Executive Assistant, On Demand
-            </h1>
-            <p className="text-sm sm:text-[15px] leading-[150%] font-light text-white">
-              Book vetted EAs in minutes, AI-Matched to your needs.
-            </p>
+          <div className="lg:max-w-1/2 w-full mx-2 xl:mx-0 pt-16 sm:pt-36 space-y-8">
+            <div className="space-y-2">
+              <h1 className="text-3xl sm:text-[56px] leading-[120%] font-semibold text-white ">
+                Your Executive Assistant, On Demand
+              </h1>
+              <p className="text-[15px] sm:text-[20px] leading-[120%] font-light text-grayWhite">
+                Book vetted EAs in minutes, AI-Matched to your needs.
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-              <Button className="text-xs sm:text-sm font-light py-3 px4 bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-44 lg:w-fit">
+              <Button className="text-sm sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-5 px-5 sm:py-6 sm:px-7 sm:bg-BorderHighlight/70 hover:bg-BorderHighlight/70 bg-BorderHighlight cursor-pointer w-52 lg:w-fit">
                 Find Your Force Multiplier
               </Button>
-              <Button className="text-xs sm:text-sm font-light py-3 px4 bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer w-44 lg:w-fit">
+              <Button className="text-sm sm:text-[15px] md:text-[16px] font-normal leading-[120%]  py-5 px-5 sm:py-6 sm:px-7 bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer w-52 lg:w-fit">
                 Become a Force Multiplier
               </Button>
             </div>
           </div>
 
           {/* SECOND DIV */}
-          <div className="flex flex-col-reverse sm:flex-row-reverse lg:flex-row pt-5 justify-between gap-2 sm:gap-6 px-2 xl:px-0 w-full">
+          <div className="flex flex-col lg:flex-row pt-10 justify-between gap-2 sm:gap-6 px-2  xl:px-0 w-full">
             {/* ROBOT SECTION */}
-            <div className="flex flex-col  sm:pt-12 w-full sm:w-auto ">
-              <Robot className="shadow-2xl shadow-ButtonBGPrimary rounded-full w-16 sm:w-20 animate-pulse" />
+            <div className="flex flex-col w-full sm:w-auto">
+              <Robot className="shadow-2xl shadow-ButtonBGPrimary rounded-full w-16 sm:w-28" />
               <p className="text-white font-semibold max-w-44 text-xs sm:text-sm mt-2">
                 Adminity Anna Your AI Companion
               </p>
             </div>
 
             {/* AVATAR CARD */}
-            <div className="w-[70%] sm:w-[60%] md:w-[35%] xl:w-[20%]  flex flex-col items-center text-center space-y-4 backdrop-blur-sm p-6 rounded-md border border-gray-50/65">
+            <div className="w-full] sm:w-[330px] flex flex-col gap-3 backdrop-blur-xs p-6 h-fit rounded-[20px] border border-gray-50/65">
               <AnimatedTooltip items={items} />
-              <p className="font-light text-xs sm:text-sm text-white text-center ">
+              <p className="font-light sm:text-[14px] text-grayWhite">
                 No Visa, No Sponsorship, No Hassle – Just your assistant booked
                 within minutes
               </p>

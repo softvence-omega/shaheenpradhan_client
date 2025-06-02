@@ -12,7 +12,7 @@ const HeaderSecondPart = () => {
       className=" py-16 text-white text-center font-DMsans"
     >
       <div className="max-w-xl mx-auto mb-12 px-4">
-        <h2 className="text-3xl sm:text-4xl leading-snug font-semibold font-sans">
+        <h2 className="text-[40px] sm:text-5xl leading-[120%] font-medium font-sans ">
           Three Easy Steps to Get Your Assistant
         </h2>
       </div>
@@ -21,7 +21,7 @@ const HeaderSecondPart = () => {
         {/* Step 1 */}
         <div className="flex flex-col items-center justify-center text-center h-full space-y-4">
           <Search className="w-8 h-8 bg-yellow-50/80 p-1 rounded-md" />
-          <p className="text-sm sm:text-[15px] font-light max-w-[200px]">
+          <p className="text-sm sm:text-[16px] font-medium max-w-[200px]">
             Browse Assistant With The Power of AI Filters
           </p>
         </div>
@@ -29,7 +29,7 @@ const HeaderSecondPart = () => {
         {/* Step 2 */}
         <div className="flex flex-col items-center justify-center text-center h-full space-y-4">
           <User className="w-8 h-8 bg-[#FFF8D4] p-1 rounded-md" />
-          <p className="text-sm sm:text-[15px] font-light max-w-[200px]">
+          <p className="text-sm sm:text-[16px] font-medium max-w-[200px]">
             Meet Your Assistant Online Before Booking
           </p>
         </div>
@@ -37,7 +37,7 @@ const HeaderSecondPart = () => {
         {/* Step 3 */}
         <div className="flex flex-col items-center justify-center text-center h-full space-y-4">
           <SuperPower className="w-8 h-8 bg-[#FFEDEB] p-1 rounded-md" />
-          <p className="text-sm sm:text-[15px] font-light max-w-[200px]">
+          <p className="text-sm sm:text-[16px] font-medium max-w-[200px]">
             Book, Pay And Superpower Your Day
           </p>
         </div>
