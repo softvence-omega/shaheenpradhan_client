@@ -22,7 +22,7 @@ const Matchmaker = () => {
             <div className="items-center flex-shrink-0 hidden lg:flex">
               <Link to="#" className="flex items-center cursor-pointer">
                 <Button variant="outline" className="cursor-pointer rounded-md">
-                  Get Started
+                Find Your Match
                 </Button>
                 <Button className="bg-ButtonBGSecondary cursor-pointer rounded-sm">
                   <TopArrow />
@@ -30,7 +30,7 @@ const Matchmaker = () => {
               </Link>
             </div>
           </section>
-          <section className="space-y-3 pl-4 sm:pl-0">
+          <section className="space-y-3 ">
             <div className="flex sm:items-center flex-row gap-3">
               <Voice className="bg-Blue/40 rounded-lg w-9 h-9" />
               <h1 className="text-lg sm:text-xl font-semibold tracking-wider">

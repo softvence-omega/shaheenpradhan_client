@@ -15,12 +15,12 @@ const Assistants = () => {
           />
           <Filtering />
           <div className="flex flex-col gap-5">
-            <div className="flex items-center justify-between px-5 xl:px-0">
-              <div className="bg-pink-200 inline-flex p-1 items-center gap-2 rounded">
-                <p className="text-xs sm:text-sm font-light">Tag</p>
-                <X className="w-4 h-4" />
+            <div className="flex items-center justify-between">
+              <div className="bg-pink-200 inline-flex py-2 px-4 items-center gap-2 rounded">
+                <p className="text-sm sm:text-[15px] font-normal text-TextSecondary">Tag</p>
+                <X className="w-4 h-4 text-sm sm:text-[15px] font-medium text-TextSecondary" />
               </div>
-              <p className="text-xs sm:text-[15px] font-light">
+              <p className="text-sm sm:text-[15px] font-medium text-TextSecondary leading-[120%]">
                 Showing 0 of 100
               </p>
             </div>

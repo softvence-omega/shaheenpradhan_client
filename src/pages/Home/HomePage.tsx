@@ -19,7 +19,7 @@ const HomePage = () => {
           <Matchmaker />
           <Meet />
           <Assistant />
-          {/* <Carousel /> */}
+          <Carousel />
         </div>
         <FAQ />
         <HelpSection/>

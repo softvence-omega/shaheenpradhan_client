@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 
 const BookingCard = () => {
   return (
-    <Wrapper>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-DMsans pb-16">
         <div className="bg-white p-5 rounded-xl border-[1px] border-gray-900/10">
           <div className="flex item-center justify-between space-y-3">
@@ -123,12 +122,12 @@ const BookingCard = () => {
           {/* BUTTON SECTION */}
           <div className="flex flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
             <Link to="/user/assistant-request-confirm">
-              <Button className="text-xs sm:text-[15px] font-light cursor-pointer w-fit sm:w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer w-fit sm:w-full">
                 Request Interview
               </Button>
             </Link>
             <Link to="/user/assistant-booking">
-              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
                 Book Now
               </Button>
             </Link>
@@ -136,7 +135,6 @@ const BookingCard = () => {
         </div>
        
       </div>
-    </Wrapper>
   );
 };
 

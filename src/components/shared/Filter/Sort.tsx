@@ -12,25 +12,25 @@ import React from "react";
 const Sort = () => {
   return (
     <Select>
-      <SelectTrigger className="w-[80px]">
+      <SelectTrigger className="w-[80px] shadow-none border-none text-TextSecondary">
         <SelectValue placeholder="Sort" />
       </SelectTrigger>
-      <SelectContent className="w-[80px]">
-        <SelectGroup className="w-[80px]">
-          <SelectLabel className="w-[80px]">Fruits</SelectLabel>
-          <SelectItem className="text-center w-[80px]" value="apple">
+      <SelectContent className="translate-x-[-38%]">
+        <SelectGroup className="">
+          <SelectLabel className="">Fruits</SelectLabel>
+          <SelectItem className="text-center " value="apple">
             Apple
           </SelectItem>
-          <SelectItem className="text-center w-[80px]" value="banana">
+          <SelectItem className="text-center " value="banana">
             Banana
           </SelectItem>
-          <SelectItem className="text-center w-[80px]" value="blueberry">
+          <SelectItem className="text-center " value="blueberry">
             Blueberry
           </SelectItem>
-          <SelectItem className="text-center w-[80px]" value="grapes">
+          <SelectItem className="text-center " value="grapes">
             Grapes
           </SelectItem>
-          <SelectItem className="text-center w-[80px]" value="pineapple">
+          <SelectItem className="text-center " value="pineapple">
             Pineapple
           </SelectItem>
         </SelectGroup>
