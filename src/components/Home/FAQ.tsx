@@ -72,13 +72,13 @@ const FAQ = () => {
           ))}
         </Accordion>
 
-        <div className="font-DMsans space-y-2 w-full sm:w-[60%] mt-16">
-          <div>
+        <div className="font-DMsans space-y-3 w-full sm:w-[60%] mt-16">
+         
             <h1 className="text-2xl sm:text-3xl ">Still have questions?</h1>
             <p className="text-xs sm:text-sm leading-[120%] font-light">
               Still have questions? Visit our full Support page or Contact Us.
             </p>
-          </div>
+          
           <Button className="px-2 sm:p-4 py-2 s text-xs sm:text-[15px] bg-BorderHighlight hover:bg-ColorInfo cursor-pointer">
             Contact Us
           </Button>
