@@ -1,6 +1,6 @@
 import SubFooter from "./SubFooter";
 import Wrapper from "./Wrapper";
-import logo from "@/assets/icons/Logofooter.png";
+import logo from "@/assets/logo/main_logo.png";
 import {
   FaFacebookF,
   FaInstagram,
@@ -23,7 +23,7 @@ const Footer = () => {
     location.pathname == "/education";
   return (
     <Wrapper>
-      <div className={cn("space-y-8 mt-5 font-DMsans", locked && "hidden")}>
+      <div className={cn("space-y-16 mt-20 font-DMsans", locked && "hidden")}>
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-10">
           {/* Part 1 - Address & Contact */}
           <div className="order-3 md:order-none flex flex-col justify-between gap-4">
@@ -36,13 +36,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-[#B655DA] transition-colors duration-200"
                 >
-                  Level 1, 12 Sample St, Sydney NSW 2000
-                </a>
-              </p>
-              <p className="text-[18px] font-normal leading-[27px]">
-                Email:{" "}
-                <a className="hover:text-[#B655DA] transition-colors duration-200">
-                  support@adminity.ai
+                  Level 1, 12 Sample St, <br /> Sydney NSW 2000
                 </a>
               </p>
             </div>
