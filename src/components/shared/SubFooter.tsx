@@ -5,7 +5,7 @@ import Wrapper from "./Wrapper";
 
 const SubFooter = () => {
   return (
-    <Wrapper>
+    <div className="py-4 sm:py-0 ">
       {/* Background Section */}
       <div
         style={{
@@ -26,7 +26,7 @@ const SubFooter = () => {
 
       {/* Bottom Section */}
       <div className="font-DMsans">
-        <hr className="mt-10 border-t-2 border-black w-full" />
+        <hr className="mt-10 h-0 w-full border border-black" />
 
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start py-5 gap-4 md:gap-0 text-left">
           <p className="text-black w-full md:w-auto text-[16px]">
@@ -52,7 +52,7 @@ const SubFooter = () => {
           </div>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 
