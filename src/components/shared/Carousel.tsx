@@ -1,8 +1,11 @@
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Wrapper from "./Wrapper";
 import TitleAndSubTitle from "./TitleAndSubTitle";
 import ReviewCard from "./ReviewCard";
+import NextBtn from "@/assets/icon/nextbtn.svg";
+import PrevBtn from "@/assets/icon/prevbtn.svg";
+
 const value = [
   {
     review: "This service exceeded my expectations. Very professional!",
@@ -77,64 +80,28 @@ const value = [
 ];
 
 export const Carousel = ({
-  direction = "left",
-  speed = "fast",
   pauseOnHover = true,
   className,
 }: {
-  direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const itemsPerPage = 3;
+  const totalPages = Math.ceil(value.length / itemsPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
+  // Get the reviews to display for current page
+  const currentItems = value.slice(
+    currentPage * itemsPerPage,
+    currentPage * itemsPerPage + itemsPerPage
+  );
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
-      getDirection();
-      getSpeed();
-      setStart(true);
-    }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
-      }
-    }
+  const goPrev = () => {
+    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
   };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
+
+  const goNext = () => {
+    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -144,25 +111,34 @@ export const Carousel = ({
           title="Trusted By 1000+ CEOs"
           subTitle="Hear from clients and executive assistants who trust Adminity to connect, collaborate, and succeed."
         />
+
         <div
-          ref={containerRef}
           className={cn(
-            "scroller relative z-20 pt-5 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+            "scroller relative z-20 pt-5 overflow-hidden",
             className
           )}
         >
           <ul
-            ref={scrollerRef}
             className={cn(
               "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
-              start && "animate-scroll",
               pauseOnHover && "hover:[animation-play-state:paused]"
             )}
           >
-            {value?.map((item, idx) => (
-              <ReviewCard value={[...value]} />
+            {currentItems.map((item, idx) => (
+              <ReviewCard key={item.name} value={[item]} />
             ))}
           </ul>
+
+          {/* Pagination Controls */}
+          <div className="flex gap-56 justify-center mt-2">
+            <button onClick={goPrev} className=" cursor-pointer ">
+              <img src={PrevBtn} alt="Ai-SearchIcon" className="w-6 h-6 p-1 rounded-full border-[1px] border-TextSecondary/10" />
+            </button>
+
+            <button onClick={goNext} className=" cursor-pointer ">
+              <img src={NextBtn} alt="Ai-SearchIcon" className="w-6 h-6 p-1 rounded-full border-[1px] border-TextSecondary/10" />
+            </button>
+          </div>
         </div>
       </div>
     </Wrapper>
