@@ -9,8 +9,8 @@ const Selection = () => {
     <div className="hidden lg:flex items-center justify-between bg-white shadow-sm rounded-lg border border-slate-100 p-4 space-x-8 my-4">
       <div className="w-full max-w-[400px] space-y-2">
         <div className="flex items-center justify-between space-x-3">
-          <p className="text-sm font-medium">Search By Task Or Industry</p>
-          <button className="text-sm font-medium">Clear</button>
+          <p className="text-sm sm:text-[15px] font-normal">Search By Task Or Industry</p>
+          <button className="text-sm sm:text-[15px] font-normal">Clear</button>
         </div>
         <fieldset className="w-full space-y-1 dark:text-gray-800">
           <label htmlFor="Search" className="hidden">
@@ -36,8 +36,8 @@ const Selection = () => {
       </div>
       <div className="w-full max-w-[320px] space-y-2">
         <div className="flex items-center justify-between space-x-3">
-          <p className="text-sm font-medium">Location</p>
-          <button className="text-sm font-medium">Clear</button>
+          <p className="text-sm sm:text-[15px] font-normal">Location</p>
+          <button className="text-sm sm:text-[15px] font-normal">Clear</button>
         </div>
         <fieldset className="w-full space-y-1 dark:text-gray-800">
           <label htmlFor="Search" className="hidden">
@@ -52,8 +52,8 @@ const Selection = () => {
       </div>
       <div className="w-full max-w-[320px] space-y-2">
         <div className="flex items-center justify-between space-x-3">
-          <p className="text-sm font-medium">Skills</p>
-          <button className="text-sm font-medium">Clear</button>
+          <p className="text-sm sm:text-[15px] font-normal">Skills</p>
+          <button className="text-sm sm:text-[15px] font-normal">Clear</button>
         </div>
         <Selects
           placeholder="Select your skills"
@@ -68,8 +68,8 @@ const Selection = () => {
       </div>
       <div className="w-full max-w-[320px] space-y-2">
         <div className="flex items-center justify-between space-x-3">
-          <p className="text-sm font-medium">Language</p>
-          <button className="text-sm font-medium">Clear</button>
+          <p className="text-sm sm:text-[15px] font-normal">Language</p>
+          <button className="text-sm sm:text-[15px] font-normal">Clear</button>
         </div>
         <Selects
           placeholder="Select a language"

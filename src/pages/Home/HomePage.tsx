@@ -12,14 +12,14 @@ const HomePage = () => {
   return (
     <div>
       <HeaderPart />
-      <div className="bg-gradient-to-b from-">
+      <div className="">
         <HeaderSecondPart />
         <Assistants />
         <div className="bg-white">
           <Matchmaker />
           <Meet />
           <Assistant />
-          {/* <Carousel /> */}
+          <Carousel />
         </div>
         <FAQ />
         <HelpSection/>

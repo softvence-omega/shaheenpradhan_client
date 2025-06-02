@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 
 const BookingCard = () => {
   return (
-    <Wrapper>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-DMsans pb-16">
+    <div className="py-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-DMsans pb-5">
         <div className="bg-white p-5 rounded-xl border-[1px] border-gray-900/10">
           <div className="flex item-center justify-between space-y-3">
             <div className="flex sm:item-center justify-between space-x-4">
@@ -121,14 +121,14 @@ const BookingCard = () => {
           <div className="w-full h-[1px] bg-gray-900/10" />
 
           {/* BUTTON SECTION */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
+          <div className="flex flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
             <Link to="/user/assistant-request-confirm">
-              <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer w-fit sm:w-full">
                 Request Interview
               </Button>
             </Link>
             <Link to="/user/assistant-booking">
-              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
                 Book Now
               </Button>
             </Link>
@@ -160,7 +160,7 @@ const BookingCard = () => {
                   Neha Mayumi
                 </h1>
                 <p className="text-sm sm:text-[15px] font-light">
-                  Event Specialistt
+                  Event Specialist
                 </p>
               </div>
             </div>
@@ -237,14 +237,14 @@ const BookingCard = () => {
           <div className="w-full h-[1px] bg-gray-900/10" />
 
           {/* BUTTON SECTION */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
+          <div className="flex flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
             <Link to="/user/assistant-request-confirm">
-              <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer w-fit sm:w-full">
                 Request Interview
               </Button>
             </Link>
             <Link to="/user/assistant-booking">
-              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
                 Book Now
               </Button>
             </Link>
@@ -276,7 +276,7 @@ const BookingCard = () => {
                   Neha Mayumi
                 </h1>
                 <p className="text-sm sm:text-[15px] font-light">
-                  Event Specialistt
+                  Event Specialist
                 </p>
               </div>
             </div>
@@ -353,21 +353,30 @@ const BookingCard = () => {
           <div className="w-full h-[1px] bg-gray-900/10" />
 
           {/* BUTTON SECTION */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
+          <div className="flex flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
             <Link to="/user/assistant-request-confirm">
-              <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer w-fit sm:w-full">
                 Request Interview
               </Button>
             </Link>
             <Link to="/user/assistant-booking">
-              <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
+              <Button className="text-xs sm:text-[14px] font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
                 Book Now
               </Button>
             </Link>
           </div>
         </div>
       </div>
-    </Wrapper>
+      
+      <Link to="" className="flex flex-col items-center justify-center ">
+        <Button
+          variant="outline"
+          className="text-xs sm:text-[14px] font-normal bg-transparent hover:bg-transparent border-[1px] border-TextSecondary cursor-pointer w-fit "
+        >
+          Load More
+        </Button>
+      </Link>
+    </div>
   );
 };
 
