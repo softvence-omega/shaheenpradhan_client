@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 
 const Assistants = () => {
   return (
-    <div className="bg-pink-100/80 pt-16">
+    <div className="pt-16">
       <Wrapper>
         <div className="space-y-8">
           <TitleAndSubTitle

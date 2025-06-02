@@ -12,7 +12,7 @@ const HomePage = () => {
   return (
     <div>
       <HeaderPart />
-      <div className="bg-gradient-to-b from-">
+      <div className="">
         <HeaderSecondPart />
         <Assistants />
         <div className="bg-white">

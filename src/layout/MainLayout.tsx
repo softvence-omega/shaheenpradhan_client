@@ -5,7 +5,7 @@ import { Outlet, useLocation } from "react-router-dom";
 const MainLayout = () => {
  
   return (
-    <div className="bg-[#FAF8FD]">
+    <div className="">
       <NavBar />
       <Outlet />
       <Footer />
