@@ -120,8 +120,8 @@ export function SignupTabs() {
                         <Input name="password" id="password2" type="password" />
                       </div>
                     </CardContent>
-                    <CardFooter className="flex flex-col gap-2 pt-3">
-                      <Link to="/company-yourself">
+                    <CardFooter className="flex flex-col gap-2 pt-3 w-full">
+                      <Link to="/company-yourself" className="w-full">
                         <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
                           Sign up
                         </Button>
