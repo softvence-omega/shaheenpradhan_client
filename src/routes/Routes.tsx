@@ -38,6 +38,9 @@ import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
 import Profile from "@/pages/profile/Profile";
 import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
 import DashboardBookingMatcher from "@/pages/userDashboardBookingMatcher";
+import SavedPage from "@/pages/user/SavedPage";
+import SettingPage from "@/pages/user/SettingPage";
+import SupportPage from "@/pages/user/SupportPage";
 
 export const router = createBrowserRouter([
   {
@@ -127,6 +130,10 @@ export const router = createBrowserRouter([
         path: "home",
         element: <UserHomePage />,
       },
+      {
+        path: "saved",
+        element: <SavedPage />,
+      },
 
       {
         path: "find-assistant-matcher",
@@ -181,6 +188,14 @@ export const router = createBrowserRouter([
         path: "billing",
         element: <BillingInfo />,
       },
+      {
+        path: "support",
+        element: <SupportPage />,
+      },
+      {
+        path: "setting",
+        element: <SettingPage />,
+      },
     ],
   },
 
@@ -204,6 +219,10 @@ export const router = createBrowserRouter([
       {
         path: "assistant-profile",
         element: <AssistantProfilePage />,
+      },
+      {
+        path: "assistant-profile-summery",
+        element: <Profile />,
       },
       {
         path: "notification",

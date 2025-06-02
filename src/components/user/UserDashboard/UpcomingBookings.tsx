@@ -12,13 +12,14 @@ const UpcomingBookings = () => {
     <div className="w-full ">
       <div className=" mx-auto bg-white border border-BorderHighlight rounded-lg shadow-sm p-4 lg:p-6 flex flex-col lg:flex-row gap-6 lg:gap-20 font-DMsans">
         {/* Profile Section */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4">
+        <div className="flex flex-col lg:flex-row items-start lg:items-start gap-4">
           <img
             src={assistphoto}
             alt="Mary Cruz"
             className="w-[60px] h-[60px] rounded-full object-cover border border-gray-300"
           />
-          <div className="text-center lg:text-left space-y-2">
+
+          <div className="text-start lg:text-left space-y-2">
             <h2 className="text-[18px] font-semibold text-[#3A1C71]">
               Mary Cruz
             </h2>
@@ -59,18 +60,24 @@ const UpcomingBookings = () => {
           <div className="flex flex-col gap-4 text-sm w-full lg:w-auto">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Link to="/user/upcoming-booking">
-                <Button variant="outline" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto cursor-pointer"
+                >
                   View Full Details
                 </Button>
               </Link>
 
-              <div className="flex items-center gap-2 text-gray-700">
+              <div className="flex items-center gap-2 text-gray-700 cursor-pointer">
                 <img src={chat} alt="chat" className="w-5 h-5" />
                 <p className="font-medium">Chat</p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button variant="ghost" className="text-red-600 w-full sm:w-auto">
+              <Button
+                variant="ghost"
+                className="text-red-600 w-full sm:w-auto cursor-pointer"
+              >
                 Cancel
               </Button>
 

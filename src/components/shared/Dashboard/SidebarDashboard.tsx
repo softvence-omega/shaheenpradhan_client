@@ -1,6 +1,6 @@
+// pages/SidebarDashboard.tsx
 import { Sidebar, SidebarBody } from "@/components/aceternity/Sidebar";
-import { GiBackwardTime } from "react-icons/gi";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Banknote,
   CalendarDays,
@@ -9,14 +9,17 @@ import {
   Clock4,
   History,
   House,
+  Search,
   Settings,
   Star,
   UserRound,
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
-import { SidebarLink } from "@/components/aceternity/SidebarLink";
 import { UserSidebarLink } from "@/components/aceternity/UserSidebarLink";
+
 const SidebarDashboard = () => {
+  const savedCount = 24; // You can fetch this dynamically
+
   const links = [
     {
       label: "Home",
@@ -27,24 +30,24 @@ const SidebarDashboard = () => {
     },
     {
       label: "Saved",
-      href: "/saved",
+      href: "/user/saved",
       icon: (
         <Star className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
+      count: savedCount,
     },
     {
       label: "Find Assistants",
       href: "/user/find-assistant-matcher",
       icon: (
-        <UserRound className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+        <Search className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
       label: "My Booking",
-      href: "/assistant/current-task",
-      icon: null, // or remove the icon field entirely
+      href: "/user/current-booking",
+      icon: null,
     },
-
     {
       label: "Current Bookings",
       href: "/user/current-booking",
@@ -52,7 +55,6 @@ const SidebarDashboard = () => {
         <CalendarDays className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-
     {
       label: "Upcoming Bookings",
       href: "/user/upcoming-booking",
@@ -77,7 +79,7 @@ const SidebarDashboard = () => {
     {
       label: "Settings",
       href: "/assistant/current-task",
-      icon: null, // or remove the icon field entirely
+      icon: null,
     },
     {
       label: "Billing",
@@ -86,29 +88,36 @@ const SidebarDashboard = () => {
         <Banknote className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
-
     {
       label: "Support",
-      href: "#",
+      href: "/user/support",
       icon: (
         <CircleHelp className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
     {
-      label: "Settings",
-      href: "#",
+      label: "Setting",
+      href: "/user/setting",
       icon: (
         <Settings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
       ),
     },
   ];
+
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <Sidebar open={open} setOpen={setOpen} animate={false}>
-      <SidebarBody className="justify-between gap-4  bg-white border-t border-neutral-200 h-[80vh]">
-        <div className=" flex flex-col gap-2">
+      <SidebarBody className="justify-between gap-4 bg-white border-t border-neutral-200 h-[80vh]">
+        <div className="flex flex-col gap-2">
           {links.map((link, idx) => (
-            <UserSidebarLink key={idx} link={link} />
+            <UserSidebarLink
+              key={idx}
+              link={link}
+              isActive={activeIndex === idx}
+              onClick={() => setActiveIndex(idx)}
+            />
           ))}
         </div>
         <PlatformReview />

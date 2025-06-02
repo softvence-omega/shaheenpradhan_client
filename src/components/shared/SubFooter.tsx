@@ -5,7 +5,7 @@ import Wrapper from "./Wrapper";
 
 const SubFooter = () => {
   return (
-    <div className="py-4 sm:py-0 ">
+    <div className="py-0 lg:py-4 2xl:py-4 ">
       {/* Background Section */}
       <div
         style={{

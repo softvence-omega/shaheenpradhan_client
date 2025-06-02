@@ -23,7 +23,12 @@ const Footer = () => {
     location.pathname == "/education";
   return (
     <Wrapper>
-      <div className={cn("space-y-16 mt-20 font-DMsans", locked && "hidden")}>
+      <div
+        className={cn(
+          "space-y-16 mt-20  bg-[#FAF8FD] font-DMsans pb-12 sm:pb-12 md:pb-12 lg:pb-12 2xl:pb-0",
+          locked && "hidden"
+        )}
+      >
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-10">
           {/* Part 1 - Address & Contact */}
           <div className="order-3 md:order-none flex flex-col justify-between gap-4">
@@ -60,7 +65,7 @@ const Footer = () => {
           {/* Part 2 - Links */}
 
           {/* Part 2 - Links */}
-          <div className="order-2 md:order-none flex gap-8 space-x-8">
+          <div className="order-2 md:order-none flex gap-8  space-x-16 sm:space-x-8">
             <div className="flex flex-col gap-2">
               <a
                 href="/about"

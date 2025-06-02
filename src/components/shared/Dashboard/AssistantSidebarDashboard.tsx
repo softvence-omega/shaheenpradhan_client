@@ -3,20 +3,17 @@ import { MdOutlinePayments } from "react-icons/md";
 
 import { useState } from "react";
 import {
-  Banknote,
   CalendarCheck,
   CalendarDays,
-  CalendarFold,
   CalendarMinus2,
   CircleHelp,
   Clock4,
   History,
   House,
   Settings,
-  Star,
 } from "lucide-react";
 import PlatformReview from "../PlatformReview";
-import { SidebarLink } from "@/components/aceternity/SidebarLink";
+import { AssistantSidebarLink } from "@/components/aceternity/SidebarLink";
 const AssistantSidebarDashboard = () => {
   const assistantLinks = [
     {
@@ -94,12 +91,19 @@ const AssistantSidebarDashboard = () => {
     },
   ];
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <Sidebar open={open} setOpen={setOpen} animate={false}>
       <SidebarBody className="justify-between gap-4  bg-white border-t border-neutral-200 h-[80vh]">
         <div className=" flex flex-col gap-2">
           {assistantLinks.map((link, idx) => (
-            <SidebarLink key={idx} link={link} />
+            <AssistantSidebarLink
+              key={idx}
+              link={link}
+              isActive={activeIndex === idx}
+              onClick={() => setActiveIndex(idx)}
+            />
           ))}
         </div>
         <PlatformReview />

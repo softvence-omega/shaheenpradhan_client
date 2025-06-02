@@ -37,13 +37,13 @@ const NavBar = () => {
             </Link>
             <Link
               className="text-sm sm:text-[15px] font-normal leading-[150%] text-white"
-              to="/pricing"
+              to="/ai-matcher"
             >
               Pricing
             </Link>
             <Link
               className="text-sm sm:text-[15px] font-normal leading-[150%] text-white"
-              to="services"
+              to="assistant-books"
             >
               Services
             </Link>
@@ -88,13 +88,13 @@ const NavBar = () => {
               </Link>
               <Link
                 className="text-sm sm:text-[15px] font-normal leading-[150%]"
-                to="/pricing"
+                to="/ai-matcher"
               >
                 Pricing
               </Link>
               <Link
                 className="text-sm sm:text-[15px] font-normal leading-[150%]"
-                to="services"
+                to="/assistant-books"
               >
                 Services
               </Link>

@@ -6,7 +6,8 @@ import { LogOut, Settings, User } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Button } from "../ui/button";
 import NotificationModal from "./NotificationModal";
-const DashboardNavbar = () => {
+import { FaUserClock } from "react-icons/fa";
+const AssistantDashboardNavbar = () => {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2">
       <Link to="/" className="sm:flex items-center p-2 hidden">
@@ -14,14 +15,14 @@ const DashboardNavbar = () => {
       </Link>
       {/* FOR SMALL DEVICE ONLY */}
       <div className="sm:hidden flex items-center justify-between space-y-4">
-        <Link to="/" className="flex items-center p-2">
+        <Link to="/" className="flex items-center p-2 cursor-pointer">
           <img src={logo} alt="logo" className="max-w-32 h-fit" />
         </Link>
         <div className="flex items-center gap-3">
           <Button
             variant="ghost"
             size="icon"
-            className="relative hover:bg-gray-100"
+            className="relative hover:bg-gray-100 cursor-pointer"
           >
             <Bell className="h-6 w-6 text-gray-700" />
 
@@ -50,18 +51,18 @@ const DashboardNavbar = () => {
                     className="w-full justify-start h-auto p-3 font-normal"
                   >
                     <User className="w-5 h-5 mr-3" />
-                    My profile
+                    Assistant Profile
                   </Button>
                   <Button
                     variant="ghost"
-                    className="w-full justify-start h-auto p-3 font-normal"
+                    className="w-full justify-start h-auto p-3 font-normal cursor-pointer"
                   >
                     <Settings className="w-5 h-5 mr-3 " />
                     Settings
                   </Button>
                   <Button
                     variant="ghost"
-                    className="w-full justify-start h-auto p-3 font-normal"
+                    className="w-full justify-start h-auto p-3 font-normal cursor-pointer"
                   >
                     <LogOut className="w-5 h-5 mr-3" />
                     Log Out
@@ -121,30 +122,35 @@ const DashboardNavbar = () => {
             <div className="p-4">
               <div className="font-semibold text-lg mb-4">John Doe</div>
               <div className="space-y-1">
-                <Link
-                  to="/user/user-profile"
-                  className="w-full flex text-sm font-light justify-start h-auto p-3"
-                >
-                  <User className="w-5 h-5 mr-3" />
-                  <span> My profile</span>
+                <Link to="/assistant/assistant-profile">
+                  <Button
+                    variant="ghost"
+                    className="w-full flex text-sm font-light justify-start h-auto p-3 cursor-pointer"
+                  >
+                    <User className="w-5 h-5 mr-3" />
+                    <span>Assistant Profile</span>
+                  </Button>
                 </Link>
-                <Link
-                  to="/user/profile-summery"
-                  className="w-full flex text-sm font-light justify-start h-auto p-3"
-                >
-                  <User className="w-5 h-5 mr-3" />
-                  <span> Summery Profile</span>
+                <Link to="/assistant/assistant-profile-summery">
+                  <Button
+                    variant="ghost"
+                    className="w-full flex text-sm font-light justify-start h-auto p-3 cursor-pointer"
+                  >
+                    <FaUserClock className="w-5 h-5 mr-3" />
+                    <span>Summery Profile</span>
+                  </Button>
                 </Link>
+
                 <Button
                   variant="ghost"
-                  className="w-full justify-start h-auto p-3 font-normal"
+                  className="w-full justify-start h-auto p-3 font-normal cursor-pointer"
                 >
                   <Settings className="w-5 h-5 mr-3" />
                   Settings
                 </Button>
                 <Button
                   variant="ghost"
-                  className="w-full justify-start h-auto p-3 font-normal"
+                  className="w-full justify-start h-auto p-3 font-normal cursor-pointer"
                 >
                   <LogOut className="w-5 h-5 mr-3" />
                   Log Out
@@ -158,4 +164,4 @@ const DashboardNavbar = () => {
   );
 };
 
-export default DashboardNavbar;
+export default AssistantDashboardNavbar;
