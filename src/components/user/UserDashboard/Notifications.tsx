@@ -1,10 +1,22 @@
 import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
+import TittleDashboard from "@/components/shared/TittleDashboard";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Notifications = () => {
   return (
-    <div className="px-4 md:px-6 lg:px-0">
+    <div className="">
       <div className="flex items-center justify-between flex-wrap gap-4">
-        <TitleAndSubTitle title="Notifications" subTitle="" />
+        <div className="flex items-center gap-4 mb-6">
+          <button
+            type="button"
+            aria-label="Go back"
+            className="text-xl text-gray-700 hover:text-black"
+            onClick={() => window.history.back()} // or use router.back() if using Next.js
+          >
+            <FaArrowLeft />
+          </button>
+          <TittleDashboard title="Notifications" subTitle="" />
+        </div>
         <div className="space-x-4">
           <button className="underline text-[#8559CA] cursor-pointer">
             Mark all as read

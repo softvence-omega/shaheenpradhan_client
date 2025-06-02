@@ -4,6 +4,8 @@ import { useState } from "react";
 import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [formData, setFormData] = useState({
@@ -44,11 +46,23 @@ const UserProfile = () => {
 
   return (
     <form className="w-full space-y-10" onSubmit={handleSubmit}>
-      <TitleAndSubTitle title="Profile" subTitle="" />
+      <div className="flex items-center justify-between md:justify-start mb-4">
+        {/* Back arrow – visible only on small devices */}
+        <Link to="/user/home" className="block md:hidden">
+          <div className="w-[32px] h-[32px] flex items-center mb-3 justify-start  ">
+            <IoMdArrowRoundBack className="w-[20px] h-[32px] text-gray-600" />
+          </div>
+        </Link>
+
+        {/* Title – centered on small, left-aligned on medium and up */}
+        <div className="flex-1 text-start md:text-left">
+          <TitleAndSubTitle title="Profile" subTitle="" />
+        </div>
+      </div>
 
       <div className="flex flex-col lg:flex-row lg:space-x-20 gap-10">
         {/* Upload Photo */}
-        <div className="space-y-6 flex flex-col items-center lg:items-start">
+        <div className="space-y-6 flex flex-col items-start lg:items-start">
           <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gray-500 overflow-hidden flex items-center justify-center text-white">
             {preview ? (
               <img
@@ -61,24 +75,31 @@ const UserProfile = () => {
             )}
           </div>
 
-          <div className="space-y-2 text-center lg:text-left">
-            <label htmlFor="photo">
-              <input
-                type="file"
-                id="photo"
-                accept="image/*"
-                onChange={handlePhotoUpload}
-                className="hidden"
-              />
-              <button
-                type="button"
-                className="w-[143px] h-[30px] border border-[#E5E5E5] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white flex items-center gap-2 justify-center"
-                onClick={() => document.getElementById("photo")?.click()}
-              >
-                Upload a photo
-              </button>
-            </label>
-            <p className="text-sm text-gray-400">JPG, PNG. Max 2MB</p>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="flex items-center justify-center sm:flex-col sm:items-start sm:space-y-2 space-x-2 sm:space-x-0">
+              <label htmlFor="photo">
+                <input
+                  type="file"
+                  id="photo"
+                  accept="image/*"
+                  onChange={handlePhotoUpload}
+                  className="hidden"
+                />
+                <button
+                  type="button"
+                  className="w-[143px] h-[30px] border border-[#E5E5E5] px-4 py-1 rounded-[20px] text-sm text-gray-700 hover:bg-gray-200 hover:text-white flex items-center gap-2 justify-center"
+                  onClick={() => document.getElementById("photo")?.click()}
+                >
+                  Upload a photo
+                </button>
+              </label>
+              <p className="text-sm text-gray-400 block sm:hidden">
+                JPG, PNG. Max 2MB
+              </p>
+            </div>
+            <p className="text-sm text-gray-400 hidden sm:block mt-2">
+              JPG, PNG. Max 2MB
+            </p>
           </div>
         </div>
 

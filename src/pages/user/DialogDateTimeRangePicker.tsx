@@ -39,16 +39,18 @@ export default function DialogDateTimeRangePicker() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="w-full sm:w-auto">Reschedule</Button>
+        <Button className="w-full sm:w-auto text-sm px-3 py-1.5 cursor-pointer">
+          Reschedule
+        </Button>
       </PopoverTrigger>
 
-      <PopoverContent className="w-[350px] p-4 space-y-4" align="start">
-        <div className="flex items-center justify-between text-sm font-semibold text-gray-700">
+      <PopoverContent className="w-[280px] p-3 space-y-3" align="start">
+        <div className="flex items-center justify-between text-xs font-medium text-gray-700">
           <span>Select date</span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <button
               onClick={clear}
-              className="text-red-500 hover:underline text-xs cursor-pointer"
+              className="text-red-500 hover:underline text-xs"
             >
               Clear
             </button>
@@ -56,7 +58,7 @@ export default function DialogDateTimeRangePicker() {
               size="sm"
               variant="outline"
               onClick={() => setDate(new Date())}
-              className="cursor-pointer"
+              className="text-xs h-7 px-2"
             >
               Today
             </Button>
@@ -67,23 +69,23 @@ export default function DialogDateTimeRangePicker() {
           mode="single"
           selected={date}
           onSelect={setDate}
-          className="rounded-md border"
+          className="rounded-md border text-sm"
         />
 
-        <div className="text-sm font-semibold text-gray-700">
+        <div className="text-xs font-medium text-gray-700">
           Select time range
         </div>
 
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-3">
           {/* Start Time */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-gray-500">Start</label>
-            <div className="flex items-center gap-2">
+            <label className="text-[10px] text-gray-500">Start</label>
+            <div className="flex items-center gap-1">
               <input
                 type="number"
                 value={startHour}
                 onChange={(e) => setStartHour(+e.target.value)}
-                className="w-16 rounded-lg border px-2 py-1 text-center"
+                className="w-12 text-xs rounded border px-1 py-0.5 text-center"
                 min={1}
                 max={12}
               />
@@ -92,7 +94,7 @@ export default function DialogDateTimeRangePicker() {
                 onChange={(e) =>
                   setStartMeridiem(e.target.value as "AM" | "PM")
                 }
-                className="rounded-lg border px-2 py-1"
+                className="text-xs rounded border px-1 py-0.5"
               >
                 <option>AM</option>
                 <option>PM</option>
@@ -100,24 +102,24 @@ export default function DialogDateTimeRangePicker() {
             </div>
           </div>
 
-          <span className="text-lg font-semibold">→</span>
+          <span className="text-sm font-semibold">→</span>
 
           {/* End Time */}
           <div className="flex flex-col gap-1">
-            <label className="text-xs text-gray-500">End</label>
-            <div className="flex items-center gap-2">
+            <label className="text-[10px] text-gray-500">End</label>
+            <div className="flex items-center gap-1">
               <input
                 type="number"
                 value={endHour}
                 onChange={(e) => setEndHour(+e.target.value)}
-                className="w-16 rounded-lg border px-2 py-1 text-center"
+                className="w-12 text-xs rounded border px-1 py-0.5 text-center"
                 min={1}
                 max={12}
               />
               <select
                 value={endMeridiem}
                 onChange={(e) => setEndMeridiem(e.target.value as "AM" | "PM")}
-                className="rounded-lg border px-2 py-1"
+                className="text-xs rounded border px-1 py-0.5"
               >
                 <option>AM</option>
                 <option>PM</option>
@@ -130,14 +132,13 @@ export default function DialogDateTimeRangePicker() {
           <Button
             variant="outline"
             onClick={clear}
-            className="w-[88px] h-[40px] px-4 py-3 border border-gray-300 rounded-lg gap-2 cursor-pointer"
+            className="text-xs h-8 px-3"
           >
             Cancel
           </Button>
-
           <Button
             onClick={handleDone}
-            className="bg-[#1976D2] text-white w-[184px] h-[40px] px-3 py-[12px] gap-2 rounded-lg cursor-pointer"
+            className="bg-[#1976D2] text-white text-xs h-8 px-4"
           >
             Done
           </Button>
