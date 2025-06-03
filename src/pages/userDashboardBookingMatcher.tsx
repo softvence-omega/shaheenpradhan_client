@@ -1,15 +1,20 @@
 import Search from "@/assets/icon/Search";
-import BookingCard from "@/components/shared/BookingCard";
+import BookingCardFind from "@/components/shared/BookingCardFind";
+
 import Sort from "@/components/shared/Filter/Sort";
-import Wrapper from "@/components/shared/Wrapper";
+import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ListFilter, X } from "lucide-react";
 
 const DashboardBookingMatcher = () => {
   return (
-    <div className="font-DMsans mt-8">
-      <Wrapper>
+    <div className="font-DMsans ">
+      <div className="mb-4">
+        <TitleAndSubTitle title="Find Your Assistants" subTitle="" />
+      </div>
+      <div>
         {/* FOR MOBILE DEVICE SEARCH BAR */}
         <div className="w-full space-y-2 lg:hidden block my-5">
           <div className="flex items-center justify-between space-x-3">
@@ -89,9 +94,9 @@ const DashboardBookingMatcher = () => {
             </p>
           </div>
           {/* CARDS */}
-          <BookingCard />
+          <BookingCardFind />
         </div>
-      </Wrapper>
+      </div>
     </div>
   );
 };

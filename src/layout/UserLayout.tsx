@@ -1,21 +1,34 @@
 import SidebarDashboard from "@/components/shared/Dashboard/SidebarDashboard";
 import DashboardNavbar from "@/components/UserDashboard/DashboardNavbar";
 import { cn } from "@/lib/utils";
+import MobileNavBar from "@/pages/user/MobileNavBar";
 import { Outlet } from "react-router-dom";
 
 const UserLayout = () => {
   return (
     <>
+      {/* Top navbar (always visible) */}
       <DashboardNavbar />
+
       <div
         className={cn(
-          "flex w-full flex-1 flex-col overflow-hidden  md:flex-row"
+          "flex w-full flex-1 flex-col overflow-hidden md:flex-row"
         )}
       >
-        <SidebarDashboard />
-        <div className="flex w-full flex-1 flex-col overflow-y-auto gap-2 h-screen border border-neutral-200 bg-[#FAF8FD] pl-8 pr-8 lg:pr-16 pt-8">
+        {/* Sidebar only on md+ screens */}
+        <div className="hidden md:block">
+          <SidebarDashboard />
+        </div>
+
+        {/* Main content */}
+        <div className="flex w-full flex-1 flex-col overflow-y-auto gap-2 border border-neutral-200 bg-[#FAF8FD] pl-4 pr-4 md:pl-8 md:pr-8 lg:pr-16 pt-8 pb-20 md:pb-8">
           <Outlet />
         </div>
+      </div>
+
+      {/* Bottom Mobile NavBar only on small screens */}
+      <div className="block md:hidden">
+        <MobileNavBar />
       </div>
     </>
   );
