@@ -5,8 +5,8 @@ import Matchmaker from "../../components/home/Matchmaker";
 import Meet from "../../components/home/Meet";
 import Assistant from "../../components/home/Assistant";
 import FAQ from "../../components/home/FAQ";
-import { Carousel } from "@/components/shared/Carousel";
 import HelpSection from "../../components/home/HelpSection";
+import TestimonialCarousel from "@/components/shared/Carousel";
 
 const HomePage = () => {
   return (
@@ -19,7 +19,7 @@ const HomePage = () => {
           <Matchmaker />
           <Meet />
           <Assistant />
-          <Carousel />
+          <TestimonialCarousel />
         </div>
         <FAQ />
         <HelpSection/>

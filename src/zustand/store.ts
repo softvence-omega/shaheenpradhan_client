@@ -22,6 +22,10 @@ export const useUserStore = create<UserState>()(
       logout: () => set({ isLoggedIn: false, name: "" }),
       setLoading: (loading) => set({ isLoading: loading }),
     }),
-    { name: "user-storage" }
+    { name: "user-storage"}
   )
 );
+
+
+
+

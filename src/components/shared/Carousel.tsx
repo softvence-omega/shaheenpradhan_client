@@ -1,146 +1,172 @@
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
-import Wrapper from "./Wrapper";
-import TitleAndSubTitle from "./TitleAndSubTitle";
 import ReviewCard from "./ReviewCard";
-import NextBtn from "@/assets/icon/nextbtn.svg";
-import PrevBtn from "@/assets/icon/prevbtn.svg";
+import TitleAndSubTitle from "./TitleAndSubTitle";
+import { DivType } from "@tsparticles/engine";
 
-const value = [
+const testimonials = [
   {
-    review: "This service exceeded my expectations. Very professional!",
+    review: "I couldn't be happier with the service I received! The team went above and beyond to help me find my dream home.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
-    name: "Sarah Johnson",
-    objective: "Marketing Manager",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Nevia Barry",
+    objective: "CEO, Software",
   },
   {
-    review: "Quick, efficient, and hassle-free. Highly recommended.",
+    review: "I couldn't be happier with the service, my assistant was on-boarded quick with an NDA ready and hit the ground running.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Nevia Barry",
+    objective: "CEO, Software",
+  },
+  {
+    review: "I couldn't be happier with the service I received! The team went above and beyond to help me find my dream home.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Nevia Barry",
+    objective: "CEO, Software",
+  },
+  {
+    review: "Exceptional service from start to finish. The team was professional and attentive to all our needs.",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
-    name: "David Lee",
-    objective: "Startup Founder",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Alex Johnson",
+    objective: "CTO, Tech Solutions",
   },
   {
-    review: "Booking was easy and the assistant was well-trained.",
+    review: "The onboarding process was seamless and the support has been outstanding throughout our partnership.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
-    name: "Emily Watson",
-    objective: "Product Designer",
-  },
-  {
-    review: "Support was responsive and solved my issue fast.",
-    rating: 4,
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
-    name: "Michael Brown",
-    objective: "Freelancer",
-  },
-  {
-    review: "Great experience overall. Will use it again.",
-    rating: 5,
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-    name: "Laura Davis",
-    objective: "Business Consultant",
-  },
-  {
-    review: "Good service but took slightly longer than expected.",
-    rating: 3,
-    image: "https://randomuser.me/api/portraits/men/6.jpg",
-    name: "Chris Evans",
-    objective: "Operations Lead",
-  },
-  {
-    review: "Smooth process and reliable results every time.",
-    rating: 5,
-    image: "https://randomuser.me/api/portraits/women/7.jpg",
-    name: "Angela White",
-    objective: "Sales Executive",
-  },
-  {
-    review: "Decent experience, could improve in communication.",
-    rating: 3,
-    image: "https://randomuser.me/api/portraits/men/8.jpg",
-    name: "Tom Harris",
-    objective: "Tech Recruiter",
-  },
-  {
-    review: "Fantastic service! Definitely helped boost our productivity.",
-    rating: 5,
-    image: "https://randomuser.me/api/portraits/women/9.jpg",
-    name: "Jessica Miller",
-    objective: "Team Lead",
-  },
-  {
-    review: "Reliable and consistent. A solid choice.",
-    rating: 4,
-    image: "https://randomuser.me/api/portraits/men/10.jpg",
-    name: "Robert Smith",
-    objective: "HR Specialist",
+    image: "https://randomuser.me/api/portraits/women/63.jpg",
+    name: "Sarah Williams",
+    objective: "Director, Marketing",
   },
 ];
 
-export const Carousel = ({
-  pauseOnHover = true,
-  className,
-}: {
-  pauseOnHover?: boolean;
-  className?: string;
-}) => {
-  const itemsPerPage = 3;
-  const totalPages = Math.ceil(value.length / itemsPerPage);
-  const [currentPage, setCurrentPage] = useState(0);
+const TestimonialCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(1);
 
-  // Get the reviews to display for current page
-  const currentItems = value.slice(
-    currentPage * itemsPerPage,
-    currentPage * itemsPerPage + itemsPerPage
-  );
-
-  const goPrev = () => {
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
-  const goNext = () => {
-    setCurrentPage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+  const prevTestimonial = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
   };
 
+  const getVisibleCards = () => {
+    const cards = [];
+    const total = testimonials.length;
+    
+    // Previous card
+    cards.push((currentIndex - 1 + total) % total);
+    // Current card
+    cards.push(currentIndex);
+    // Next card
+    cards.push((currentIndex + 1) % total);
+    
+    return cards;
+  };
+
+  const visibleCards = getVisibleCards();
+  // Trusted By 1000+ CEOs
+  // Hear from clients and executive assistants who trust our service to connect, collaborate, and succeed.
   return (
-    <Wrapper>
-      <div className="pt-20">
-        <TitleAndSubTitle
-          title="Trusted By 1000+ CEOs"
-          subTitle="Hear from clients and executive assistants who trust Adminity to connect, collaborate, and succeed."
-        />
+    <div className="w-full max-w-7xl mx-auto md:py-20">
+     
+        <TitleAndSubTitle title="Trusted By 1000+ CEOs" subTitle="Hear from clients and executive assistants who trust our service to connect, collaborate, and succeed."/>
+    
 
-        <div
-          className={cn(
-            "scroller relative z-20 pt-5 overflow-hidden",
-            className
-          )}
-        >
-          <ul
-            className={cn(
-              "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
-              pauseOnHover && "hover:[animation-play-state:paused]"
-            )}
+      <div className="relative">
+        <div className="flex items-center justify-center gap-4 md:gap-8">
+          {visibleCards.map((cardIndex, position) => {
+            const isMiddle = position === 1;
+            const scale = isMiddle ? 1 : 0.9;
+            const opacity = isMiddle ? 1 : 0.8;
+            const zIndex = isMiddle ? 10 : 0;
+            const brightness = isMiddle ? "brightness-100" : "brightness-75";
+            const shadow = isMiddle ? "shadow-sm shadow-pink-200" : "shadow-lg";
+            
+            return (
+              <motion.div
+                key={`${testimonials[cardIndex].name}-${position}`}
+                initial={{ scale: 0.9, opacity: 0.8 }}
+                animate={{
+                  scale,
+                  opacity,
+                  x: position === 0 ? -40 : position === 2 ? 40 : 0,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className={cn(
+                  "w-full max-w-[400px] flex-shrink-0 rounded-xl bg-pink-100 p-3 transition-all duration-300 filter border-[1px] border-BorderHighlight",
+                  shadow,
+                  brightness,
+                  isMiddle ? "z-10" : "z-0"
+                )}
+                style={{
+                  transform: `scale(${scale})`,
+                  opacity,
+                  zIndex,
+                }}
+              >
+                <ReviewCard value={[testimonials[cardIndex]]} />
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Navigation buttons at bottom */}
+        <div className="flex justify-around items-center mt-12">
+          <button
+            onClick={prevTestimonial}
+            className="w-6 h-6 rounded-full bg-white shadow-md flex items-center justify-center  border-[1px] border-TextSecondary"
+            aria-label="Previous testimonial"
           >
-            {currentItems.map((item, idx) => (
-              <ReviewCard key={item.name} value={[item]} />
-            ))}
-          </ul>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 text-gray-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
 
-          {/* Pagination Controls */}
-          <div className="flex gap-56 justify-center mt-2">
-            <button onClick={goPrev} className=" cursor-pointer ">
-              <img src={PrevBtn} alt="Ai-SearchIcon" className="w-6 h-6 p-1 rounded-full border-[1px] border-TextSecondary/10" />
-            </button>
 
-            <button onClick={goNext} className=" cursor-pointer ">
-              <img src={NextBtn} alt="Ai-SearchIcon" className="w-6 h-6 p-1 rounded-full border-[1px] border-TextSecondary/10" />
-            </button>
-          </div>
+          <button
+            onClick={nextTestimonial}
+            className="w-6 h-6 rounded-full bg-white shadow-md flex items-center justify-center transition-colors  border-[1px] border-TextSecondary"
+            aria-label="Next testimonial"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 text-gray-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
+
+export default TestimonialCarousel;
