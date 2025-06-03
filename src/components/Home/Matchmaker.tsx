@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Robot from "@/assets/images/RobotImage.png";
 
-
 const Matchmaker = () => {
   return (
     <Wrapper>
@@ -22,7 +21,7 @@ const Matchmaker = () => {
             <div className="items-center flex-shrink-0 hidden lg:flex">
               <Link to="#" className="flex items-center cursor-pointer">
                 <Button variant="outline" className="cursor-pointer rounded-md">
-                Find Your Match
+                  Find Your Match
                 </Button>
                 <Button className="bg-ButtonBGSecondary cursor-pointer rounded-sm">
                   <TopArrow />

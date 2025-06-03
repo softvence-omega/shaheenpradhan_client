@@ -62,8 +62,6 @@ const AssistantProfile = () => {
 
   return (
     <div className="w-full space-y-15">
-      <TitleAndSubTitle title="Profile" subTitle="" />
-
       <div className="flex flex-col md:flex-row  space-x-20">
         {/* Upload Photo */}
         <div className=" space-y-6">
@@ -82,12 +80,12 @@ const AssistantProfile = () => {
         <div className="w-full">
           {/* part-2 */}
           {/*  */}
-          <div className="mb-4 w-[1200px]">
+          <div className="mb-4 w-full max-w-[1200px]">
             <SmallTitle smalltitle="Personal Info" />
             <hr className="border-b border-[#E5E5E5]" />
           </div>
           {/* Full Name */}
-          <div className="w-[1200px] space-y-6">
+          <div className="w-full max-w-[1200px] space-y-6">
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
               <div className="w-full">
                 <div className="grid w-full items-center gap-1.5">
@@ -163,7 +161,7 @@ const AssistantProfile = () => {
             {/* Date Of Birth And Location  */}
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
               {/* Date Of Birth */}
-              <div>
+              <div className="w-full max-w-[1200px]">
                 <Form {...form}>
                   <form className="space-y-8">
                     <FormField
@@ -178,7 +176,7 @@ const AssistantProfile = () => {
                                 <Button
                                   variant={"outline"}
                                   className={cn(
-                                    "w-[588px] h-11 text-left font-normal cursor-pointer",
+                                    "w-full max-w-[1200px] h-11 text-left font-normal cursor-pointer",
                                     !field.value && "text-muted-foreground"
                                   )}
                                 >
@@ -217,7 +215,7 @@ const AssistantProfile = () => {
               </div>
 
               {/* Location */}
-              <div className="w-full">
+              <div className="w-full max-w-[1200px]">
                 <Label
                   htmlFor="location"
                   className="mb-1 block text-sm font-medium text-[#4D4D4D]"
@@ -225,7 +223,7 @@ const AssistantProfile = () => {
                   Location
                 </Label>
                 <Select>
-                  <SelectTrigger className="w-[588px] bg-white pt-6 pb-5">
+                  <SelectTrigger className="w-full max-w-[1200px] bg-white pt-6 pb-5">
                     <SelectValue placeholder="Select Location" />
                   </SelectTrigger>
                   <SelectContent>
@@ -245,7 +243,7 @@ const AssistantProfile = () => {
           </div>
 
           {/* Bio */}
-          <div className="mb-3 w-[1200px] ">
+          <div className="mb-3 w-full max-w-[1200px] ">
             <div className="space-y-4">
               <label className="block text-sm font-medium text-[#4D4D4D] mb-1">
                 Bio
@@ -260,12 +258,12 @@ const AssistantProfile = () => {
             <p className="text-xs text-gray-400 mt-1">1000 characters left</p>
           </div>
 
-          <div className="mb-4 w-[1200px]">
+          <div className="mb-4 w-full max-w-[1200px]">
             <SmallTitle smalltitle="Personal Info" />
             <hr className="border-b border-[#E5E5E5]" />
           </div>
 
-          <div className="w-[1200px] space-y-6">
+          <div className="w-full max-w-[1200px] space-y-6">
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
               {/* Work Styl And Language */}
               <div className="w-full">
@@ -306,12 +304,12 @@ const AssistantProfile = () => {
 
           {/* MOre Code */}
 
-          <div className="w-[1200px] space-y-6">
+          <div className="w-full max-w-[1200px] space-y-6">
             <ProfileForm />
           </div>
 
           {/* Save Button */}
-          <div className="text-right w-[1200px] space-y-3 mt-10 mb-5 ">
+          <div className="text-right w-full max-w-[1200px] space-y-3 mt-10 mb-5 ">
             <hr className="border-b border-[#E5E5E5]" />
             <button className="bg-BorderHighlight hover:bg-BorderHighlight text-white px-6 py-2 rounded-lg font-medium cursor-pointer">
               Save Changes
