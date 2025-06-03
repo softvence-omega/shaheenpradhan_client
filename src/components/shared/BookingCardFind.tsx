@@ -460,7 +460,7 @@ const BookingCardFind = () => {
               <div className="flex items-baseline">
                 <span className="font-bold text-[20px]">20</span>
                 <span className="font-medium text-xs text-muted-foreground ml-1">
-                  /hours
+                  /hour
                 </span>
               </div>
             </div>
