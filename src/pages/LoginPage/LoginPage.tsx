@@ -4,16 +4,25 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs} from "@/components/ui/tabs";
+import { Tabs } from "@/components/ui/tabs";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
+import useCreateResource from "@/hooks/useCreateResource";
 const LoginPage = () => {
+  const createUser = useCreateResource();
 
   // FOR ANY USER LOGIN AND SIGNIN
   const handleBookAnAssistant = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("handleBookAnAssistant");
+    const form = e.target;
+    const name = form?.name?.value;
+    const email = form?.email?.value;
+    const password = form?.password?.value;
+    const data = { name, email, password };
+    console.log(data, "data");
+    // createUser.mutate(data);
   };
   // const handleJoinAsAssistant = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
@@ -51,21 +60,23 @@ const LoginPage = () => {
                       <Input name="password" id="password" type="password" />
                     </div>
                   </CardContent>
-                  <Link to="/user/home">
-                    <CardFooter className="flex flex-col gap-2 pt-3">
-                      <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
-                        Login
-                      </Button>
 
-                      <Button
-                        variant="outline"
-                        className="w-full flex items-center justify-center gap-2"
-                      >
-                        <AiOutlineGoogle className="w-4 h-4" />
-                        <span>Login with Google</span>
-                      </Button>
-                    </CardFooter>
-                  </Link>
+                  <CardFooter className="flex flex-col gap-2 pt-3">
+                    <Button
+                      type="submit"
+                      className="w-full bg-BorderHighlight hover:bg-BorderHighlight"
+                    >
+                      Login
+                    </Button>
+
+                    <Button
+                      variant="outline"
+                      className="w-full flex items-center justify-center gap-2"
+                    >
+                      <AiOutlineGoogle className="w-4 h-4" />
+                      <span>Login with Google</span>
+                    </Button>
+                  </CardFooter>
                 </form>
                 <div className="text-center mt-3">
                   <p className="text-sm">
