@@ -3,8 +3,8 @@ import Wrapper from "./Wrapper";
 import logo from "@/assets/logo/main_logo.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import TopArrow from "@/assets/icon/TopArrow";
 import { useState } from "react";
+import TopArrow from "@/assets/icon/topArrow1";
 
 const NavBar = () => {
   const location = useLocation();

@@ -52,7 +52,7 @@ const AssistantCard = ({
       <hr className="text-[#B2B2B2]" />
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 xl:grid-cols-4 gap-6">
         {cardList.map((card, idx) => {
           const value = card.monthlyValues[selectedMonth] || 0;
           const label = showIcons ? userLabels[idx] || card.label : card.label;
@@ -60,11 +60,7 @@ const AssistantCard = ({
           return (
             <div
               key={card.id}
-              className="w-full h-[120px] p-4 rounded-lg flex items-center justify-start shadow-sm relative overflow-hidden"
-              style={{
-                border: `1px solid ${card.borderColor}`,
-                backgroundColor: card.bgColor,
-              }}
+              className="w-full h-[120px] p-4 bg-white rounded-lg flex items-center justify-start shadow-sm relative overflow-hidden"
             >
               {/* Icon */}
               {showIcons && (

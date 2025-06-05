@@ -1,12 +1,12 @@
+import { useState, useEffect } from "react";
 import { MapPin, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import chat from "@/assets/icons/chat.png"; // Make sure this path is correct
-import { useState } from "react";
+import chat from "@/assets/icons/chat.png";
 import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 
 type Review = {
   id: string;
-  rating: number; // out of 5
+  rating: number;
 };
 
 type TaskInfoProps = {
@@ -44,6 +44,27 @@ const TaskInformation = ({
   endTime,
   reviews = [],
 }: TaskInfoProps) => {
+  const [deviceType, setDeviceType] = useState<"mobile" | "medium" | "large">(
+    "large"
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        setDeviceType("mobile");
+      } else if (width <= 12) {
+        setDeviceType("medium");
+      } else {
+        setDeviceType("large");
+      }
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const getStatusColor = (status: TaskInfoProps["status"]) => {
     switch (status) {
       case "Currently working":
@@ -59,12 +80,292 @@ const TaskInformation = ({
     }
   };
 
-  // Optional: you can extend to open a modal or navigate to edit page
   const handleEditReview = (reviewId: string) => {
     alert(`Edit review clicked for review ID: ${reviewId}`);
-    // TODO: Implement your edit review logic here (modal, page redirect, etc.)
   };
 
+  // === MOBILE LAYOUT ===
+  if (deviceType === "mobile") {
+    return (
+      <div className="w-full font-DMsans p-4 space-y-8 text-sm">
+        {/* TOP SECTION: Assistant Info and Status */}
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <img
+              src={assistantPhoto}
+              alt={assistantName}
+              className="w-16 h-16 rounded-full object-cover border border-gray-300 mb-5"
+            />
+            <div>
+              <p className="text-xl font-semibold text-[#3A1C71]">
+                {assistantName}
+              </p>
+              <p className="text-sm text-[#4D4D4D]">{assistantRole}</p>
+              <p
+                className={`mt-1 text-sm font-medium ${getStatusColor(status)}`}
+              >
+                Status: {status}
+              </p>
+              <p className="text-sm text-[#4D4D4D]">Booking ID: {bookingId}</p>
+            </div>
+          </div>
+          {/*  */}
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Total Price</p>
+              <p className="text-[#8559CA] text-lg">${totalPrice} USD</p>
+            </div>
+          </div>
+        </div>
+
+        {/* MIDDLE SECTION: Price and Location & Time Left + Extend */}
+        <div className="flex flex-col gap-6">
+          {/*  <div className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Total Price</p>
+              <p className="text-[#8559CA] text-lg">${totalPrice} USD</p>
+            </div>
+            <div className="flex items-center gap-2 text-[#4D4D4D]">
+              <MapPin className="w-5 h-5" />
+              <span>{location}</span>
+            </div>
+          </div> */}
+
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-sm text-[#4D4D4D]">Time Left</p>
+              <p className="text-[#750000] font-semibold">{timeLeft}</p>
+            </div>
+            {status === "Currently working" && (
+              <a className="text-purple-600 text-sm font-semibold border-b-2 border-purple-600 cursor-pointer hover:text-purple-800 hover:border-purple-800">
+                Extend time
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* CHAT / REVIEW */}
+
+        <div className="flex  justify-between">
+          <div>
+            {status === "Completed" && reviews.length > 0 ? (
+              reviews.map((review) => (
+                <div key={review.id} className="p-3 mb-3 flex space-x-4 ">
+                  <div>
+                    <p className="font-semibold text-[#3A1C71] mb-1">
+                      Review Given
+                    </p>
+                    <div className="flex items-center gap-1 mb-1">
+                      <Star
+                        className="w-5 h-5 text-yellow-400"
+                        fill="#FBBF24"
+                      />
+                      <span className="text-sm text-gray-700 font-medium">
+                        {review.rating}
+                      </span>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => handleEditReview(review.id)}
+                    className="text-purple-700 font-semibold text-sm cursor-pointer mb-5"
+                  >
+                    Edit Review
+                  </button>
+                </div>
+              ))
+            ) : (
+              <div className="flex items-center gap-2 text-[#4D4D4D] font-medium">
+                <img src={chat} alt="chat icon" className="w-6 h-6" />
+                <p>Chat</p>
+              </div>
+            )}
+          </div>
+          <div className="flex items-center gap-2 text-[#4D4D4D]">
+            <MapPin className="w-5 h-5" />
+            <span>{location}</span>
+          </div>
+        </div>
+
+        {/* DATE & TIME */}
+        <div className="space-y-4 ">
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Date</p>
+              <p className="font-semibold text-[#8559CA]">
+                {startDate} To {endDate}
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Time Zone</p>
+              <p className="font-semibold text-[#8559CA]">
+                {startTime} To {endTime}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end w-full">
+            {status === "Completed" ? (
+              <Button className="w-full sm:w-auto md:min-w-[140px]">
+                Rebook
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  className="text-red-500 w-full sm:w-auto md:min-w-[140px]"
+                >
+                  Cancel
+                </Button>
+                <div className="w-full sm:w-auto md:min-w-[220px]">
+                  <DialogDateTimeRangePicker />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // === MEDIUM DEVICE LAYOUT ===
+  if (deviceType === "medium") {
+    return (
+      <div className="w-full font-DMsans p-4 space-y-8">
+        {/* TOP SECTION: Assistant Info and Status */}
+        <div className="flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <img
+              src={assistantPhoto}
+              alt={assistantName}
+              className="w-16 h-16 rounded-full object-cover border border-gray-300 mb-5"
+            />
+            <div>
+              <p className="text-xl font-semibold text-[#3A1C71]">
+                {assistantName}
+              </p>
+              <p className="text-sm text-[#4D4D4D]">{assistantRole}</p>
+              <p
+                className={`mt-1 text-sm font-medium ${getStatusColor(status)}`}
+              >
+                Status: {status}
+              </p>
+              <p className="text-sm text-[#4D4D4D]">Booking ID: {bookingId}</p>
+            </div>
+          </div>
+          {/*  */}
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Total Price</p>
+              <p className="text-[#8559CA] text-lg">${totalPrice} USD</p>
+            </div>
+          </div>
+        </div>
+
+        {/* MIDDLE SECTION: Price and Location & Time Left + Extend */}
+        <div className="flex flex-col gap-6">
+          {/*  <div className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Total Price</p>
+              <p className="text-[#8559CA] text-lg">${totalPrice} USD</p>
+            </div>
+            <div className="flex items-center gap-2 text-[#4D4D4D]">
+              <MapPin className="w-5 h-5" />
+              <span>{location}</span>
+            </div>
+          </div> */}
+
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="text-sm text-[#4D4D4D]">Time Left</p>
+              <p className="text-[#750000] font-semibold">{timeLeft}</p>
+            </div>
+            {status === "Currently working" && (
+              <a className="text-purple-600 text-sm font-semibold border-b-2 border-purple-600 cursor-pointer hover:text-purple-800 hover:border-purple-800">
+                Extend time
+              </a>
+            )}
+          </div>
+        </div>
+
+        {/* CHAT / REVIEW */}
+
+        <div className="flex  justify-between">
+          <div>
+            {status === "Completed" && reviews.length > 0 ? (
+              reviews.map((review) => (
+                <div key={review.id} className="border rounded p-3 mb-3">
+                  <p className="font-semibold text-[#3A1C71] mb-1">
+                    Review Given
+                  </p>
+                  <div className="flex items-center gap-1 mb-1">
+                    <Star className="w-5 h-5 text-yellow-400" fill="#FBBF24" />
+                    <span className="text-sm text-gray-700 font-medium">
+                      {review.rating}
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => handleEditReview(review.id)}
+                    className="text-purple-700 font-semibold text-sm cursor-pointer"
+                  >
+                    Edit Review
+                  </button>
+                </div>
+              ))
+            ) : (
+              <div className="flex items-center gap-2 text-[#4D4D4D] font-medium">
+                <img src={chat} alt="chat icon" className="w-6 h-6" />
+                <p>Chat</p>
+              </div>
+            )}
+          </div>
+          <div className="flex items-center gap-2 text-[#4D4D4D]">
+            <MapPin className="w-5 h-5" />
+            <span>{location}</span>
+          </div>
+        </div>
+
+        {/* DATE & TIME */}
+        <div className="space-y-4">
+          <div className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Date</p>
+              <p className="font-semibold text-[#8559CA]">
+                {startDate} To {endDate}
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold text-[#4D4D4D]">Time Zone</p>
+              <p className="font-semibold text-[#8559CA]">
+                {startTime} To {endTime}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex  gap-3 sm:flex-row sm:items-end sm:justify-end w-full ml-30">
+            {status === "Completed" ? (
+              <Button className="w-full sm:w-auto md:min-w-[140px]">
+                Rebook
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  className="text-red-500 w-full sm:w-auto md:min-w-[140px]"
+                >
+                  Cancel
+                </Button>
+                <div className="w-full sm:w-auto md:min-w-[220px]">
+                  <DialogDateTimeRangePicker />
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // === LARGE DEVICE LAYOUT ===
   return (
     /* User Book */
     <div className="w-full font-DMsans">
@@ -79,10 +380,12 @@ const TaskInformation = ({
                 className="w-[60px] h-[60px] rounded-full object-cover border border-gray-300"
               />
               <div className="flex flex-col justify-center">
-                <pre className="text-[18px] font-semibold text-[#3A1C71] leading-tight font-DMsans">
+                <pre className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-[#3A1C71] leading-tight font-DMsans">
                   {assistantName}
                 </pre>
-                <p className="text-[15px] text-[#4D4D4D]">{assistantRole}</p>
+                <p className="text-xs sm:text-sm md:text-base lg:text-lg text-[#4D4D4D]">
+                  {assistantRole}
+                </p>
               </div>
             </div>
 
@@ -111,7 +414,7 @@ const TaskInformation = ({
         {/* Info Section */}
         <div className="flex justify-between items-center">
           <div className="gap-2 text-[#4D4D4D] text-lg space-y-9 w-full max-w-xs ">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center space-x-2">
               <div>
                 <p>Time Left</p>
                 <p className="text-[#750000]">{timeLeft}</p>
