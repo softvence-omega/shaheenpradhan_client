@@ -14,14 +14,14 @@ const LoginPage = () => {
 
   // FOR ANY USER LOGIN AND SIGNIN
   const handleBookAnAssistant = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    /*  e.preventDefault();
     console.log("handleBookAnAssistant");
     const form = e.target;
     const name = form?.name?.value;
     const email = form?.email?.value;
     const password = form?.password?.value;
     const data = { name, email, password };
-    console.log(data, "data");
+    console.log(data, "data"); */
     // createUser.mutate(data);
   };
   // const handleJoinAsAssistant = (e: React.FormEvent<HTMLFormElement>) => {
@@ -92,7 +92,7 @@ const LoginPage = () => {
               </Card>
             </Tabs>
             {/* Review Component */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 hidden lg:block">
               <Review />
             </div>
           </div>

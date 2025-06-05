@@ -9,7 +9,7 @@ import NotificationModal from "./NotificationModal";
 import { FaUserClock } from "react-icons/fa";
 const AssistantDashboardNavbar = () => {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2">
+    <div className="flex border border-neutral-200 flex-col sm:flex-row sm:items-center justify-between p-2">
       <Link to="/" className="sm:flex items-center p-2 hidden">
         <img src={logo} alt="logo" className="max-w-32 h-fit" />
       </Link>

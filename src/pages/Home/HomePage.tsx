@@ -6,11 +6,12 @@ import Meet from "../../components/home/Meet";
 import Assistant from "../../components/home/Assistant";
 import FAQ from "../../components/home/FAQ";
 import HelpSection from "../../components/home/HelpSection";
-import TestimonialCarousel from "@/components/shared/Carousel";
+/* import TestimonialCarousel from "@/components/shared/Carousel"; */
+import CaroselCard from "@/components/home/CaroselCard";
 
 const HomePage = () => {
   return (
-    <div>
+    <div /* className="bg-[#faf8fd]" */>
       <HeaderPart />
       <div className="">
         <HeaderSecondPart />
@@ -19,10 +20,13 @@ const HomePage = () => {
           <Matchmaker />
           <Meet />
           <Assistant />
-          <TestimonialCarousel />
+          <div className="">
+            <CaroselCard />
+          </div>
+          {/* <TestimonialCarousel /> */}
         </div>
         <FAQ />
-        <HelpSection/>
+        <HelpSection />
       </div>
     </div>
   );

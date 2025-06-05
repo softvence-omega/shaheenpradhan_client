@@ -39,7 +39,7 @@ export default function DialogDateTimeRangePicker() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="w-full sm:w-auto text-sm px-3 py-1.5 cursor-pointer">
+        <Button className=" w-[158px] text-sm px-4 py-2 cursor-pointer">
           Reschedule
         </Button>
       </PopoverTrigger>
@@ -77,7 +77,6 @@ export default function DialogDateTimeRangePicker() {
         </div>
 
         <div className="flex items-center justify-between gap-3">
-          {/* Start Time */}
           <div className="flex flex-col gap-1">
             <label className="text-[10px] text-gray-500">Start</label>
             <div className="flex items-center gap-1">
@@ -104,7 +103,6 @@ export default function DialogDateTimeRangePicker() {
 
           <span className="text-sm font-semibold">→</span>
 
-          {/* End Time */}
           <div className="flex flex-col gap-1">
             <label className="text-[10px] text-gray-500">End</label>
             <div className="flex items-center gap-1">

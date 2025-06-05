@@ -24,17 +24,18 @@ const Yourself = () => {
       <Wrapper>
         <img src={logo} alt="logo" />
         <div className="lg:w-[60%] w-full lg:mx-auto">
-          <div className="my-10 lg:text-center ">
-            <div className="space-y-3 w-96 mx-auto">
-              <h1 className="text-2xl sm:text-4xl font-semibold ">
+          <div className="my-10 px-4 flex justify-center">
+            <div className="text-center space-y-3 w-full max-w-xl">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
                 Tell Us About Yourself
               </h1>
-              <p className="text-xs sm:text-sm leading-[120%] font-light ">
-                This information will help us find you best match for you. Skip
-                it if you want to do it later
+              <p className="text-sm sm:text-base font-light">
+                This information will help us find the best match for you. Skip
+                it if you want to do it later.
               </p>
             </div>
           </div>
+
           {/*   */}
           <div>
             <div className="space-y-2">
@@ -49,13 +50,17 @@ const Yourself = () => {
                   setSelection(value);
                   console.log("User selected:", value);
                 }}
-                className="flex items-center gap-4"
+                className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4"
               >
-                <RadioGroupItem value="Individual" id="r1" />
-                <Label htmlFor="r1">Individual</Label>
+                <div className="flex items-center gap-2">
+                  <RadioGroupItem value="Individual" id="r1" />
+                  <Label htmlFor="r1">Individual</Label>
+                </div>
 
-                <RadioGroupItem value="comfortable" id="r2" />
-                <Label htmlFor="r2">On behalf of a Company</Label>
+                <div className="flex items-center gap-2">
+                  <RadioGroupItem value="comfortable" id="r2" />
+                  <Label htmlFor="r2">On behalf of a Company</Label>
+                </div>
               </RadioGroup>
 
               {selection == "Individual" ? (

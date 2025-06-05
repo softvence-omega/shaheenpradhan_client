@@ -17,9 +17,9 @@ const UserHomeComponent = () => {
 
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
           <Button className="w-full sm:w-auto">Find & Book Assistant</Button>
-          <Button variant="outline" className="w-full sm:w-auto">
+          {/* <Button variant="outline" className="w-full sm:w-auto">
             View Upcoming Bookings
-          </Button>
+          </Button> */}
         </div>
       </div>
 
@@ -43,7 +43,7 @@ const UserHomeComponent = () => {
       </div>
       {/* Pending Bookings */}
       <div className="space-y-6">
-        <div>
+        <div className="space-y-3">
           <SmallTitle smalltitle="Pending Bookings" />
           <hr className="border-b border-[#E5E5E5]" />
         </div>
@@ -55,7 +55,7 @@ const UserHomeComponent = () => {
       </div>
       {/* Past Bookings */}
       <div className="space-y-6">
-        <div>
+        <div className="space-y-3">
           <SmallTitle smalltitle="Past Bookings " />
           <hr className="border-b border-[#E5E5E5]" />
         </div>
@@ -67,7 +67,7 @@ const UserHomeComponent = () => {
       </div>
 
       <div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <SmallTitle smalltitle="Recent Activities" />
           <hr className="border-b border-[#E5E5E5]" />
           <RecentActivities />

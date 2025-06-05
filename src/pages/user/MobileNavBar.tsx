@@ -19,7 +19,7 @@ const MobileNavBar = () => {
   const activeId = navItems.find((item) => item.href === location.pathname)?.id;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 flex justify-around items-center h-16 shadow-sm z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#E5E5E5] flex justify-around items-center h-16 shadow-sm z-50">
       {navItems.map(({ id, label, icon: Icon, href }) => (
         <Link to={href} key={id}>
           <div

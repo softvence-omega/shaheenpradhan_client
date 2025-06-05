@@ -1,6 +1,6 @@
 import Footer from "@/components/shared/Footer";
 import NavBar from "@/components/shared/NavBar";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
