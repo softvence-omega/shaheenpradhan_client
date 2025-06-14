@@ -126,9 +126,38 @@ import { FaRegCircleCheck } from "react-icons/fa6";
 
 interface StepBookingProps {
   steps: { completed: boolean }[];
+  mobile?: boolean;
 }
 
-const StepBooking = ({ steps }: StepBookingProps) => {
+const StepBooking = ({ steps, mobile = false }: StepBookingProps) => {
+  if (mobile) {
+    return (
+      <div className="flex justify-between items-center relative px-4 mb-6">
+        {/* Horizontal line connecting the steps */}
+        <div className="absolute top-4 left-0 right-0 mx-auto w-[calc(100%-80px)] h-0.5 bg-gray-300 z-0" />
+
+        {steps.map((step, index) => (
+          <div key={index} className="relative z-10 flex flex-col items-center">
+            {/* Circle or Tick icon */}
+            {step.completed ? (
+              <FaRegCircleCheck className="text-[#8559CA] w-[32px] h-[32px] rounded-full border-[0.7273px] bg-white" />
+            ) : (
+              <div className="relative w-[32px] h-[32px] rounded-full border-[0.7273px] border-gray-400 bg-white">
+                {!step.completed && (
+                  <span className="absolute inset-0 flex items-center justify-center text-gray-700 font-semibold text-lg select-none">
+                    {index + 1}
+                  </span>
+                )}
+              </div>
+            )}
+            {/* Step label - optional if you want to add text below each step */}
+            {/* <span className="text-xs mt-2">Step {index + 1}</span> */}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center relative mt-6">
       {/* Vertical line connecting the steps */}

@@ -47,9 +47,9 @@ const UpcomingCard = () => {
           </div>
 
           {/* Action Buttons stacked */}
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-3 ">
             <Link to="/assistant/upcoming-task-2">
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full hidden md:block">
                 View Full Details
               </Button>
             </Link>

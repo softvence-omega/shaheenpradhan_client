@@ -4,13 +4,15 @@ import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 export default function DialogDateTimeRangePicker() {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -18,6 +20,7 @@ export default function DialogDateTimeRangePicker() {
   const [endHour, setEndHour] = useState(9);
   const [startMeridiem, setStartMeridiem] = useState<"AM" | "PM">("AM");
   const [endMeridiem, setEndMeridiem] = useState<"AM" | "PM">("PM");
+  const [isOpen, setIsOpen] = useState(false);
 
   const clear = () => {
     setDate(undefined);
@@ -34,115 +37,121 @@ export default function DialogDateTimeRangePicker() {
     toast.success("Date & Time Selected", {
       description: `${formattedDate} | ${formattedTime}`,
     });
+    setIsOpen(false);
   };
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button className=" w-[158px] text-sm px-4 py-2 cursor-pointer">
-          Reschedule
-        </Button>
-      </PopoverTrigger>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <Button
+        onClick={() => setIsOpen(true)}
+        className="w-[144px] text-lg px-12  py-5 gap-[10px] cursor-pointer"
+      >
+        Reschedule
+      </Button>
 
-      <PopoverContent className="w-[280px] p-3 space-y-3" align="start">
-        <div className="flex items-center justify-between text-xs font-medium text-gray-700">
-          <span>Select date</span>
-          <div className="flex items-center gap-1">
-            <button
-              onClick={clear}
-              className="text-red-500 hover:underline text-xs"
-            >
-              Clear
-            </button>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => setDate(new Date())}
-              className="text-xs h-7 px-2"
-            >
-              Today
-            </Button>
-          </div>
-        </div>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Reschedule Booking</DialogTitle>
+          <DialogDescription>
+            Select new date and time for your booking
+          </DialogDescription>
+        </DialogHeader>
 
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border text-sm"
-        />
-
-        <div className="text-xs font-medium text-gray-700">
-          Select time range
-        </div>
-
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex flex-col gap-1">
-            <label className="text-[10px] text-gray-500">Start</label>
-            <div className="flex items-center gap-1">
-              <input
-                type="number"
-                value={startHour}
-                onChange={(e) => setStartHour(+e.target.value)}
-                className="w-12 text-xs rounded border px-1 py-0.5 text-center"
-                min={1}
-                max={12}
-              />
-              <select
-                value={startMeridiem}
-                onChange={(e) =>
-                  setStartMeridiem(e.target.value as "AM" | "PM")
-                }
-                className="text-xs rounded border px-1 py-0.5"
+        <div className="grid gap-4 py-4">
+          <div className="flex items-center justify-between text-sm font-medium text-gray-700">
+            <span>Select date</span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={clear}
+                className="text-red-500 hover:underline text-xs"
               >
-                <option>AM</option>
-                <option>PM</option>
-              </select>
+                Clear
+              </button>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={() => setDate(new Date())}
+                className="text-xs h-7 px-2"
+              >
+                Today
+              </Button>
             </div>
           </div>
 
-          <span className="text-sm font-semibold">→</span>
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            className="rounded-md border mx-auto"
+          />
 
-          <div className="flex flex-col gap-1">
-            <label className="text-[10px] text-gray-500">End</label>
-            <div className="flex items-center gap-1">
-              <input
-                type="number"
-                value={endHour}
-                onChange={(e) => setEndHour(+e.target.value)}
-                className="w-12 text-xs rounded border px-1 py-0.5 text-center"
-                min={1}
-                max={12}
-              />
-              <select
-                value={endMeridiem}
-                onChange={(e) => setEndMeridiem(e.target.value as "AM" | "PM")}
-                className="text-xs rounded border px-1 py-0.5"
-              >
-                <option>AM</option>
-                <option>PM</option>
-              </select>
+          <div className="text-sm font-medium text-gray-700">
+            Select time range
+          </div>
+
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-gray-500">Start</label>
+              <div className="flex items-center gap-1">
+                <input
+                  type="number"
+                  value={startHour}
+                  onChange={(e) => setStartHour(+e.target.value)}
+                  className="w-12 text-sm rounded border px-2 py-1 text-center"
+                  min={1}
+                  max={12}
+                />
+                <select
+                  value={startMeridiem}
+                  onChange={(e) =>
+                    setStartMeridiem(e.target.value as "AM" | "PM")
+                  }
+                  className="text-sm rounded border px-2 py-1"
+                >
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </div>
+            </div>
+
+            <span className="text-sm font-semibold">→</span>
+
+            <div className="flex flex-col gap-1">
+              <label className="text-xs text-gray-500">End</label>
+              <div className="flex items-center gap-1">
+                <input
+                  type="number"
+                  value={endHour}
+                  onChange={(e) => setEndHour(+e.target.value)}
+                  className="w-12 text-sm rounded border px-2 py-1 text-center"
+                  min={1}
+                  max={12}
+                />
+                <select
+                  value={endMeridiem}
+                  onChange={(e) =>
+                    setEndMeridiem(e.target.value as "AM" | "PM")
+                  }
+                  className="text-sm rounded border px-2 py-1"
+                >
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 pt-2">
-          <Button
-            variant="outline"
-            onClick={clear}
-            className="text-xs h-8 px-3"
-          >
+        <DialogFooter>
+          <Button variant="outline" onClick={() => setIsOpen(false)}>
             Cancel
           </Button>
-          <Button
-            onClick={handleDone}
-            className="bg-[#1976D2] text-white text-xs h-8 px-4"
-          >
-            Done
+          <Button onClick={handleDone} disabled={!date}>
+            Save changes
           </Button>
-        </div>
-      </PopoverContent>
-    </Popover>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }
 

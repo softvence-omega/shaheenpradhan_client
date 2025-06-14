@@ -1,9 +1,8 @@
 import { MapPin } from "lucide-react";
-import assistphoto from "@/assets/images/taskphoto.png";
-import chat from "@/assets/icons/chat.png";
 import { Button } from "@/components/ui/button";
 import DialogDateTimeRangePicker from "@/pages/user/DialogDateTimeRangePicker";
 import { Link } from "react-router-dom";
+import { Dialog } from "@/components/ui/dialog";
 
 const AssistantUpcoming = () => {
   return (
@@ -49,18 +48,32 @@ const AssistantUpcoming = () => {
           </div>
 
           {/* Action Buttons stacked */}
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-3 ">
             <Link to="/assistant/upcoming-task-2">
-              <Button variant="outline" className="w-full">
+              <Button
+                variant="outline"
+                className="w-full cursor-pointer hidden md:block"
+              >
                 View Full Details
               </Button>
             </Link>
 
-            <div className="flex justify-between gap-3">
-              <Button variant="ghost" className="text-red-500 w-1/2">
-                Cancel
-              </Button>
-              <DialogDateTimeRangePicker />
+            <div>
+              <>
+                <div className="flex justify-between items-center">
+                  <Button
+                    variant="ghost"
+                    className="text-red-500 w-[158px] text-sm px-4 py-2 cursor-pointer"
+                  >
+                    Cancel
+                  </Button>
+                  <Dialog>
+                    <div className="grid gap-4 py-4">
+                      <DialogDateTimeRangePicker />
+                    </div>
+                  </Dialog>
+                </div>
+              </>
             </div>
           </div>
         </div>

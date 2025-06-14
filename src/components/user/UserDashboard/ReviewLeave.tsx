@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ReviewLeave = () => {
   return (
     <div className="w-full">
-      <div className="mx-auto bg-white rounded-lg shadow-sm p-4 lg:p-6 flex flex-col lg:flex-row gap-6 lg:gap-20 font-DMsans">
+      <div className="mx-auto bg-white rounded-[24px] shadow-sm p-4 lg:p-6 flex flex-col lg:flex-row gap-6 lg:gap-20 font-DMsans">
         {/* MOBILE LAYOUT */}
         <div className="flex flex-col w-full lg:hidden">
           {/* Profile top row */}
@@ -48,7 +48,10 @@ const ReviewLeave = () => {
           {/* Buttons stacked */}
           <div className="mt-6 flex flex-col gap-4">
             <Link to="/user/past-booking">
-              <Button variant="outline" className="w-full cursor-pointer">
+              <Button
+                variant="outline"
+                className="w-full cursor-pointer hidden md:flex items-center gap-4 mt-2"
+              >
                 View Full Details
               </Button>
             </Link>

@@ -57,11 +57,18 @@ const ConfirmBooking = () => {
         description="Fill out the form to confirm  your booking."
       />
 
-      <div className="sm:px-6 lg:px-1 w-full mx-auto mb-20 space-y-9 font-DMsans">
-        <div className="flex space-x-10">
-          <div className="lg:col-span-1">
+      <div className="sm:px-6 lg:px-1 w-full mx-auto font-sans mb-20 space-y-9">
+        {/* Mobile StepBooking - shown only on small screens */}
+        <div className="lg:hidden mb-8 mt-8">
+          <StepBooking steps={steps} mobile />
+        </div>
+
+        <div className="flex flex-col lg:flex-row lg:space-x-10 mt-[37px]">
+          {/* Desktop StepBooking - shown only on large screens */}
+          <div className="hidden lg:block lg:col-span-1">
             <StepBooking steps={steps} />
           </div>
+
           <div className="gap-10 w-full">
             <div className="lg:col-span-3 space-y-9">
               {/* Assistant Info */}

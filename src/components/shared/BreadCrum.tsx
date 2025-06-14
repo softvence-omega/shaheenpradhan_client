@@ -14,13 +14,13 @@ const BreadCrum = () => {
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink>
-              <Link to="/">Home</Link>
+              <Link to="/user">Home</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink>
-              <Link to="/components">Upcoming Bookings</Link>
+              <Link to="/user/current-booking">Upcoming Bookings</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />

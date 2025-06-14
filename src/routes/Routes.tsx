@@ -118,6 +118,13 @@ export const router = createBrowserRouter([
   },
 
   /** USER LAYOUT **/
+
+  /*  element: (
+      <PrivateRoute>
+        <UserLayout />
+      </PrivateRoute>
+    ), */
+
   {
     path: "user",
     element: <UserLayout />,

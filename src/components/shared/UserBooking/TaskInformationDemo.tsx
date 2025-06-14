@@ -128,7 +128,7 @@ const TaskInformationDemo = ({
         <div>
           {status === "Completed" && reviews.length > 0 ? (
             reviews.map((review) => (
-              <div key={review.id} className="border rounded p-3 mb-3">
+              <div key={review.id} className=" p-3 mb-3">
                 <p className="font-semibold text-[#3A1C71] mb-1">
                   Review Given
                 </p>

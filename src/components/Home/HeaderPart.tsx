@@ -55,15 +55,16 @@ const HeaderPart = () => {
               <h1 className="text-3xl sm:text-[56px] leading-[120%] font-semibold text-white ">
                 Your Executive Assistant, On Demand
               </h1>
-              <p className="text-[15px] sm:text-[20px] leading-[120%] font-light text-grayWhite">
+              <p className="text-[16px] sm:text-[20px] leading-[120%] font-light text-grayWhite">
                 Book vetted EAs in minutes, AI-Matched to your needs.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-              <Button className="text-sm sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-5 px-5 sm:py-6 sm:px-7 sm:bg-BorderHighlight/70 hover:bg-BorderHighlight/70 bg-BorderHighlight cursor-pointer w-52 lg:w-fit">
+              <Button className="w-[269px] h-[54px] rounded-lg text-lg sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-[18px] px-[32px] bg-BorderHighlight hover:bg-BorderHighlight/70 cursor-pointer">
                 Find Your Force Multiplier
               </Button>
-              <Button className="text-sm sm:text-[15px] md:text-[16px] font-normal leading-[120%]  py-5 px-5 sm:py-6 sm:px-7 bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer w-52 lg:w-fit">
+
+              <Button className="w-[274px] h-[54px] rounded-lg text-lg sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-[18px] px-[32px] bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer">
                 Become a Force Multiplier
               </Button>
             </div>
