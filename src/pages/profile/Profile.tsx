@@ -9,9 +9,9 @@ import Wrapper from "@/components/shared/Wrapper";
 
 const Profile = () => {
   return (
-    <Wrapper>
+    <div>
       {/* MAIN DIV */}
-      <div className="flex flex-col md:flex-row gap-5 lg:gap-10 mt-5">
+      <div className="flex flex-col lg:flex-row gap-5 lg:gap-10 mt-5">
         {/* PROFILE SIDEBAR */}
         <div className="sticky">
           <ProfileCard
@@ -43,7 +43,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </Wrapper>
+    </div>
   );
 };
 

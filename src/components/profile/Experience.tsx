@@ -1,7 +1,5 @@
-
 import ExperienceCard from "../shared/ExperienceCard";
 import { Button } from "../ui/button";
-
 
 const Experience = () => {
   return (
@@ -24,8 +22,6 @@ const Experience = () => {
           Load More
         </Button>
       </div>
-
-     
     </div>
   );
 };

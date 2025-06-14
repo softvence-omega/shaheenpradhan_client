@@ -52,7 +52,7 @@ const BookingRequestCard = () => {
           {/* Action buttons stacked */}
           <div className="flex flex-col space-y-3">
             <Link to="/assistant/booking-task-3">
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full hidden md:block">
                 View Full Details
               </Button>
             </Link>
@@ -61,7 +61,7 @@ const BookingRequestCard = () => {
               <Button variant="ghost" className="text-red-500 w-1/2">
                 Cancel
               </Button>
-              <Button className="w-1/2">Accept</Button>
+              <Button className="w-[158px]">Accept</Button>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ const BookingRequestCard = () => {
           </div>
 
           {/* Action Buttons Section */}
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-6 space-y-8">
             <div>
               <Link to="/assistant/booking-task-3">
                 <Button variant="outline" className="cursor-pointer">

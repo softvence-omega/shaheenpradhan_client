@@ -55,10 +55,10 @@ const UpcomingBookings = () => {
           </div>
 
           {/* Buttons Cancel and Reschedule side by side */}
-          <div className="mt-6 flex gap-4">
+          <div className="mt-6 flex justify-between gap-4">
             <Button
               variant="ghost"
-              className="text-red-600 flex-1 cursor-pointer"
+              className="text-red-500  hover:bg-red-50 w-[100px] cursor-pointer"
             >
               Cancel
             </Button>
@@ -90,7 +90,7 @@ const UpcomingBookings = () => {
           </div>
 
           <div className="flex justify-center lg:flex-row lg:justify-between lg:items-center gap-6 flex-1">
-            <div className="ml-45 space-y-4 text-sm text-gray-700">
+            <div className="ml-auto space-y-4 text-sm text-gray-700">
               <div className="flex  mr-20 sm:flex-row sm:items-center sm:gap-4">
                 <div>
                   <p className="font-medium text-gray-800">Start Date</p>

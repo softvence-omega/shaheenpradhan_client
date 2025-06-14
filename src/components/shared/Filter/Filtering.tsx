@@ -1,85 +1,220 @@
+// components/shared/Filter/Filtering.tsx
 import { Button } from "../../ui/button";
-import { ListFilter, Search } from "lucide-react";
-import Wrapper from "../Wrapper";
+import { ListFilter, Search, X } from "lucide-react";
 import Sort from "./Sort";
 import Selection from "./Selection";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { FilterOptions } from "./types/assistant";
 
-const Filtering = () => {
+interface FilteringProps {
+  onFilterChange: (filters: FilterOptions) => void;
+  activeFilters: FilterOptions;
+  onClearFilters: () => void;
+}
+
+const Filtering = ({
+  onFilterChange,
+  activeFilters,
+  onClearFilters,
+}: FilteringProps) => {
+  const [mobileSearch, setMobileSearch] = useState("");
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setMobileSearch(value);
+    onFilterChange({ ...activeFilters, searchQuery: value });
+  };
+
+  const handleClearSearch = () => {
+    setMobileSearch("");
+    onFilterChange({ ...activeFilters, searchQuery: "" });
+  };
+
+  const handleAvailabilityFilter = (type: string) => {
+    onFilterChange({ ...activeFilters, availability: type });
+  };
+
   return (
     <div className="font-DMsans">
-        {/* FOR MOBILE DEVICE SEARCH BAR */}
-        <div className="w-full space-y-2 lg:hidden block my-5">
-          <div className="flex items-center justify-between space-x-3">
-            <p className="text-sm font-medium">Search By Task Or Industry</p>
+      {/* FOR MOBILE DEVICE SEARCH BAR */}
+      <div className="w-full space-y-2 lg:hidden block my-5">
+        <div className="flex items-center justify-between space-x-3">
+          <p className="text-sm font-medium">Search By Task Or Industry</p>
+          {mobileSearch && (
+            <button onClick={handleClearSearch}>
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+        <fieldset className="w-full space-y-1">
+          <div className="relative w-full">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <Search className="w-5 h-5" />
+            </span>
+            <Input
+              type="text"
+              placeholder="Event Manager"
+              className="w-full py-5 pl-10 text-sm bg-white rounded-md focus:outline-none"
+              value={mobileSearch}
+              onChange={handleSearchChange}
+            />
           </div>
-          <fieldset className="w-full space-y-1">
-            <label htmlFor="Search" className="hidden">
-              Search
-            </label>
-            <div className="relative w-full">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                <button
-                  type="button"
-                  title="search"
-                  className="p-1 focus:outline-none focus:ring"
-                >
-                  <Search className="w-5 h-5" />
-                </button>
-              </span>
-              <Input
-                type="text"
-                placeholder="Event Manager"
-                className=" w-full py-5 pl-10 text-sm bg-white rounded-md focus:outline-none"
-              />
-            </div>
-          </fieldset>
+        </fieldset>
+      </div>
+
+      {/* FILTERING SECTION */}
+      <div className="flex items-center justify-between">
+        {/* FILTER BUTTON */}
+        <div>
+          <Button
+            size="lg"
+            variant="outline"
+            className="flex items-center space-x-1.5 cursor-pointer bg-transparent hover:bg-transparent shadow-none border-[1px] border-TextSecondary"
+          >
+            <ListFilter />
+            <span>Filters</span>
+          </Button>
         </div>
 
-        {/* FILTERING SECTION */}
-        <div className="flex items-center justify-between">
-          {/* FILTER BUTTON */}
-          <div>
-            <Button
-              size="lg"
-              variant="outline"
-              className="flex items-center space-x-1.5 cursor-pointer bg-transparent hover:bg-transparent shadow-none border-[1px] border-TextSecondary"
-            >
-              <ListFilter />
-              <span>Filters</span>
-            </Button>
-          </div>
-          {/* MENU BY FILTER! */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              size="sm"
-              variant="outline"
-              className="cursor-pointer rounded bg-white border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
-            >
-              View all
-            </Button>
-            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
-              Available Now
-            </button>
-            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
-              Top Rated
-            </button>
-            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
-              Category three
-            </button>
-            <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
-              Category four
-            </button>
-          </div>
-          {/* SORT BUTTON */}
-          <div>
-            <Sort />
-          </div>
+        {/* MENU BY FILTER! */}
+        <div className="hidden lg:flex items-center space-x-4">
+          <Button
+            size="sm"
+            variant={
+              activeFilters.availability === "all" ? "default" : "outline"
+            }
+            className="cursor-pointer rounded border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+            onClick={() => handleAvailabilityFilter("all")}
+          >
+            View all
+          </Button>
+          <Button
+            size="sm"
+            variant={
+              activeFilters.availability === "available" ? "default" : "outline"
+            }
+            className="cursor-pointer rounded border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+            onClick={() => handleAvailabilityFilter("available")}
+          >
+            Available Now
+          </Button>
+          <Button
+            size="sm"
+            variant={
+              activeFilters.availability === "topRated" ? "default" : "outline"
+            }
+            className="cursor-pointer rounded border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+            onClick={() => handleAvailabilityFilter("topRated")}
+          >
+            Top Rated
+          </Button>
         </div>
 
-        <Selection />
+        {/* SORT BUTTON */}
+        <div>
+          <Sort
+            value={activeFilters.sortBy}
+            onChange={(value) =>
+              onFilterChange({ ...activeFilters, sortBy: value })
+            }
+          />
+        </div>
+      </div>
+
+      <Selection
+        filters={activeFilters}
+        onFilterChange={onFilterChange}
+        onClearFilters={onClearFilters}
+      />
     </div>
   );
 };
 
 export default Filtering;
+
+// import { Button } from "../../ui/button";
+// import { ListFilter, Search } from "lucide-react";
+// import Wrapper from "../Wrapper";
+// import Sort from "./Sort";
+// import Selection from "./Selection";
+// import { Input } from "@/components/ui/input";
+
+// const Filtering = () => {
+//   return (
+//     <div className="font-DMsans">
+//         {/* FOR MOBILE DEVICE SEARCH BAR */}
+//         <div className="w-full space-y-2 lg:hidden block my-5">
+//           <div className="flex items-center justify-between space-x-3">
+//             <p className="text-sm font-medium">Search By Task Or Industry</p>
+//           </div>
+//           <fieldset className="w-full space-y-1">
+//             <label htmlFor="Search" className="hidden">
+//               Search
+//             </label>
+//             <div className="relative w-full">
+//               <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+//                 <button
+//                   type="button"
+//                   title="search"
+//                   className="p-1 focus:outline-none focus:ring"
+//                 >
+//                   <Search className="w-5 h-5" />
+//                 </button>
+//               </span>
+//               <Input
+//                 type="text"
+//                 placeholder="Event Manager"
+//                 className=" w-full py-5 pl-10 text-sm bg-white rounded-md focus:outline-none"
+//               />
+//             </div>
+//           </fieldset>
+//         </div>
+
+//         {/* FILTERING SECTION */}
+//         <div className="flex items-center justify-between">
+//           {/* FILTER BUTTON */}
+//           <div>
+//             <Button
+//               size="lg"
+//               variant="outline"
+//               className="flex items-center space-x-1.5 cursor-pointer bg-transparent hover:bg-transparent shadow-none border-[1px] border-TextSecondary"
+//             >
+//               <ListFilter />
+//               <span>Filters</span>
+//             </Button>
+//           </div>
+//           {/* MENU BY FILTER! */}
+//           <div className="hidden lg:flex items-center space-x-4">
+//             <Button
+//               size="sm"
+//               variant="outline"
+//               className="cursor-pointer rounded bg-white border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+//             >
+//               View all
+//             </Button>
+//             <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
+//               Available Now
+//             </button>
+//             <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
+//               Top Rated
+//             </button>
+//             <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
+//               Category three
+//             </button>
+//             <button className="sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px]">
+//               Category four
+//             </button>
+//           </div>
+//           {/* SORT BUTTON */}
+//           <div>
+//             <Sort />
+//           </div>
+//         </div>
+
+//         <Selection />
+//     </div>
+//   );
+// };
+
+// export default Filtering;

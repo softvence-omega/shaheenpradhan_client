@@ -15,7 +15,6 @@ import { RiVisaFill } from "react-icons/ri";
 
 const ConfirmRequest = () => {
   const [startDate, setStartDate] = useState("");
-
   const [overview, setOverview] = useState("");
   const [click, setClick] = useState(false);
   const [preferTime, setPreferTime] = useState("");
@@ -42,14 +41,19 @@ const ConfirmRequest = () => {
         description="Fill out the form to confirm  your booking"
       />
 
-      <div className=" sm:px-6 lg:px-1 w-full mx-auto font-sans mb-20 space-y-9 ">
-        <div className="flex  space-x-10">
-          <div className="lg:col-span-1">
+      <div className="sm:px-6 lg:px-1 w-full mx-auto font-sans mb-20 space-y-9">
+        {/* Mobile StepBooking - shown only on small screens */}
+        <div className="lg:hidden mb-8 mt-8">
+          <StepBooking steps={steps} mobile />
+        </div>
+
+        <div className="flex flex-col lg:flex-row lg:space-x-10 mt-[37px]">
+          {/* Desktop StepBooking - shown only on large screens */}
+          <div className="hidden lg:block lg:col-span-1">
             <StepBooking steps={steps} />
           </div>
-          <div className=" gap-10 w-full">
-            {/* Left Side - Steps */}
 
+          <div className="gap-10 w-full">
             {/* Right Side - Booking Form */}
             <div className="lg:col-span-3 space-y-9">
               <div>
@@ -107,7 +111,6 @@ const ConfirmRequest = () => {
               </section>
 
               {/* Payment Info */}
-              {/* Payment Info */}
               <section className="mb-6">
                 <div className="flex justify-between items-center">
                   <div>
@@ -117,8 +120,7 @@ const ConfirmRequest = () => {
                   </div>
                   <div>
                     <div className="flex justify-end items-center gap-2 cursor-pointer">
-                      <Select /* value={currency} onValueChange={setCurrency} */
-                      >
+                      <Select>
                         <SelectTrigger className="w-[68px] h-8 px-2 text-xs">
                           <SelectValue placeholder="AED" />
                         </SelectTrigger>

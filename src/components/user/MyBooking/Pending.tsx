@@ -10,8 +10,8 @@ const Pending = () => {
       <div>
         <ReuseBreadCrum
           items={[
-            { label: "Home", path: "/" },
-            { label: "Pending", path: "/components" },
+            { label: "Home", path: "/user" },
+            { label: "Pending", path: "/user/pending" },
             { label: "12345678" },
           ]}
         />

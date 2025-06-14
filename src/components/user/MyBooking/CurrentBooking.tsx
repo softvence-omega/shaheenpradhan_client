@@ -10,8 +10,8 @@ const CurrentBooking = () => {
       <div>
         <ReuseBreadCrum
           items={[
-            { label: "Home", path: "/" },
-            { label: "Upcoming Bookings", path: "/components" },
+            { label: "Home", path: "/user/home" },
+            { label: "Upcoming Bookings", path: "/user/current-booking" },
             { label: "12345678" },
           ]}
         />

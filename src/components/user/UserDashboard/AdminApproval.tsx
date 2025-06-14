@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const AdminApproval = () => {
   return (
     <div className="w-full">
-      <div className="mx-auto bg-white rounded-lg shadow-sm p-4 lg:p-6 flex flex-col lg:flex-row gap-6 lg:gap-20 font-DMsans">
+      <div className="mx-auto bg-white rounded-[24px] shadow-sm p-4 lg:p-6 flex flex-col lg:flex-row gap-6 lg:gap-20 font-DMsans">
         {/* MOBILE LAYOUT */}
         <div className="flex flex-col w-full lg:hidden">
           {/* Top row: Photo + Name + Specialist + Status */}
