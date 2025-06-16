@@ -50,21 +50,30 @@ const Assistants = () => {
           />
 
           <div className="flex flex-col gap-5">
-            <div className="flex items-center justify-between">
-              {activeTag && (
-                <div className="bg-pink-200 inline-flex py-2 px-4 items-center gap-2 rounded">
-                  <p className="text-sm sm:text-[15px] font-normal text-TextSecondary">
-                    {activeTag}
-                  </p>
-                  <X
-                    className="w-4 h-4 text-sm sm:text-[15px] font-medium text-TextSecondary cursor-pointer"
-                    onClick={() => setActiveTag(null)}
-                  />
-                </div>
-              )}
-              <p className="text-sm sm:text-[15px] font-medium text-TextSecondary leading-[120%]">
-                Showing {filteredAssistants.length} of {assistantsData.length}
-              </p>
+            <div className="flex justify-between items-center">
+              <div className="bg-[#E6DDF8] inline-flex py-2 px-4 items-center gap-2 rounded">
+                <p className="text-sm sm:text-[15px] font-normal text-TextSecondary">
+                  Tag
+                </p>
+
+                <X className="w-4 h-4 text-sm sm:text-[15px] font-medium text-TextSecondary" />
+              </div>
+              <div className="flex items-center justify-between">
+                {activeTag && (
+                  <div className="bg-[#E6DDF8] inline-flex py-2 px-4 items-center gap-2 rounded">
+                    <p className="text-sm sm:text-[15px] font-normal text-TextSecondary">
+                      {activeTag}
+                    </p>
+                    <X
+                      className="w-4 h-4 text-sm sm:text-[15px] font-medium text-TextSecondary cursor-pointer"
+                      onClick={() => setActiveTag(null)}
+                    />
+                  </div>
+                )}
+                <p className="text-sm sm:text-[15px] font-medium text-TextSecondary leading-[120%]">
+                  Showing {filteredAssistants.length} of {assistantsData.length}
+                </p>
+              </div>
             </div>
 
             {/* CARDS */}

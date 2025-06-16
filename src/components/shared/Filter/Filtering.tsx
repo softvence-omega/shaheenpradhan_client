@@ -65,8 +65,18 @@ const Filtering = ({
 
       {/* FILTERING SECTION */}
       <div className="flex items-center justify-between">
-        {/* FILTER BUTTON */}
-        <div>
+        {/* On mobile: Sort button on left, Filter button on right */}
+        <div className="lg:hidden">
+          <Sort
+            value={activeFilters.sortBy}
+            onChange={(value) =>
+              onFilterChange({ ...activeFilters, sortBy: value })
+            }
+          />
+        </div>
+
+        {/* On desktop: Filter button on left */}
+        <div className="hidden lg:block">
           <Button
             size="lg"
             variant="outline"
@@ -79,46 +89,66 @@ const Filtering = ({
 
         {/* MENU BY FILTER! */}
         <div className="hidden lg:flex items-center space-x-4">
-          <Button
-            size="sm"
-            variant={
-              activeFilters.availability === "all" ? "default" : "outline"
-            }
-            className="cursor-pointer rounded border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+          {/* View All Button */}
+          <button
+            className={` h-[38px] px-4  gap-2 text-lg sm:text-[16px] cursor-pointer rounded-[6px] border-[1px] transition-all duration-200
+      ${
+        activeFilters.availability === "all"
+          ? "bg-white text-black border-BorderHighlight"
+          : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
+      }`}
             onClick={() => handleAvailabilityFilter("all")}
           >
             View all
-          </Button>
-          <Button
-            size="sm"
-            variant={
-              activeFilters.availability === "available" ? "default" : "outline"
-            }
-            className="cursor-pointer rounded border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+          </button>
+
+          {/* Available Now Button */}
+          <button
+            className={`sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
+      ${
+        activeFilters.availability === "available"
+          ? "bg-white text-black border-BorderHighlight"
+          : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
+      }`}
             onClick={() => handleAvailabilityFilter("available")}
           >
             Available Now
-          </Button>
-          <Button
-            size="sm"
-            variant={
-              activeFilters.availability === "topRated" ? "default" : "outline"
-            }
-            className="cursor-pointer rounded border-BorderHighlight border-[1px] text-sm sm:text-[15px]"
+          </button>
+
+          {/* Top Rated Button */}
+          <button
+            className={`sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
+      ${
+        activeFilters.availability === "topRated"
+          ? "bg-white text-black border-BorderHighlight"
+          : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
+      }`}
             onClick={() => handleAvailabilityFilter("topRated")}
           >
             Top Rated
-          </Button>
+          </button>
         </div>
 
-        {/* SORT BUTTON */}
-        <div>
+        {/* On desktop: Sort button on right */}
+        <div className="hidden lg:block">
           <Sort
             value={activeFilters.sortBy}
             onChange={(value) =>
               onFilterChange({ ...activeFilters, sortBy: value })
             }
           />
+        </div>
+
+        {/* On mobile: Filter button on right */}
+        <div className="lg:hidden">
+          <Button
+            size="lg"
+            variant="outline"
+            className="flex items-center space-x-1.5 cursor-pointer bg-transparent hover:bg-transparent shadow-none border-[1px] border-TextSecondary"
+          >
+            <ListFilter />
+            <span>Filters</span>
+          </Button>
         </div>
       </div>
 

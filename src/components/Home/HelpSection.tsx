@@ -23,7 +23,7 @@ const HelpSection = () => {
               Join a growing network of professionals using Adminity to connect,
               collaborate, and succeed with confidence.
             </p>
-            <Button className="px-2 w-fit sm:p-4 py-2 text-sm sm:text-[16px] font-medium bg-white hover:bg-white cursor-pointer text-BorderHighlight">
+            <Button className="min-w-[143px] h-[46px] px-6 py-[14px] text-[16px] sm:text-[18px] font-medium bg-white hover:bg-white cursor-pointer text-BorderHighlight rounded-[8px]">
               Get Started
             </Button>
           </div>

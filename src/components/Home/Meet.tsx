@@ -11,14 +11,14 @@ const Meet = () => {
     <Wrapper>
       <div className="flex flex-col xl:flex-row gap-6 w-full pt-24">
         <iframe
-          className="w-full h-[350px] md:h-[550px] xl:h-[462px] rounded-lg"
-          src="https://www.youtube.com/embed/UcXWY057YuQ?autoplay=1&loop=1&playlist=UcXWY057YuQ"
+          className="w-full h-[462px] md:h-[550px] lg:h-[550px] rounded-lg"
+          src="https://www.youtube.com/embed/UcXWY057YuQ?loop=1&playlist=UcXWY057YuQ"
           title="YouTube video"
           allow="autoplay; encrypted-media"
           allowFullScreen
         ></iframe>
 
-        <div className="w-full  space-y-5">
+        <div className="w-full  space-y-6">
           <TitleAndSubTitle
             style="w-full"
             title="Meet Before You Book"
@@ -28,26 +28,26 @@ const Meet = () => {
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <div className="p-5 border-[1px] border-gray-900/10 rounded-md shadow-sm space-y-2">
               <Camera className="" />
-              <p className="text-xs sm:text-[15px]">
+              <p className="text-[16px] sm:text-[18px]">
                 Optional video calls to assess communication and compatibility
               </p>
             </div>
             <div className="p-5 border-[1px] border-gray-900/10 rounded-md shadow-sm space-y-2">
               <SuperPower className="" />
-              <p className="text-xs sm:text-[15px]">
+              <p className="text-[16px] sm:text-[18px]">
                 {" "}
                 Fast scheduling — typically confirmed within 24 hours
               </p>
             </div>
             <div className="p-5 border-[1px] border-gray-900/10 rounded-md shadow-sm space-y-2">
               <Platform className="" />
-              <p className="text-xs sm:text-[15px]">
+              <p className="text-[16px] sm:text-[18px]">
                 Professional, interviews via integrated video platform
               </p>
             </div>
             <div className="p-5 border-[1px] border-gray-900/10 rounded-md shadow-sm space-y-2">
               <User className="" />
-              <p className="text-xs sm:text-[15px]">
+              <p className="text-[16px] sm:text-[18px]">
                 Admin-approved for security and quality assurance
               </p>
             </div>
@@ -55,12 +55,13 @@ const Meet = () => {
 
           {/* ALL BUTTON */}
           <div className="flex items-center gap-5">
-            <Button className="px-2 sm:p-4 py-2 s text-xs sm:text-[15px] bg-ButtonBGSecondary cursor-pointer">
+            <Button className="w-[232px] h-[50px] px-8 py-4 text-[16px] sm:text-[18px] bg-ButtonBGSecondary cursor-pointer rounded-[6px]">
               Request Live Interview
             </Button>
+
             <Button
               variant="outline"
-              className="px-2 sm:p-4.5 py-2 text-xs sm:text-[15px] bg-none cursor-pointer"
+              className="w-[138px] h-[50px] px-6 py-4 text-[16px] sm:text-[18px] cursor-pointer border border-black rounded-[6px] bg-transparent"
             >
               Learn More
             </Button>

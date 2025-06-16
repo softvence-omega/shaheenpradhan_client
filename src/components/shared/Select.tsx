@@ -6,8 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Badge } from "../ui/badge";
-import { X } from "lucide-react";
+/* import { Badge } from "../ui/badge";
+import { X } from "lucide-react"; */
 
 interface SelectsProps {
   placeholder: string;
@@ -42,7 +42,7 @@ const Selects = ({
 
   return (
     <div className="space-y-2">
-      {value.length > 0 && (
+      {/*  {value.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {value.map((item) => (
             <Badge key={item} variant="secondary" className="px-2 py-1 text-xs">
@@ -57,7 +57,7 @@ const Selects = ({
             </Badge>
           ))}
         </div>
-      )}
+      )} */}
 
       <Select onValueChange={handleValueChange} value={value[0] || ""}>
         <SelectTrigger className="w-full py-5 text-sm">

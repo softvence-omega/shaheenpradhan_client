@@ -46,7 +46,7 @@ const FAQ = () => {
 
   return (
     <Wrapper>
-      <div className="mt-20 space-y-5">
+      <div className="mt-[60px] space-y-5 md:mt-[80px] lg:mt-[115px] xl:mt-[100px] 2xl:mt-[100px]">
         <TitleAndSubTitle
           title="Frequently Asked Questions"
           subTitle="Find quick answers to the most common questions about our platform."
@@ -56,29 +56,31 @@ const FAQ = () => {
           collapsible
           value={openItem ?? undefined}
           onValueChange={toggleFAQ}
-          className="space-y-5 mt-5 sm:mt-10"
+          className="mt-5 space-y-5 sm:mt-10"
         >
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white px-4 py-2 rounded-md border border-gray-800/10"
+              className="rounded-2xl border border-gray-800/10 bg-white px-4 py-2"
             >
-              <AccordionTrigger className="text-[15px] sm:text-xl">
+              <AccordionTrigger className="text-[18px] sm:text-[28px] font-DMsans">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent>{faq.answer}</AccordionContent>
+              <AccordionContent className="text-[16px] font-DMsans">
+                {faq.answer}
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
 
-        <div className="font-DMsans space-y-3 w-full sm:w-[60%] mt-16">
-          <h1 className="text-2xl sm:text-3xl ">Still have questions?</h1>
-          <p className="text-xs sm:text-sm leading-[120%] font-light">
+        <div className="mt-16 w-full space-y-3 font-DMsans sm:w-[60%]">
+          <h1 className="text-3xl sm:text-4xl">Still have questions?</h1>
+          <p className="text-lg font-light leading-[120%] ">
             Still have questions? Visit our full Support page or Contact Us.
           </p>
 
-          <Button className="px-2 sm:p-4 py-2 s text-xs sm:text-[15px] bg-BorderHighlight hover:bg-ColorInfo cursor-pointer">
+          <Button className="w-[139px] h-[46px] pt-[14px] pr-[24px] pb-[14px] pl-[24px] text-[18px]  bg-BorderHighlight rounded-[6px] cursor-pointer">
             Contact Us
           </Button>
         </div>
