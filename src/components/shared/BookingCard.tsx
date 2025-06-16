@@ -56,23 +56,23 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
                 </div>
 
                 <div className="">
-                  <h1 className="font-semibold text-sm sm:text-[15px]">
+                  <h1 className="font-semibold text-[20px]">
                     {assistant.name}
                   </h1>
-                  <p className="text-sm sm:text-[15px] font-light">
+                  <p className="text-sm sm:text-[16px] font-light">
                     {assistant.role}
                   </p>
                 </div>
               </div>
-              <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
+              <Love className="w-8 h-8 rounded-full p-2 bg-[#E6DDF8]" />
             </div>
 
-            <h1>Available Now</h1>
+            <h1 className="text-[#16CC71]">Available Now</h1>
             <div className="flex items-center justify-between my-4">
-              <h1 className="text-xs sm:text-[15px] font-semibold">
+              <h1 className="text-sm sm:text-[16px] font-semibold">
                 Availability :
               </h1>
-              <p className="flex items-center text-ButtonBGPrimary space-x-0.5">
+              <p className="flex items-center text-[#8559CA] space-x-0.5">
                 <Check className="w-4 h-4 " />{" "}
                 <span className="text-xs sm:text-[15px]">
                   {assistant.remote ? "Remote" : "On-site"}
@@ -98,7 +98,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
             </div>
 
             <div className="flex items-center justify-between my-4">
-              <h1 className="text-xs sm:text-[15px] font-semibold">
+              <h1 className="text-sm sm:text-[16px] font-semibold">
                 Language:
               </h1>
               <p className="flex items-center gap-2">
@@ -114,7 +114,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
             </div>
 
             <div className="flex items-center justify-between my-4">
-              <h1 className="text-xs sm:text-[15px] font-semibold">Rate:</h1>
+              <h1 className="text-sm sm:text-[16px] font-semibold">Rate:</h1>
               <div className="flex items-center gap-2">
                 <Select>
                   <SelectTrigger className="w-[70px] h-[10px] px-2 py-0 text-sm border rounded-md border-gray-900/10  focus:ring-1 focus:ring-primary focus:border-gray-900/10">
@@ -134,7 +134,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
                   <span className="font-bold text-[20px]">
                     {assistant.rate}
                   </span>
-                  <span className="font-medium text-xs text-muted-foreground ml-1">
+                  <span className="font-medium text-[16px] text-muted-foreground ml-1">
                     /hours
                   </span>
                 </div>
@@ -145,12 +145,12 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
 
             <div className="flex flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
               <Link to="/user/assistant-request-confirm">
-                <Button className="text-xs sm:text-[14px] font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer w-fit sm:w-full">
+                <Button className="w-[156px] h-[37px] px-6 py-2 rounded-[6px] gap-[10px] text-sm font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer">
                   Request Interview
                 </Button>
               </Link>
               <Link to="/user/assistant-booking">
-                <Button className="text-xs sm:text-[14px] font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
+                <Button className="text-sm font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
                   Book Now
                 </Button>
               </Link>
@@ -163,8 +163,8 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
         <div className="flex flex-col items-center justify-center">
           <Button
             variant="outline"
-            className="text-xs sm:text-[14px] font-normal bg-transparent hover:bg-transparent border-[1px] border-TextSecondary cursor-pointer w-fit"
             onClick={loadMore}
+            className="w-[134px] h-[46px] px-[24px] py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg  bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer rounded-sm font-DMsans"
           >
             Load More
           </Button>

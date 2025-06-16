@@ -1,7 +1,7 @@
 import Search from "@/assets/icon/Search";
 import BookingCardFind from "@/components/shared/BookingCardFind";
-
 import Sort from "@/components/shared/Filter/Sort";
+
 import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 
 import { Button } from "@/components/ui/button";
@@ -85,7 +85,7 @@ const DashboardBookingMatcher = () => {
         </div>
         <div className="flex flex-col gap-5 pt-5">
           <div className="flex items-center justify-between px-5 xl:px-0">
-            <div className="bg-pink-200 inline-flex p-1 items-center gap-2 rounded">
+            <div className="bg-[#E6DDF8] inline-flex p-1 items-center gap-2 rounded">
               <p className="text-xs sm:text-sm font-light">Tag</p>
               <X className="w-4 h-4" />
             </div>

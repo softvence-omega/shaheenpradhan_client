@@ -1,7 +1,6 @@
 import React from "react";
 import Star from "@/assets/icon/Star";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import Wrapper from "./Wrapper";
 import Love from "@/assets/icon/Love";
 import { Check } from "lucide-react";
 import { Button } from "../ui/button";

@@ -21,7 +21,7 @@ const Sort = ({ value, onChange }: SortProps) => {
       </SelectTrigger>
       <SelectContent className="translate-x-[-38%]">
         <SelectGroup>
-          <SelectItem value="rating-desc">Top Rated</SelectItem>
+          <SelectItem value="rating-desc">Short by</SelectItem>
           <SelectItem value="price-asc">Price: Low to High</SelectItem>
           <SelectItem value="price-desc">Price: High to Low</SelectItem>
           <SelectItem value="name-asc">Name: A-Z</SelectItem>

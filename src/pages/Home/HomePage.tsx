@@ -25,6 +25,7 @@ const HomePage = () => {
           </div>
           {/* <TestimonialCarousel /> */}
         </div>
+        <br />
         <FAQ />
         <HelpSection />
       </div>
