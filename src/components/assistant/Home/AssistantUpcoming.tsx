@@ -63,7 +63,7 @@ const AssistantUpcoming = () => {
                 <div className="flex justify-between items-center">
                   <Button
                     variant="ghost"
-                    className="text-red-500 w-[158px] text-sm px-4 py-2 cursor-pointer"
+                    className="text-red-500 w-[158px] text-[16px] px-4 py-2 cursor-pointer"
                   >
                     Cancel
                   </Button>
@@ -138,7 +138,10 @@ const AssistantUpcoming = () => {
             </div>
 
             <div className="flex space-x-3">
-              <Button variant="ghost" className="text-red-500 cursor-pointer">
+              <Button
+                variant="ghost"
+                className="text-red-500 cursor-pointer text-[16px]"
+              >
                 Cancel
               </Button>
               <DialogDateTimeRangePicker />

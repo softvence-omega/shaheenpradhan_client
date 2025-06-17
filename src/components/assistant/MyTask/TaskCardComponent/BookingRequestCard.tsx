@@ -58,7 +58,10 @@ const BookingRequestCard = () => {
             </Link>
 
             <div className="flex justify-between gap-3">
-              <Button variant="ghost" className="text-red-500 w-1/2">
+              <Button
+                variant="ghost"
+                className="text-red-500 w-1/2 text-[16px]"
+              >
                 Cancel
               </Button>
               <Button className="w-[158px]">Accept</Button>
@@ -128,10 +131,13 @@ const BookingRequestCard = () => {
             </div>
 
             <div className="flex space-x-3">
-              <Button variant="ghost" className="text-red-500 cursor-pointer">
+              <Button
+                variant="ghost"
+                className="text-red-500 cursor-pointer text-[16px]"
+              >
                 Cancel
               </Button>
-              <Button>Accept</Button>
+              <Button className="text-[16px]">Accept</Button>
             </div>
           </div>
         </div>

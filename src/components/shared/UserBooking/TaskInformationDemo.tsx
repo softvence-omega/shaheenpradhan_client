@@ -171,7 +171,7 @@ const TaskInformationDemo = ({
 
           <div className="flex gap-3">
             {status === "Completed" ? (
-              <Button className="w-full">Rebook</Button>
+              <Button className="w-full text-[16px]">Rebook</Button>
             ) : (
               <>
                 <Button variant="ghost" className="text-red-500 w-full">
@@ -310,7 +310,7 @@ const TaskInformationDemo = ({
 
             <div className="space-x-3">
               {status === "Completed" ? (
-                <Button>Rebook</Button>
+                <Button className="text-[16px]">Rebook</Button>
               ) : (
                 <>
                   <Button variant="ghost" className="text-red-500">

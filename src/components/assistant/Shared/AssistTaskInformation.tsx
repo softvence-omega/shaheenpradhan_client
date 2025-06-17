@@ -182,7 +182,9 @@ const AssistTaskInformation = ({
               </div>
             ))
           ) : status === "Pending" ? (
-            <Button className="w-full cursor-pointer">Accept</Button>
+            <Button className="w-full cursor-pointer text-[16px]">
+              Accept
+            </Button>
           ) : status === "Upcoming" ? (
             <Button
               variant="outline"
@@ -201,7 +203,7 @@ const AssistTaskInformation = ({
             {status === "Completed" ? (
               <Button
                 variant="ghost"
-                className="w-full text-gray-400 cursor-pointer"
+                className="w-full text-gray-400 cursor-pointer text-[16px]"
                 disabled
               >
                 Cancel
@@ -209,14 +211,14 @@ const AssistTaskInformation = ({
             ) : status === "Pending" ? (
               <Button
                 variant="ghost"
-                className="w-full text-red-500 cursor-pointer"
+                className="w-full text-red-500 cursor-pointer text-[16px]"
               >
                 Cancel
               </Button>
             ) : (
               <Button
                 variant="ghost"
-                className="w-full text-red-500 cursor-pointer"
+                className="w-full text-red-500 cursor-pointer text-[16px]"
               >
                 Request Cancel
               </Button>

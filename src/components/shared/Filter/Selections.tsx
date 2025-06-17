@@ -1,5 +1,5 @@
 import { Input } from "@/components/ui/input";
-import { Search, X } from "lucide-react";
+import { Search } from "lucide-react";
 import { FilterOptions } from "./types/assistant";
 import Selectby from "../Selectby";
 

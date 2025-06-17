@@ -44,7 +44,7 @@ export default function DialogDateTimeRangePicker() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <Button
         onClick={() => setIsOpen(true)}
-        className="w-[144px] text-lg px-12  py-5 gap-[10px] cursor-pointer"
+        className="w-[144px] text-[16px] px-12  py-5 gap-[10px] cursor-pointer"
       >
         Reschedule
       </Button>

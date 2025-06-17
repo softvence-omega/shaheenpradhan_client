@@ -15,9 +15,9 @@ export function SignupTabs() {
   };
 
   return (
-    <div className="bg-white h-screen">
+    <div className="bg-white min-h-screen">
       <Wrapper>
-        <div className="mt-8 space-y-8">
+        <div className="pt-8 space-y-8">
           <img src={logo} alt="" />
           <h1 className="text-3xl lg:text-4xl font-semibold">Sign Up</h1>
 

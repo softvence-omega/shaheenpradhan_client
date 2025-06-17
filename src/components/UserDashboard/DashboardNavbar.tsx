@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 import NotificationModal from "./NotificationModal";
 const DashboardNavbar = () => {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2 border border-neutral-200">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-[7px] border border-neutral-200">
       <Link to="/" className="sm:flex items-center p-2 hidden">
         <img src={logo} alt="logo" className="max-w-32 h-fit" />
       </Link>
@@ -77,7 +77,7 @@ const DashboardNavbar = () => {
       </div>
 
       {/* SEARCH FIELD */}
-      <form className="hidden sm:flex p-1 border border-gray-900/20 rounded-md text-sm sm:max-w-[450px] w-full">
+      <form className="hidden sm:flex p-1 border border-gray-900/20 rounded-md text-sm sm:max-w-[450px] w-full ">
         <div
           aria-disabled="true"
           className="w-10 grid place-content-center cursor-pointer"
