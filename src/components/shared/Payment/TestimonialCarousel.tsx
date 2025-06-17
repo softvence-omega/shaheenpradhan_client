@@ -62,7 +62,7 @@ export default function TestimonialCarousel({
           onClick={prevSlide}
           className="p-2 rounded-full text-var(--color-TextPrimary) hover:bg-gray-50 hover:text-purple-700 "
         >
-          <FaArrowLeft className="h-4 w-4" />
+          <FaArrowLeft className="h-4 w-4 cursor-pointer" />
         </button>
 
         <div className="flex gap-2">
@@ -80,7 +80,7 @@ export default function TestimonialCarousel({
           onClick={nextSlide}
           className="p-2 rounded-full text-var(--color-TextPrimary) hover:bg-gray-50 hover:text-purple-700"
         >
-          <FaArrowRight className="h-4 w-4" />
+          <FaArrowRight className="h-4 w-4 cursor-pointer" />
         </button>
       </div>
     </div>

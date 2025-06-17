@@ -61,7 +61,9 @@ const ReviewLeave = () => {
             >
               Leave Review
             </Button>
-            <Button className="w-full cursor-pointer">Rebook</Button>
+            <Button className="w-full cursor-pointer text-[16px] ">
+              Rebook
+            </Button>
           </div>
         </div>
 
@@ -121,7 +123,7 @@ const ReviewLeave = () => {
               >
                 Leave Review
               </Button>
-              <Button className="w-full sm:w-auto cursor-pointer">
+              <Button className="w-full text-[16px] sm:w-auto cursor-pointer">
                 Rebook
               </Button>
             </div>

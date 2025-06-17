@@ -197,7 +197,7 @@ const TaskInformation = ({
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end w-full">
             {status === "Completed" ? (
-              <Button className="w-full text-base sm:w-auto md:min-w-[140px] cursor-pointer">
+              <Button className="w-full text-[16px] sm:w-auto md:min-w-[140px] cursor-pointer">
                 Rebook
               </Button>
             ) : (
@@ -205,7 +205,7 @@ const TaskInformation = ({
                 <div className="flex justify-between items-center">
                   <Button
                     variant="ghost"
-                    className="text-red-500 w-[106px] h-[42px] px-[24px] py-[12px] text-lg rounded-md gap-[10px] cursor-pointer"
+                    className="text-red-500 w-[106px] h-[42px] px-[24px] py-[12px] text-[16px] rounded-md gap-[10px] cursor-pointer"
                   >
                     Cancel
                   </Button>
@@ -327,7 +327,7 @@ const TaskInformation = ({
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end w-full">
             {status === "Completed" ? (
-              <Button className="w-full sm:w-auto md:min-w-[140px] cursor-pointer">
+              <Button className="w-full text-[16px] sm:w-auto md:min-w-[140px] cursor-pointer">
                 Rebook
               </Button>
             ) : (
@@ -481,7 +481,7 @@ const TaskInformation = ({
 
             <div className="space-x-3">
               {status === "Completed" ? (
-                <Button className="w-full sm:w-auto md:min-w-[140px] px-12 py-5 text-lg cursor-pointer">
+                <Button className="w-full sm:w-auto md:min-w-[140px] px-12 py-5 text-[16px] cursor-pointer">
                   Rebook
                 </Button>
               ) : (
@@ -489,7 +489,7 @@ const TaskInformation = ({
                   <div className="flex items-center">
                     <Button
                       variant="ghost"
-                      className="text-red-500 w-[106px] h-[42px] px-[24px] py-[12px] text-lg rounded-md gap-[10px] cursor-pointer"
+                      className="text-red-500 w-[106px] h-[42px] px-[24px] py-[12px] text-[16px] rounded-md gap-[10px] cursor-pointer"
                     >
                       Cancel
                     </Button>

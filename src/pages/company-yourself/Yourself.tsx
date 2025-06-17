@@ -20,9 +20,11 @@ const Yourself = () => {
     }
   };
   return (
-    <div className="mt-10 bg-white">
+    <div className="pt-10 bg-white min-h-screen">
       <Wrapper>
-        <img src={logo} alt="logo" />
+        <Link to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         <div className="lg:w-[60%] w-full lg:mx-auto">
           <div className="my-10 px-4 flex justify-center">
             <div className="text-center space-y-3 w-full max-w-xl">

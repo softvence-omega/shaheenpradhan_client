@@ -29,9 +29,9 @@ const LoginPage = () => {
   //   console.log("handleJoinAsAssistant");
   // };
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       <Wrapper>
-        <div className="mt-8 space-y-10">
+        <div className="pt-8 space-y-10">
           <img src={logo} alt="" />
           <h1 className="text-3xl lg:text-4xl font-semibold">Login</h1>
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0">
@@ -84,7 +84,7 @@ const LoginPage = () => {
                     Don't have an account?
                     <Link
                       to="/signups"
-                      className="text-primary hover:underline cursor-pointer"
+                      className="text-primary hover:underline cursor-pointer ml-1"
                     >
                       Sign up
                     </Link>

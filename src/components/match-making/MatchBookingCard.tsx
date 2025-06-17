@@ -13,6 +13,7 @@ import {
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Star from "@/assets/icon/Star";
+import { Link } from "react-router-dom";
 
 const MatchBookingCard = () => {
   const data = [
@@ -270,7 +271,7 @@ const MatchBookingCard = () => {
                     </p>
                   </div>
                 </div>
-                <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
+                <Love className="w-8 h-8 rounded-full p-2 bg-[#E6DDF8]" />
               </div>
 
               <h1>{item?.available ? "Available Now" : "Available Now"} </h1>
@@ -346,13 +347,17 @@ const MatchBookingCard = () => {
               <div className="w-full h-[1px] bg-gray-900/10" />
 
               {/* BUTTON SECTION */}
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
-                <Button className="text-xs sm:text-[15px] font-light cursor-pointer sm:w-fit w-full">
-                  Request Interview
-                </Button>
-                <Button className="text-xs sm:text-[15px] font-light bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer sm:w-fit w-full">
-                  Book Now
-                </Button>
+              <div className="flex flex-row items-center justify-between gap-2 flex-wrap mt-4 w-full">
+                <Link to="/user/assistant-request-confirm">
+                  <Button className="w-[156px] h-[37px] px-6 py-2 rounded-[6px] gap-[10px] text-sm font-normal bg-ButtonBorder hover:bg-ButtonBorder cursor-pointer">
+                    Request Interview
+                  </Button>
+                </Link>
+                <Link to="/user/assistant-booking">
+                  <Button className="text-sm font-normal bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer w-fit sm:w-full">
+                    Book Now
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

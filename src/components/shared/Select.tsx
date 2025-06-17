@@ -6,8 +6,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-/* import { Badge } from "../ui/badge";
-import { X } from "lucide-react"; */
 
 interface SelectsProps {
   placeholder: string;
@@ -28,37 +26,16 @@ const Selects = ({
     if (singleSelect) {
       onChange([val]);
     } else {
-      if (value.includes(val)) {
-        onChange(value.filter((item) => item !== val));
-      } else {
-        onChange([...value, val]);
-      }
+      onChange(
+        value.includes(val)
+          ? value.filter((item) => item !== val)
+          : [...value, val]
+      );
     }
-  };
-
-  const removeItem = (item: string) => {
-    onChange(value.filter((i) => i !== item));
   };
 
   return (
     <div className="space-y-2">
-      {/*  {value.length > 0 && (
-        <div className="flex flex-wrap gap-1">
-          {value.map((item) => (
-            <Badge key={item} variant="secondary" className="px-2 py-1 text-xs">
-              {item}
-              <button
-                type="button"
-                onClick={() => removeItem(item)}
-                className="ml-1"
-              >
-                <X className="w-3 h-3" />
-              </button>
-            </Badge>
-          ))}
-        </div>
-      )} */}
-
       <Select onValueChange={handleValueChange} value={value[0] || ""}>
         <SelectTrigger className="w-full py-5 text-sm">
           <SelectValue placeholder={placeholder} />
