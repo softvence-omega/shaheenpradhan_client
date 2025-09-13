@@ -1,4 +1,4 @@
-const Love = ({ className }) => {
+const Love = ({ className }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,9 +11,9 @@ const Love = ({ className }) => {
       <path
         d="M15.75 6.1875C15.75 4.32375 14.1758 2.8125 12.234 2.8125C10.7828 2.8125 9.53625 3.657 9 4.86225C8.46375 3.657 7.21725 2.8125 5.76525 2.8125C3.825 2.8125 2.25 4.32375 2.25 6.1875C2.25 11.6025 9 15.1875 9 15.1875C9 15.1875 15.75 11.6025 15.75 6.1875Z"
         stroke="#1A1A1A"
-        stroke-width="1.125"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth={1.125}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

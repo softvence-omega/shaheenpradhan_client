@@ -1,4 +1,5 @@
-const Camera = ({className}) => {
+
+const Camera = ({ className }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +7,7 @@ const Camera = ({className}) => {
       height="47"
       viewBox="0 0 44 47"
       fill="none"
-    className={`${className}`}
+      className={className}
     >
       <g filter="url(#filter0_d_883_27127)">
         <path
@@ -14,8 +15,8 @@ const Camera = ({className}) => {
           fill="url(#paint0_linear_883_27127)"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8.68656 3.4854C8.97894 3.01759 9.49169 2.7334 10.0434 2.7334H13.9566C14.5082 2.7334 15.021 3.01759 15.3134 3.4854L16.1767 4.86673H18.9333C20.2588 4.86673 21.3333 5.94125 21.3333 7.26673V17.1334C21.3333 18.4589 20.2588 19.5334 18.9333 19.5334H5.06663C3.74114 19.5334 2.66663 18.4589 2.66663 17.1334V7.26673C2.66663 5.94125 3.74114 4.86673 5.06663 4.86673H7.82323L8.68656 3.4854ZM12 7.80005C9.79082 7.80005 7.99996 9.59091 7.99996 11.8C7.99996 14.0092 9.79082 15.8 12 15.8C14.2091 15.8 16 14.0092 16 11.8C16 9.59091 14.2091 7.80005 12 7.80005Z"
           fill="url(#paint1_linear_883_27127)"
         />
@@ -23,14 +24,14 @@ const Camera = ({className}) => {
       <defs>
         <filter
           id="filter0_d_883_27127"
-          x="-4.07696e-05"
+          x="-0.0000407696"
           y="0.0667317"
           width="29.3333"
           height="27.4665"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -63,8 +64,8 @@ const Camera = ({className}) => {
           y2="-7.43014"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFB31A" />
-          <stop offset="1" stop-color="#FFD86B" />
+          <stop stopColor="#FFB31A" />
+          <stop offset="1" stopColor="#FFD86B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_883_27127"
@@ -74,8 +75,8 @@ const Camera = ({className}) => {
           y2="-7.43014"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFB31A" />
-          <stop offset="1" stop-color="#FFD86B" />
+          <stop stopColor="#FFB31A" />
+          <stop offset="1" stopColor="#FFD86B" />
         </linearGradient>
       </defs>
     </svg>
