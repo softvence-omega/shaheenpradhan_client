@@ -5,7 +5,6 @@ import Expertise from "@/components/profile/Expertise";
 import Summary from "@/components/profile/Summary";
 import Divider from "@/components/shared/Divider";
 import ProfileCard from "@/components/shared/ProfileCard";
-import Wrapper from "@/components/shared/Wrapper";
 
 const Profile = () => {
   return (

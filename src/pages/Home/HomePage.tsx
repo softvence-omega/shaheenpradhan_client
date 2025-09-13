@@ -1,13 +1,15 @@
-import HeaderPart from "@/components/home/HeaderPart";
-import Assistants from "../../components/home/Assistants";
-import HeaderSecondPart from "@/components/home/HeaderSecondPart";
-import Matchmaker from "../../components/home/Matchmaker";
-import Meet from "../../components/home/Meet";
-import Assistant from "../../components/home/Assistant";
-import FAQ from "../../components/home/FAQ";
-import HelpSection from "../../components/home/HelpSection";
+
 /* import TestimonialCarousel from "@/components/shared/Carousel"; */
-import CaroselCard from "@/components/home/CaroselCard";
+import Assistant from "@/components/Home/Assistant";
+import Assistants from "@/components/Home/Assistants";
+import CarouselCard from "@/components/Home/CaroselCard";
+import FAQ from "@/components/Home/FAQ";
+import HeaderPart from "@/components/Home/HeaderPart";
+import HeaderSecondPart from "@/components/Home/HeaderSecondPart";
+import HelpSection from "@/components/Home/HelpSection";
+import Matchmaker from "@/components/Home/Matchmaker";
+import Meet from "@/components/Home/Meet";
+// import TestimonialCarousel from "@/components/shared/Payment/TestimonialCarousel";
 
 const HomePage = () => {
   return (
@@ -21,7 +23,7 @@ const HomePage = () => {
           <Meet />
           <Assistant />
           <div className="">
-            <CaroselCard />
+            <CarouselCard />
           </div>
           {/* <TestimonialCarousel /> */}
         </div>
@@ -30,6 +32,7 @@ const HomePage = () => {
         <HelpSection />
       </div>
     </div>
+
   );
 };
 

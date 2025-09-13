@@ -244,7 +244,7 @@ export default function CarouselCard() {
           aria-label="Previous testimonials"
           onClick={handlePrev}
           disabled={!canGoPrev}
-          className="w-10 h-10 rounded-full bg-white text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
+          className="w-10 h-10 rounded-full cursor-pointer bg-white text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -265,7 +265,7 @@ export default function CarouselCard() {
           aria-label="Next testimonials"
           onClick={handleNext}
           disabled={!canGoNext}
-          className="w-10 h-10 rounded-full bg-white text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
+          className="w-10 h-10 rounded-full cursor-pointer bg-white text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -290,7 +290,7 @@ export default function CarouselCard() {
           aria-label="Previous testimonials"
           onClick={handlePrev}
           disabled={!canGoPrev}
-          className="w-10 h-10 rounded-full bg-white text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
+          className="w-10 h-10 rounded-full bg-white cursol-pointer text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -311,7 +311,7 @@ export default function CarouselCard() {
           aria-label="Next testimonials"
           onClick={handleNext}
           disabled={!canGoNext}
-          className="w-10 h-10 rounded-full bg-white text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
+          className="w-10 h-10 rounded-full bg-white cursor-pointer text-gray-700 hover:text-white shadow-md flex items-center justify-center transition-colors border-[1px] border-TextSecondary"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

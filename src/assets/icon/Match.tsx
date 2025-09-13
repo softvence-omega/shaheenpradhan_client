@@ -6,7 +6,7 @@ const Match = ({ className }) => {
       height="48"
       viewBox="0 0 40 40"
       fill="none"
-      className={`${className}`}
+      className={className}
     >
       <g filter="url(#filter0_d_1123_2149)">
         <path
@@ -30,9 +30,9 @@ const Match = ({ className }) => {
           width="48"
           height="48"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -65,8 +65,8 @@ const Match = ({ className }) => {
           y2="-12"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#13BFA2" />
-          <stop offset="1" stop-color="#5BD9BB" />
+          <stop stopColor="#13BFA2" />
+          <stop offset="1" stopColor="#5BD9BB" />
         </linearGradient>
       </defs>
     </svg>

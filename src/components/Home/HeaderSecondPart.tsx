@@ -12,8 +12,8 @@ const HeaderSecondPart = () => {
       className=" py-16 text-white text-center font-DMsans"
     >
       <div className="max-w-xl mx-auto mb-12 px-4">
-        <h2 className="text-[40px] sm:text-5xl leading-[120%] font-medium font-sans ">
-          Three Easy Steps to Get Your Assistant
+        <h2 className="text-2xl sm:text-[48px] leading-[120%] font-medium font-sans ">
+          Three Easy Steps to Get <br /> Your Assistant
         </h2>
       </div>
 

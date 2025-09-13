@@ -1,7 +1,7 @@
 import TittleBig from "@/components/shared/Title/TittleBig";
 import Wrapper from "@/components/shared/Wrapper";
 import logo from "@/assets/logo/main_logo.png";
-import WorkPreference from "@/components/home/FormComponent/WorkPreference";
+import WorkPreference from "@/components/Home/FormComponent/WorkPreference";
 const WorkPreferencePage = () => {
   return (
     <div className="mt-10 bg-white">

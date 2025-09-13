@@ -26,9 +26,9 @@ const Platform = ({ className }) => {
           width="26.1037"
           height="26.7018"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -61,8 +61,8 @@ const Platform = ({ className }) => {
           y2="-4.11074"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF4040" />
-          <stop offset="1" stop-color="#FF9991" />
+          <stop stopColor="#FF4040" />
+          <stop offset="1" stopColor="#FF9991" />
         </linearGradient>
       </defs>
     </svg>

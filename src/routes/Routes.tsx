@@ -2,7 +2,6 @@ import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
 import PastBookingPage from "@/pages/user/PastBookingPage";
 import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
-import HomePage from "@/pages/home/HomePage";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
 import UserLayout from "@/layout/UserLayout";
@@ -27,10 +26,6 @@ import CardCurrentPage from "@/pages/assistant/CardCurrentPage";
 import CardUpcamingPage from "@/pages/assistant/CardUpcamingPage";
 import CardBookingRequestPage from "@/pages/assistant/CardBookingRequestPage";
 import CardCompletedPage from "@/pages/assistant/CardCompletedPage";
-import EducationPage from "@/pages/home/EducationPage";
-import PersonalInfoPage from "@/pages/home/PersonalInfoPage";
-import WorkPreferencePage from "@/pages/home/WorkPreferencePage";
-import ExperienceSkillPage from "@/pages/home/ExperienceSkillPage";
 import LoginPage from "@/pages/LoginPage/LoginPage";
 import { SignupTabs } from "@/pages/signup/SignupTabs";
 import Yourself from "@/pages/company-yourself/Yourself";
@@ -41,6 +36,11 @@ import DashboardBookingMatcher from "@/pages/userDashboardBookingMatcher";
 import SavedPage from "@/pages/user/SavedPage";
 import SettingPage from "@/pages/user/SettingPage";
 import SupportPage from "@/pages/user/SupportPage";
+import PersonalInfoPage from "@/pages/Home/PersonalInfoPage";
+import WorkPreferencePage from "@/pages/Home/WorkPreferencePage";
+import ExperienceSkillPage from "@/pages/Home/ExperienceSkillPage";
+import EducationPage from "@/pages/Home/EducationPage";
+import HomePage from "@/pages/Home/HomePage";
 
 export const router = createBrowserRouter([
   {
@@ -56,37 +56,35 @@ export const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "signups",
+        path: "signup",
         element: <SignupTabs />,
       },
       {
-        path: "assistant-books",
+        path: "assistantBooks",
         element: <AssistantsPage />,
       },
       {
-        path: "company-yourself",
+        path: "companyYourself",
         element: <Yourself />,
       },
       {
-        path: "profile-summary",
+        path: "profileSummary",
         element: <Profile />,
       },
       {
-        path: "ai-matcher",
+        path: "aiMatcher",
         element: <AiMatchMaking />,
       },
-
-      /* Arfin form */
       {
-        path: "personal-info",
+        path: "personalInfo",
         element: <PersonalInfoPage />,
       },
       {
-        path: "work-preferance",
+        path: "workPreferance",
         element: <WorkPreferencePage />,
       },
       {
-        path: "experience-skill",
+        path: "experienceSkill",
         element: <ExperienceSkillPage />,
       },
       {
@@ -111,7 +109,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "step-confirm-booking",
+        path: "stepConfirmBooking",
         element: <StepConfirmBooking></StepConfirmBooking>,
       },
     ],

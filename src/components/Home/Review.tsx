@@ -35,6 +35,6 @@ function Review() {
       <TestimonialCarousel testimonials={testimonials} />
     </div>
   );
-}
+};
 
 export default Review;

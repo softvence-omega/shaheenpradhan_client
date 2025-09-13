@@ -1,6 +1,7 @@
 import Search from "@/assets/icon/Search";
 import BookingCardFind from "@/components/shared/BookingCardFind";
 import Sort from "@/components/shared/Filter/Sort";
+import Sorts from "@/components/shared/Filter/Sorts";
 
 import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 

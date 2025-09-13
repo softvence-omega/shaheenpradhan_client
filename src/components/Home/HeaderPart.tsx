@@ -52,7 +52,7 @@ const HeaderPart = () => {
           {/* HEADER TEXT SECTION */}
           <div className="lg:max-w-1/2 w-full mx-2 xl:mx-0 pt-16 sm:pt-36 space-y-8">
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-[56px] leading-[120%] font-semibold text-white ">
+              <h1 className="text-3xl sm:text-[56px] font-semibold text-white ">
                 Your Executive Assistant, On Demand
               </h1>
               <p className="text-[16px] sm:text-[20px] leading-[120%] font-light text-grayWhite">
