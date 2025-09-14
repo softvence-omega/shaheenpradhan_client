@@ -47,28 +47,28 @@ const Assistant = () => {
           </div>
 
           {/* Images (Mobile only) */}
-          <div className="flex flex-row justify-between gap-5">
+          <div className="flex w-full flex-row justify-between gap-5">
             <img
               src={Male}
               alt="male"
-              className="border-[2px] border-white p-1 rounded-xl w-[200px] sm:w-[230px] object-cover"
+              className="border-[2px] border-white p-1 rounded-xl w-[150px] sm:w-[230px] object-cover"
             />
             <img
               src={Female}
               alt="female"
-              className="border-[2px] border-white p-1 rounded-xl w-[200px] sm:w-[230px] object-cover"
+              className="border-[2px] border-white p-1 rounded-xl w-[150px] sm:w-[230px] object-cover"
             />
           </div>
 
           {/* Mobile Buttons (Mobile only) */}
-          <div className="flex items-stretch gap-5 xl:hidden">
-            <Button className="min-w-[168px] h-[50px] px-8 py-4 text-[18px] bg-ButtonBGSecondary cursor-pointer rounded-[8px] ">
+          <div className="flex items-stretch gap-5">
+            <Button className="sm:min-w-[168px] h-[50px] px-6 sm:px-8 py-4 text-[18px] bg-ButtonBGSecondary cursor-pointer rounded-[8px] ">
               Sign Up Now
             </Button>
 
             <Button
               variant="outline"
-              className="min-w-[138px] h-[50px] px-8 py-4 text-[18px] bg-none cursor-pointer rounded-[8px]"
+              className="sm:min-w-[138px] h-[50px] px-6 sm:px-8 py-4 text-[18px] bg-none cursor-pointer rounded-[8px]"
             >
               Learn More
             </Button>
@@ -85,13 +85,13 @@ const Assistant = () => {
             />
 
             <div className="flex items-stretch gap-5">
-              <Button className="min-w-[168px] h-[50px] px-8 py-4 text-[18px] bg-ButtonBGSecondary  rounded-[8px] cursor-pointer ">
+              <Button className="min-w-[168px] h-[50px] px-8 py-4 text-[16px] sm:text-[18px] bg-ButtonBGSecondary  rounded-[8px] cursor-pointer ">
                 Sign Up Now
               </Button>
 
               <Button
                 variant="outline"
-                className="min-w-[138px] h-[50px] px-8 py-4 text-[18px] bg-none cursor-pointer rounded-[8px]"
+                className="min-w-[138px] h-[50px] px-8 py-4 bg-none cursor-pointer !border !border-black rounded-[8px] w-[138px]  md:px-8 md:py-4 text-[16px] sm:text-[18px] bg-transparent"
               >
                 Learn More
               </Button>

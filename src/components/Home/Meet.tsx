@@ -54,14 +54,14 @@ const Meet = () => {
           </div>
 
           {/* ALL BUTTON */}
-          <div className="flex items-center gap-5">
-            <Button className="w-[232px] h-[50px] px-8 py-4 text-[16px] sm:text-[18px] bg-ButtonBGSecondary cursor-pointer rounded-[6px]">
+          <div className="flex md:flex-row flex-col md:items-center gap-5">
+            <Button className="w-[232px] h-[50px] px-6 py-2 md:px-8 md:py-4 text-[16px] sm:text-[18px] bg-ButtonBGSecondary cursor-pointer rounded-[6px]">
               Request Live Interview
             </Button>
 
             <Button
               variant="outline"
-              className="w-[138px] h-[50px] px-6 py-4 text-[16px] sm:text-[18px] cursor-pointer border border-black rounded-[6px] bg-transparent"
+              className="w-[138px] h-[50px] px-6 py-2 md:px-8 md:py-4 text-[16px] sm:text-[18px] cursor-pointer border border-black rounded-[6px] bg-transparent"
             >
               Learn More
             </Button>

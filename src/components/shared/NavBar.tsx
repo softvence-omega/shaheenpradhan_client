@@ -63,7 +63,7 @@ const NavBar = () => {
 
       <header
         className={cn(
-          "lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50",
+          "lg:px-4 xl:px-0 py-6  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50",
           locked && "hidden"
         )}
       >

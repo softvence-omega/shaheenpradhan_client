@@ -28,7 +28,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
   };
 
   return (
-    <div className="py-6">
+    <div className="my-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-DMsans pb-5">
         {assistants.slice(0, visibleCards).map((assistant) => (
           <div
@@ -160,11 +160,11 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
       </div>
 
       {visibleCards < assistants.length && (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center mt-3 mb-4 md:mt-6 md:mb-10">
           <Button
             variant="outline"
             onClick={loadMore}
-            className="w-[134px] h-[46px] px-[24px] py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg  bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer rounded-sm font-DMsans"
+            className="w-[134px] h-[46px] px-[24px] py-2 sm:py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg  bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer rounded-sm font-DMsans"
           >
             Load More
           </Button>
