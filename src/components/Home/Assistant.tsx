@@ -47,16 +47,16 @@ const Assistant = () => {
           </div>
 
           {/* Images (Mobile only) */}
-          <div className="flex w-full flex-row justify-between gap-5">
+          <div className="flex w-full flex-row lg:justify-between gap-2 md:gap-5">
             <img
               src={Male}
               alt="male"
-              className="border-[2px] border-white p-1 rounded-xl w-[150px] sm:w-[230px] object-cover"
+              className="border-[2px] border-white p-1 rounded-xl sm:w-[200px] w-[150px] md:w-[230px] object-cover"
             />
             <img
               src={Female}
               alt="female"
-              className="border-[2px] border-white p-1 rounded-xl w-[150px] sm:w-[230px] object-cover"
+              className="border-[2px] border-white p-1 rounded-xl sm:w-[200px] w-[150px] md:w-[230px] object-cover"
             />
           </div>
 
@@ -76,7 +76,7 @@ const Assistant = () => {
         </div>
 
         {/* Desktop Layout (hidden on mobile) */}
-        <div className="hidden xl:flex flex-col xl:flex-row w-full gap-16">
+        <div className="hidden md:flex flex-col xl:flex-row w-full gap-16">
           {/* Left Content Section */}
           <section className="space-y-5 xl:w-[60%]">
             <TitleAndSubTitle
@@ -126,17 +126,17 @@ const Assistant = () => {
           </section>
 
           {/* Right Images Section */}
-          <div className="xl:w-[40%]">
+          <div className="lg:w-[40%]">
             <div className="flex flex-row justify-between gap-5">
               <img
                 src={Male}
                 alt="male"
-                className="border-[2px] border-white p-1 rounded-xl w-[200px] sm:w-[230px] xl:h-[700px] object-cover"
+                className="border-[2px] border-white p-1 rounded-xl w-[200px] md:w-[230px] lg:h-[700px] object-cover"
               />
               <img
                 src={Female}
                 alt="female"
-                className="border-[2px] border-white p-1 rounded-xl w-[200px] sm:w-[230px] xl:h-[700px] object-cover"
+                className="border-[2px] border-white p-1 rounded-xl w-[200px] md:w-[230px] lg:h-[700px] object-cover"
               />
             </div>
           </div>

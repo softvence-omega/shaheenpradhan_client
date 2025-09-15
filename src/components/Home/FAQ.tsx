@@ -64,7 +64,7 @@ const FAQ = () => {
               value={`item-${index}`}
               className="rounded-2xl border border-gray-800/10 bg-white px-4 py-2"
             >
-              <AccordionTrigger className="text-[18px] sm:text-[28px] font-DMsans">
+              <AccordionTrigger className=" sm:text-[20px] md:text-[28px] font-DMsans">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-[16px] font-DMsans">
@@ -75,7 +75,7 @@ const FAQ = () => {
         </Accordion>
 
         <div className="mt-16 w-full space-y-3 font-DMsans sm:w-[60%]">
-          <h1 className="text-3xl sm:text-4xl">Still have questions?</h1>
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-semibold">Still have questions?</h1>
           <p className="text-lg font-light leading-[120%] ">
             Still have questions? Visit our full Support page or Contact Us.
           </p>

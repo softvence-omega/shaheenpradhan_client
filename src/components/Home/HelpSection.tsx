@@ -10,12 +10,12 @@ const HelpSection = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="w-full h-[500px] mt-20"
+      className="w-full h-[300px] md:h-[500px] mt-20"
     >
       <Wrapper>
-        <div className="h-[500px] flex justify-center items-center">
+        <div className="h-[300px] md:h-[500px] flex justify-center items-center">
           <div className="sm:w-[60%] w-full mx-auto flex flex-col items-center text-center gap-4">
-            <h1 className="text-[40px] sm:text-5xl leading-[120%] font-semibold text-white">
+            <h1 className="text-[24px] sm:text-3xl md:text-5xl leading-[120%] font-semibold text-white">
               Looking for a force multiplier or want to become one? Adminity is
               here to help
             </h1>

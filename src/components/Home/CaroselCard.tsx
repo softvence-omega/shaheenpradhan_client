@@ -117,12 +117,11 @@ export default function CarouselCard() {
                 key={id}
                 role="listitem"
                 className={`flex-shrink-0 w-[600px] h-[337px] rounded-2xl border border-[#A44DCA] p-8 shadow-md relative overflow-hidden
-                  ${
-                    isVisible
-                      ? isCenterCard
-                        ? "opacity-100 scale-100"
-                        : "opacity-45 scale-95"
-                      : "opacity-0 scale-90 pointer-events-none"
+                  ${isVisible
+                    ? isCenterCard
+                      ? "opacity-100 scale-100"
+                      : "opacity-45 scale-95"
+                    : "opacity-0 scale-90 pointer-events-none"
                   }
                   transition-all duration-300 ease-in-out`}
                 aria-current={isCenterCard ? "true" : undefined}
@@ -171,9 +170,8 @@ export default function CarouselCard() {
         <div
           className="flex transition-transform duration-500 ease-in-out will-change-transform"
           style={{
-            width: `${
-              testimonials.length * (TABLET_CARD_WIDTH + TABLET_GAP)
-            }px`,
+            width: `${testimonials.length * (TABLET_CARD_WIDTH + TABLET_GAP)
+              }px`,
             transform: `translateX(${tabletTranslateX - 20}px)`,
             gap: `${TABLET_GAP}px`,
           }}
@@ -189,12 +187,11 @@ export default function CarouselCard() {
                 key={id}
                 role="listitem"
                 className={`flex-shrink-0 w-[450px] h-[300px] rounded-2xl border border-[#A44DCA] p-6 shadow-md relative overflow-hidden
-                  ${
-                    isVisible
-                      ? isCenterCard
-                        ? "opacity-100 scale-100"
-                        : "opacity-45 scale-95"
-                      : "opacity-0 scale-90 pointer-events-none"
+                  ${isVisible
+                    ? isCenterCard
+                      ? "opacity-100 scale-100"
+                      : "opacity-45 scale-95"
+                    : "opacity-0 scale-90 pointer-events-none"
                   }
                   transition-all duration-300 ease-in-out`}
                 aria-current={isCenterCard ? "true" : undefined}
@@ -331,6 +328,7 @@ export default function CarouselCard() {
       </div>
 
       {/* Mobile stacked cards layout */}
+      {/* Mobile stacked cards layout */}
       <div className="block md:hidden space-y-6 mt-8 px-4">
         {testimonials.slice(0, 3).map(({ id, text, name, role, img }) => (
           <Card
@@ -351,18 +349,23 @@ export default function CarouselCard() {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
-                    <p className="font-semibold text-gray-900">{name}</p>
+                    <div className="flex items-center justify-between gap-8">
+                      <p className="font-semibold text-sm text-gray-900">
+                        {name}
+                      </p>
+                      <p className="text-[#3A1C71] text-[16px]">
+                        ★★★★★
+                      </p>
+                    </div>
                     <p className="text-sm text-gray-500">{role}</p>
                   </div>
-                </div>
-                <div className="text-[#3A1C71] text-sm" aria-label="Rating">
-                  ★★★★★
                 </div>
               </div>
             </CardContent>
           </Card>
         ))}
       </div>
+
     </section>
   );
 }

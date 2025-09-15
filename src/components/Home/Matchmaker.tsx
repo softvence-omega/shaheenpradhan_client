@@ -55,7 +55,7 @@ const Matchmaker = () => {
         </div>
 
         {/* ROBOT IMAGE + BUTTON FOR MOBILE */}
-        <div className="flex flex-col">
+        <div className="flex flex-col py-1">
           <img
             src={Robot}
             alt="robot-image"
