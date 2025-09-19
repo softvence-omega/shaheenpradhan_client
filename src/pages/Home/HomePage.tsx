@@ -13,7 +13,7 @@ import Meet from "@/components/Home/Meet";
 
 const HomePage = () => {
   return (
-    <div /* className="bg-[#faf8fd]" */>
+    <div>
       <HeaderPart />
       <div className="">
         <HeaderSecondPart />
@@ -27,8 +27,9 @@ const HomePage = () => {
           </div>
           {/* <TestimonialCarousel /> */}
         </div>
-        <br />
-        <FAQ />
+        <div className="bg-bgBody">
+          <FAQ />
+        </div>
         <HelpSection />
       </div>
     </div>

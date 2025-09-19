@@ -45,7 +45,7 @@ const HeaderPart = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="h-[750px] object-cover font-DMsans brightness-100"
+      className="md:h-[750px] h-screen object-cover font-DMsans brightness-100"
     >
       <Wrapper>
         <div>
@@ -73,7 +73,7 @@ const HeaderPart = () => {
           {/* SECOND DIV */}
           <div className="flex flex-col lg:flex-row pt-10 justify-between gap-2 sm:gap-6 px-2  xl:px-0 w-full">
             {/* ROBOT SECTION */}
-            <div className="flex flex-col w-full sm:w-auto">
+            <div className="flex flex-col w-full sm:w-auto mb-2">
               <Robot className="shadow-2xl shadow-ButtonBGPrimary rounded-full w-16 sm:w-28" />
               <p className="text-white font-semibold max-w-44 text-xs sm:text-sm mt-2">
                 Adminity Anna Your AI Companion

@@ -46,7 +46,7 @@ const FAQ = () => {
 
   return (
     <Wrapper>
-      <div className="mt-[60px] space-y-5 md:mt-[80px] lg:mt-[115px] xl:mt-[100px] 2xl:mt-[100px]">
+      <div className=" space-y-5 py-[75px]">
         <TitleAndSubTitle
           title="Frequently Asked Questions"
           subTitle="Find quick answers to the most common questions about our platform."
@@ -62,12 +62,12 @@ const FAQ = () => {
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="rounded-2xl border border-gray-800/10 bg-white px-4 py-2"
+              className="rounded-2xl border border-gray-800/10 bg-white px-4 py-2 cursor-pointer"
             >
               <AccordionTrigger className=" sm:text-[20px] md:text-[28px] font-DMsans">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-[16px] font-DMsans">
+              <AccordionContent className="text-sm md:text-[16px] font-DMsans">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

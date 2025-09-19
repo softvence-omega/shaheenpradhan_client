@@ -92,11 +92,10 @@ const Filtering = ({
           {/* View All Button */}
           <button
             className={` h-[38px] px-4  gap-2 text-lg sm:text-[16px] cursor-pointer rounded-[6px] border-[1px] transition-all duration-200
-      ${
-        activeFilters.availability === "all"
-          ? "bg-white text-black border-BorderHighlight"
-          : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
-      }`}
+      ${activeFilters.availability === "all"
+                ? "bg-white text-black border-BorderHighlight"
+                : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
+              }`}
             onClick={() => handleAvailabilityFilter("all")}
           >
             View all
@@ -105,11 +104,10 @@ const Filtering = ({
           {/* Available Now Button */}
           <button
             className={`sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
-      ${
-        activeFilters.availability === "available"
-          ? "bg-white text-black border-BorderHighlight"
-          : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
-      }`}
+      ${activeFilters.availability === "available"
+                ? "bg-white text-black border-BorderHighlight"
+                : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
+              }`}
             onClick={() => handleAvailabilityFilter("available")}
           >
             Available Now
@@ -118,11 +116,10 @@ const Filtering = ({
           {/* Top Rated Button */}
           <button
             className={`sm:text-sm font-medium leading-[150%] cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
-      ${
-        activeFilters.availability === "topRated"
-          ? "bg-white text-black border-BorderHighlight"
-          : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
-      }`}
+      ${activeFilters.availability === "topRated"
+                ? "bg-white text-black border-BorderHighlight"
+                : "text-black border-transparent hover:bg-white hover:border-[#B655DA]"
+              }`}
             onClick={() => handleAvailabilityFilter("topRated")}
           >
             Top Rated

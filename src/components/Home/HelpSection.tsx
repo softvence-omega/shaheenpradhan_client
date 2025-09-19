@@ -10,7 +10,7 @@ const HelpSection = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="w-full h-[300px] md:h-[500px] mt-20"
+      className="w-full h-[300px] md:h-[500px] md:mt-8"
     >
       <Wrapper>
         <div className="h-[300px] md:h-[500px] flex justify-center items-center">

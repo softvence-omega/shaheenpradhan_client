@@ -1,11 +1,14 @@
 import footerbg from "@/assets/images/footerbg.png";
 import footerlogo2 from "@/assets/images/footerlogo2.png";
 
-import Wrapper from "./Wrapper";
+const linkClass =
+  "relative text-[16px] text-black transition-colors duration-500 ease-in-out hover:text-[#B655DA] " +
+  "after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-[#B655DA] " +
+  "after:transition-all after:duration-500 after:ease-in-out hover:after:w-full";
 
 const SubFooter = () => {
   return (
-    <div className="py-0 lg:py-4 2xl:py-4 ">
+    <div className="pt-0 md:pt-4">
       {/* Background Section */}
       <div
         style={{
@@ -26,31 +29,35 @@ const SubFooter = () => {
 
       {/* Bottom Section */}
       <div className="font-DMsans">
-        <hr className="mt-10 h-0 w-full border border-black" />
+        <hr className="mt-10 h-0 w-full border border-gray-400" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start py-5 gap-4 md:gap-0 text-left">
-          <p className="text-black w-full md:w-auto text-[16px]">
-            © 2023 All rights reserved.
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start py-5 gap-4 md:gap-0 text-left md:my-4">
+          {/* Copyright */}
+          <p className="text-black w-full md:w-auto text-[16px] text-center md:text-left">
+            © 2024 All rights reserved.
           </p>
 
-          <div className="w-full md:w-auto flex flex-col gap-2 md:flex-row md:gap-5 text-sm text-black underline">
-            {/* First row on mobile: Privacy and Terms on left/right */}
-            <div className="flex justify-between w-full md:w-auto space-x-4">
-              <a href="#" className="text-[16px]">
+          {/* Links */}
+          <div className="w-full md:w-auto flex flex-col md:flex-row justify-center md:justify-start items-center md:items-start gap-2 md:gap-5 text-sm text-black">
+            {/* First row: Privacy and Terms */}
+            <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center md:items-start w-full md:w-auto gap-2 sm:gap-4">
+              <a href="#" className={linkClass}>
                 Privacy Policy
               </a>
-              <a href="#" className="text-[16px]">
+              <a href="#" className={linkClass}>
                 Terms of Service
               </a>
             </div>
-            {/* Second row on mobile: Cookies on left */}
-            <div>
-              <a href="#" className="text-[16px]">
+
+            {/* Second row: Cookies */}
+            <div className="flex justify-center md:justify-start items-center md:items-start">
+              <a href="#" className={linkClass}>
                 Cookies Settings
               </a>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
