@@ -60,6 +60,14 @@ export const router = createBrowserRouter([
         element: <SignupTabs />,
       },
       {
+        path: "profileSummary",
+        element: <Profile />,
+      },
+       {
+        path: "aiMatcher",
+        element: <AiMatchMaking />,
+      },
+      {
         path: "assistantBooks",
         element: <AssistantsPage />,
       },
@@ -67,14 +75,7 @@ export const router = createBrowserRouter([
         path: "companyYourself",
         element: <Yourself />,
       },
-      {
-        path: "profileSummary",
-        element: <Profile />,
-      },
-      {
-        path: "aiMatcher",
-        element: <AiMatchMaking />,
-      },
+     
       {
         path: "personalInfo",
         element: <PersonalInfoPage />,
