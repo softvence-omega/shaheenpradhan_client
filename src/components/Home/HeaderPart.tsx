@@ -45,14 +45,14 @@ const HeaderPart = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="h-[750px] object-cover font-DMsans brightness-100"
+      className="md:h-[750px] h-screen object-cover font-DMsans brightness-100"
     >
       <Wrapper>
         <div>
           {/* HEADER TEXT SECTION */}
           <div className="lg:max-w-1/2 w-full mx-2 xl:mx-0 pt-16 sm:pt-36 space-y-8">
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-[56px] leading-[120%] font-semibold text-white ">
+              <h1 className="text-3xl sm:text-[56px] font-semibold text-white ">
                 Your Executive Assistant, On Demand
               </h1>
               <p className="text-[16px] sm:text-[20px] leading-[120%] font-light text-grayWhite">
@@ -73,7 +73,7 @@ const HeaderPart = () => {
           {/* SECOND DIV */}
           <div className="flex flex-col lg:flex-row pt-10 justify-between gap-2 sm:gap-6 px-2  xl:px-0 w-full">
             {/* ROBOT SECTION */}
-            <div className="flex flex-col w-full sm:w-auto">
+            <div className="flex flex-col w-full sm:w-auto mb-2">
               <Robot className="shadow-2xl shadow-ButtonBGPrimary rounded-full w-16 sm:w-28" />
               <p className="text-white font-semibold max-w-44 text-xs sm:text-sm mt-2">
                 Adminity Anna Your AI Companion

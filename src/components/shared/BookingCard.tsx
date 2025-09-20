@@ -28,7 +28,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
   };
 
   return (
-    <div className="py-6">
+    <div className="my-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-DMsans pb-5">
         {assistants.slice(0, visibleCards).map((assistant) => (
           <div
@@ -38,15 +38,17 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
             <div className="flex item-center justify-between space-y-3">
               <div className="flex sm:item-center justify-between space-x-4">
                 <div className="relative w-fit">
-                  <Avatar className="w-14 h-14 sm:w-16 sm:h-16">
-                    <AvatarImage src={assistant.avatar} alt={assistant.name} />
-                    <AvatarFallback>
-                      {assistant.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
-                  </Avatar>
+                  <Link to="/profileSummary">
+                    <Avatar className="w-14 h-14 sm:w-16 sm:h-16">
+                      <AvatarImage src={assistant.avatar} alt={assistant.name} />
+                      <AvatarFallback>
+                        {assistant.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Link>
 
                   <div className="absolute top-[40px] -right-[2px] sm:top-[50px] sm:right-[2px] inline-flex items-center space-x-1 bg-yellow-50 px-2 py-0.5 rounded-lg shadow-sm">
                     <Star className="w-3 h-3 sm:w-3 sm:h-3 text-yellow-500" />
@@ -101,13 +103,14 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
               <h1 className="text-sm sm:text-[16px] font-semibold">
                 Language:
               </h1>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-1">
                 {assistant.languages.map((language, index) => (
                   <span
                     key={index}
                     className="text-xs sm:text-[15px] font-light"
                   >
                     {language}
+                    {index < assistant.languages.length - 1 && ","}
                   </span>
                 ))}
               </p>
@@ -160,11 +163,11 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
       </div>
 
       {visibleCards < assistants.length && (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center mt-3 mb-4 md:mt-6 md:mb-10">
           <Button
             variant="outline"
             onClick={loadMore}
-            className="w-[134px] h-[46px] px-[24px] py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg  bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer rounded-sm font-DMsans"
+            className="w-[134px] h-[46px] px-[24px] py-2 sm:py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg  bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer rounded-sm font-DMsans"
           >
             Load More
           </Button>

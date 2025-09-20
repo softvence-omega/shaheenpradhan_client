@@ -1,4 +1,3 @@
-import Review from "@/components/home/Review";
 import Wrapper from "@/components/shared/Wrapper";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -9,6 +8,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 import useCreateResource from "@/hooks/useCreateResource";
+import Review from "@/components/home/Review";
 const LoginPage = () => {
   const createUser = useCreateResource();
 

@@ -5,17 +5,18 @@ import Expertise from "@/components/profile/Expertise";
 import Summary from "@/components/profile/Summary";
 import Divider from "@/components/shared/Divider";
 import ProfileCard from "@/components/shared/ProfileCard";
+import profile from "@/assets/images/profile.png";
 import Wrapper from "@/components/shared/Wrapper";
 
 const Profile = () => {
   return (
-    <div>
+    <Wrapper>
       {/* MAIN DIV */}
-      <div className="flex flex-col lg:flex-row gap-5 lg:gap-10 mt-5">
+      <div className="flex flex-col lg:flex-row gap-5 lg:gap-10 mt-6">
         {/* PROFILE SIDEBAR */}
         <div className="sticky">
           <ProfileCard
-            image="https://example.com/image.jpg"
+            image={profile}
             rating={4.5}
             totalRating={150}
             name="John Doe"
@@ -43,7 +44,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

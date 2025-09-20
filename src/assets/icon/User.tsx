@@ -1,4 +1,5 @@
-const User = ({ className }) => {
+
+const User = ({ className }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +7,7 @@ const User = ({ className }) => {
       height="47"
       viewBox="0 0 44 47"
       fill="none"
-      className={`${className}`}
+      className={className}
     >
       <g filter="url(#filter0_d_1123_5864)">
         <path
@@ -26,9 +27,9 @@ const User = ({ className }) => {
           width="44"
           height="46.7451"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -61,8 +62,8 @@ const User = ({ className }) => {
           y2="-8.50542"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFB31A" />
-          <stop offset="1" stop-color="#FFD86B" />
+          <stop stopColor="#FFB31A" />
+          <stop offset="1" stopColor="#FFD86B" />
         </linearGradient>
       </defs>
     </svg>

@@ -1,7 +1,7 @@
-import Education from "@/components/home/FormComponent/Education";
 import TittleBig from "@/components/shared/Title/TittleBig";
 import Wrapper from "@/components/shared/Wrapper";
 import logo from "@/assets/logo/main_logo.png";
+import Education from "@/components/Home/FormComponent/Education";
 const EducationPage = () => {
   return (
     <div className="mt-10 bg-white">

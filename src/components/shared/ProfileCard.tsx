@@ -1,5 +1,4 @@
 import Love from "@/assets/icon/Love";
-import Wrapper from "./Wrapper";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Star from "@/assets/icon/Star";
 import { Check, MapPin } from "lucide-react";
@@ -15,16 +14,14 @@ const ProfileCard = ({
   location,
   itsWorkingTime,
   gender,
-  // Availability,
   Experience,
   language,
   hourlyPay,
 }: IProfile) => {
   return (
     <div>
-      <Wrapper>
         {/* PROFILE CARD START */}
-        <div className="relative rounded-xl border border-BorderHighlight md:w-80 w-full bg-white">
+        <div className="relative rounded-xl border border-BorderHighlight w-full md:w-80 bg-white">
           {/* Top right heart icon */}
           <div className="flex justify-end p-3">
             <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
@@ -38,7 +35,7 @@ const ProfileCard = ({
             <div className="relative w-fit">
               <Avatar className="w-20 sm:w-16 h-20 sm:h-16">
                 <AvatarImage
-                  src={image || "https://github.com/shadcn.png"}
+                  src={image} // <-- prop-driven profile image
                   alt={name}
                 />
                 <AvatarFallback>CN</AvatarFallback>
@@ -70,10 +67,9 @@ const ProfileCard = ({
           {/* Divider line */}
           <div className="w-full h-[1px] bg-BorderHighlight mt-8" />
 
-          <div className="flex items-center  justify-between p-4">
+          <div className="flex items-center justify-between p-4">
             <div className="flex items-center space-x-1">
-              {" "}
-              <MapPin className="w-4 h-4" />{" "}
+              <MapPin className="w-4 h-4" />
               <p className="text-[15px]">{location || "Dubai, UAE"}</p>
             </div>
             <p className="text-[15px]">Available Now</p>
@@ -90,7 +86,7 @@ const ProfileCard = ({
                 {gender || "male"}
               </h1>
               <p className="flex items-center text-ButtonBGPrimary space-x-0.5 font-light">
-                <Check className="w-4 h-4 text-ButtonBGPrimary" />{" "}
+                <Check className="w-4 h-4 text-ButtonBGPrimary" />
                 <span className="text-xs sm:text-[15px]">
                   {itsWorkingTime || "remote"}
                 </span>
@@ -99,13 +95,14 @@ const ProfileCard = ({
           </div>
 
           <div className="space-y-3 mt-5">
-            {/*  */}
+            {/* EXPERIENCE */}
             <div className="px-4 text-xs sm:text-[15px] space-y-1">
               <h1 className="text-[15px]">Experience</h1>
               <p className="text-xs sm:text-[15px] font-light text-BorderHighlight">
-                {Experience || "6years+"}
+                {Experience || "6 years+"}
               </p>
             </div>
+
             {/* LANGUAGE */}
             <div className="px-4 space-y-1">
               <h1 className="text-[15px]">Language</h1>
@@ -117,8 +114,9 @@ const ProfileCard = ({
                 )}
               </div>
             </div>
-            <div className="w-[90%] mx-auto h-[1px] bg-gray-900/15 mt-5 " />
+            <div className="w-[90%] mx-auto h-[1px] bg-gray-900/15 mt-5" />
           </div>
+
           {/* Divider line */}
           <div className="flex items-baseline px-4 py-2">
             <span className="font-bold text-[20px]">${hourlyPay || "200"}</span>
@@ -140,7 +138,6 @@ const ProfileCard = ({
             </Button>
           </div>
         </div>
-      </Wrapper>
     </div>
   );
 };

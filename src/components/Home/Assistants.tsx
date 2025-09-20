@@ -34,7 +34,7 @@ const Assistants = () => {
   const filteredAssistants = filterAssistants(assistantsData, filters);
 
   return (
-    <div className="pt-16 min-h-screen bg-[radial-gradient(circle_at_center_top,_#B586DE_0%,_#B586DE00_40%)]">
+    <div className="pt-16 min-h-screen bg-[radial-gradient(circle_at_center_top,_#B586DE_0%,_#B586DE00_40%)] ">
       <Wrapper>
         <div className="space-y-8">
           <TitleAndSubTitle

@@ -45,7 +45,7 @@ const Selects = ({
             <SelectItem
               key={option}
               value={option}
-              className={value.includes(option) ? "bg-gray-100" : ""}
+              className={value.includes(option) ? "bg-white hover:text-black" : "hover:text-black"}
             >
               {option}
             </SelectItem>
@@ -57,38 +57,3 @@ const Selects = ({
 };
 
 export default Selects;
-
-// import {
-//   Select,
-//   SelectTrigger,
-//   SelectValue,
-//   SelectContent,
-//   SelectLabel,
-//   SelectGroup,
-//   SelectItem,
-// } from "../ui/select";
-// import { SelectsProps } from "./Filter/filter.type";
-
-// const Selects = ({ placeholder, Label, value }: SelectsProps) => {
-//   return (
-//     <Select>
-//       <SelectTrigger className="w-full py-5">
-//         <SelectValue placeholder={placeholder} />
-//       </SelectTrigger>
-//       <SelectContent className="border-[#FAF8FD] border">
-//         <SelectGroup>
-//           <SelectLabel>{Label}</SelectLabel>
-//           {value?.map((item: any, index) => {
-//             return (
-//               <SelectItem key={index} value={item}>
-//                 {item}
-//               </SelectItem>
-//             );
-//           })}
-//         </SelectGroup>
-//       </SelectContent>
-//     </Select>
-//   );
-// };
-
-// export default Selects;

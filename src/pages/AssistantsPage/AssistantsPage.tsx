@@ -327,7 +327,7 @@ const AssistantsPage = () => {
     <Wrapper>
       <div className="space-y-10 py-12">
         <h1 className="text-2xl sm:text-4xl font-semibold text-center">
-          Top Assistants for Your Tasks
+          Top Assistants for Your <br /> Tasks
         </h1>
 
         {/* Filter */}

@@ -1,7 +1,7 @@
-import ExperienceSkill from "@/components/home/FormComponent/ExperienceSkill";
 import TittleBig from "@/components/shared/Title/TittleBig";
 import Wrapper from "@/components/shared/Wrapper";
 import logo from "@/assets/logo/main_logo.png";
+import ExperienceSkill from "@/components/Home/FormComponent/ExperienceSkill";
 const ExperienceSkillPage = () => {
   return (
     <div className="mt-10 bg-white">

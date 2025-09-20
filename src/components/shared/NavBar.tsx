@@ -63,7 +63,7 @@ const NavBar = () => {
 
       <header
         className={cn(
-          "lg:px-4 xl:px-0 py-4  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50",
+          "lg:px-4 xl:px-0 py-6  font-DMsans dark:bg-gray-100 dark:text-gray-800 border-b-[2px] border-gary-900/50",
           locked && "hidden"
         )}
       >
@@ -100,7 +100,7 @@ const NavBar = () => {
               </Link>
             </div>
             <div className="items-center flex-shrink-0 hidden lg:flex">
-              <Link to="/signups" className="flex items-center cursor-pointer">
+              <Link to="/signups" className="flex items-center gap-2 cursor-pointer">
                 <Button variant="outline" className="cursor-pointer rounded-md">
                   Get Started
                 </Button>

@@ -3,16 +3,16 @@ import ReviewCard from "./ReviewCard";
 import { IExperienceCard } from "./ExperienceCard.type";
 
 const ExperienceCard = ({
-  review,
-  value,
-  image,
-  name,
-  objective,
+  // review,
+  // value,
+  // image,
+  // name,
+  // objective,
   designation,
   group,
   country,
   date,
-  task,
+  // task,
 }: IExperienceCard) => {
   return (
     <div className="rounded-xl border-[1px] border-BorderHighlight  my-5 w-full">
@@ -35,7 +35,7 @@ const ExperienceCard = ({
         </div>
       </div>
       {/* TASK AND REVIEW SECTION HERE */}
-      <div className="flex flex-col xl:flex-row justify-between p-5 space-y-3 xl:space-y-0">
+      <div className="flex flex-col xl:flex-row justify-between py-6 px-4 space-y-3 xl:space-y-0">
         <div className="inline-flex flex-col items-start space-y-2">
           <h1 className="text-lg font-semibold leading-none">Task Overview</h1>
           <ul className="list-disc list-inside inline-block">

@@ -6,7 +6,7 @@ const Voice = ({ className }) => {
       height="44"
       viewBox="0 0 40 38"
       fill="none"
-      className={`${className}`}
+      className={className}
     >
       <path
         d="M23.5138 11.78C19.4081 12.5694 16.1453 15.95 15.4737 20.0765C15.056 22.6405 15.5947 25.0648 16.7898 27.0486V31.1405C16.7897 31.2464 16.8127 31.3511 16.8572 31.4472C16.9018 31.5433 16.9667 31.6286 17.0476 31.697C17.1284 31.7655 17.2232 31.8154 17.3254 31.8435C17.4275 31.8715 17.5346 31.8769 17.639 31.8593L21.591 31.201C23.4823 31.996 25.6545 32.2531 27.9313 31.7226C31.8241 30.816 34.8941 27.5835 35.5864 23.6473C35.8878 22.0044 35.782 20.3127 35.2784 18.7201C34.7748 17.1276 33.8887 15.6827 32.6975 14.5118C31.5063 13.3409 30.0464 12.4797 28.4455 12.0034C26.8445 11.5272 25.1512 11.4505 23.5138 11.78Z"
@@ -30,9 +30,9 @@ const Voice = ({ className }) => {
           width="44.0001"
           height="43.9995"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB" // ✅ fixed
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" /> {/* ✅ fixed */}
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -65,8 +65,8 @@ const Voice = ({ className }) => {
           y2="-10.0004"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#8559CA" />
-          <stop offset="1" stop-color="#E6DDF8" />
+          <stop stopColor="#8559CA" /> {/* ✅ fixed */}
+          <stop offset="1" stopColor="#E6DDF8" /> {/* ✅ fixed */}
         </linearGradient>
       </defs>
     </svg>

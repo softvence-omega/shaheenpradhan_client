@@ -3,7 +3,7 @@ import React from "react";
 
 const Education = () => {
   return (
-    <div className="p-6 sm:py-5 px-6 sm:px-12">
+    <div className="px-4 py-6 md:py-5 md:px-8">
       <div className="space-y-3">
         <p className="bg-white text-sm sm:text-[15px] px-3 uppercase border border-gray-900/30 rounded-xl w-fit">
           Education
