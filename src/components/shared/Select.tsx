@@ -45,7 +45,7 @@ const Selects = ({
             <SelectItem
               key={option}
               value={option}
-              className={value.includes(option) ? "bg-gray-100" : ""}
+              className={value.includes(option) ? "bg-white hover:text-black" : "hover:text-black"}
             >
               {option}
             </SelectItem>

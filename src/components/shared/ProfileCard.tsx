@@ -1,5 +1,4 @@
 import Love from "@/assets/icon/Love";
-import Wrapper from "./Wrapper";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Star from "@/assets/icon/Star";
 import { Check, MapPin } from "lucide-react";
@@ -21,9 +20,8 @@ const ProfileCard = ({
 }: IProfile) => {
   return (
     <div>
-      <Wrapper>
         {/* PROFILE CARD START */}
-        <div className="relative rounded-xl border border-BorderHighlight md:w-80 w-full bg-white">
+        <div className="relative rounded-xl border border-BorderHighlight w-full md:w-80 bg-white">
           {/* Top right heart icon */}
           <div className="flex justify-end p-3">
             <Love className="w-8 h-8 rounded-full p-2 bg-Pink-500" />
@@ -140,7 +138,6 @@ const ProfileCard = ({
             </Button>
           </div>
         </div>
-      </Wrapper>
     </div>
   );
 };

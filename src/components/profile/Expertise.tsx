@@ -3,8 +3,8 @@ import Divider from "../shared/Divider";
 const Expertise = () => {
   return (
     <div className="pt-4">
-      <div className="p-6 sm:py-8 px-12">
-        <p className="bg-white  text-sm sm:text-[15px] px-3  uppercase border-[1px] border-gary-900/80 rounded-xl w-fit">
+      <div className="px-4 py-6 sm:py-8 md:px-8">
+        <p className="bg-white  text-sm sm:text-[15px] px-3 uppercase border-[1px] border-gary-900/80 rounded-xl w-fit">
           Expertise
         </p>
         {/* Paragraph */}

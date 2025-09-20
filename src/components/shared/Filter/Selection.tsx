@@ -61,7 +61,7 @@ const Selection = ({
             </span>
             <Input
               type="text"
-              placeholder="Event Manager"
+              placeholder="Event Manager-4"
               className="max-w-96 w-full py-5 pl-10 text-sm rounded-md focus:outline-none"
               value={filters.searchQuery}
               onChange={handleSearchChange}
