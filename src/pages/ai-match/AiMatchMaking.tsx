@@ -9,7 +9,7 @@ const AiMatchMaking = () => {
     <Wrapper>
       <div>
         {/* HEADER */}
-        <div className="flex flex-col items-center justify-center pt-14 pb-5 text-center">
+        <div className="flex flex-col items-center justify-center py-10 md:py-16 text-center">
           <img src={Search} alt="Ai-SearchIcon" className="" />
           <TitleAndSubTitle title="Here are your top matches!" />
         </div>
