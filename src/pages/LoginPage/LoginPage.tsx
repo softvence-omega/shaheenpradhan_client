@@ -8,7 +8,7 @@ import { AiOutlineGoogle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 import useCreateResource from "@/hooks/useCreateResource";
-import Review from "@/components/home/Review";
+import Review from "@/components/Home/Review";
 const LoginPage = () => {
   const createUser = useCreateResource();
 
@@ -84,7 +84,7 @@ const LoginPage = () => {
                     Don't have an account?
                     <Link
                       to="/signups"
-                      className="text-primary hover:underline cursor-pointer ml-1"
+                      className="text-blue-600 hover:underline cursor-pointer ml-1"
                     >
                       Sign up
                     </Link>

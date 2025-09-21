@@ -6,7 +6,7 @@ import MobileNavBar from "@/pages/user/MobileNavBar";
 
 const UserLayout = () => {
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[#FAF8FD]">
+    <div className="flex flex-col overflow-hidden bg-[#FAF8FD]">
       {/* Fixed Top Navbar */}
       <header className="fixed left-0 right-0 top-0 z-50">
         <DashboardNavbar />

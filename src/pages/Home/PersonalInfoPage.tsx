@@ -1,3 +1,4 @@
+
 import TittleBig from "@/components/shared/Title/TittleBig";
 import Wrapper from "@/components/shared/Wrapper";
 import logo from "@/assets/logo/main_logo.png";

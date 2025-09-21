@@ -1,13 +1,17 @@
 type SectionTitleProps = {
   bigtittle: string;
+  description?: string; // make it optional
 };
 
-export const TittleBig = ({ bigtittle }: SectionTitleProps) => {
+export const TittleBig = ({ bigtittle, description }: SectionTitleProps) => {
   return (
-    <div className="flex items-center justify-center w-full h-[58px] mt-[50px]">
-      <h2 className="text-[48px] leading-[120%] tracking-[0%] font-medium text-[var(--color-textSecondary)] font-Roboto">
+    <div className="flex flex-col items-center justify-center w-full">
+      <h2 className="text-2xl md:text-[48px] leading-[120%] font-semibold text-[var(--color-textSecondary)] font-Roboto">
         {bigtittle}
       </h2>
+      {description && (
+        <p className="text-sm md:text-base text-gray-600 mt-2">{description}</p>
+      )}
     </div>
   );
 };
