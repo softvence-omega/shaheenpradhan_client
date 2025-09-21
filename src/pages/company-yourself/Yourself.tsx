@@ -1,49 +1,57 @@
 import Wrapper from "@/components/shared/Wrapper";
-import logo from "@/assets/logo/main_logo.png";
 import Divider from "@/components/shared/Divider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Upload } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FormOnboarding from "@/components/Company_Yourself/FormOnboarding";
 import { Link } from "react-router-dom";
+import FormNav from "@/components/Home/FormComponent/FormNav";
+import TittleBig from "@/components/shared/Title/TittleBig";
+
 const Yourself = () => {
-  const [selection, setSelection] = useState("comfortable");
-  const [userType, setUserType] = useState("");
+  const [selection, setSelection] = useState("Individual");
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
+
+  // 🔑 Ref for hidden input
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
   const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       setProfilePhoto(file);
+      console.log("File uploaded:", file.name);
     }
+    // reset value so same file can be uploaded again
+    event.target.value = "";
   };
+
   return (
-    <div className="pt-10 bg-white min-h-screen">
+    <div className="bg-white">
       <Wrapper>
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
-        <div className="lg:w-[60%] w-full lg:mx-auto">
-          <div className="my-10 px-4 flex justify-center">
-            <div className="text-center space-y-3 w-full max-w-xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-                Tell Us About Yourself
-              </h1>
-              <p className="text-sm sm:text-base font-light">
-                This information will help us find the best match for you. Skip
-                it if you want to do it later.
-              </p>
-            </div>
+        <FormNav />
+        <div className="md:w-3/4 w-full md:mx-auto">
+          <div className="flex justify-center md:w-3/4 mx-auto text-center mb-10 md:mb-14">
+            <TittleBig
+              bigtittle="Tell Us About Yourself"
+              description="This information will help us find you best match for you. Skip it if you want to do it later"
+            />
           </div>
 
-          {/*   */}
           <div>
             <div className="space-y-2">
-              <h1>Are you an individual or representing a company?</h1>
+              <h1 className="text-sm md:text-base">
+                Are you an individual or representing a company?
+              </h1>
               <Divider />
             </div>
+
             {/* RADIO BUTTON */}
             <div className="pt-5">
               <RadioGroup
@@ -55,17 +63,25 @@ const Yourself = () => {
                 className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4"
               >
                 <div className="flex items-center gap-2">
-                  <RadioGroupItem value="Individual" id="r1" />
+                  <RadioGroupItem
+                    className="cursor-pointer"
+                    value="Individual"
+                    id="r1"
+                  />
                   <Label htmlFor="r1">Individual</Label>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <RadioGroupItem value="comfortable" id="r2" />
+                  <RadioGroupItem
+                    className="cursor-pointer"
+                    value="Company"
+                    id="r2"
+                  />
                   <Label htmlFor="r2">On behalf of a Company</Label>
                 </div>
               </RadioGroup>
 
-              {selection == "Individual" ? (
+              {selection === "Individual" ? (
                 <FormOnboarding />
               ) : (
                 <div>
@@ -74,31 +90,27 @@ const Yourself = () => {
                       Personal Information
                     </h3>
 
+                    {/* ✅ Fixed Image Upload Field */}
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="profile-photo"
-                        className="text-sm font-medium"
-                      >
+                      <Label className="text-sm font-medium">
                         Profile Photo
                       </Label>
                       <div className="flex items-center gap-3">
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={handlePhotoUpload}
+                        />
                         <Button
+                          type="button"
                           variant="outline"
                           size="sm"
-                          className="relative"
-                          onClick={() =>
-                            document.getElementById("photo-upload")?.click()
-                          }
+                          onClick={handleUploadClick}
                         >
                           <Upload className="w-4 h-4 mr-2" />
                           Upload a photo
-                          <input
-                            id="photo-upload"
-                            type="file"
-                            accept="image/*"
-                            className="absolute inset-0 opacity-0 cursor-pointer"
-                            onChange={handlePhotoUpload}
-                          />
                         </Button>
                         <span className="text-sm text-gray-500">
                           {profilePhoto
@@ -108,6 +120,7 @@ const Yourself = () => {
                       </div>
                     </div>
 
+                    {/* Other Inputs */}
                     <div className="space-y-2">
                       <Label
                         htmlFor="full-name"
@@ -150,13 +163,19 @@ const Yourself = () => {
                   <Divider />
                   {/* Action Buttons */}
                   <div className="flex justify-end gap-3 pt-6">
-                    <Button variant="outline" size="lg">
+                    <Button
+                      type="button"
+                      className="cursor-pointer"
+                      variant="outline"
+                      size="lg"
+                    >
                       Skip
                     </Button>
                     <Link to="/assistant/home">
                       <Button
+                        type="button"
                         size="lg"
-                        className="bg-purple-600 hover:bg-purple-700"
+                        className="bg-purple-600 hover:bg-purple-700 cursor-pointer"
                       >
                         Save
                       </Button>

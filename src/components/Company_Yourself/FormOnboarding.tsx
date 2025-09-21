@@ -1,3 +1,4 @@
+
 import type React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -157,10 +158,10 @@ export default function FormOnboarding() {
         <Divider />
         {/* Action Buttons */}
         <div className="flex justify-end gap-3 pt-6">
-          <Button variant="outline" size="lg">
+          <Button className="cursor-pointer" variant="outline" size="lg">
             Skip
           </Button>
-          <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 cursor-pointer">
             Save
           </Button>
         </div>

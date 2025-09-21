@@ -27,7 +27,7 @@ import CardUpcamingPage from "@/pages/assistant/CardUpcamingPage";
 import CardBookingRequestPage from "@/pages/assistant/CardBookingRequestPage";
 import CardCompletedPage from "@/pages/assistant/CardCompletedPage";
 import LoginPage from "@/pages/LoginPage/LoginPage";
-import { SignupTabs } from "@/pages/signup/SignupTabs";
+import SignupTabs from "@/pages/signup/SignupTabs";
 import Yourself from "@/pages/company-yourself/Yourself";
 import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
 import Profile from "@/pages/profile/Profile";
@@ -36,11 +36,9 @@ import DashboardBookingMatcher from "@/pages/userDashboardBookingMatcher";
 import SavedPage from "@/pages/user/SavedPage";
 import SettingPage from "@/pages/user/SettingPage";
 import SupportPage from "@/pages/user/SupportPage";
-import PersonalInfoPage from "@/pages/Home/PersonalInfoPage";
-import WorkPreferencePage from "@/pages/Home/WorkPreferencePage";
-import ExperienceSkillPage from "@/pages/Home/ExperienceSkillPage";
-import EducationPage from "@/pages/Home/EducationPage";
 import HomePage from "@/pages/Home/HomePage";
+
+import JoinAssistantInfo from "@/components/Home/FormComponent/JoinAssistantInfo";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +50,7 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "logins",
+        path: "login",
         element: <LoginPage />,
       },
       {
@@ -72,26 +70,27 @@ export const router = createBrowserRouter([
         element: <AssistantsPage />,
       },
       {
-        path: "companyYourself",
+        path: "bookAssistantInfo",
         element: <Yourself />,
       },
-     
+
+      // join assistant info
       {
-        path: "personalInfo",
-        element: <PersonalInfoPage />,
+        path: "joinAssistantInfo",
+        element: <JoinAssistantInfo />,
       },
-      {
-        path: "workPreferance",
-        element: <WorkPreferencePage />,
-      },
-      {
-        path: "experienceSkill",
-        element: <ExperienceSkillPage />,
-      },
-      {
-        path: "education",
-        element: <EducationPage />,
-      },
+      // {
+      //   path: "workPreferance",
+      //   element: <WorkPreference />,
+      // },
+      // {
+      //   path: "experienceSkill",
+      //   element: < ExperienceSkill/>,
+      // },
+      // {
+      //   path: "education",
+      //   element: <Education />,
+      // },
     ],
   },
 

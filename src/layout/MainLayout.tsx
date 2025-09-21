@@ -1,13 +1,17 @@
 import Footer from "@/components/shared/Footer";
 import NavBar from "@/components/shared/NavBar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const MainLayout = () => {
+
+  const location = useLocation();
+  const hideNavFooter = ["/signup", "/login", "/bookAssistantInfo", "/joinAssistantInfo"].includes(location.pathname);
+
   return (
     <div className="">
-      <NavBar />
+      {!hideNavFooter && <NavBar />}
       <Outlet />
-      <Footer />
+      {!hideNavFooter && <Footer />}
     </div>
   );
 };

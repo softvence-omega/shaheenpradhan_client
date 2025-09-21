@@ -1,4 +1,5 @@
-import Review from "@/components/home/Review";
+import React from "react";
+import Review from "@/components/Home/Review";
 import Wrapper from "@/components/shared/Wrapper";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -6,152 +7,147 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AiOutlineGoogle } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
-export function SignupTabs() {
-  const handleBookAnAssistant = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("handleBookAnAssistant");
+
+import { useForm, Controller } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const signupSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
+type SignupForm = z.infer<typeof signupSchema>;
+
+const SignupTabs = () => {
+  const navigate = useNavigate();
+  const [role, setRole] = React.useState<"bookAssistant" | "joinAssistant">("bookAssistant");
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignupForm>({
+    resolver: zodResolver(signupSchema),
+    defaultValues: { name: "", email: "", password: "" },
+  });
+
+  const onSubmit = (data: SignupForm) => {
+    const payload = { ...data, role };
+    console.log("Submitting:", payload);
+
+    if (role === "bookAssistant") navigate("/bookAssistantInfo");
+    else navigate("/joinAssistantInfo");
   };
+
+  // Shared form fields
+  const FormFields = () => (
+    <CardContent className="space-y-5">
+      <div className="space-y-3">
+        <Label htmlFor="name">Name</Label>
+        <Controller
+          name="name"
+          control={control}
+          render={({ field }) => <Input {...field} id="name" />}
+        />
+        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+      </div>
+
+      <div className="space-y-3">
+        <Label htmlFor="email">Email</Label>
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => <Input {...field} id="email" />}
+        />
+        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+      </div>
+
+      <div className="space-y-3">
+        <Label htmlFor="password">Password</Label>
+        <Controller
+          name="password"
+          control={control}
+          render={({ field }) => <Input {...field} id="password" type="password" />}
+        />
+        {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+      </div>
+    </CardContent>
+  );
 
   return (
     <div className="bg-white min-h-screen">
       <Wrapper>
         <div className="pt-8 space-y-8">
-          <img src={logo} alt="" />
-          <h1 className="text-3xl lg:text-4xl font-semibold">Sign Up</h1>
+          <img src={logo} alt="logo" />
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0">
-            {/* Tabs Form */}
-            <Tabs defaultValue="account" className="w-full lg:w-1/2">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger
-                  value="account"
-                  className="data-[state=active]:bg-ButtonBGSecondary data-[state=active]:text-white"
-                >
-                  Book An Assistant
-                </TabsTrigger>
-                <TabsTrigger
-                  value="password"
-                  className="data-[state=active]:bg-ButtonBGSecondary data-[state=active]:text-white"
-                >
-                  Join As An Assistant
-                </TabsTrigger>
-              </TabsList>
 
-              <p className=" text-sm text-gray-600 mt-2">
-                Register to book your Adminity assistant
-              </p>
+          <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0 justify-center">
+            {/* Single Form wraps Tabs */}
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full lg:w-1/2">
+              <h1 className="text-3xl md:text-[48px] font-semibold text-center my-6 md:my-10 font-DMsans">Sign Up</h1>
+              <Tabs
+                defaultValue="bookAssistant"
+                onValueChange={(val) => setRole(val as "bookAssistant" | "joinAssistant")}
+              >
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger
+                    value="bookAssistant"
+                    className="data-[state=active]:bg-ButtonBGSecondary data-[state=active]:text-white cursor-pointer"
+                  >
+                    Book An Assistant
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="joinAssistant"
+                    className="data-[state=active]:bg-ButtonBGSecondary data-[state=active]:text-white cursor-pointer"
+                  >
+                    Join As An Assistant
+                  </TabsTrigger>
+                </TabsList>
 
-              {/* Book Assistant */}
-              <TabsContent value="account" className="pt-5">
-                <Card className=" shadow-none">
-                  <form onSubmit={handleBookAnAssistant} className="space-y-2">
-                    <CardContent className="space-y-5">
-                      <div className="space-y-3">
-                        <Label htmlFor="name">Name</Label>
-                        <Input name="name" defaultValue="Pedro Duarte" />
-                      </div>
-                      <div className="space-y-3">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                          name="email"
-                          id="email"
-                          defaultValue="user@example.com"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label htmlFor="password">Password</Label>
-                        <Input name="password" id="password" type="password" />
-                      </div>
-                    </CardContent>
-                    <Link to="/company-yourself">
-                      <CardFooter className="flex flex-col gap-2 pt-3">
-                        <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer">
-                          Sign up
-                        </Button>
-                        <Button
-                          variant="outline"
-                          className="w-full flex items-center justify-center gap-2"
-                        >
-                          <AiOutlineGoogle className="w-4 h-4" />
-                          <span>Sign up with Google</span>
-                        </Button>
-                      </CardFooter>
-                    </Link>
-                  </form>
-                  <div className="text-center mt-3">
-                    <p className="text-sm">
-                      Already have an account?{" "}
-                      <Link
-                        to="/logins"
-                        className="text-primary hover:underline"
-                      >
-                        Login
-                      </Link>
-                    </p>
-                  </div>
-                </Card>
-              </TabsContent>
+                {/* Dynamic description */}
+                <p className="text-sm text-gray-700 mt-2 text-center font-DMsans font-medium">
+                  {role === "bookAssistant"
+                    ? "Register to book your Adminity assistant"
+                    : "Register to join as an Adminity assistant"}
+                </p>
 
-              {/* Join as Assistant */}
-              <TabsContent value="password" className="pt-5">
-                <Card className=" shadow-none">
-                  <form onSubmit={handleBookAnAssistant} className="space-y-2">
-                    <CardContent className="space-y-5">
-                      <div className="space-y-3">
-                        <Label htmlFor="name2">Name</Label>
-                        <Input
-                          name="name"
-                          id="name2"
-                          defaultValue="Pedro Duarte"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label htmlFor="email2">Email</Label>
-                        <Input
-                          name="email"
-                          id="email2"
-                          defaultValue="assistant@example.com"
-                        />
-                      </div>
-                      <div className="space-y-3">
-                        <Label htmlFor="password2">Password</Label>
-                        <Input name="password" id="password2" type="password" />
-                      </div>
-                    </CardContent>
-                    <CardFooter className="flex flex-col gap-2 pt-3 w-full">
-                      <Link to="/company-yourself" className="w-full">
-                        <Button className="w-full bg-BorderHighlight hover:bg-BorderHighlight">
-                          Sign up
-                        </Button>
-                      </Link>
+                {/* Book Assistant Tab */}
+                <TabsContent value="bookAssistant" className="pt-5">
+                  <Card className="shadow-none border-none">
+                    <FormFields />
+                  </Card>
+                </TabsContent>
 
-                      <Button
-                        variant="outline"
-                        className="w-full flex items-center justify-center gap-2"
-                      >
-                        <AiOutlineGoogle className="w-4 h-4" />
-                        <span>Sign up with Google</span>
-                      </Button>
-                    </CardFooter>
-                  </form>
-                  <div className="text-center mt-3">
-                    <p className="text-sm">
-                      Already have an account?{" "}
-                      <Link
-                        to="/login"
-                        className="text-primary hover:underline"
-                      >
-                        Login
-                      </Link>
-                    </p>
-                  </div>
-                </Card>
-              </TabsContent>
-            </Tabs>
+                {/* Join Assistant Tab */}
+                <TabsContent value="joinAssistant" className="pt-5">
+                  <Card className="shadow-none border-none">
+                    <FormFields />
+                  </Card>
+                </TabsContent>
 
-            {/* Review Component */}
+                <CardFooter className="flex flex-col gap-2 pt-3">
+                  <Button
+                    type="submit"
+                    className="w-full bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer"
+                  >
+                    Sign up
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full flex items-center justify-center gap-2"
+                  >
+                    <AiOutlineGoogle className="w-4 h-4" />
+                    <span>Sign up with Google</span>
+                  </Button>
+                </CardFooter>
+              </Tabs>
+            </form>
+
+            {/* Review (only on large screens) */}
             <div className="w-full lg:w-1/2 hidden lg:block">
               <Review />
             </div>
@@ -160,191 +156,6 @@ export function SignupTabs() {
       </Wrapper>
     </div>
   );
-}
+};
 
-// import Wrapper from "@/components/shared/Wrapper";
-// import { Button } from "@/components/ui/button";
-// import { Card, CardContent, CardFooter } from "@/components/ui/card";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-// import { AiOutlineGoogle } from "react-icons/ai";
-// import { Link } from "react-router-dom";
-// import logo from "@/assets/logo/main_logo.png";
-// import Review from "@/components/home/Review";
-// import useCreateResource from "@/hooks/useCreateResource";
-
-// export function SignupTabs() {
-//   const createUser = useCreateResource();
-
-//   const handleSignup = (e) => {
-//     e.preventDefault();
-//     const form = e.target;
-//     const name = form.name.value;
-//     const email = form.email.value;
-//     const password = form.password.value;
-
-//     const payload = {
-//       resource: "auth/signup",
-//       payload: { name, email, password },
-//     };
-
-//     createUser.mutate(payload, {
-//       onSuccess: (data) => {
-//         localStorage.setItem("accessToken", data.token);
-//         // redirect if needed
-//       },
-//       onError: (err) => {
-//         console.error("Signup error:", err);
-//       },
-//     });
-//   };
-
-//   return (
-//     <div className="bg-white h-screen">
-//       <Wrapper>
-//         <div className="mt-8 space-y-8">
-//           <img src={logo} alt="" />
-//           <h1 className="text-3xl lg:text-4xl font-semibold">Sign Up</h1>
-
-//           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0">
-//             <Tabs defaultValue="account" className="w-full lg:w-1/2">
-//               <TabsList className="grid w-full grid-cols-2">
-//                 <TabsTrigger
-//                   value="account"
-//                   className="data-[state=active]:bg-ButtonBGSecondary data-[state=active]:text-white"
-//                 >
-//                   Book An Assistant
-//                 </TabsTrigger>
-//                 <TabsTrigger
-//                   value="password"
-//                   className="data-[state=active]:bg-ButtonBGSecondary data-[state=active]:text-white"
-//                 >
-//                   Join As An Assistant
-//                 </TabsTrigger>
-//               </TabsList>
-
-//               <p className="text-sm text-gray-600 mt-2">
-//                 Register to book your Adminity assistant
-//               </p>
-
-//               <TabsContent value="account" className="pt-5">
-//                 <Card className="shadow-none">
-//                   <form onSubmit={handleSignup} className="space-y-2">
-//                     <CardContent className="space-y-5">
-//                       <div className="space-y-3">
-//                         <Label htmlFor="name">Name</Label>
-//                         <Input name="name" defaultValue="Pedro Duarte" />
-//                       </div>
-//                       <div className="space-y-3">
-//                         <Label htmlFor="email">Email</Label>
-//                         <Input
-//                           name="email"
-//                           id="email"
-//                           defaultValue="user@example.com"
-//                         />
-//                       </div>
-//                       <div className="space-y-3">
-//                         <Label htmlFor="password">Password</Label>
-//                         <Input name="password" id="password" type="password" />
-//                       </div>
-//                     </CardContent>
-
-//                     <CardFooter className="flex flex-col gap-2 pt-3">
-//                       <Button
-//                         type="submit"
-//                         className="w-full bg-BorderHighlight hover:bg-BorderHighlight"
-//                       >
-//                         Sign up
-//                       </Button>
-//                       <Button
-//                         variant="outline"
-//                         className="w-full flex items-center justify-center gap-2"
-//                       >
-//                         <AiOutlineGoogle className="w-4 h-4" />
-//                         <span>Sign up with Google</span>
-//                       </Button>
-//                     </CardFooter>
-//                   </form>
-
-//                   <div className="text-center mt-3">
-//                     <p className="text-sm">
-//                       Already have an account?{" "}
-//                       <Link
-//                         to="/logins"
-//                         className="text-primary hover:underline"
-//                       >
-//                         Login
-//                       </Link>
-//                     </p>
-//                   </div>
-//                 </Card>
-//               </TabsContent>
-
-//               <TabsContent value="password" className="pt-5">
-//                 <Card className="shadow-none">
-//                   <form onSubmit={handleSignup} className="space-y-2">
-//                     <CardContent className="space-y-5">
-//                       <div className="space-y-3">
-//                         <Label htmlFor="name2">Name</Label>
-//                         <Input
-//                           name="name"
-//                           id="name2"
-//                           defaultValue="Pedro Duarte"
-//                         />
-//                       </div>
-//                       <div className="space-y-3">
-//                         <Label htmlFor="email2">Email</Label>
-//                         <Input
-//                           name="email"
-//                           id="email2"
-//                           defaultValue="assistant@example.com"
-//                         />
-//                       </div>
-//                       <div className="space-y-3">
-//                         <Label htmlFor="password2">Password</Label>
-//                         <Input name="password" id="password2" type="password" />
-//                       </div>
-//                     </CardContent>
-
-//                     <CardFooter className="flex flex-col gap-2 pt-3">
-//                       <Button
-//                         type="submit"
-//                         className="w-full bg-BorderHighlight hover:bg-BorderHighlight"
-//                       >
-//                         Sign up
-//                       </Button>
-//                       <Button
-//                         variant="outline"
-//                         className="w-full flex items-center justify-center gap-2"
-//                       >
-//                         <AiOutlineGoogle className="w-4 h-4" />
-//                         <span>Sign up with Google</span>
-//                       </Button>
-//                     </CardFooter>
-//                   </form>
-
-//                   <div className="text-center mt-3">
-//                     <p className="text-sm">
-//                       Already have an account?{" "}
-//                       <Link
-//                         to="/login"
-//                         className="text-primary hover:underline"
-//                       >
-//                         Login
-//                       </Link>
-//                     </p>
-//                   </div>
-//                 </Card>
-//               </TabsContent>
-//             </Tabs>
-
-//             <div className="w-full lg:w-1/2 hidden lg:block">
-//               <Review />
-//             </div>
-//           </div>
-//         </div>
-//       </Wrapper>
-//     </div>
-//   );
-// }
+export default SignupTabs;

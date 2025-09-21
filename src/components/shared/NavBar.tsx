@@ -99,14 +99,16 @@ const NavBar = () => {
                 Services
               </Link>
             </div>
-            <div className="items-center flex-shrink-0 hidden lg:flex">
-              <Link to="/signups" className="flex items-center gap-2 cursor-pointer">
+            <div className="items-center flex-shrink-0 hidden md:flex gap-1">
+              <Link to="/signup" className="flex items-center cursor-pointer">
                 <Button variant="outline" className="cursor-pointer rounded-md">
                   Get Started
                 </Button>
+              </Link>
+              <Link to="/signup">
                 <Button className="bg-ButtonBGSecondary cursor-pointer rounded-sm">
                   <TopArrow />
-                </Button>{" "}
+                </Button>
               </Link>
             </div>
 
