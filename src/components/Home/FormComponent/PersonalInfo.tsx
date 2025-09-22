@@ -1,4 +1,3 @@
-
 // PersonalInfo.tsx (Modified)
 import SmallTitle from "@/components/shared/Title/SmallTitle";
 import { Button } from "@/components/ui/button";
@@ -32,7 +31,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 
 const formSchema = z.object({
   fullName: z.string().min(1, "Full name is required"),
@@ -50,14 +49,20 @@ interface PersonalInfoProps {
 }
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({ onNext, onBack, data, updateData }) => {
-  const [profilePhoto, setProfilePhoto] = useState<File | null>(data.profilePhoto);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      setProfilePhoto(file);
+      setUploadedFile(file);
       updateData({ profilePhoto: file });
     }
+    event.target.value = "";
   };
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -72,7 +77,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ onNext, onBack, data, updat
   });
 
   const onSubmit = (formValues: z.infer<typeof formSchema>) => {
-    updateData({ ...formValues, profilePhoto });
+    updateData({ ...formValues, profilePhoto: uploadedFile });
     onNext();
   };
 
@@ -109,33 +114,31 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ onNext, onBack, data, updat
               />
             </div>
 
-            {/* Profile Photo */}
+            {/* Profile Photo Upload */}
             <div className="w-full">
               <Label className="block text-sm font-medium mb-3">
                 Profile Photo
               </Label>
               <div className="flex items-center gap-3">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pdf,.doc,.docx,.txt,.xlsx,.xls,.jpg,.jpeg,.png,.gif,.bmp,.webp,image/*"
+                  className="hidden"
+                  onChange={handleFileUpload}
+                />
                 <Button
+                  type="button"
                   variant="outline"
                   size="sm"
-                  className="relative"
-                  type="button"
-                  onClick={() =>
-                    document.getElementById("photo-upload")?.click()
-                  }
+                  className="cursor-pointer"
+                  onClick={handleUploadClick}
                 >
                   <Upload className="w-4 h-4 mr-2" />
-                  Upload a photo
-                  <input
-                    id="photo-upload"
-                    type="file"
-                    accept="image/*"
-                    className="absolute inset-0 opacity-0 cursor-pointer"
-                    onChange={handlePhotoUpload}
-                  />
+                  Upload a document
                 </Button>
-                <span className="text-sm text-gray-500">
-                  {profilePhoto ? profilePhoto.name : "No file uploaded"}
+                <span className="text-sm text-gray-500 truncate max-w-[180px]">
+                  {uploadedFile ? uploadedFile.name : "No file uploaded"}
                 </span>
               </div>
             </div>

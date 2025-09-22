@@ -9,7 +9,7 @@ import ReviewEdit from "./UserDashboard/ReviewEdit";
 import ReviewLeave from "./UserDashboard/ReviewLeave";
 import UpcomingBookings from "./UserDashboard/UpcomingBookings";
 
-const UserHomeComponent = () => {
+const UserHome = () => {
   return (
     <div className="space-y-8 mb-10">
       <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
@@ -77,4 +77,4 @@ const UserHomeComponent = () => {
   );
 };
 
-export default UserHomeComponent;
+export default UserHome;

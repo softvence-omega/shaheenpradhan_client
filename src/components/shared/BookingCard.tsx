@@ -44,7 +44,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
             <div className="flex item-center justify-between space-y-3">
               <div className="flex sm:item-center justify-between space-x-4">
                 <div className="relative w-fit">
-                  <Link to="/profileSummary">
+                  <Link to="/profile-summary">
                     <Avatar className="w-14 h-14 sm:w-16 sm:h-16">
                       <AvatarImage src={assistant.avatar} alt={assistant.name} />
                       <AvatarFallback>

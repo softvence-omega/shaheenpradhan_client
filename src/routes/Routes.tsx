@@ -39,6 +39,8 @@ import SupportPage from "@/pages/user/SupportPage";
 import HomePage from "@/pages/Home/HomePage";
 
 import JoinAssistantInfo from "@/components/Home/FormComponent/JoinAssistantInfo";
+import About from "@/pages/About/About";
+import Contact from "@/pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +52,14 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
+        path: "about",
+        element: <About/>
+      },
+      {
+        path: "contact",
+        element: <Contact/>
+      },
+      {
         path: "login",
         element: <LoginPage />,
       },
@@ -58,39 +68,27 @@ export const router = createBrowserRouter([
         element: <SignupTabs />,
       },
       {
-        path: "profileSummary",
+        path: "profile-summary",
         element: <Profile />,
       },
        {
-        path: "aiMatcher",
+        path: "ai-matcher",
         element: <AiMatchMaking />,
       },
       {
-        path: "assistantBooks",
+        path: "assistant-books",
         element: <AssistantsPage />,
       },
       {
-        path: "bookAssistantInfo",
+        path: "book-assistant-info",
         element: <Yourself />,
       },
 
       // join assistant info
       {
-        path: "joinAssistantInfo",
+        path: "join-assistant-info",
         element: <JoinAssistantInfo />,
-      },
-      // {
-      //   path: "workPreferance",
-      //   element: <WorkPreference />,
-      // },
-      // {
-      //   path: "experienceSkill",
-      //   element: < ExperienceSkill/>,
-      // },
-      // {
-      //   path: "education",
-      //   element: <Education />,
-      // },
+      }
     ],
   },
 
@@ -109,7 +107,7 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "stepConfirmBooking",
+        path: "step-confirm-booking",
         element: <StepConfirmBooking></StepConfirmBooking>,
       },
     ],

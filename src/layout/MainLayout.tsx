@@ -5,7 +5,7 @@ import { Outlet, useLocation } from "react-router-dom";
 const MainLayout = () => {
 
   const location = useLocation();
-  const hideNavFooter = ["/signup", "/login", "/bookAssistantInfo", "/joinAssistantInfo"].includes(location.pathname);
+  const hideNavFooter = ["/signup", "/login", "/bookAssistantInfo", "/join-assistant-info"].includes(location.pathname);
 
   return (
     <div className="">

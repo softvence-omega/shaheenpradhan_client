@@ -38,8 +38,8 @@ const SignupTabs = () => {
     const payload = { ...data, role };
     console.log("Submitting:", payload);
 
-    if (role === "bookAssistant") navigate("/bookAssistantInfo");
-    else navigate("/joinAssistantInfo");
+    if (role === "bookAssistant") navigate("/book-assistant-info");
+    else navigate("/join-assistant-info");
   };
 
   // Shared form fields
@@ -78,11 +78,10 @@ const SignupTabs = () => {
   );
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white">
       <Wrapper>
         <div className="pt-8 space-y-8">
           <img src={logo} alt="logo" />
-
 
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0 justify-center">
             {/* Single Form wraps Tabs */}

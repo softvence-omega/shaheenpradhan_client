@@ -1,9 +1,9 @@
-import UserHomeComponent from "@/components/user/UserHome";
+import UserHome from "@/components/user/UserHome";
 
 const UserHomePage = () => {
   return (
     <div>
-      <UserHomeComponent />
+      <UserHome />
     </div>
   );
 };

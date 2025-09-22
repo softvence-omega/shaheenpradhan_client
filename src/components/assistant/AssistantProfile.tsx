@@ -42,11 +42,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import assistantprofile from "@/assets/images/assistantprofile.png";
 import SmallTitle from "../shared/Title/SmallTitle";
-import { WorkPreferance } from "./WorkPreferance";
 
 import TimePicker from "./TimePicker";
 import ProfileForm from "./ProfileForm";
 import ReactSelect from "react-select";
+import WorkPrefer from "./WorkPrefer";
 
 const languageOptions = [
   { value: "english", label: "English" },
@@ -267,7 +267,7 @@ const AssistantProfile = () => {
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
               {/* Work Styl And Language */}
               <div className="w-full">
-                <WorkPreferance />
+                <WorkPrefer />
               </div>
               {/* Gender */}
               <div className="w-full">
@@ -280,7 +280,7 @@ const AssistantProfile = () => {
                     name="languages"
                     options={languageOptions}
                     isMulti
-                    className="basic-multi-select"
+                    className="basic-multi-select cursor-pointer"
                     classNamePrefix="select"
                   />
                 </div>
