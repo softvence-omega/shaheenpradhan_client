@@ -81,7 +81,7 @@ const Yourself = () => {
               <FormOnboarding
                 onSave={(data) => {
                   console.log("Individual form data:", data);
-                  navigate("/assistant/home");
+                  navigate("/user/home");
                 }}
                 onSkip={() => navigate("/")}
               />
@@ -161,6 +161,7 @@ const Yourself = () => {
                     type="submit"
                     size="lg"
                     className="bg-purple-600 hover:bg-purple-700 cursor-pointer"
+                    onClick={() => navigate("/user/home")}
                   >
                     Save
                   </Button>

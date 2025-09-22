@@ -11,7 +11,7 @@ import TopArrow from "@/assets/icon/topArrow";
 const Matchmaker = () => {
   return (
     <Wrapper>
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 md:gap-10 py-4 md:py-[50px]">
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 md:gap-10 pb-4 md:pb-[50px]">
         {/* LEFT CONTENT */}
         <div className="flex flex-col gap-5 md:gap-16 md:w-1/2">
           <section className="space-y-5 mt-16">

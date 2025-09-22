@@ -23,7 +23,9 @@ type SignupForm = z.infer<typeof signupSchema>;
 
 const SignupTabs = () => {
   const navigate = useNavigate();
-  const [role, setRole] = React.useState<"bookAssistant" | "joinAssistant">("bookAssistant");
+  const [role, setRole] = React.useState<"bookAssistant" | "joinAssistant">(
+    "bookAssistant"
+  );
 
   const {
     control,
@@ -52,7 +54,9 @@ const SignupTabs = () => {
           control={control}
           render={({ field }) => <Input {...field} id="name" />}
         />
-        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
+        {errors.name && (
+          <p className="text-red-500 text-sm">{errors.name.message}</p>
+        )}
       </div>
 
       <div className="space-y-3">
@@ -62,7 +66,9 @@ const SignupTabs = () => {
           control={control}
           render={({ field }) => <Input {...field} id="email" />}
         />
-        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-red-500 text-sm">{errors.email.message}</p>
+        )}
       </div>
 
       <div className="space-y-3">
@@ -70,9 +76,13 @@ const SignupTabs = () => {
         <Controller
           name="password"
           control={control}
-          render={({ field }) => <Input {...field} id="password" type="password" />}
+          render={({ field }) => (
+            <Input {...field} id="password" type="password" />
+          )}
         />
-        {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+        {errors.password && (
+          <p className="text-red-500 text-sm">{errors.password.message}</p>
+        )}
       </div>
     </CardContent>
   );
@@ -86,10 +96,14 @@ const SignupTabs = () => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0 justify-center">
             {/* Single Form wraps Tabs */}
             <form onSubmit={handleSubmit(onSubmit)} className="w-full lg:w-1/2">
-              <h1 className="text-3xl md:text-[48px] font-semibold text-center my-6 md:my-10 font-DMsans">Sign Up</h1>
+              <h1 className="text-3xl md:text-[48px] font-semibold text-center my-6 md:my-10 font-DMsans">
+                Sign Up
+              </h1>
               <Tabs
                 defaultValue="bookAssistant"
-                onValueChange={(val) => setRole(val as "bookAssistant" | "joinAssistant")}
+                onValueChange={(val) =>
+                  setRole(val as "bookAssistant" | "joinAssistant")
+                }
               >
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger
@@ -127,7 +141,7 @@ const SignupTabs = () => {
                   </Card>
                 </TabsContent>
 
-                <CardFooter className="flex flex-col gap-2 pt-3">
+                <CardFooter className="flex flex-col gap-3 pt-3">
                   <Button
                     type="submit"
                     className="w-full bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer"
@@ -142,6 +156,17 @@ const SignupTabs = () => {
                     <AiOutlineGoogle className="w-4 h-4" />
                     <span>Sign up with Google</span>
                   </Button>
+
+                  {/* Already have an account? */}
+                  <p className="text-sm text-center text-gray-600 mt-2">
+                    Already have an account?{" "}
+                    <span
+                      onClick={() => navigate("/login")}
+                      className="text-BorderHighlight font-medium cursor-pointer hover:underline"
+                    >
+                      Login
+                    </span>
+                  </p>
                 </CardFooter>
               </Tabs>
             </form>
