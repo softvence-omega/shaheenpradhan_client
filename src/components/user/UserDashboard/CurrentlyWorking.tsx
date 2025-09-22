@@ -36,11 +36,16 @@ const CurrentlyWorking = () => {
 
           {/* Only show on md and up */}
           <div className="hidden md:flex items-center gap-4 mt-2">
-            <Link to="/user/current-booking">
+            <Link to="/user/user-profile">
               <Button className="cursor-pointer" variant="outline">
                 View Full Details
               </Button>
             </Link>
+            {/* <Link to="/user/current-booking">
+              <Button className="cursor-pointer" variant="outline">
+                View Full Details
+              </Button>
+            </Link> */}
             <button className="flex items-center gap-2 px-4 py-2  hover:bg-gray-50 transition cursor-pointer">
               <img src={chat} alt="Chat Icon" className="w-5 h-5" />
               <span className="font-medium text-sm md:text-base">Chat</span>
@@ -67,7 +72,7 @@ const CurrentlyWorking = () => {
 
         {/* Right Section (Only for desktop) */}
         <div className="hidden md:flex w-full md:w-1/2 items-center justify-end">
-          <div className="space-y-6 text-sm md:text-base w-full sm:w-auto space-y-8">
+          <div className="space-y-6 text-sm md:text-base w-full sm:w-auto md:space-y-8">
             <div>
               <p className="text-[#4D4D4D] font-semibold">Time Left</p>
               <p className="text-[#8559CA] font-medium text-base md:text-lg">

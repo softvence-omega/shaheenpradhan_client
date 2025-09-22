@@ -36,7 +36,7 @@ const FormSchema = z.object({
   }),
 });
 
-export function WorkPreferance() {
+const WorkPrefer = () => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -73,6 +73,7 @@ export function WorkPreferance() {
                       >
                         <FormControl>
                           <Checkbox
+                          className="cursor-pointer"
                             checked={field.value?.includes(item.id)}
                             onCheckedChange={(checked) => {
                               return checked
@@ -100,4 +101,6 @@ export function WorkPreferance() {
       </form>
     </Form>
   );
-}
+};
+
+export default WorkPrefer;

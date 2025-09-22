@@ -1,8 +1,6 @@
-
-import type React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -15,19 +13,58 @@ import {
 import { Upload } from "lucide-react";
 import Divider from "../shared/Divider";
 
-export default function FormOnboarding() {
-  const [userType, setUserType] = useState("individual");
-  const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
+interface FormOnboardingProps {
+  onSave: (data: any) => void;
+  onSkip: () => void;
+}
 
-  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+const FormOnboarding: React.FC<FormOnboardingProps> = ({ onSave, onSkip }) => {
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  // 🔧 Form states for Individual section
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [companySize, setCompanySize] = useState("5-10");
+  const [location, setLocation] = useState("");
+
+  // 🔑 Ref for file input
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleUploadClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      setProfilePhoto(file);
+      setUploadedFile(file);
     }
+    // reset so same file can be re-uploaded
+    event.target.value = "";
+  };
+
+  const handleSave = () => {
+    const formData = {
+      personalInfo: {
+        uploadedFile: uploadedFile?.name || null,
+        fullName,
+        email,
+        phone,
+      },
+      companyInfo: {
+        companyName,
+        designation,
+        companySize,
+        location,
+      },
+    };
+    onSave(formData);
   };
 
   return (
-    <div className=" flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <Card className="w-full max-w-4xl shadow-none border-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-5">
           {/* Personal Information Section */}
@@ -36,49 +73,61 @@ export default function FormOnboarding() {
               Personal Information
             </h3>
 
+            {/* Upload Document */}
             <div className="space-y-2">
-              <Label htmlFor="profile-photo" className="text-sm font-medium">
-                Profile Photo
-              </Label>
+              <Label className="text-sm font-medium">Upload Photo</Label>
               <div className="flex items-center gap-3 py-1.5">
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".pdf,.doc,.docx,.txt,.xlsx,.xls,.jpg,.jpeg,.png,.gif,.bmp,.webp,image/*"
+                  className="hidden"
+                  onChange={handleFileUpload}
+                />
                 <Button
+                  type="button"
                   variant="outline"
                   size="sm"
-                  className="relative"
-                  onClick={() =>
-                    document.getElementById("photo-upload")?.click()
-                  }
+                  className="cursor-pointer"
+                  onClick={handleUploadClick}
                 >
                   <Upload className="w-4 h-4 mr-2" />
-                  Upload a photo
-                  <input
-                    id="photo-upload"
-                    type="file"
-                    accept="image/*"
-                    className="absolute inset-0 opacity-0 cursor-pointer"
-                    onChange={handlePhotoUpload}
-                  />
+                  Upload a document
                 </Button>
-                <span className="text-sm text-gray-500">
-                  {profilePhoto ? profilePhoto.name : "No file uploaded"}
+                {/* ✅ Show file name if uploaded */}
+                <span className="text-sm text-gray-500 truncate max-w-[180px]">
+                  {uploadedFile ? uploadedFile.name : "No file uploaded"}
                 </span>
               </div>
             </div>
 
+            {/* Full Name */}
             <div className="space-y-2">
               <Label htmlFor="full-name" className="text-sm font-medium">
                 Your Full Name
               </Label>
-              <Input id="full-name" placeholder="" />
+              <Input
+                id="full-name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
             </div>
 
+            {/* Email */}
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium">
                 Email Address
               </Label>
-              <Input id="email" type="email" placeholder="Example@gmail.com" />
+              <Input
+                id="email"
+                type="email"
+                placeholder="Example@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
 
+            {/* Phone */}
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-sm font-medium">
                 Phone Number
@@ -91,7 +140,8 @@ export default function FormOnboarding() {
                 <Input
                   id="phone"
                   className="rounded-l-none border-l-0"
-                  placeholder=""
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
             </div>
@@ -103,25 +153,34 @@ export default function FormOnboarding() {
               Company Information
             </h3>
 
+            {/* Company Name */}
             <div className="space-y-2">
               <Label htmlFor="company-name" className="text-sm font-medium">
                 Company Name
               </Label>
-              <Input id="company-name" placeholder="" />
+              <Input
+                id="company-name"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+              />
             </div>
 
+            {/* Designation */}
             <div className="space-y-2">
               <Label htmlFor="designation" className="text-sm font-medium">
                 Your Designation
               </Label>
-              <Input id="designation" placeholder="" />
+              <Input
+                id="designation"
+                value={designation}
+                onChange={(e) => setDesignation(e.target.value)}
+              />
             </div>
 
+            {/* Company Size */}
             <div className="space-y-2">
-              <Label htmlFor="company-size" className="text-sm font-medium">
-                Company Size
-              </Label>
-              <Select defaultValue="5-10">
+              <Label className="text-sm font-medium">Company Size</Label>
+              <Select value={companySize} onValueChange={setCompanySize}>
                 <SelectTrigger className="w-full py-[21px]">
                   <SelectValue placeholder="Select company size" />
                 </SelectTrigger>
@@ -135,12 +194,11 @@ export default function FormOnboarding() {
               </Select>
             </div>
 
+            {/* Location */}
             <div className="space-y-2">
-              <Label htmlFor="location" className="text-sm font-medium">
-                Location
-              </Label>
-              <Select>
-                <SelectTrigger className="w-full  py-[21px]">
+              <Label className="text-sm font-medium">Location</Label>
+              <Select value={location} onValueChange={setLocation}>
+                <SelectTrigger className="w-full py-[21px]">
                   <SelectValue placeholder="Select Location" />
                 </SelectTrigger>
                 <SelectContent>
@@ -155,17 +213,30 @@ export default function FormOnboarding() {
             </div>
           </div>
         </div>
+
         <Divider />
+
         {/* Action Buttons */}
         <div className="flex justify-end gap-3 pt-6">
-          <Button className="cursor-pointer" variant="outline" size="lg">
+          <Button
+            className="cursor-pointer"
+            variant="outline"
+            size="lg"
+            onClick={onSkip}
+          >
             Skip
           </Button>
-          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 cursor-pointer">
+          <Button
+            size="lg"
+            className="bg-purple-600 hover:bg-purple-700 cursor-pointer"
+            onClick={handleSave}
+          >
             Save
           </Button>
         </div>
       </Card>
     </div>
   );
-}
+};
+
+export default FormOnboarding;

@@ -29,10 +29,12 @@ const LoginPage = () => {
   //   console.log("handleJoinAsAssistant");
   // };
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white">
       <Wrapper>
-        <div className="pt-8 space-y-10">
-          <img src={logo} alt="" />
+        <div className="pt-8 space-y-8 mx-auto">
+          <Link to="/">
+            <img src={logo} alt="Image" />
+          </Link>
           <h1 className="text-3xl lg:text-4xl font-semibold">Login</h1>
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0">
             {/* Tabs Form */}

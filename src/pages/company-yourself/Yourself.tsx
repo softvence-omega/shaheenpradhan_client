@@ -1,35 +1,45 @@
+import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Wrapper from "@/components/shared/Wrapper";
 import Divider from "@/components/shared/Divider";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { useRef, useState } from "react";
-import { Upload } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import FormOnboarding from "@/components/Company_Yourself/FormOnboarding";
-import { Link } from "react-router-dom";
+import { Upload } from "lucide-react";
 import FormNav from "@/components/Home/FormComponent/FormNav";
 import TittleBig from "@/components/shared/Title/TittleBig";
+import FormOnboarding from "@/components/Company_Yourself/FormOnboarding";
 
 const Yourself = () => {
   const [selection, setSelection] = useState("Individual");
-  const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
-
-  // 🔑 Ref for hidden input
+  const [uploadedFileName, setUploadedFileName] = useState<string>(""); // file name state
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const navigate = useNavigate();
 
-  const handleUploadClick = () => {
-    fileInputRef.current?.click();
+  // Handle file upload
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setUploadedFileName(file.name); // set name
+    }
+    e.target.value = ""; // reset so same file can be re-uploaded
   };
 
-  const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setProfilePhoto(file);
-      console.log("File uploaded:", file.name);
-    }
-    // reset value so same file can be uploaded again
-    event.target.value = "";
+  // Handle company save (just log values)
+  const handleCompanySave = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    const data = {
+      uploadedFile: formData.get("uploadedFile"),
+      fullName: formData.get("fullName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+    };
+
+    console.log("Company form data:", data);
+    navigate("/assistant/home");
   };
 
   return (
@@ -44,146 +54,119 @@ const Yourself = () => {
             />
           </div>
 
-          <div>
-            <div className="space-y-2">
-              <h1 className="text-sm md:text-base">
-                Are you an individual or representing a company?
-              </h1>
-              <Divider />
-            </div>
+          <h1 className="text-sm md:text-base">
+            Are you an individual or representing a company?
+          </h1>
+          <Divider />
 
-            {/* RADIO BUTTON */}
-            <div className="pt-5">
-              <RadioGroup
-                value={selection}
-                onValueChange={(value) => {
-                  setSelection(value);
-                  console.log("User selected:", value);
+          <div className="pt-5">
+            {/* Selection */}
+            <RadioGroup
+              value={selection}
+              onValueChange={setSelection}
+              className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4"
+            >
+              <div className="flex items-center gap-2">
+                <RadioGroupItem className="cursor-pointer" value="Individual" id="r1" />
+                <Label htmlFor="r1">Individual</Label>
+              </div>
+              <div className="flex items-center gap-2">
+                <RadioGroupItem className="cursor-pointer" value="Company" id="r2" />
+                <Label htmlFor="r2">On behalf of a Company</Label>
+              </div>
+            </RadioGroup>
+
+            {/* Individual Form */}
+            {selection === "Individual" ? (
+              <FormOnboarding
+                onSave={(data) => {
+                  console.log("Individual form data:", data);
+                  navigate("/assistant/home");
                 }}
-                className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-4"
+                onSkip={() => navigate("/")}
+              />
+            ) : (
+              // Company Form
+              <form
+                onSubmit={handleCompanySave}
+                className="py-10 w-[368px] space-y-6"
               >
-                <div className="flex items-center gap-2">
-                  <RadioGroupItem
-                    className="cursor-pointer"
-                    value="Individual"
-                    id="r1"
-                  />
-                  <Label htmlFor="r1">Individual</Label>
-                </div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Personal Information
+                </h3>
 
-                <div className="flex items-center gap-2">
-                  <RadioGroupItem
-                    className="cursor-pointer"
-                    value="Company"
-                    id="r2"
-                  />
-                  <Label htmlFor="r2">On behalf of a Company</Label>
-                </div>
-              </RadioGroup>
-
-              {selection === "Individual" ? (
-                <FormOnboarding />
-              ) : (
-                <div>
-                  <div className="space-y-6 py-10 w-[368px]">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      Personal Information
-                    </h3>
-
-                    {/* ✅ Fixed Image Upload Field */}
-                    <div className="space-y-2">
-                      <Label className="text-sm font-medium">
-                        Profile Photo
-                      </Label>
-                      <div className="flex items-center gap-3">
-                        <input
-                          ref={fileInputRef}
-                          type="file"
-                          accept="image/*"
-                          className="hidden"
-                          onChange={handlePhotoUpload}
-                        />
-                        <Button
-                          type="button"
-                          variant="outline"
-                          size="sm"
-                          onClick={handleUploadClick}
-                        >
-                          <Upload className="w-4 h-4 mr-2" />
-                          Upload a photo
-                        </Button>
-                        <span className="text-sm text-gray-500">
-                          {profilePhoto
-                            ? profilePhoto.name
-                            : "No file uploaded"}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Other Inputs */}
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="full-name"
-                        className="text-sm font-medium"
-                      >
-                        Your Full Name
-                      </Label>
-                      <Input id="full-name" placeholder="" />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-sm font-medium">
-                        Email Address
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="Example@gmail.com"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-sm font-medium">
-                        Phone Number
-                      </Label>
-                      <div className="flex">
-                        <div className="flex items-center px-3 border border-r-0 border-gray-300 rounded-l-md bg-gray-50">
-                          <span className="text-sm">🇦🇪</span>
-                          <span className="ml-2 text-sm">+971</span>
-                        </div>
-                        <Input
-                          id="phone"
-                          className="rounded-l-none border-l-0"
-                          placeholder=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <Divider />
-                  {/* Action Buttons */}
-                  <div className="flex justify-end gap-3 pt-6">
+                {/* File Upload */}
+                <div className="space-y-2">
+                  <Label>Upload Photo</Label>
+                  <div className="flex items-center gap-3">
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      name="uploadedFile"
+                      className="hidden"
+                      onChange={handleFileChange}
+                    />
                     <Button
                       type="button"
-                      className="cursor-pointer"
                       variant="outline"
-                      size="lg"
+                      size="sm"
+                      className="cursor-pointer"
+                      onClick={() => fileInputRef.current?.click()}
                     >
-                      Skip
+                      <Upload className="w-4 h-4 mr-2" />
+                      Upload a document
                     </Button>
-                    <Link to="/assistant/home">
-                      <Button
-                        type="button"
-                        size="lg"
-                        className="bg-purple-600 hover:bg-purple-700 cursor-pointer"
-                      >
-                        Save
-                      </Button>
-                    </Link>
+                    <span className="text-sm text-gray-500">
+                      {uploadedFileName || "No file uploaded"}
+                    </span>
                   </div>
                 </div>
-              )}
-            </div>
+
+                {/* Full Name */}
+                <div className="space-y-2">
+                  <Label>Your Full Name</Label>
+                  <Input name="fullName" />
+                </div>
+
+                {/* Email */}
+                <div className="space-y-2">
+                  <Label>Email Address</Label>
+                  <Input name="email" type="email" placeholder="Example@gmail.com" />
+                </div>
+
+                {/* Phone */}
+                <div className="space-y-2">
+                  <Label>Phone Number</Label>
+                  <div className="flex">
+                    <div className="flex items-center px-3 border border-r-0 border-gray-300 rounded-l-md bg-gray-50">
+                      <span className="text-sm">🇦🇪</span>
+                      <span className="ml-2 text-sm">+971</span>
+                    </div>
+                    <Input name="phone" className="rounded-l-none border-l-0" />
+                  </div>
+                </div>
+
+                <Divider />
+                <div className="flex justify-end gap-3 pt-6">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="lg"
+                    className="cursor-pointer"
+                    onClick={() => navigate("/")}
+                  >
+                    Skip
+                  </Button>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="bg-purple-600 hover:bg-purple-700 cursor-pointer"
+                  >
+                    Save
+                  </Button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       </Wrapper>

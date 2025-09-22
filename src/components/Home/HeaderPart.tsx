@@ -2,7 +2,7 @@ import Image from "@/assets/images/headerImage.png";
 import Wrapper from "../shared/Wrapper";
 import { Button } from "../ui/button";
 import Robot from "@/assets/icon/Robot";
-import { AnimatedTooltip } from "../aceternity/animated-tooltip";
+import AnimatedTooltip from "../aceternity/animated-tooltip";
 // default users
 const items = [
   {

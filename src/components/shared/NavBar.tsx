@@ -94,7 +94,7 @@ const NavBar = () => {
               </Link>
               <Link
                 className="text-sm sm:text-[15px] font-normal leading-[150%]"
-                to="/assistant-books"
+                to="#"
               >
                 Services
               </Link>

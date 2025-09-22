@@ -8,17 +8,16 @@ import { Button } from "../ui/button";
 import NotificationModal from "./NotificationModal";
 const DashboardNavbar = () => {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-[7px] border border-neutral-200">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2 border border-neutral-200 bg-white ">
       <Link to="/" className="sm:flex items-center p-2 hidden">
         <img src={logo} alt="logo" className="max-w-32 h-fit" />
       </Link>
-      {/* FOR SMALL DEVICE ONLY */}
       {/* FOR SMALL DEVICE ONLY */}
       <div className="sm:hidden flex items-center justify-between w-full">
         <Link to="/" className="flex items-center p-2">
           <img src={logo} alt="logo" className="max-w-32 h-fit" />
         </Link>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 md:gap-6">
           <Button
             variant="ghost"
             size="icon"

@@ -98,9 +98,7 @@ const JoinAssistantInfo = () => {
 
   const handleSave = () => {
     console.log('All Form Data:', formData);
-    // Here you can add API call to save data
-    // After successful save, you might want to navigate somewhere
-    navigate('/'); // or wherever you want to redirect
+    navigate('/');
   };
 
   const handleSkip = () => {

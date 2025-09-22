@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 import { Input } from "@/components/ui/input";
@@ -155,7 +153,7 @@ const UserProfile = () => {
             <Label htmlFor="location">Location</Label>
             <select
               name="location"
-              className="w-full border border-[#E7E5E4] bg-white rounded-lg px-3 py-3 text-sm"
+              className="w-full border border-[#E7E5E4] bg-white rounded-lg px-3 py-3 text-sm cursor-pointer"
               value={formData.location}
               onChange={handleChange}
             >
