@@ -1,7 +1,14 @@
 {
   "build": {
     "env": {
-      "NODE_VERSION": "18"
+      "NODE_VERSION": "22"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/[^.]+",
+      "dest": "/index.html",
+      "status": 200
+    }
+  ]
 }

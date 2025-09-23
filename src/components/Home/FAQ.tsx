@@ -11,7 +11,7 @@ import React, { useState } from "react";
 
 const faqs = [
   {
-    question: "What is this platform?",
+    question: "What is the Adminity platform?",
     answer:
       "We are a booking platform that connects you with skilled executive assistants for your administrative needs. Think of us as your go-to source for finding reliable support, instantly.",
   },

@@ -1,6 +1,6 @@
 const SettingPage = () => {
   return (
-    <div>
+    <div className="h-screen">
       <h1>SettingPage</h1>
     </div>
   );

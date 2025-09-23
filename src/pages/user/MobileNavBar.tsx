@@ -20,7 +20,7 @@ const MobileNavBar = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-[#E5E5E5] flex justify-around items-center h-16 shadow-sm z-50">
-      {navItems.map(({ id, label, icon: Icon, href }) => (
+      {navItems.map(({ id, icon: Icon, href }) => (
         <Link to={href} key={id}>
           <div
             className={`flex flex-col items-center justify-center p-2 rounded-xl transition ${

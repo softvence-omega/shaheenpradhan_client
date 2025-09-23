@@ -1,10 +1,14 @@
 import { cn } from "@/lib/utils";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import SidebarDashboard from "@/components/shared/Dashboard/SidebarDashboard";
 import DashboardNavbar from "@/components/UserDashboard/DashboardNavbar";
 import MobileNavBar from "@/pages/user/MobileNavBar";
 
 const UserLayout = () => {
+
+  const location = useLocation();
+  const hideNavFooter = ["/user/user-profile", "/user/notification", "/user/assistant-booking"].includes(location.pathname);
+
   return (
     <div className="flex flex-col overflow-hidden bg-[#FAF8FD]">
       {/* Fixed Top Navbar */}
@@ -33,7 +37,7 @@ const UserLayout = () => {
 
       {/* Fixed Bottom Navigation - Mobile Only */}
       <footer className="fixed bottom-0 left-0 right-0 z-50 block md:hidden">
-        <MobileNavBar />
+       {!hideNavFooter && <MobileNavBar />}
       </footer>
     </div>
   );

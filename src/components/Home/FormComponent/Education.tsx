@@ -72,7 +72,7 @@ const Education: React.FC<EducationProps> = ({
   };
 
   return (
-    <div>
+    <div className="mb-10">
       {/* Education */}
       <section>
         <div className="mb-2">
@@ -106,6 +106,7 @@ const Education: React.FC<EducationProps> = ({
                 type="text"
                 className="bg-white"
                 value={institutionName}
+                placeholder="Enter institution name"
                 onChange={(e) => setInstitutionName(e.target.value)}
               />
             </div>
@@ -162,6 +163,7 @@ const Education: React.FC<EducationProps> = ({
               <Input
                 type="text"
                 className="bg-white"
+                placeholder="Enter institution name"
                 value={certificationInstitution}
                 onChange={(e) => setCertificationInstitution(e.target.value)}
               />

@@ -57,7 +57,7 @@ const ConfirmBooking = () => {
         description="Fill out the form to confirm  your booking."
       />
 
-      <div className="sm:px-6 lg:px-1 w-full mx-auto font-sans mb-20 space-y-9">
+      <div className="sm:px-6 lg:px-1 w-full mx-auto font-sans space-y-9">
         {/* Mobile StepBooking - shown only on small screens */}
         <div className="lg:hidden mb-8 mt-8">
           <StepBooking steps={steps} mobile />
@@ -74,7 +74,7 @@ const ConfirmBooking = () => {
               {/* Assistant Info */}
               <div>
                 <SmallTitle smalltitle="Assistant Information" />
-                <hr className="border-b border-[#E5E5E5]" />
+                <hr className="border-b border-[#E5E5E5] mt-2" />
               </div>
               <AssistantInfo />
 
@@ -135,7 +135,7 @@ const ConfirmBooking = () => {
                       Location
                     </label>
                     <select
-                      className="w-full border px-3 py-2 rounded-lg bg-white"
+                      className="w-full md:w-1/2 border px-3 py-2 rounded-lg bg-white"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                     >
@@ -149,7 +149,7 @@ const ConfirmBooking = () => {
 
               {/* Task Overview */}
               <section className="mb-6">
-                <h2 className="text-xl font-semibold mb-4">Task Overview</h2>
+                <h2 className="text-lg md:text-xl font-semibold mb-4">Task Overview</h2>
                 <textarea
                   rows={4}
                   maxLength={1000}
@@ -166,10 +166,10 @@ const ConfirmBooking = () => {
               {/* Payment Info */}
               <section className="mb-6">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-semibold mb-4">
+                  <h2 className="text-lg md:text-xl font-semibold mb-4">
                     Payment Information
                   </h2>
-                  <div className="flex justify-end items-center gap-2">
+                  <div className="flex justify-end items-center gap-2 mb-2">
                     <Select>
                       <SelectTrigger className="w-[68px] h-8 px-2 text-xs">
                         <SelectValue placeholder="AED" />
@@ -183,14 +183,13 @@ const ConfirmBooking = () => {
                   </div>
                 </div>
                 <hr className="border-b border-[#E5E5E5]" />
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[20px] mt-3 space-y-6">
-                  <div className="font-medium">Total Hours:</div>
-                  <div className="col-span-2">118</div>
-                  <div className="font-medium">Rate Per Hour:</div>
-                  <div className="text-[#8559CA] col-span-2">AED 20.00</div>
-                  <div className="font-medium">Total Payable Amount:</div>
-                  <div className="text-[#8559CA] col-span-2">AED 2360.00</div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[16px] mt-3 space-y-4 md:space-y-6 text-lg md:text-xl">
+                  <p>Total Hours:</p>
+                  <p>118</p>
+                  <p>Rate Per Hour:</p>
+                  <p>AED 20.00</p>
+                  <p>Total Payable Amount:</p>
+                  <p className="text-[#8559CA]">AED 2360.00</p>
                 </div>
 
                 <div className="mt-4">

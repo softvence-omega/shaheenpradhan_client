@@ -44,12 +44,10 @@ const UserProfile = () => {
 
   return (
     <form className="w-full space-y-10" onSubmit={handleSubmit}>
-      <div className="flex items-center justify-between md:justify-start mb-4">
+      <div className="flex items-center justify-between md:justify-start gap-2 mb-6">
         {/* Back arrow – visible only on small devices */}
         <Link to="/user/home" className="block md:hidden">
-          <div className="w-[32px] h-[32px] flex items-center mb-3 justify-start  ">
             <IoMdArrowRoundBack className="w-[20px] h-[32px] text-gray-600" />
-          </div>
         </Link>
 
         {/* Title – centered on small, left-aligned on medium and up */}

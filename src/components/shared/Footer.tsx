@@ -12,17 +12,17 @@ import { useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const linkClass =
-  "text-[18px] font-normal leading-[27px] text-black transition-colors duration-300 ease-in-out hover:text-[#B655DA] hover:underline";
+  "text-sm md:text-[18px] font-normal leading-[27px] text-black transition-colors duration-300 ease-in-out hover:text-[#B655DA] hover:underline";
 
 
 const iconClass =
-  "text-[24px] text-black transition-colors duration-500 ease-in-out hover:text-[#B655DA]";
+  "text-[18px] md:text-[24px] text-black transition-colors duration-500 ease-in-out hover:text-[#B655DA]";
 
 const Footer = () => {
   const location = useLocation();
   const locked =
-    location.pathname == "/signups" ||
-    location.pathname == "/logins" ||
+    location.pathname == "/signup" ||
+    location.pathname == "/login" ||
     location.pathname == "/company-yourself" ||
     location.pathname == "/personal-info" ||
     location.pathname == "/work-preferance" ||
@@ -34,16 +34,16 @@ const Footer = () => {
       <Wrapper>
         <div
           className={cn(
-            "space-y-16 mt-20 font-DMsans pb-0 sm:pb-12 md:pb-12 lg:pb-12 2xl:pb-0",
+            "space-y-16 font-DMsans",
             locked && "hidden"
           )}
         >
-          <div className="flex flex-col md:flex-row justify-between md:items-center gap-10">
+          <div className="flex flex-col md:flex-row justify-between md:items-center gap-8 md:gap-10 pt-10 md:pt-20">
             {/* Part 1 - Address & Contact */}
             <div className="order-3 md:order-none flex flex-col justify-between gap-4">
               <div className="flex flex-col gap-2">
-                <h2 className="text-[18px] font-semibold">Address</h2>
-                <p className="text-[18px] font-normal leading-[27px]">
+                <h2 className="text-base md:text-[18px] font-bold">Address</h2>
+                <p className=" font-normal leading-[27px]">
                   <a
                     href="https://www.google.com/maps?q=Level+1,+12+Sample+St,+Sydney+NSW+2000"
                     target="_blank"
@@ -56,7 +56,7 @@ const Footer = () => {
               </div>
 
               <div>
-                <h2 className="text-[18px] font-semibold">Contact:</h2>
+                <h2 className="text-base md:text-[18px] font-bold">Contact:</h2>
                 <p className="text-[18px] font-normal cursor-pointer">
                   <a href="tel:18001234567" className={linkClass}>
                     1800 123 4567
@@ -115,11 +115,11 @@ const Footer = () => {
                   src={logo}
                   alt="logo footer"
                   height={40}
-                  width={157}
+                  width={140}
                   className="rounded-[8px]"
                 />
               </a>
-              <p className="text-[18px] font-normal">
+              <p className="text-sm md:text-[18px] font-normal">
                 Follow Us on Social Media
               </p>
               <div className="flex gap-3 text-black">

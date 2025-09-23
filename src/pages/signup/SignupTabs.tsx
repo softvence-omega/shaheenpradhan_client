@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AiOutlineGoogle } from "react-icons/ai";
+import { AiOutlineGoogle, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 
@@ -24,6 +24,7 @@ type SignupForm = z.infer<typeof signupSchema>;
 const SignupTabs = () => {
   const navigate = useNavigate();
   const [role, setRole] = React.useState<"bookAssistant" | "joinAssistant">("bookAssistant");
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const {
     control,
@@ -50,7 +51,7 @@ const SignupTabs = () => {
         <Controller
           name="name"
           control={control}
-          render={({ field }) => <Input {...field} id="name" />}
+          render={({ field }) => <Input placeholder="Enter your name" {...field} id="name" />}
         />
         {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
       </div>
@@ -60,18 +61,35 @@ const SignupTabs = () => {
         <Controller
           name="email"
           control={control}
-          render={({ field }) => <Input {...field} id="email" />}
+          render={({ field }) => <Input  placeholder="Enter your email" {...field} id="email" />}
         />
         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
       </div>
 
       <div className="space-y-3">
         <Label htmlFor="password">Password</Label>
-        <Controller
-          name="password"
-          control={control}
-          render={({ field }) => <Input {...field} id="password" type="password" />}
-        />
+        <div className="relative">
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <Input
+                {...field}
+                id="password"
+                type={showPassword ? "text" : "password"}
+                className="pr-10"
+                placeholder="Enter your password"
+              />
+            )}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+          >
+            {showPassword ? <AiOutlineEye size={20} /> : <AiOutlineEyeInvisible size={20} />}
+          </button>
+        </div>
         {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
       </div>
     </CardContent>
@@ -86,7 +104,9 @@ const SignupTabs = () => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-8 space-y-8 lg:space-y-0 justify-center">
             {/* Single Form wraps Tabs */}
             <form onSubmit={handleSubmit(onSubmit)} className="w-full lg:w-1/2">
-              <h1 className="text-3xl md:text-[48px] font-semibold text-center my-6 md:my-10 font-DMsans">Sign Up</h1>
+              <h1 className="text-3xl md:text-[48px] font-semibold text-center my-6 md:my-10 font-DMsans">
+                Sign Up
+              </h1>
               <Tabs
                 defaultValue="bookAssistant"
                 onValueChange={(val) => setRole(val as "bookAssistant" | "joinAssistant")}
@@ -127,7 +147,7 @@ const SignupTabs = () => {
                   </Card>
                 </TabsContent>
 
-                <CardFooter className="flex flex-col gap-2 pt-3">
+                <CardFooter className="flex flex-col gap-3 pt-3">
                   <Button
                     type="submit"
                     className="w-full bg-BorderHighlight hover:bg-BorderHighlight cursor-pointer"
@@ -142,6 +162,17 @@ const SignupTabs = () => {
                     <AiOutlineGoogle className="w-4 h-4" />
                     <span>Sign up with Google</span>
                   </Button>
+
+                  {/* Already have an account? */}
+                  <p className="text-sm text-center text-gray-600 mt-2">
+                    Already have an account?{" "}
+                    <span
+                      onClick={() => navigate("/login")}
+                      className="text-BorderHighlight font-medium cursor-pointer hover:underline"
+                    >
+                      Login
+                    </span>
+                  </p>
                 </CardFooter>
               </Tabs>
             </form>
