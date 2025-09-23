@@ -10,7 +10,7 @@ import { FaUserClock } from "react-icons/fa";
 
 const AssistantDashboardNavbar = () => {
   return (
-    <div className="flex border border-neutral-200 flex-col sm:flex-row sm:items-center justify-between p-[6px]">
+    <div className="flex border border-neutral-200 flex-col sm:flex-row sm:items-center justify-between p-[6px] bg-white">
       <Link to="/" className="sm:flex items-center p-2 hidden">
         <img src={logo} alt="logo" className="max-w-32 h-fit" />
       </Link>

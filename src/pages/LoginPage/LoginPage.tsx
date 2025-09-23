@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AiOutlineGoogle } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineGoogle } from "react-icons/ai";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 
@@ -21,6 +21,7 @@ type LoginForm = z.infer<typeof loginSchema>;
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const {
     control,
@@ -42,7 +43,7 @@ const LoginPage = () => {
         {/* ✅ Logo always on top */}
         <div className="pt-8">
           <Link to="/">
-            <img src={logo} alt="logo"  />
+            <img src={logo} alt="logo" />
           </Link>
         </div>
 
@@ -68,7 +69,7 @@ const LoginPage = () => {
                       name="email"
                       control={control}
                       render={({ field }) => (
-                        <Input {...field} id="email" type="email" />
+                        <Input {...field} placeholder="Enter your email" id="email" type="email" />
                       )}
                     />
                     {errors.email && (
@@ -79,28 +80,31 @@ const LoginPage = () => {
                   </div>
 
                   {/* Password */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <Label htmlFor="password">Password*</Label>
-                      <Link
-                        to="/forgot-password"
-                        className="text-sm text-blue-600 hover:underline"
+                  <div className="space-y-3">
+                    <Label htmlFor="password">Password</Label>
+                    <div className="relative">
+                      <Controller
+                        name="password"
+                        control={control}
+                        render={({ field }) => (
+                          <Input
+                            {...field}
+                            id="password"
+                            type={showPassword ? "text" : "password"}
+                            className="pr-10"
+                            placeholder="Enter your password"
+                          />
+                        )}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword((prev) => !prev)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
                       >
-                        Forgot Password?
-                      </Link>
+                        {showPassword ? <AiOutlineEye size={20} /> : <AiOutlineEyeInvisible size={20} />}
+                      </button>
                     </div>
-                    <Controller
-                      name="password"
-                      control={control}
-                      render={({ field }) => (
-                        <Input {...field} id="password" type="password" />
-                      )}
-                    />
-                    {errors.password && (
-                      <p className="text-red-500 text-sm">
-                        {errors.password.message}
-                      </p>
-                    )}
+                    {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
                   </div>
                 </CardContent>
 

@@ -56,7 +56,7 @@ const ConfirmRequest = () => {
           <div className="gap-10 w-full">
             {/* Right Side - Booking Form */}
             <div className="lg:col-span-3 space-y-9">
-              <div>
+              <div className="space-y-4">
                 <SmallTitle smalltitle="Assistant Information" />
                 <hr className="border-b border-[#E5E5E5]" />
               </div>
@@ -121,7 +121,7 @@ const ConfirmRequest = () => {
                   <div>
                     <div className="flex justify-end items-center gap-2 cursor-pointer">
                       <Select>
-                        <SelectTrigger className="w-[68px] h-8 px-2 text-xs">
+                        <SelectTrigger className="w-[68px] h-8 px-2 text-xs mb-2">
                           <SelectValue placeholder="AED" />
                         </SelectTrigger>
                         <SelectContent>
@@ -136,17 +136,17 @@ const ConfirmRequest = () => {
                 <hr className="border-b border-[#E5E5E5]" />
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-[20px] mt-3 space-y-6">
-                  <div className="font-medium">Total Hours:</div>
-                  <div className="col-span-1 sm:col-span-2">118</div>
-                  <div className="font-medium">Rate Per Hour:</div>
-                  <div className="text-[#8559CA] col-span-1 sm:col-span-2">
+                  <h4 className="font-medium">Total Hours:</h4>
+                  <p className="col-span-1 sm:col-span-2">118</p>
+                  <h4 className="font-medium">Rate Per Hour:</h4>
+                  <p className="text-[#8559CA] col-span-1 sm:col-span-2">
                     AED 20.00
-                  </div>
+                  </p>
 
-                  <div className="font-medium">Total Payable Amount:</div>
-                  <div className="text-[#8559CA]  col-span-1 sm:col-span-2">
+                  <h4 className="font-medium">Total Payable Amount:</h4>
+                  <p className="text-[#8559CA]  col-span-1 sm:col-span-2">
                     AED 2360.00
-                  </div>
+                  </p>
                 </div>
 
                 <div className="mt-4">

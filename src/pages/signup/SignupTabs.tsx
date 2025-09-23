@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AiOutlineGoogle } from "react-icons/ai";
+import { AiOutlineGoogle, AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo/main_logo.png";
 
@@ -23,9 +23,8 @@ type SignupForm = z.infer<typeof signupSchema>;
 
 const SignupTabs = () => {
   const navigate = useNavigate();
-  const [role, setRole] = React.useState<"bookAssistant" | "joinAssistant">(
-    "bookAssistant"
-  );
+  const [role, setRole] = React.useState<"bookAssistant" | "joinAssistant">("bookAssistant");
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const {
     control,
@@ -52,11 +51,9 @@ const SignupTabs = () => {
         <Controller
           name="name"
           control={control}
-          render={({ field }) => <Input {...field} id="name" />}
+          render={({ field }) => <Input placeholder="Enter your name" {...field} id="name" />}
         />
-        {errors.name && (
-          <p className="text-red-500 text-sm">{errors.name.message}</p>
-        )}
+        {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
       </div>
 
       <div className="space-y-3">
@@ -64,25 +61,36 @@ const SignupTabs = () => {
         <Controller
           name="email"
           control={control}
-          render={({ field }) => <Input {...field} id="email" />}
+          render={({ field }) => <Input  placeholder="Enter your email" {...field} id="email" />}
         />
-        {errors.email && (
-          <p className="text-red-500 text-sm">{errors.email.message}</p>
-        )}
+        {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
       </div>
 
       <div className="space-y-3">
         <Label htmlFor="password">Password</Label>
-        <Controller
-          name="password"
-          control={control}
-          render={({ field }) => (
-            <Input {...field} id="password" type="password" />
-          )}
-        />
-        {errors.password && (
-          <p className="text-red-500 text-sm">{errors.password.message}</p>
-        )}
+        <div className="relative">
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <Input
+                {...field}
+                id="password"
+                type={showPassword ? "text" : "password"}
+                className="pr-10"
+                placeholder="Enter your password"
+              />
+            )}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer"
+          >
+            {showPassword ? <AiOutlineEye size={20} /> : <AiOutlineEyeInvisible size={20} />}
+          </button>
+        </div>
+        {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
       </div>
     </CardContent>
   );
@@ -101,9 +109,7 @@ const SignupTabs = () => {
               </h1>
               <Tabs
                 defaultValue="bookAssistant"
-                onValueChange={(val) =>
-                  setRole(val as "bookAssistant" | "joinAssistant")
-                }
+                onValueChange={(val) => setRole(val as "bookAssistant" | "joinAssistant")}
               >
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger

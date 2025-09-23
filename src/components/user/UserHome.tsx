@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import SmallTitle from "../shared/Title/SmallTitle";
 import TitleAndSubTitle from "../shared/TitleAndSubTitle";
 import { Button } from "../ui/button";
@@ -12,11 +13,13 @@ import UpcomingBookings from "./UserDashboard/UpcomingBookings";
 const UserHome = () => {
   return (
     <div className="space-y-8 mb-10">
-      <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row items-center justify-between md:space-y-4 sm:space-y-0">
         <TitleAndSubTitle title="Home" subTitle="" />
 
-        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-          <Button className="w-full sm:w-auto">Find & Book Assistant</Button>
+        <div className="flex flex-col sm:flex-row sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+          <Link to="/user/find-assistant-matcher">
+          <Button className="w-full sm:w-auto hidden md:block cursor-pointer">Find & Book Assistant</Button>
+          </Link>
           {/* <Button variant="outline" className="w-full sm:w-auto">
             View Upcoming Bookings
           </Button> */}

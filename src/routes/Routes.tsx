@@ -32,7 +32,7 @@ import Yourself from "@/pages/company-yourself/Yourself";
 import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
 import Profile from "@/pages/profile/Profile";
 import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
-import DashboardBookingMatcher from "@/pages/userDashboardBookingMatcher";
+import DashboardBookingMatcher from "@/pages/DashboardBookingMatcher";
 import SavedPage from "@/pages/user/SavedPage";
 import SettingPage from "@/pages/user/SettingPage";
 import SupportPage from "@/pages/user/SupportPage";

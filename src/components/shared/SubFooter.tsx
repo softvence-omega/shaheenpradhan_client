@@ -31,7 +31,7 @@ const SubFooter = () => {
       <div className="font-DMsans">
         <hr className="mt-10 h-0 w-full border border-gray-400" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start py-5 gap-4 md:gap-0 text-left md:my-4">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-start py-5 md:py-10 gap-4 md:gap-0 text-left">
           {/* Copyright */}
           <p className="text-black w-full md:w-auto text-[16px] text-center md:text-left">
             © 2024 All rights reserved.

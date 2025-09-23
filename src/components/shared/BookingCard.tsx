@@ -34,7 +34,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
   };
 
   return (
-    <div className="my-8">
+    <div className="mt-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-DMsans pb-5">
         {assistants.slice(0, visibleCards).map((assistant) => (
           <div
