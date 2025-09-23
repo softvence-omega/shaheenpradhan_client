@@ -2,7 +2,7 @@ import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 import Wrapper from "@/components/shared/Wrapper";
 import { Button } from "@/components/ui/button";
 import Male from "@/assets/images/male.png";
-import Female from "@/assets/images/females.png";
+import Female from "@/assets/images/sucess.png";
 import SuperPower from "@/assets/icon/SuperPower";
 
 const Assistant = () => {
@@ -15,7 +15,8 @@ const Assistant = () => {
           <section className="space-y-5">
             <TitleAndSubTitle
               title="Become an Adminity Assistant"
-              subTitle="Leverage your secretarial assistant skills to support leading professionals and businesses. Adminity is a platform to find flexible, rewarding work, manage your schedule, and grow your career on your terms. Join our network of trusted EAs today."
+              subTitle="Join a trusted network that values your skills, offers flexibility and control over your schedule, and rewards you with meaningful opportunities to advance your career—on your terms.
+              Step into a platform designed for top-tier assistants ready to grow, thrive, and shape the future of executive support."
             />
           </section>
 
@@ -81,7 +82,8 @@ const Assistant = () => {
           <section className="flex-1 flex flex-col space-y-5">
             <TitleAndSubTitle
               title="Become an Adminity Assistant"
-              subTitle="Leverage your secretarial assistant skills to support leading professionals and businesses. Adminity is a platform to find flexible, rewarding work, manage your schedule, and grow your career on your terms. Join our network of trusted EAs today."
+              subTitle="Join a trusted network that values your skills, offers flexibility and control over your schedule, and rewards you with meaningful opportunities to advance your career—on your terms.
+              Step into a platform designed for top-tier assistants ready to grow, thrive, and shape the future of executive support."
             />
 
             <div className="flex flex-wrap gap-5 mt-2">
@@ -122,12 +124,12 @@ const Assistant = () => {
               <img
                 src={Male}
                 alt="male"
-                className="border-[2px] border-white p-1 rounded-xl w-[200px] md:w-[270px] lg:h-[654px] object-cover"
+                className="border-[2px] border-white p-1 rounded-xl w-[200px] md:w-[280px] lg:h-[670px] object-cover"
               />
               <img
                 src={Female}
                 alt="female"
-                className="border-[2px] border-white p-1 rounded-xl w-[200px] md:w-[270px] lg:h-[654px] object-cover"
+                className="border-[2px] border-white p-1 rounded-xl w-[200px] md:w-[280px] lg:h-[670px] object-cover"
               />
             </div>
           </div>
