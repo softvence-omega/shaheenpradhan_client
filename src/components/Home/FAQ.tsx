@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "How do I find an executive assistant?",
     answer:
-      "You can use our search bar and filters to find assistants based on location (like Dubai, Abu Dhabi, etc.), whether you need remote or in-person help, their experience level, and specific skills or tasks you need assistance with.",
+      "Use our search bar and filters to find your assistant based on industry, task, location or whether you need remote/in-person. You can also simply tell our AI Agent Adminity Anna and she’ll connect you with your best suited assistant matches!",
   },
   {
     question: "How do I book an assistant?",
@@ -46,7 +46,7 @@ const FAQ = () => {
 
   return (
     <Wrapper>
-      <div className=" space-y-5 py-[75px]">
+      <div className=" space-y-5 py-12 md:py-[75px]">
         <TitleAndSubTitle
           title="Frequently Asked Questions"
           subTitle="Find quick answers to the most common questions about our platform."
@@ -64,7 +64,7 @@ const FAQ = () => {
               value={`item-${index}`}
               className="rounded-2xl border border-gray-800/10 bg-white px-4 py-2 cursor-pointer"
             >
-              <AccordionTrigger className=" sm:text-[20px] md:text-[28px] font-DMsans">
+              <AccordionTrigger className="text-left sm:text-[20px] md:text-[28px] font-DMsans">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-sm md:text-[16px] font-DMsans">
@@ -74,16 +74,37 @@ const FAQ = () => {
           ))}
         </Accordion>
 
-        <div className="mt-16 w-full space-y-3 font-DMsans sm:w-[60%]">
-          <h1 className="text-xl sm:text-2xl md:text-4xl font-semibold">Still have questions?</h1>
-          <p className="text-lg font-light leading-[120%] ">
-            Still have questions? Visit our full Support page or Contact Us.
-          </p>
+        <div className="mt-16 w-full space-y-6 sm:w-[60%]">
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-semibold font-DMsans">
+            Still have questions?
+          </h1>
 
-          <Button className="w-[139px] h-[46px] pt-[14px] pr-[24px] pb-[14px] pl-[24px] text-[18px]  bg-BorderHighlight rounded-[6px] cursor-pointer">
+          <div className="space-y-4 text-sm md:text-lg leading-[150%]">
+            <div>
+              <p className="font-medium font-DMsans">Can I meet my assistant before booking?</p>
+              <p className="text-gray-600">
+                - yes, our valued members can click to schedule an initial discovery
+                call with their potential assistant to get to know more about each
+                other and the fit.
+              </p>
+            </div>
+
+            <div>
+              <p className="font-medium font-DMsans">What training courses do you provide?</p>
+              <p className="text-gray-600">
+                - Whether you want to brush up on your general skills to elevate from a
+                PA or EA, or to take a deeper dive into finance, marketing or strategic
+                elements to bridge the gap between an EA and a Strategic or Operational
+                role, Our Adminity certifications help you do that.
+              </p>
+            </div>
+          </div>
+
+          <Button className="w-[150px] h-[48px] text-[18px] bg-BorderHighlight rounded-[6px] cursor-pointer">
             Contact Us
           </Button>
         </div>
+
       </div>
     </Wrapper>
   );

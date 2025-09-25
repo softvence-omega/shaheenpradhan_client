@@ -374,7 +374,7 @@ export default function CarouselCard() {
               }}
             >
               {testimonials.map(({ id, text, name, role, img }) => (
-                <div key={id} className="flex-shrink-0 w-full px-2">
+                <div key={id} className="flex-shrink-0 w-full md:px-2">
                   <Card className="w-full border border-[#A44DCA] p-6 rounded-2xl shadow-sm">
                     <CardContent className="flex flex-col gap-4">
                       <p className="text-gray-800 text-[18px] relative">

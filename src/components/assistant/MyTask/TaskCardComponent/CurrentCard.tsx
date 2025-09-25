@@ -57,7 +57,7 @@ const CurrentCard = () => {
               {/* Button visible only on sm and up */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-start gap-3 sm:gap-6">
                 <Link to="/assistant/current-task-1">
-                  <Button variant="outline" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full sm:w-auto cursor-pointer">
                     View Full Details
                   </Button>
                 </Link>

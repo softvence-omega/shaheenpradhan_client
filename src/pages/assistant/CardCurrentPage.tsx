@@ -3,7 +3,7 @@ import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
 
 const CardCurrentPage = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 min-h-screen">
       <div>
         <TitleAndSubTitle title="Current Tasks" subTitle="" />
       </div>
