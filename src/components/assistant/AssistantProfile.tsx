@@ -31,9 +31,10 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+// Fix: Change schema to use Date instead of string
 const FormSchema = z.object({
-  dob: z.date({
-    required_error: "A date of birth is required.",
+  dob: z.date().optional().refine((date) => date !== undefined, {
+    message: "A date of birth is required.",
   }),
 });
 
@@ -82,7 +83,7 @@ const AssistantProfile = () => {
           {/*  */}
           <div className="mb-4 w-full max-w-[1200px]">
             <SmallTitle smalltitle="Personal Info" />
-            <hr className="border-b border-[#E5E5E5]" />
+            <hr className="border-b border-[#E5E5E5] mt-2" />
           </div>
           {/* Full Name */}
           <div className="w-full max-w-[1200px] space-y-6">
@@ -102,7 +103,7 @@ const AssistantProfile = () => {
               <div className="w-full">
                 <div>
                   <label className="block text-sm font-medium mb-1">
-                    Gendder
+                    Gender
                   </label>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                     <label>
@@ -136,7 +137,7 @@ const AssistantProfile = () => {
                   className="flex-1 px-3 py-2 border-0 outline-none bg-white"
                 />
               </div>
-              {/* Gender */}
+              {/* Phone */}
               <div className="w-full">
                 <Label
                   htmlFor="phone"
@@ -245,7 +246,7 @@ const AssistantProfile = () => {
           {/* Bio */}
           <div className="mb-3 w-full max-w-[1200px] ">
             <div className="space-y-4">
-              <label className="block text-sm font-medium text-[#4D4D4D] mb-1">
+              <label className="block text-sm font-medium text-[#4D4D4D] mb-2">
                 Bio
               </label>
               <hr className="border-b border-[#E5E5E5]" />
@@ -259,17 +260,17 @@ const AssistantProfile = () => {
           </div>
 
           <div className="mb-4 w-full max-w-[1200px]">
-            <SmallTitle smalltitle="Personal Info" />
-            <hr className="border-b border-[#E5E5E5]" />
+            <SmallTitle smalltitle="Work Preferences" />
+            <hr className="border-b border-[#E5E5E5] mt-2" />
           </div>
 
           <div className="w-full max-w-[1200px] space-y-6">
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
-              {/* Work Styl And Language */}
+              {/* Work Style And Language */}
               <div className="w-full">
                 <WorkPrefer />
               </div>
-              {/* Gender */}
+              {/* Language */}
               <div className="w-full">
                 <div>
                   <label className="block text-sm font-medium mb-1">
@@ -286,7 +287,7 @@ const AssistantProfile = () => {
                 </div>
               </div>
             </div>
-            {/* TIme */}
+            {/* Time */}
             <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
               {/* Set Recurring */}
               <div className="w-full">
@@ -302,7 +303,7 @@ const AssistantProfile = () => {
             </div>
           </div>
 
-          {/* MOre Code */}
+          {/* More Code */}
 
           <div className="w-full max-w-[1200px] space-y-6">
             <ProfileForm />

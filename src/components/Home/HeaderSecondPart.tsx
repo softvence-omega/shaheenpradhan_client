@@ -9,7 +9,7 @@ const HeaderSecondPart = () => {
         background:
           "radial-gradient(44.79% 103.81% at 50% 86.28%, #8559CA 0%, #241041 100%), var(--BG-Button-BG-Secondary, #33274D)",
       }}
-      className=" py-16 text-white text-center font-DMsans"
+      className=" py-12 md:py-16 text-white text-center font-DMsans"
     >
       <div className="max-w-xl mx-auto mb-12 px-4">
         <h2 className="text-2xl sm:text-[28px] md:text-[48px] leading-[120%] font-medium font-sans">

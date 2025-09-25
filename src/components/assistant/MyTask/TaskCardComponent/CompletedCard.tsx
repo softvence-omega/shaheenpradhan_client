@@ -83,7 +83,7 @@ const CompletedCard = () => {
               <div className="flex flex-col gap-4 text-sm w-full lg:w-auto">
                 <div className="mb-20 gap-4">
                   <Link to="/assistant/completed-task-4">
-                    <Button variant="outline" className="w-full sm:w-auto">
+                    <Button variant="outline" className="w-full sm:w-auto cursor-pointer">
                       View Full Details
                     </Button>
                   </Link>
@@ -171,7 +171,7 @@ const CompletedCard = () => {
               <div className="flex flex-col gap-4 text-sm w-full lg:w-auto">
                 <div className="mb-20 gap-4">
                   <Link to="/assistant/completed-task-4">
-                    <Button variant="outline" className="w-full sm:w-auto">
+                    <Button variant="outline" className="w-full sm:w-auto cursor-pointer">
                       View Full Details
                     </Button>
                   </Link>
