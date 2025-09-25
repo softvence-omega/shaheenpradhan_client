@@ -30,7 +30,7 @@ const Footer = () => {
     location.pathname == "/education";
 
   return (
-    <div className="bg-[#FAF8FD]">
+    <div className="bg-white">
       <Wrapper>
         <div
           className={cn(
