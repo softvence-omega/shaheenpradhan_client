@@ -10,10 +10,6 @@ import TopArrow from "@/assets/icon/topArrow";
 import AiMatchModal from "../match-making/AiMatchModal";
 
 const Matchmaker = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
@@ -28,7 +24,7 @@ const Matchmaker = () => {
               />
               {/* Button only for desktop/tablet */}
               <div className="hidden sm:flex items-center gap-2 flex-shrink-0">
-                <div className="flex items-center cursor-pointer gap-2" onClick={openModal}>
+                <div className="flex items-center cursor-pointer gap-2">
                   <Button variant="outline" className="cursor-pointer rounded-md">
                     Find Your Match
                   </Button>
@@ -71,7 +67,7 @@ const Matchmaker = () => {
             
             {/* Button only for mobile */}
             <div className="flex sm:hidden mt-1 mb-8 gap-2">
-              <div className="flex cursor-pointer gap-2" onClick={openModal}>
+              <div className="flex cursor-pointer gap-2">
                 <Button variant="outline" className="cursor-pointer py-4 px-6 rounded-md">
                   Find Your Match
                 </Button>
@@ -83,15 +79,6 @@ const Matchmaker = () => {
           </div>
         </div>
       </Wrapper>
-
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
-          <div className="relative">
-            <AiMatchModal onClose={closeModal} />
-          </div>
-        </div>
-      )}
     </>
   );
 };

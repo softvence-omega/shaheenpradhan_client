@@ -1,14 +1,53 @@
-import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle"
-import Wrapper from "@/components/shared/Wrapper"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { ArrowUpRight } from "lucide-react"
+import React, { useState } from "react";
+import { z } from "zod";
+import TitleAndSubTitle from "@/components/shared/TitleAndSubTitle";
+import Wrapper from "@/components/shared/Wrapper";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Youtube, Twitter } from "lucide-react";
 
-// social icons from lucide-react
-import { Facebook, Instagram, Linkedin, Youtube, Twitter } from "lucide-react"
+// Zod schema
+const formSchema = z.object({
+  firstName: z.string().min(1),
+  lastName: z.string().min(1),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  subject: z.string().min(1),
+  message: z.string().min(1),
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSelect = (value: string) => {
+    setFormData({ ...formData, subject: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const parsed = formSchema.parse(formData);
+      console.log("Form Data:", parsed);
+    } catch (err) {
+      console.error("Validation failed");
+    }
+  };
+
   return (
     <div className="bg-[#FAF8FD] py-16">
       <Wrapper>
@@ -23,7 +62,7 @@ const Contact = () => {
         {/* Form + Contact Card */}
         <div className="md:flex justify-between gap-10">
           {/* Form */}
-          <form className="w-full max-w-2xl space-y-6">
+          <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-6">
             {/* Name fields */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="w-full space-y-2">
@@ -32,6 +71,8 @@ const Contact = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   placeholder="First Name"
                   className="bg-white"
                 />
@@ -42,6 +83,8 @@ const Contact = () => {
                   type="text"
                   id="lastName"
                   name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   placeholder="Last Name"
                   className="bg-white"
                 />
@@ -55,6 +98,8 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Example@gmail.com"
                 className="bg-white"
               />
@@ -71,6 +116,8 @@ const Contact = () => {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="(555) 123-4567"
                   className="flex-1 px-3 py-2 outline-none bg-white"
                 />
@@ -80,7 +127,7 @@ const Contact = () => {
             {/* Subject */}
             <div className="w-full space-y-2">
               <Label htmlFor="subject">Subject*</Label>
-              <Select>
+              <Select onValueChange={handleSelect}>
                 <SelectTrigger className="bg-white w-full">
                   <SelectValue placeholder="Select a subject" />
                 </SelectTrigger>
@@ -94,9 +141,12 @@ const Contact = () => {
 
             {/* Message */}
             <div className="space-y-2">
-              <Label htmlFor="bio">Message</Label>
+              <Label htmlFor="message">Message</Label>
               <textarea
-                name="bio"
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="w-full border border-[#E7E5E4] bg-white rounded-lg px-3 py-2 text-sm resize-none"
                 rows={4}
                 placeholder="Tech enthusiast and entrepreneur. Looking for reliable executive assistance to manage a busy schedule."
@@ -186,4 +236,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Contact;

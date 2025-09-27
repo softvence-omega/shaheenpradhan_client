@@ -3,6 +3,11 @@ import Wrapper from "../shared/Wrapper";
 import { Button } from "../ui/button";
 import Robot from "@/assets/icon/Robot";
 import AnimatedTooltip from "../aceternity/animated-tooltip";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
+import { useState } from "react";
+import AiMatchModal from "../match-making/AiMatchModal";
+
 // default users
 const items = [
   {
@@ -38,6 +43,11 @@ const items = [
 ];
 
 const HeaderPart = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div
       style={{
@@ -60,13 +70,24 @@ const HeaderPart = () => {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-              <Button className="w-[269px] h-[54px] rounded-lg text-lg sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-[18px] px-[32px] bg-BorderHighlight hover:bg-BorderHighlight/70 cursor-pointer">
-                Find Your Force Multiplier
-              </Button>
+              {/* Fixed: Use Link from react-scroll */}
+              <ScrollLink
+                to="assistants-section"
+                smooth={true}
+                duration={600}
+                offset={-40}
+                className="inline-block cursor-pointer"
+              >
+                <Button className="w-[269px] h-[54px] rounded-lg text-lg sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-[18px] px-[32px] bg-BorderHighlight hover:bg-purple-600 cursor-pointer">
+                  Find Your Force Multiplier
+                </Button>
+              </ScrollLink>
 
-              <Button className="w-[274px] h-[54px] rounded-lg text-lg sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-[18px] px-[32px] bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer">
-                Become a Force Multiplier
-              </Button>
+              <RouterLink to="/signup">
+                <Button className="w-[274px] h-[54px] rounded-lg text-lg sm:text-[15px] md:text-[16px] font-normal leading-[120%] py-[18px] px-[32px] bg-ButtonBGSecondary hover:bg-ButtonBGSecondary cursor-pointer">
+                  Become a Force Multiplier
+                </Button>
+              </RouterLink>
             </div>
           </div>
 
@@ -74,14 +95,16 @@ const HeaderPart = () => {
           <div className="flex flex-col lg:flex-row pt-10 justify-between gap-2 sm:gap-6 px-2  xl:px-0 w-full">
             {/* ROBOT SECTION */}
             <div className="flex flex-col w-full sm:w-auto mb-2">
-              <Robot className="shadow-2xl shadow-ButtonBGPrimary rounded-full w-16 sm:w-28" />
+              <button onClick={openModal}>
+                <Robot className="shadow-ButtonBGPrimary shadow-2xl rounded-full w-16 md:w-28 cursor-pointer" />
+              </button>
               <p className="text-white font-semibold max-w-44 text-xs sm:text-sm mt-2">
                 Adminity Anna Your AI Companion
               </p>
             </div>
 
             {/* AVATAR CARD */}
-            <div className="w-full] sm:w-[330px] flex flex-col gap-3 backdrop-blur-xs p-6 h-fit rounded-[20px] border border-gray-50/65">
+            <div className="w-full sm:w-[330px] flex flex-col gap-3 backdrop-blur-xs p-6 h-fit rounded-[20px] border border-gray-50/65">
               <AnimatedTooltip items={items} />
               <p className="font-light sm:text-[14px] text-grayWhite">
                 No Visa, No Sponsorship, No Hassle – Just your assistant booked
@@ -91,6 +114,14 @@ const HeaderPart = () => {
           </div>
         </div>
       </Wrapper>
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center z-50">
+          <div className="relative">
+            <AiMatchModal onClose={closeModal} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

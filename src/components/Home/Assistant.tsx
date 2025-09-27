@@ -66,7 +66,7 @@ const Assistant = () => {
 
           {/* Mobile Buttons (Mobile only) */}
           <div className="flex items-stretch gap-5">
-            <Button className="sm:min-w-[168px] h-[50px] px-4 py-2 text-[16px] bg-ButtonBGSecondary cursor-pointer rounded-[8px] ">
+            <Button className="sm:min-w-[168px] h-[50px] px-4 py-2 text-[16px] bg-ButtonBGSecondary cursor-pointer rounded-[8px]">
               Sign Up Now
             </Button>
 

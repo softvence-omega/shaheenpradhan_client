@@ -44,7 +44,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
             <div className="flex item-center justify-between space-y-3">
               <div className="flex sm:item-center justify-between space-x-4">
                 <div className="relative w-fit">
-                  <Link to="/profile-summary">
+                  <Link to="/user/profile-summery">
                     <Avatar className="w-14 h-14 sm:w-16 sm:h-16">
                       <AvatarImage src={assistant.avatar} alt={assistant.name} />
                       <AvatarFallback>
@@ -64,9 +64,13 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
                 </div>
 
                 <div className="">
-                  <h1 className="font-semibold text-[20px]">
-                    {assistant.name}
-                  </h1>
+                  <Link to="/user/profile-summery" className="group">
+                    <h1 className="font-semibold text-[20px] transition-colors duration-300 ease-in-out hover:text-BorderHighlight relative">
+                      {assistant.name}
+                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-BorderHighlight transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                    </h1>
+                  </Link>
+
                   <p className="text-sm sm:text-[16px] font-light">
                     {assistant.role}
                   </p>
