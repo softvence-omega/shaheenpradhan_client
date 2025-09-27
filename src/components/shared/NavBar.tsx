@@ -95,12 +95,12 @@ const NavBar = () => {
             {/* Right Side (Desktop Buttons) */}
             <div className="hidden md:flex items-center gap-2">
               <Link to="/signup">
-                <Button variant="outline" className="rounded-md">
+                <Button variant="outline" className="rounded-md cursor-pointer">
                   Get Started
                 </Button>
               </Link>
               <Link to="/signup">
-                <Button className="bg-ButtonBGSecondary rounded-sm">
+                <Button className="bg-ButtonBGSecondary rounded-sm cursor-pointer">
                   <TopArrow />
                 </Button>
               </Link>

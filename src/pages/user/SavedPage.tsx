@@ -1,6 +1,6 @@
 const SavedPage = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <h1>SavedPage</h1>
     </div>
   );

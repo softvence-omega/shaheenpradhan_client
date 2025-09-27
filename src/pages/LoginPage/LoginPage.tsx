@@ -119,7 +119,7 @@ const LoginPage = () => {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full flex items-center justify-center gap-2"
+                    className="w-full flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <AiOutlineGoogle className="w-4 h-4" />
                     <span>Log in with Google</span>
