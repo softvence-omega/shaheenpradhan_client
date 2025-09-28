@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -99,10 +100,11 @@ const FAQ = () => {
               </p>
             </div>
           </div>
-
-          <Button className="w-[150px] h-[48px] text-[18px] bg-BorderHighlight rounded-[6px] cursor-pointer">
-            Contact Us
-          </Button>
+          <Link to="/contact">
+            <Button className="w-[150px] h-[48px] text-[18px] bg-BorderHighlight rounded-[6px] cursor-pointer">
+              Contact Us
+            </Button>
+          </Link>
         </div>
 
       </div>

@@ -20,32 +20,39 @@ const Selects = ({
   value,
   onChange,
   options,
-  singleSelect = false,
+  singleSelect = true,
 }: SelectsProps) => {
-  const handleValueChange = (val: string) => {
+  const handleValueChange = (newValue: string) => {
     if (singleSelect) {
-      onChange([val]);
+      // For single select, always replace with the new selection
+      onChange([newValue]);
     } else {
-      onChange(
-        value.includes(val)
-          ? value.filter((item) => item !== val)
-          : [...value, val]
-      );
+      // For multi-select (not used in your case)
+      const newValues = value.includes(newValue)
+        ? value.filter((item) => item !== newValue)
+        : [...value, newValue];
+      onChange(newValues);
     }
   };
 
+  const displayValue = value[0] || "";
+
   return (
     <div className="space-y-2">
-      <Select onValueChange={handleValueChange} value={value[0] || ""}>
+      <Select 
+        value={displayValue} 
+        onValueChange={handleValueChange}
+      >
         <SelectTrigger className="w-full py-5 text-sm">
-          <SelectValue placeholder={placeholder} />
+          <SelectValue placeholder={placeholder}>
+            {displayValue || placeholder}
+          </SelectValue>
         </SelectTrigger>
         <SelectContent>
           {options.map((option) => (
             <SelectItem
               key={option}
               value={option}
-              className={value.includes(option) ? "bg-white hover:text-black" : "hover:text-black"}
             >
               {option}
             </SelectItem>
@@ -57,3 +64,79 @@ const Selects = ({
 };
 
 export default Selects;
+
+
+
+
+
+
+// multiple aktadik select kora jai 
+// // components/shared/Select.tsx
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
+// import { Check } from "lucide-react";
+
+// interface SelectsProps {
+//   placeholder: string;
+//   value: string[];
+//   onChange: (value: string[]) => void;
+//   options: string[];
+//   singleSelect?: boolean;
+// }
+
+// const Selects = ({
+//   placeholder,
+//   value,
+//   onChange,
+//   options,
+//   singleSelect = false,
+// }: SelectsProps) => {
+//   const handleValueChange = (selectedValue: string) => {
+//     if (singleSelect) {
+//       onChange([selectedValue]);
+//     } else {
+//       // For multi-select, toggle the selected value
+//       const newValue = value.includes(selectedValue)
+//         ? value.filter((item) => item !== selectedValue)
+//         : [...value, selectedValue];
+//       onChange(newValue);
+//     }
+//   };
+
+//   const displayValue = singleSelect 
+//     ? value[0] || ""
+//     : value.length > 0 
+//       ? `${value.length} selected` 
+//       : "";
+
+//   return (
+//     <div className="space-y-2">
+//       <Select onValueChange={handleValueChange} value={singleSelect ? displayValue : undefined}>
+//         <SelectTrigger className="w-full py-5 text-sm">
+//           <SelectValue placeholder={placeholder}>
+//             {displayValue || placeholder}
+//           </SelectValue>
+//         </SelectTrigger>
+//         <SelectContent>
+//           {options.map((option) => (
+//             <SelectItem
+//               key={option}
+//               value={option}
+//               className="flex items-center justify-between"
+//             >
+//               <span>{option}</span>
+//               {value.includes(option) && <Check className="w-4 h-4 ml-2" />}
+//             </SelectItem>
+//           ))}
+//         </SelectContent>
+//       </Select>
+//     </div>
+//   );
+// };
+
+// export default Selects;

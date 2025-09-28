@@ -34,12 +34,12 @@ const Assistants = () => {
   const filteredAssistants = filterAssistants(assistantsData, filters);
 
   return (
-    <div className="pt-16 min-h-screen bg-[radial-gradient(circle_at_center_top,_#B586DE_0%,_#B586DE00_40%)] ">
+    <div className="pt-16 min-h-screen bg-[radial-gradient(circle_at_center_top,_#B586DE_0%,_#B586DE00_40%)]">
       <Wrapper>
         <div className="space-y-8">
           <TitleAndSubTitle
             title="Top Assistants for Your Tasks"
-            subTitle="Find your assistant with advance filter"
+            subTitle="Find your assistant with advanced filters"
           />
 
           <Filtering
@@ -54,8 +54,7 @@ const Assistants = () => {
                 <p className="text-sm sm:text-[15px] font-normal text-TextSecondary">
                   Tag
                 </p>
-
-                <X className="w-4 h-4 text-sm sm:text-[15px] font-medium text-TextSecondary" />
+                <X className="w-4 h-4 text-TextSecondary" />
               </div>
 
               <div className="flex items-center justify-between">
@@ -65,7 +64,7 @@ const Assistants = () => {
                       {activeTag}
                     </p>
                     <X
-                      className="w-4 h-4 text-sm sm:text-[15px] font-medium text-TextSecondary cursor-pointer"
+                      className="w-4 h-4 text-TextSecondary cursor-pointer"
                       onClick={() => setActiveTag(null)}
                     />
                   </div>
@@ -77,7 +76,19 @@ const Assistants = () => {
             </div>
 
             {/* CARDS */}
-            <BookingCard assistants={filteredAssistants} />
+            {filteredAssistants.length > 0 ? (
+              <BookingCard assistants={filteredAssistants} />
+            ) : (
+              <div className="w-full py-20 text-center text-gray-600">
+                <h2 className="text-xl sm:text-2xl font-semibold">
+                  No assistants available
+                </h2>
+                <p className="mt-2 text-sm sm:text-base">
+                  We couldn’t find any assistants matching your selected filters. 
+                  Try adjusting your search criteria.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </Wrapper>
@@ -96,10 +107,12 @@ function filterAssistants(
         const searchLower = filters.searchQuery.toLowerCase();
         const matchesName = assistant.name.toLowerCase().includes(searchLower);
         const matchesRole = assistant.role.toLowerCase().includes(searchLower);
+        const matchesTitle = assistant.title.toLowerCase().includes(searchLower);
+        const matchesIndustry = assistant.industry?.toLowerCase().includes(searchLower);
         const matchesSkills = assistant.skills.some((skill) =>
           skill.toLowerCase().includes(searchLower)
         );
-        if (!matchesName && !matchesRole && !matchesSkills) return false;
+        if (!matchesName && !matchesRole && !matchesTitle && !matchesIndustry && !matchesSkills) return false;
       }
 
       // Location filter
@@ -107,18 +120,18 @@ function filterAssistants(
         return false;
       }
 
-      // Skills filter
+      // Skills filter (all selected)
       if (filters.skills.length > 0) {
         const hasAllSkills = filters.skills.every((skill) =>
-          assistant.skills.includes(skill)
+          assistant.skills.map((s) => s.toLowerCase()).includes(skill.toLowerCase())
         );
         if (!hasAllSkills) return false;
       }
 
-      // Languages filter
+      // Languages filter (all selected)
       if (filters.languages.length > 0) {
-        const hasAllLanguages = filters.languages.every((language) =>
-          assistant.languages.includes(language)
+        const hasAllLanguages = filters.languages.every((lang) =>
+          assistant.languages.map((l) => l.toLowerCase()).includes(lang.toLowerCase())
         );
         if (!hasAllLanguages) return false;
       }
@@ -134,7 +147,6 @@ function filterAssistants(
       return true;
     })
     .sort((a, b) => {
-      // Sorting logic
       switch (filters.sortBy) {
         case "rating-desc":
           return b.rating - a.rating;

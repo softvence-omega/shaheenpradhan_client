@@ -46,7 +46,7 @@ const ServiceSelectionStep = ({
       <div className="flex justify-between">
         <button
           onClick={onCancel}
-          className="px-4 py-2 rounded-md border bg-gray-50 text-gray-700 cursor-pointer"
+          className="px-4 py-2 rounded-md border bg-gray-50 text-gray-700 hover:bg-red-500 hover:text-white cursor-pointer"
         >
           Cancel
         </button>

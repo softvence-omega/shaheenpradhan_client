@@ -35,7 +35,7 @@ const SkillsSelectionStep = ({
               type="checkbox"
               checked={skill.selected}
               onChange={() => onSkillToggle(index)}
-              className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+              className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500 cursor-pointer"
             />
             <span className="ml-2 text-sm text-gray-700">{skill.name}</span>
           </label>
@@ -45,13 +45,13 @@ const SkillsSelectionStep = ({
       <div className="flex justify-between">
         <button
           onClick={onBack}
-          className="px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+          className="px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 cursor-pointer"
         >
           Back
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-2 rounded-md bg-purple-600 text-white hover:bg-purple-700"
+          className="px-4 py-2 rounded-md bg-purple-600 text-white hover:bg-purple-700 cursor-pointer"
         >
           Find Your Match
         </button>

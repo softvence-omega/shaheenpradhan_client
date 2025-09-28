@@ -49,7 +49,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#FAF8FD] py-16">
+    <div className="bg-[#FAF8FD] py-16 min-h-screen">
       <Wrapper>
         {/* Title */}
         <div className="mb-10">
