@@ -7,9 +7,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar as ShadcnCalendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
 
 const SchedulePreferencesStep = ({ onNext, onBack }) => {
-  // ✅ All fields start empty - no defaults
   const [formData, setFormData] = useState({
     date: "",
     location: "",
@@ -19,14 +22,11 @@ const SchedulePreferencesStep = ({ onNext, onBack }) => {
     differentTimezone: "",
   });
 
-  const [showTimeDropdown, setShowTimeDropdown] = useState(false);
-
-  // Time options
   const timeOptions = [
-    "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM",
-    "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM",
-    "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
-    "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM",
+    "08:00 AM","08:30 AM","09:00 AM","09:30 AM","10:00 AM","10:30 AM",
+    "11:00 AM","11:30 AM","12:00 PM","12:30 PM","01:00 PM","01:30 PM",
+    "02:00 PM","02:30 PM","03:00 PM","03:30 PM","04:00 PM","04:30 PM",
+    "05:00 PM","05:30 PM","06:00 PM","06:30 PM","07:00 PM","07:30 PM",
     "08:00 PM"
   ];
 
@@ -35,13 +35,22 @@ const SchedulePreferencesStep = ({ onNext, onBack }) => {
   const canProceed = () =>
     formData.date !== "" && formData.location !== "";
 
-  const handleTimeSelection = (startTime, endTime) => {
-    onFormDataChange({
+  // Ensure End Time is always after Start Time
+  const handleStartTimeChange = (startTime: string) => {
+    const startIndex = timeOptions.indexOf(startTime);
+    const nextEndTime = timeOptions[startIndex + 1] || startTime; // next slot or same if last
+    setFormData({
       ...formData,
-      startTime: startTime,
-      endTime: endTime
+      startTime,
+      endTime: nextEndTime
     });
-    setShowTimeDropdown(false);
+  };
+
+  const handleEndTimeChange = (endTime: string) => {
+    setFormData({
+      ...formData,
+      endTime
+    });
   };
 
   const getTimeDisplay = () => {
@@ -63,89 +72,54 @@ const SchedulePreferencesStep = ({ onNext, onBack }) => {
               When do you need your assistant?
             </h3>
 
-            {/* Date Input */}
-            <div className="relative mb-4">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 cursor-pointer" />
-              <input
-                type="date"
-                value={formData.date}
-                onChange={(e) =>
-                  onFormDataChange({ ...formData, date: e.target.value })
-                }
-                className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 cursor-pointer"
-                placeholder="dd/mm/yy"
-              />
-            </div>
-
-            {/* Time Range Selector */}
-            <div className="relative">
-              <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 z-10" />
-              <div 
-                className="pl-10 pr-8 py-2 border border-gray-300 rounded-md bg-white focus-within:ring-2 focus-within:ring-purple-500 cursor-pointer"
-                onClick={() => setShowTimeDropdown(!showTimeDropdown)}
-              >
-                <span className="text-sm text-gray-700">
-                  {getTimeDisplay()}
-                </span>
-              </div>
-              <ChevronDown 
-                className={`absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 transition-transform ${
-                  showTimeDropdown ? 'rotate-180' : ''
-                }`} 
-              />
-              
-              {/* Time Dropdown */}
-              {showTimeDropdown && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-20 max-h-60 overflow-y-auto">
-                  <div className="p-3">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="text-xs font-medium text-gray-600 mb-2">Start Time</h5>
-                        <div className="space-y-1">
-                          {timeOptions.map((time) => (
-                            <button
-                              key={`start-${time}`}
-                              className={`w-full text-left px-2 py-1 text-xs rounded hover:bg-purple-50 ${
-                                formData.startTime === time ? 'bg-purple-100 text-purple-700' : ''
-                              }`}
-                              onClick={() => onFormDataChange({...formData, startTime: time})}
-                            >
-                              {time}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                      <div>
-                        <h5 className="text-xs font-medium text-gray-600 mb-2">End Time</h5>
-                        <div className="space-y-1">
-                          {timeOptions.map((time) => (
-                            <button
-                              key={`end-${time}`}
-                              className={`w-full text-left px-2 py-1 text-xs rounded hover:bg-purple-50 ${
-                                formData.endTime === time ? 'bg-purple-100 text-purple-700' : ''
-                              }`}
-                              onClick={() => onFormDataChange({...formData, endTime: time})}
-                            >
-                              {time}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex justify-end mt-3 pt-3 border-t">
-                      <button
-                        className="px-3 py-1 text-xs bg-purple-600 text-white rounded hover:bg-purple-700"
-                        onClick={() => setShowTimeDropdown(false)}
-                      >
-                        Done
-                      </button>
-                    </div>
-                  </div>
+            {/* Shadcn Calendar */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <div className="relative mb-4 pl-10 pr-3 py-2 border border-gray-300 rounded-md cursor-pointer">
+                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                  <span className="text-gray-700 text-sm">
+                    {formData.date ? format(new Date(formData.date), "dd/MM/yyyy") : "Select date"}
+                  </span>
                 </div>
-              )}
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <ShadcnCalendar
+                  mode="single"
+                  selected={formData.date ? new Date(formData.date) : undefined}
+                  onSelect={(date) => date && onFormDataChange({...formData, date: date.toISOString()})}
+                />
+              </PopoverContent>
+            </Popover>
+
+            {/* Time Range */}
+            <div className="flex gap-2">
+              <Select value={formData.startTime} onValueChange={handleStartTimeChange}>
+                <SelectTrigger className="flex-1 border border-gray-300 rounded-md">
+                  <SelectValue placeholder="Start Time" />
+                </SelectTrigger>
+                <SelectContent>
+                  {timeOptions.map(time => (
+                    <SelectItem key={`start-${time}`} value={time}>{time}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={formData.endTime} onValueChange={handleEndTimeChange}>
+                <SelectTrigger className="flex-1 border border-gray-300 rounded-md">
+                  <SelectValue placeholder="End Time" />
+                </SelectTrigger>
+                <SelectContent>
+                  {timeOptions
+                    .filter(time => formData.startTime ? timeOptions.indexOf(time) > timeOptions.indexOf(formData.startTime) : true)
+                    .map(time => (
+                      <SelectItem key={`end-${time}`} value={time}>{time}</SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
 
+          {/* Location */}
           <div>
             <h4 className="font-medium mb-2">Location</h4>
             <Select
@@ -180,12 +154,9 @@ const SchedulePreferencesStep = ({ onNext, onBack }) => {
                     value={mode}
                     checked={formData.workMode === mode}
                     onChange={(e) =>
-                      onFormDataChange({
-                        ...formData,
-                        workMode: e.target.value,
-                      })
+                      onFormDataChange({...formData, workMode: e.target.value})
                     }
-                    className="w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                    className="w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500 cursor-pointer"
                   />
                   <span className="ml-2 text-sm text-gray-700">{mode}</span>
                 </label>
@@ -194,24 +165,20 @@ const SchedulePreferencesStep = ({ onNext, onBack }) => {
           </div>
 
           <div>
-            <h4 className="font-medium mb-3">
-              Different time zone work Required?
-            </h4>
+            <h4 className="font-medium mb-3">Different time zone work Required?</h4>
             <div className="space-y-2">
               {["Yes", "No"].map((option) => (
                 <label key={option} className="flex items-center cursor-pointer">
                   <input
                     type="radio"
+                  
                     name="timezone"
                     value={option}
                     checked={formData.differentTimezone === option}
                     onChange={(e) =>
-                      onFormDataChange({
-                        ...formData,
-                        differentTimezone: e.target.value,
-                      })
+                      onFormDataChange({...formData, differentTimezone: e.target.value})
                     }
-                    className="w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500"
+                    className="w-4 h-4 text-purple-600 border-gray-300 focus:ring-purple-500 cursor-pointer"
                   />
                   <span className="ml-2 text-sm text-gray-700">{option}</span>
                 </label>
@@ -222,24 +189,8 @@ const SchedulePreferencesStep = ({ onNext, onBack }) => {
       </div>
 
       <div className="flex justify-between">
-        <button
-          onClick={onBack}
-          className="px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
-        >
-          Back
-        </button>
-        <button
-          onClick={onNext}
-          disabled={!canProceed()}
-          className={`px-4 py-2 rounded-md text-white 
-            ${
-              canProceed()
-                ? "bg-purple-600 hover:bg-purple-700"
-                : "bg-purple-300 cursor-not-allowed"
-            }`}
-        >
-          Next
-        </button>
+        <Button className="cursor-pointer" variant="outline" onClick={onBack}>Back</Button>
+        <Button className="cursor-pointer bg-ButtonBGPrimary" onClick={onNext} disabled={!canProceed()}>{canProceed() ? "Next" : "Next"}</Button>
       </div>
     </div>
   );
