@@ -125,7 +125,7 @@ const Yourself = () => {
                 {/* Full Name */}
                 <div className="space-y-2">
                   <Label>Your Full Name</Label>
-                  <Input name="fullName" />
+                  <Input placeholder="Enter your full name" name="fullName" />
                 </div>
 
                 {/* Email */}
@@ -142,7 +142,7 @@ const Yourself = () => {
                       <span className="text-sm">🇦🇪</span>
                       <span className="ml-2 text-sm">+971</span>
                     </div>
-                    <Input name="phone" className="rounded-l-none border-l-0" />
+                    <Input placeholder="Enter your phone number" name="phone" className="rounded-l-none border-l-0" />
                   </div>
                 </div>
 
