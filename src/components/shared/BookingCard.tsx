@@ -164,7 +164,7 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
 
       <div className="flex flex-col items-center justify-center mt-3 mb-4 md:mt-6 md:mb-10">
         <Link to="/assistant-books">
-          <Button className="w-[134px] h-[46px] px-[24px] py-2 sm:py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer text-black rounded-sm font-DMsans flex items-center justify-center">
+          <Button className="w-[134px] h-[46px] px-[24px] py-2 sm:py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg bg-transparent border border-TextSecondary cursor-pointer hover:text-white text-black rounded-sm font-DMsans flex items-center justify-center">
             See All
           </Button>
         </Link>
