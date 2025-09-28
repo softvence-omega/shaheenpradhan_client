@@ -22,16 +22,6 @@ interface BookingCardProps {
 
 const BookingCard = ({ assistants }: BookingCardProps) => {
   const [visibleCards, setVisibleCards] = useState(3);
-  const [loading, setLoading] = useState(false);
-
-  const loadMore = () => {
-    setLoading(true);
-    // Simulate API call or data loading
-    setTimeout(() => {
-      setVisibleCards((prev) => prev + 3);
-      setLoading(false);
-    }, 800); // 800ms delay to show loading state
-  };
 
   return (
     <div className="mt-8">
@@ -172,26 +162,13 @@ const BookingCard = ({ assistants }: BookingCardProps) => {
         ))}
       </div>
 
-      {visibleCards < assistants.length && (
-        <div className="flex flex-col items-center justify-center mt-3 mb-4 md:mt-6 md:mb-10">
-          <Button
-            variant="outline"
-            onClick={loadMore}
-            disabled={loading}
-            className="w-[134px] h-[46px] px-[24px] py-2 sm:py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer rounded-sm font-DMsans flex items-center justify-center"
-          >
-            {loading ? (
-              <div className="flex items-center justify-center gap-2">
-                {/* Circular spinner */}
-                <span className="w-4 h-4 border-2 border-gray-600 border-t-transparent rounded-full animate-spin"></span>
-                <span>Loading...</span>
-              </div>
-            ) : (
-              "Load More"
-            )}
+      <div className="flex flex-col items-center justify-center mt-3 mb-4 md:mt-6 md:mb-10">
+        <Link to="/assistant-books">
+          <Button className="w-[134px] h-[46px] px-[24px] py-2 sm:py-[14px] gap-[10px] font-semibold text-[16px] sm:text-lg bg-transparent hover:bg-transparent border border-TextSecondary cursor-pointer text-black rounded-sm font-DMsans flex items-center justify-center">
+            See All
           </Button>
-        </div>
-      )}
+        </Link>
+      </div>
     </div>
   );
 };

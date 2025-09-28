@@ -1,4 +1,3 @@
-// types/assistant.ts
 export interface Assistant {
   id: number;
   name: string;
@@ -13,6 +12,7 @@ export interface Assistant {
   remote: boolean;
   location?: string;
   industry?: string;
+  title: string;
 }
 
 export interface FilterOptions {

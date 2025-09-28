@@ -44,7 +44,7 @@ const NavBar = () => {
               Pricing
             </Link>
             <Link className="text-lg font-medium text-white" to="/assistant-books">
-              Services
+              Adminity Career
             </Link>
           </div>
           <div className="mt-8 flex gap-2">
@@ -88,7 +88,7 @@ const NavBar = () => {
                 Pricing
               </Link>
               <Link to="/assistant-books" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                Services
+                Adminity Career
               </Link>
             </nav>
 

@@ -2,7 +2,6 @@
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -16,21 +15,15 @@ interface SortProps {
 const Sort = ({ value, onChange }: SortProps) => {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="md:w-[120px]  shadow-none border-none text-TextSecondary">
+      <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Sort by" />
       </SelectTrigger>
-
-      <SelectContent
-        align="start"
-        className="w-[140px] md:w-[160px] left-0 md:translate-x-0 translate-x-0 cursor-pointer"
-      >
-        <SelectGroup className="cursor-pointer">
-          <SelectItem value="rating-desc">Short by</SelectItem>
-          <SelectItem value="price-asc">Price: Low to High</SelectItem>
-          <SelectItem value="price-desc">Price: High to Low</SelectItem>
-          <SelectItem value="name-asc">Name: A-Z</SelectItem>
-          <SelectItem value="name-desc">Name: Z-A</SelectItem>
-        </SelectGroup>
+      <SelectContent>
+        <SelectItem value="rating-desc">Highest Rating</SelectItem>
+        <SelectItem value="price-asc">Price: Low to High</SelectItem>
+        <SelectItem value="price-desc">Price: High to Low</SelectItem>
+        <SelectItem value="name-asc">Name: A to Z</SelectItem>
+        <SelectItem value="name-desc">Name: Z to A</SelectItem>
       </SelectContent>
     </Select>
   );
