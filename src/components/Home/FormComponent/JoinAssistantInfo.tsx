@@ -98,7 +98,7 @@ const JoinAssistantInfo = () => {
 
   const handleSave = () => {
     console.log('All Form Data:', formData);
-    navigate('/');
+    navigate('/assistant/home');
   };
 
   const handleSkip = () => {

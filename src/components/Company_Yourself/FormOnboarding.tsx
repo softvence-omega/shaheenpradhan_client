@@ -108,6 +108,7 @@ const FormOnboarding: React.FC<FormOnboardingProps> = ({ onSave, onSkip }) => {
               </Label>
               <Input
                 id="full-name"
+                placeholder="Enter your full name"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
               />
@@ -139,6 +140,7 @@ const FormOnboarding: React.FC<FormOnboardingProps> = ({ onSave, onSkip }) => {
                 </div>
                 <Input
                   id="phone"
+                  placeholder="Enter your phone number"
                   className="rounded-l-none border-l-0"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
@@ -159,6 +161,7 @@ const FormOnboarding: React.FC<FormOnboardingProps> = ({ onSave, onSkip }) => {
                 Company Name
               </Label>
               <Input
+              placeholder="Enter your company name"
                 id="company-name"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
@@ -171,6 +174,7 @@ const FormOnboarding: React.FC<FormOnboardingProps> = ({ onSave, onSkip }) => {
                 Your Designation
               </Label>
               <Input
+                placeholder="Enter your designation"
                 id="designation"
                 value={designation}
                 onChange={(e) => setDesignation(e.target.value)}
