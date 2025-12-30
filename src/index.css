@@ -1,19 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --radius: 0.625rem;
@@ -50,61 +41,82 @@
   --sidebar-ring: oklch(0.709 0.01 56.259);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
 
 @theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s)
+    var(--animation-direction, forwards) linear infinite;
+
+  --font-DMsans: "DM Sans", sans-serif;
+  /* PROJECT COLOR PLATE START*/
+  --color-bgBody: #faf8fd;
+  --color-cardTowBG: #e6ddf8;
+  --color-cardBG: #ffffff;
+  --color-ButtonBGPrimary: #b655da;
+  --color-ButtonBGSecondary: #33274d;
+  --color-grayWhite: #fff;
+
+  /* TEXT COLOR */
+  --color-HeadingColor: #110f16;
+  --color-TextPrimary: #1a1a1a;
+  --color-TextSecondary: #4d4d4d;
+  --color-TextMuted: #808080;
+  --color-ColorInfo: #023774;
+  --color-Success: #034f2b;
+  --color-Warning: #503501;
+  --color-Danger: #750000;
+
+  /* FOR ICONS */
+  --color-IconPrimary: #750000;
+  --color-IconHighlight: #3a1c71;
+  --color-IconMuted: #808080;
+
+  /* BORDER */
+  --color-border: #e5e5e5;
+  --color-borderInput: #b2b2b2;
+  --color-ButtonBorder: #110f16;
+  --color-BorderHighlight: #b655da;
+
+  /* HOVER COLOR */
+  --color-hover: #000000;
+  --color-Info: #4099ff;
+  --color-Success: #08d274;
+  --color-Warning: #fbac1a;
+  --color-Danger: #ff4040;
+
+  /* ALL PRIMARY COLOR */
+  --color-primary-100: #fef6fa;
+  --color-primary-200: #f6bbf1;
+  --color-primary-500: #b655da;
+  --color-primary-600: #3a1c71;
+
+  /* ALL SECONDARY COLOR */
+  --color-secondary-50: #faf8fd;
+  --color-secondary-100: #e6ddf8;
+  --color-secondary-400: #8559ca;
+  --color-secondary-500: #432b99;
+  --color-secondary-600: #33274d;
+  --color-secondary-700: #110f16;
+
+  /* ALL GRAY COLORS */
+  --color-gray-100: #1a1a1a;
+  --color-gray-200: #333333;
+  --color-gray-300: #4d4d4d;
+  --color-gary-500: #808080;
+  --color-gary-700: #b2b2b2;
+  --color-gary-900: #e5e5e5;
+
+  /* ALL STATES COLORS HERE */
+  --color-Red: #ff4040;
+  --color-Green: #08d274;
+  --color-Blue: #4099ff;
+  --color-Yellow: #fbac1a;
+
+  /* ALL PINK COLORS HERE */
+  --color-Pink-100: #fcedf5;
+  --color-Pink-500: #f6bbf1;
+  --color-Pink-600: #3a1c71;
+
+  /* PROJECT COLOR PLATE END */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -141,7 +153,22 @@ button:focus-visible {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
+.animate-scroll {
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--animation-direction, forwards);
+  animation-duration: var(--animation-duration, 20s);
+}
 .dark {
   --background: oklch(0.147 0.004 49.25);
   --foreground: oklch(0.985 0.001 106.423);
@@ -175,6 +202,8 @@ button:focus-visible {
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
 }
+
+/* ---break---*/
 
 @layer base {
   * {

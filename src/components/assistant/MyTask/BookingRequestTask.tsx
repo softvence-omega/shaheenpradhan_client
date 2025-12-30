@@ -1,0 +1,26 @@
+import ReuseBreadCrum from "@/components/shared/Title/ReuseBreadCrum";
+import SmallTitle from "@/components/shared/Title/SmallTitle";
+import BookingRequestUsed from "../Shared/BookingRequestUsed";
+
+const BookingRequestTask = () => {
+  return (
+    <div className="space-y-4">
+      <div>
+        <ReuseBreadCrum
+          items={[
+            { label: "Home", path: "/user" },
+            { label: "Pending", path: "/user/pending" },
+            { label: "12345678" },
+          ]}
+        />
+      </div>
+      <SmallTitle smalltitle="Task Information" />
+      <div>
+        <hr className="border-b border-[#E5E5E5]" />
+      </div>
+      <BookingRequestUsed />
+    </div>
+  );
+};
+
+export default BookingRequestTask;
