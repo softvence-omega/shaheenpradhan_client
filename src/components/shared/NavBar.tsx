@@ -32,28 +32,36 @@ const NavBar = () => {
     <div>
       {/* Mobile Menu */}
       {showMenuBar && (
-        <div className="fixed font-DMsans top-0 left-0 w-full h-screen bg-ButtonBorder/90 z-50 flex flex-col justify-center items-center gap-6  lg:hidden">
-          <div className="flex flex-col space-y-6">
-            <Link className="text-lg font-medium text-white" to="/about">
-              About Us
-            </Link>
-            <Link className="text-lg font-medium text-white" to="/contact">
-              Contact Us
-            </Link>
-            <Link className="text-lg font-medium text-white" to="/ai-matcher">
-              Pricing
-            </Link>
-            <Link className="text-lg font-medium text-white" to="/assistant-books">
-              Adminity Career
-            </Link>
+        <div className="fixed font-DMsans top-0 left-0 w-full h-screen bg-ButtonBorder/90 z-50 flex flex-col justify-center items-center gap-6 lg:hidden">
+          <div className="flex flex-col space-y-6 items-center">
+            {[
+              { to: "/about", label: "About Us" },
+              { to: "/contact", label: "Contact Us" },
+              { to: "/ai-matcher", label: "Pricing" },
+              { to: "/assistant-books", label: "Adminity Career" },
+            ].map((link) => (
+              <Link
+                key={link.to}
+                className={cn(
+                  "text-lg font-medium transition-all duration-300 w-full text-center py-2 rounded-md",
+                  location.pathname === link.to
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
+                )}
+                to={link.to}
+                onClick={() => setShowMenuBar(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
           <div className="mt-8 flex gap-2">
-            <Link to="/signups" className="flex items-center">
+            <Link to="/signup" className="flex items-center" onClick={() => setShowMenuBar(false)}>
               <Button variant="outline" className="rounded-md">
                 Get Started
               </Button>
             </Link>
-            <Link to="/signups">
+            <Link to="/signup" onClick={() => setShowMenuBar(false)}>
               <Button className="bg-ButtonBGSecondary rounded-sm">
                 <TopArrow />
               </Button>
@@ -65,7 +73,7 @@ const NavBar = () => {
       {/* Navbar */}
       <header
         className={cn(
-          "fixed top-0 left-0 w-full bg-white border-b border-gray-900/10 font-DMsans z-50 py-2",
+          "fixed top-0 left-0 w-full bg-white border-b border-gray-900/10 font-DMsans z-50 py-2 transition-all duration-300",
           locked && "hidden"
         )}
       >
@@ -77,19 +85,35 @@ const NavBar = () => {
             </Link>
 
             {/* Links (Desktop) */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <Link to="/about" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                About Us
-              </Link>
-              <Link to="/contact" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                Contact Us
-              </Link>
-              <Link to="/ai-matcher" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                Pricing
-              </Link>
-              <Link to="/assistant-books" className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                Adminity Career
-              </Link>
+            <nav className="hidden lg:flex items-center space-x-6">
+              {[
+                { to: "/about", label: "About Us" },
+                { to: "/contact", label: "Contact Us" },
+                { to: "/ai-matcher", label: "Pricing" },
+                { to: "/assistant-books", label: "Adminity Career" },
+              ].map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={cn(
+                    "text-sm font-medium transition-all duration-300 relative px-4 py-2 rounded-md group",
+                    location.pathname === link.to
+                      ? "text-gray-900"
+                      : "text-gray-700 hover:text-gray-900"
+                  )}
+                >
+                  {link.label}
+                  {/* Bottom Border Transition */}
+                  <span
+                    className={cn(
+                      "absolute bottom-1 left-4 right-4 h-0.5 bg-ButtonBGSecondary transition-all duration-300",
+                      location.pathname === link.to
+                        ? "w-[calc(100%-32px)]"
+                        : "w-0 group-hover:w-[calc(100%-32px)]"
+                    )}
+                  />
+                </Link>
+              ))}
             </nav>
 
             {/* Right Side (Desktop Buttons) */}
@@ -109,14 +133,18 @@ const NavBar = () => {
             {/* Hamburger Menu (Mobile) */}
             <button
               onClick={() => setShowMenuBar(!showMenuBar)}
-              className="p-2 lg:hidden"
+              className="p-2 lg:hidden relative z-[60]"
+              aria-label="Toggle menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className={cn("w-8 h-8", showMenuBar ? "text-white" : "text-black")}
+                className={cn(
+                  "w-8 h-8 transition-colors duration-300",
+                  showMenuBar ? "text-white" : "text-black"
+                )}
               >
                 {showMenuBar ? (
                   // X icon
