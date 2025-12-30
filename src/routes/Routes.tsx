@@ -1,11 +1,46 @@
-import FooterComponent from "@/components/Home/Shared/Footer";
 import AdminLayout from "@/layout/AdminLayout";
 import MainLayout from "@/layout/MainLayout";
-import Dashboard from "@/pages/Admin/Dashboard";
+import PastBookingPage from "@/pages/user/PastBookingPage";
+import UpcomingBookingPage from "@/pages/user/UpcomingBookingPage";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import StepConfirmBooking from "@/pages/user/StepConfirmBooking";
+import UserLayout from "@/layout/UserLayout";
+import Dashboard from "@/pages/user/Dashboard";
+import BillingInfo from "@/pages/user/BillingInfo";
+import PendingPage from "@/pages/user/PendingPage";
+import ConfirmBookPage from "@/pages/user/ConfirmBookPage";
+import ConfirmRequestPage from "@/pages/user/ConfirmRequestPage";
+import UserHomePage from "@/pages/user/UserHomePage";
+import CurrentBookingPage from "@/pages/user/CorrentBookingPage";
+import UserProfilePage from "@/pages/user/UserProfilePage";
+import NotificationPage from "@/pages/user/NotificationPage";
+import AssistantLayout from "@/layout/AssistantLayout";
+import AssistantDashboardPage from "@/pages/assistant/AssistantDashboardPage";
+import AssistantBillingPage from "@/pages/assistant/AssistantBillingPage";
+import AssistantProfilePage from "@/pages/assistant/AssistantProfilePage";
+import TaskBookingRequest from "@/pages/assistant/TaskBookingRequest";
+import TaskCurrentPage from "@/pages/assistant/TaskCurrentPage";
+import TaskUpcomingPage from "@/pages/assistant/TaskUpcomingPage";
+import TaskCompletedPages from "@/pages/assistant/TaskCompletedPages";
+import CardCurrentPage from "@/pages/assistant/CardCurrentPage";
+import CardUpcamingPage from "@/pages/assistant/CardUpcamingPage";
+import CardBookingRequestPage from "@/pages/assistant/CardBookingRequestPage";
+import CardCompletedPage from "@/pages/assistant/CardCompletedPage";
+import LoginPage from "@/pages/LoginPage/LoginPage";
+import SignupTabs from "@/pages/signup/SignupTabs";
+import Yourself from "@/pages/company-yourself/Yourself";
+import AiMatchMaking from "@/pages/ai-match/AiMatchMaking";
+import Profile from "@/pages/profile/Profile";
+import AssistantsPage from "@/pages/AssistantsPage/AssistantsPage";
+import DashboardBookingMatcher from "@/pages/DashboardBookingMatcher";
+import SavedPage from "@/pages/user/SavedPage";
+import SettingPage from "@/pages/user/SettingPage";
+import SupportPage from "@/pages/user/SupportPage";
 import HomePage from "@/pages/Home/HomePage";
-import Login from "@/pages/Home/Login";
-import SignUp from "@/pages/Home/SignUp";
-import { createBrowserRouter } from "react-router-dom";
+
+import JoinAssistantInfo from "@/components/Home/FormComponent/JoinAssistantInfo";
+import About from "@/pages/About/About";
+import Contact from "@/pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -17,13 +52,43 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
+        path: "about",
+        element: <About/>
+      },
+      {
+        path: "contact",
+        element: <Contact/>
+      },
+      {
         path: "login",
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: "signup",
-        element: <SignUp />,
+        element: <SignupTabs />,
       },
+      {
+        path: "profile-summary",
+        element: <Profile />,
+      },
+       {
+        path: "ai-matcher",
+        element: <AiMatchMaking />,
+      },
+      {
+        path: "assistant-books",
+        element: <AssistantsPage />,
+      },
+      {
+        path: "book-assistant-info",
+        element: <Yourself />,
+      },
+
+      // join assistant info
+      {
+        path: "join-assistant-info",
+        element: <JoinAssistantInfo />,
+      }
     ],
   },
 
@@ -39,6 +104,172 @@ export const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard></Dashboard>,
+      },
+
+      {
+        path: "step-confirm-booking",
+        element: <StepConfirmBooking></StepConfirmBooking>,
+      },
+    ],
+  },
+
+  /** USER LAYOUT **/
+
+  /*  element: (
+      <PrivateRoute>
+        <UserLayout />
+      </PrivateRoute>
+    ), */
+
+  {
+    path: "user",
+    element: <UserLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="home" replace />,
+      },
+      {
+        path: "home",
+        element: <UserHomePage />,
+      },
+      {
+        path: "saved",
+        element: <SavedPage />,
+      },
+
+      {
+        path: "find-assistant-matcher",
+        element: <DashboardBookingMatcher />,
+      },
+      {
+        path: "profile-summery",
+        element: <Profile />,
+      },
+      /* Find Assistant */
+      {
+        path: "assistant-booking",
+        element: <ConfirmBookPage />,
+      },
+
+      {
+        path: "assistant-request-confirm",
+        element: <ConfirmRequestPage />,
+      },
+      {
+        path: "user-profile",
+        element: <UserProfilePage />,
+      },
+      {
+        path: "notification",
+        element: <NotificationPage />,
+      },
+      /* Booking */
+      {
+        path: "current-booking",
+        element: <CurrentBookingPage />,
+      },
+      {
+        path: "upcoming-booking",
+        element: <UpcomingBookingPage />,
+      },
+      {
+        path: "pending",
+        element: <PendingPage />,
+      },
+      {
+        path: "past-booking",
+        element: <PastBookingPage />,
+      },
+
+      {
+        path: "step-confirm-booking",
+        element: <StepConfirmBooking />,
+      },
+
+      {
+        path: "billing",
+        element: <BillingInfo />,
+      },
+      {
+        path: "support",
+        element: <SupportPage />,
+      },
+      {
+        path: "setting",
+        element: <SettingPage />,
+      },
+    ],
+  },
+
+  /** ASSISTANT LAYOUT **/
+  {
+    path: "assistant",
+    element: <AssistantLayout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="home" replace />,
+      },
+      {
+        path: "home",
+        element: <AssistantDashboardPage />,
+      },
+      {
+        path: "availability",
+        element: <UserHomePage />,
+      },
+      {
+        path: "assistant-profile",
+        element: <AssistantProfilePage />,
+      },
+      {
+        path: "assistant-profile-summery",
+        element: <Profile />,
+      },
+      {
+        path: "notification",
+        element: <NotificationPage />,
+      },
+      /* Booking */
+      {
+        path: "current-task",
+        element: <CardCurrentPage />,
+      },
+      {
+        path: "upcoming-task",
+        element: <CardUpcamingPage />,
+      },
+      {
+        path: "booking-task",
+        element: <CardBookingRequestPage />,
+      },
+      {
+        path: "completed-task",
+        element: <CardCompletedPage />,
+      },
+      /* Booking-123 by ID */
+      {
+        path: "current-task-1",
+        element: <TaskCurrentPage />,
+      },
+      {
+        path: "upcoming-task-2",
+        element: <TaskUpcomingPage />,
+      },
+      {
+        path: "booking-task-3",
+        element: <TaskBookingRequest />,
+      },
+      {
+        path: "completed-task-4",
+        element: <TaskCompletedPages />,
+      },
+
+      /* Billing card */
+      {
+        path: "assistant-billing",
+        element: <AssistantBillingPage />,
       },
     ],
   },
